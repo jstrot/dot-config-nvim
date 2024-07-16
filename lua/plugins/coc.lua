@@ -1,7 +1,7 @@
 -- https://github.com/neoclide/coc.nvim
 return {
   {
-    -- enabled = false,
+    enabled = false,  -- TODO using cmp for now
     "neoclide/coc.nvim",
     branch = "release",
   }

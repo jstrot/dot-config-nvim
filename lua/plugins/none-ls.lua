@@ -47,7 +47,6 @@ return {
   },
   {
     "nvimtools/none-ls-extras.nvim",
-    dev = true,
   }
 }
 

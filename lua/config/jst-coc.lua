@@ -1,4 +1,6 @@
 -- From https://github.com/neoclide/coc.nvim#example-lua-configuration
+--
+-- Configurations go in ~/.config/nvim/coc-settings.json, run `:CocConfig` to open it
 
 -- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 -- delays and poor user experience
