@@ -156,7 +156,7 @@ vim.keymap.set('n', ']q', ':cnext<CR>zv', { noremap = true, silent = true, desc 
 vim.keymap.set('n', '<f4>', ':cnext<CR>zv', { noremap = true, silent = true, desc = 'Go to next [Q]uickfix position' })
 
 -- Toggle 'paste' mode using \tp
-vim.keymap.set('nvo', '<leader>tp', ':set paste! paste?<CR>', { desc = '[T]oggle [P]aste mode' })
+vim.keymap.set('n', '<leader>tp', ':set paste! paste?<CR>', { desc = '[T]oggle [P]aste mode' })
 
 -- Toggle 'signcolumn' mode using \ts
 vim.cmd([[
@@ -174,7 +174,7 @@ vim.opt.incsearch = true
 vim.opt.sidescrolloff = 5
 
 -- Wrapped lines makes it hard to read, but breakindent makes this good again
-vim.opt.wrap = vim.opt.breakindent
+vim.opt.wrap = not not vim.opt.breakindent  -- `not not` to avoid "must be the same value, otherwise that's weird!" error
 
 -- Tip #709 - If you create lots of shell scripts, this will make them executable
 if vim.fn.has('unix') == 1 then
