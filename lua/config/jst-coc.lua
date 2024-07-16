@@ -1,3 +1,4 @@
+-- XXXJST TODO Old stuff
 -- From https://github.com/neoclide/coc.nvim#example-lua-configuration
 --
 -- Configurations go in ~/.config/nvim/coc-settings.json, run `:CocConfig` to open it
