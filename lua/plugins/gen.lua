@@ -2,11 +2,12 @@
 return {
   {
     "David-Kunz/gen.nvim",
+    enabled = false,  -- XXXJST TODO
     opts = {
       -- model = "mistral", -- The default model to use.
       model = "codestral", -- The default model to use.
       -- model = "phi3:3.8b", -- The default model to use.
-      host = "ollama.jsoft.lan", -- The host running the Ollama service.
+      host = "TODO", -- The host running the Ollama service.
       -- port = "11434", -- The port on which the Ollama service is listening.
       -- quit_map = "q", -- set keymap for close the response window
       -- retry_map = "<c-r>", -- set keymap to re-send the current prompt

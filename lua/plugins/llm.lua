@@ -1,14 +1,14 @@
 -- https://github.com/huggingface/llm.nvim
-if false then
 return {
   'huggingface/llm.nvim',
+  enabled = false,  -- XXXJST TODO
   config = function()
     require('llm').setup({
       backend = 'ollama',
-      url = "http://ollama.jsoft.lan:11434", -- llm-ls uses "/api/generate"
+      url = "http://TODO:11434", -- llm-ls uses "/api/generate"
       -- model = "phi3:3.8b",
       model = "starcoder2:7b",
-      api_token = 'sk-6a330528caa34232b8d04235c636b5b6',
+      api_token = 'TODO',
 
       -- tokens_to_clear = { "<|endoftext|>" }, -- tokens to remove from the model's output
       -- -- parameters that are added to the request body, values are arbitrary, you can set any field:value pair here it will be passed as is to the backend
@@ -46,8 +46,5 @@ return {
     })
   end,
 }
-else
-  return {}
-end
 
 -- vim: sw=2 et

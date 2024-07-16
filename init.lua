@@ -79,8 +79,8 @@ vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -106,6 +106,7 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- The above mappings may be overridden by vim-tmux-navigator, if enabled.
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -123,8 +124,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- [[ END OF kickstart.nvim SECTION ]]
 
--- https://github.com/deoplete-plugins/deoplete-jedi/wiki/Setting-up-Python-for-Neovim#using-virtual-environments
-vim.g.python3_host_prog = vim.env.HOME .. '/.pyenv/versions/neovim/bin/python'
+local uv = vim.uv or vim.loop
+if uv.fs_stat(vim.env.HOME .. '/.pyenv/versions/neovim/bin/python') then
+  vim.g.python3_host_prog = vim.env.HOME .. '/.pyenv/versions/neovim/bin/python'
+end
 
 -- Sane defaults
 vim.opt.expandtab = true
@@ -134,9 +137,9 @@ vim.opt.tabstop = 8
 -- Reuse windows
 if false then
   -- I don't use tabs, but this could be useful
-  vim.opt.switchbuf = 'usetab'
+  vim.opt.switchbuf = { 'usetab', 'uselast' }
 else
-  vim.opt.switchbuf = 'useopen'
+  vim.opt.switchbuf = { 'useopen', 'uselast' }
 end
 
 -- I don't like to lose sight of modified buffers.

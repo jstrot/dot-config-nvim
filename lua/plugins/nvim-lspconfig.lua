@@ -138,9 +138,18 @@ return {
           --
           -- This may be unwanted, since they displace some of your code
           if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-            map('<leader>th', function()
+            map('<leader>tlh', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-            end, '[T]oggle Inlay [H]ints')
+            end, '[T]oggle [L]sp diagnostics inlay [H]ints')
+          end
+
+          local name = client and client.name
+          if name == 'clangd' then
+            local ok, clangd_extensions = pcall(require, 'clangd_extensions')
+            if ok then
+              pcall(clangd_extensions.setup_autocmd)
+              pcall(clangd_extensions.set_inlay_hints)
+            end
           end
         end,
       })
@@ -166,7 +175,12 @@ return {
         clangd = {
           -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/clangd.lua
           filetypes = { 'c', 'cpp', 'cc', },
-          cmd = { "clangd" },
+          offset_encoding = 'utf-16',
+          cmd = {
+            'clangd',
+            '--offset-encoding=utf-16',  -- Keep in sync with clangd_extensions.lua
+            '--inlay-hints=true',
+          },
           root_dir = function(fname)
             return require('lspconfig.util').root_pattern(unpack({
               '.clangd',
@@ -202,6 +216,9 @@ return {
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
               -- diagnostics = { disable = { 'missing-fields' } },
+              hint = {
+                enable = true,
+              }
             },
           },
         },

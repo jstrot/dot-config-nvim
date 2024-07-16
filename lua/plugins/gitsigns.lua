@@ -30,24 +30,23 @@ return {
         end)
 
         -- Actions
-        map('n', '<leader>hs', gitsigns.stage_hunk)
-        map('n', '<leader>hr', gitsigns.reset_hunk)
-        map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-        map('v', '<leader>hr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-        map('n', '<leader>hS', gitsigns.stage_buffer)
-        map('n', '<leader>hu', gitsigns.undo_stage_hunk)
-        map('n', '<leader>hR', gitsigns.reset_buffer)
-        map('n', '<leader>hp', gitsigns.preview_hunk)
-        map('n', '<leader>hb', function() gitsigns.blame_line{full=true} end)
-        map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
-        map('n', '<leader>hd', gitsigns.diffthis)
-        map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
-        map('n', '<leader>td', gitsigns.toggle_deleted)
+        map('n', '<leader>hs', gitsigns.stage_hunk, { desc = '[H]unk [S]tage' })
+        map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = '[H]unk [S]tage' })
+        map('n', '<leader>hr', gitsigns.reset_hunk, { desc = '[H]unk [R]eset' })
+        map('v', '<leader>hr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = '[H]unk [R]eset' })
+        map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = '[H]unk stage [U]ndo' })
+        map('n', '<leader>hS', gitsigns.stage_buffer, { desc = '[S]tage buffer' })
+        map('n', '<leader>hR', gitsigns.reset_buffer, { desc = '[R]eset buffer' })
+        map('n', '<leader>hp', gitsigns.preview_hunk, { desc = '[H]unk [P]review' })
+        map('n', '<leader>hb', function() gitsigns.blame_line{full=true} end, { desc = '[H]unk [B]lame' })
+        map('n', '<leader>hd', gitsigns.diffthis, { desc = 'Perform vim[D]iff' })
+        map('n', '<leader>hD', function() gitsigns.diffthis('~') end, { desc = 'Perform vim[D]iff last commit' })
+
+        map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle current line [B]lame' })
+        map('n', '<leader>td', gitsigns.toggle_deleted, { desc = '[T]oggle [D]eleted hunks' })
 
         -- Text object
-        map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-
-        -- vim.cmd.highlight('GitSignsCurrentLineBlame = 
+        map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'Select [H]unk' })
       end
     },
   }

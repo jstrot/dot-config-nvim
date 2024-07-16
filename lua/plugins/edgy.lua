@@ -4,7 +4,7 @@ return {
     "folke/edgy.nvim",
     event = "VeryLazy",
     init = function()
-      vim.opt.laststatus = 3
+      -- vim.opt.laststatus = 3
       vim.opt.splitkeep = "screen" -- or "topline" or "screen"
     end,
     opts = {
@@ -20,6 +20,7 @@ return {
 	spell = false,
 	signcolumn = "no",
       },
+      -- XXXJST TODO document these mappings
       keys = {
 	-- -- close window
 	["q"] = function(win)

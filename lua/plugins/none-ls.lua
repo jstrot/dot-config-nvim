@@ -11,14 +11,19 @@ return {
       "nvimtools/none-ls-extras.nvim"
     },
     config = function()
-      null_ls = require("null-ls")
+      local null_ls = require("null-ls")
       null_ls.setup({
         debug = true,
 
-        -- https://github.com/jose-elias-alvarez/null-ls.nvim/issues/428
-        -- Why? ccls only supports 'utf-32'
         on_init = function(new_client, _)
-          new_client.offset_encoding = "utf-32"
+          -- https://github.com/jose-elias-alvarez/null-ls.nvim/issues/428
+          if new_client.name == 'ccls' then
+            -- Why? 'ccls' only supports 'utf-32'
+            new_client.offset_encoding = 'utf-32'
+          else
+            -- Why? 'GitHub Copilot' only supports 'utf-16' ?!
+            new_client.offset_encoding = 'utf-16'
+          end
         end,
 
         sources = {

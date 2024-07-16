@@ -1,7 +1,7 @@
 -- https://github.com/gsuuon/model.nvim
-if false then
 return {
   'gsuuon/model.nvim',
+  enabled = false,  -- XXXJST TODO
 
   -- Don't need these if lazy = false
   cmd = { 'M', 'Model', 'Mchat' },
@@ -30,7 +30,7 @@ return {
     -- })
     --
     -- require('model.providers.ollama').setup({
-    --   url = 'http://ollama.jsoft.lan:11434',
+    --   url = 'http://TODO:11434',
     --   model = 'phi3:3.8b',
     -- })
     -- require('model.providers.llamacpp').setup({
@@ -39,8 +39,5 @@ return {
     -- })
   end,
 }
-else
-  return {}
-end
 
 -- vim: sw=2 et
