@@ -1,7 +1,15 @@
 -- https://github.com/mfussenegger/nvim-lint
 return {
   {
-    "mfussenegger/nvim-lint",
+    'mfussenegger/nvim-lint',
+    -- This is complementary to mason. Configure linters by file type below and enable.
+    enabled = false,
+    config = function()
+      local lint = require('lint')
+      lint.linters_by_ft = {
+        -- markdown = {'vale',},
+      }
+    end,
   }
 }
 
