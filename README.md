@@ -202,6 +202,20 @@ Feel free to modify all of this to your liking. Remember, it's your **PDE**!
 
 ## Keymaps
 
+### Legend
+
+See `:help key-notation` for a complete list.
+
+| Mode               | Meaning                                                                |
+| ------------------ | ---------------------------------------------------------------------- |
+| `<S-…>`            | shift-key                                                              |
+| `<C-…>`            | control-key                                                            |
+| `<A-…>` or `<M-…>` | alt-key or meta-key                                                    |
+| `<D-…>`            | command-key (MacOS) or "super" key (e.g., the "Windows" key)           |
+| `<leader>`         | A configurable key. **Space** (` `) is used in this config repository! |
+
+Note that Vim's and Neovim's default `<leader>` is the backslash (`\`) key. You can change this to your liking, of course, just look for "mapleader" at the top of the `init.lua` file. More and more people change their default and the kickstart.nvim project uses  space by default and I left it as-is. See `:help mapleader` for details.
+
 ### Standard keymaps
 
 | Mode | Mapping             | Description                                                 |
