@@ -2,7 +2,6 @@
 return {
   {
     'hrsh7th/nvim-cmp',
-    dev = true,
     dependencies = {
       'neovim/nvim-lspconfig',
       -- LSP completion sources:
