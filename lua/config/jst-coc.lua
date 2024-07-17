@@ -1,4 +1,5 @@
--- XXXJST TODO Old stuff
+-- TODO: XXXJST Old stuff
+
 -- From https://github.com/neoclide/coc.nvim#example-lua-configuration
 --
 -- Configurations go in ~/.config/nvim/coc-settings.json, run `:CocConfig` to open it
@@ -161,7 +162,7 @@ vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'edito
 -- Add (Neo)Vim's native statusline support
 -- NOTE: Please see `:h coc-status` for integrations with external plugins that
 -- provide custom statusline: lightline.vim, vim-airline
--- XXXJST Provide a default statusline
+-- TODO: XXXJST Provide a default statusline
 if vim.opt.statusline:get() == "" then
     vim.opt.statusline = "%<%f%= [%M%R%H%W%Y] %15(l(%l/%L,%P)%) %9(c(%c%V%)) %9([%2Bx,%b]%) %3(#%n%)"
 end

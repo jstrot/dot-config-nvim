@@ -4,7 +4,7 @@ return {
   {
     -- 'andythigpen/nvim-coverage',
 
-    -- XXXJST TODO Until corbertura support is fixed, use my fork:
+    -- TODO: XXXJST Until corbertura support is fixed, use my fork:
     -- https://github.com/andythigpen/nvim-coverage/pull/44
     'https://github.com/strottie/nvim-coverage', branch = 'strottie-cpp-cobertura',
 

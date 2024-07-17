@@ -2,7 +2,7 @@
 return {
   {
     'p00f/clangd_extensions.nvim',
-    -- enabled = false,  -- XXXJST TODO can get offset_encoding to match!
+    -- enabled = false,  -- FIXME: XXXJST can get offset_encoding to match!
     opts = {
       cmd = {
         'clangd',

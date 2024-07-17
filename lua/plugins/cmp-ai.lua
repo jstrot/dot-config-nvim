@@ -2,7 +2,7 @@
 return {
   {
     'tzachar/cmp-ai',
-    enabled = false,  -- TODO
+    enabled = false,  -- TODO: XXXJST Finish local AI setup
     dependencies = {
       'nvim-lua/plenary.nvim',
     },

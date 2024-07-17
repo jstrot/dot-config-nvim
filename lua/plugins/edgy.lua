@@ -20,7 +20,7 @@ return {
 	spell = false,
 	signcolumn = "no",
       },
-      -- XXXJST TODO document these mappings
+      -- TODO: XXXJST document these mappings
       keys = {
 	-- -- close window
 	["q"] = function(win)

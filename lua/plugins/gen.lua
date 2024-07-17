@@ -2,7 +2,7 @@
 return {
   {
     "David-Kunz/gen.nvim",
-    enabled = false,  -- XXXJST TODO
+    enabled = false,  -- TODO: XXXJST Finish local AI setup
     opts = {
       -- model = "mistral", -- The default model to use.
       model = "codestral", -- The default model to use.

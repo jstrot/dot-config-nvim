@@ -2,7 +2,7 @@
 return {
   {
     "Faywyn/llama-copilot.nvim",
-    enabled = false,   -- TODO fill host below!
+    enabled = false,  -- TODO: XXXJST Finish local AI setup
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

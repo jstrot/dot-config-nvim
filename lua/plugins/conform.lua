@@ -2,7 +2,7 @@
 return {
   {
     'stevearc/conform.nvim',
-    enabled = false, -- XXXJST TODO Why not just mason?
+    enabled = false, -- TODO: XXXJST Why not just mason?
     lazy = false,
     keys = {
       {

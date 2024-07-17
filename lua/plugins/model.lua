@@ -1,7 +1,7 @@
 -- https://github.com/gsuuon/model.nvim
 return {
   'gsuuon/model.nvim',
-  enabled = false,  -- XXXJST TODO
+  enabled = false,  -- TODO: XXXJST Finish local AI setup
 
   -- Don't need these if lazy = false
   cmd = { 'M', 'Model', 'Mchat' },

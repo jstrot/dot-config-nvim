@@ -227,7 +227,7 @@ return {
 
       }
       local servers_no_install = {
-        -- XXXJST TODO This is broken when using mason-tool-installer
+        -- TODO: XXXJST This is broken when using mason-tool-installer
 
         ccls = {
           -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/ccls.lua

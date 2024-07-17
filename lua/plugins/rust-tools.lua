@@ -10,7 +10,7 @@ return {
       rt.setup({
         server = {
           on_attach = function(_, bufnr)
-            -- XXXJST TODO Make sure this does not conflict/overlap with nvim-lspconfig mappings
+            -- TODO: XXXJST Make sure this does not conflict/overlap with nvim-lspconfig mappings
             -- -- Hover actions
             -- vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
             -- -- Code action groups

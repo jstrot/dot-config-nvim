@@ -2,7 +2,7 @@
 return {
   {
     "ibhagwan/fzf-lua",
-    enabled = false,  -- XXXJST TODO For now, use telescope
+    enabled = false,  -- NOTE: For now, use telescope
     branch = "main",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     init = function()

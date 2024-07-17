@@ -51,7 +51,7 @@ return {
         --  All the info you're looking for is in `:help telescope.setup()`
         defaults = {
           mappings = {
-            -- XXXJST TODO These are not working!?
+            -- TODO: XXXJST These are not working!?
             i = {
               ['<c-t>'] = require("trouble.sources.telescope").open,
               -- ['<c-enter>'] = 'to_fuzzy_refine',

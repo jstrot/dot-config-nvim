@@ -1,7 +1,7 @@
 -- https://github.com/huggingface/llm.nvim
 return {
   'huggingface/llm.nvim',
-  enabled = false,  -- XXXJST TODO
+  enabled = false,  -- TODO: XXXJST Finish local AI setup
   config = function()
     require('llm').setup({
       backend = 'ollama',
