@@ -60,6 +60,8 @@ The Neovim executable is the one called named `nvim`!
 For newbies and seasoned veterans alike, these are great starting points to enhance your Neovim experience:
 
 - kickstart.nvim's (TJ DeVries's) [The Only Video You Need to Get Started with Neovim](https://youtu.be/m8C0Cq9Uv9o)
+- Run the tutorial within Neovim: `:Tutor`
+- Read the configs and explanations in `~/.config/nvim/init.lua`
 
 
 ## Configuration language and init file

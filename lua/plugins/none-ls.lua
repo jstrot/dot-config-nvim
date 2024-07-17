@@ -27,6 +27,9 @@ return {
         end,
 
         sources = {
+          -- References:
+          --   bultins: https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
+          --   none-ls extras: https://github.com/nvimtools/none-ls-extras.nvim/tree/main/lua/none-ls
           -- Deprecations: https://github.com/nvimtools/none-ls.nvim/discussions/81
 
           -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
