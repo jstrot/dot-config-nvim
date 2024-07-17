@@ -55,72 +55,6 @@ First, make sure you have a recent version of Neovim installed by picking one at
 
 The Neovim executable is the one called named `nvim`!
 
-## Getting started with Neovim
-
-For newbies and seasoned veterans alike, these are great starting points to enhance your Neovim experience:
-
-- kickstart.nvim's (TJ DeVries's) [The Only Video You Need to Get Started with Neovim](https://youtu.be/m8C0Cq9Uv9o)
-- Run the tutorial within Neovim: `:Tutor`
-- Read the configs and explanations in `~/.config/nvim/init.lua`
-
-## Configuration language and init file
-
-Vim's configuration language is "Vimscript".
-Neovim's configuration language is "Lua".
-
-Vimscript is still available but Lua is more powerful.
-
-Neovim's main configuration file is:
-
-    ~/.config/nvim/init.lua
-
-Other Lua files are contained under this directory:
-
-    ~/.config/nvim/lua/
-
-## Basic configuration files structure
-
-There are many ways to structure your configuration files. Some like a single "init.lua", others like to have plugins separated in a single "plugins.lua" (~/.config/nvim/lua/plugins.lua).
-
-To better organize files and help with file sharing, I prefer to put plugins each in its own file under a "plugins/" directory and configurations by topic under a "config/" directory. Like this:
-
-```
-$ tree ~/.config/nvim
-~/.config/nvim
-├── init.lua
-├── lua
-│   ├── config
-│   │   └── lazy.lua
-│   └── plugins
-│       ├── coc.lua
-│       ├── CopilotChat.lua
-│       ├── Copilot.lua
-│       ├── fzf.lua
-│       ├── LargeFile.lua
-│       ├── lualine.lua
-│       ├── lualine-so-fancy.lua
-│       ├── LunarVim-Colorschemes.lua
-│       ├── none-ls.lua
-│       ├── nvim-coverage.lua
-│       ├── nvim-lspconfig.lua
-│       ├── nvim-treesitter-context.lua
-│       ├── nvim-treesitter.lua
-│       ├── nvim-web-devicons.lua
-│       ├── telescope.lua
-│       ├── toggle-lsp-diagnostics.lua
-│       ├── vim-clang-format.lua
-│       └── vim-fugitive.lua
-│       └── ...
-└── ...
-```
-## The main init.lua
-
-The init.lua sets up your default variables, loads plugins and configs.
-
-In this repository, the main init.lua file is based on the one from the [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) project as well as customizations from myself, [Jean-Sébastien Trottier (JST)](mailto:jst@qualipsoft.com). The kickstart plugins are moved to individual directories to ease maintenance and sharing and many more are added.
-
-Feel free to modify all of this to your liking. Remember, it's your **PDE**!
-
 ## Nerd/Patched fonts
 
 Enable support for Nerd/patched fonts. 
@@ -197,6 +131,72 @@ If you can't or don't want to enable Nerd/patched fonts, make sure to set the `h
 vim.g.have_nerd_font = false
 ```
 
+## Getting started with Neovim
+
+For newbies and seasoned veterans alike, these are great starting points to enhance your Neovim experience:
+
+- kickstart.nvim's (TJ DeVries's) [The Only Video You Need to Get Started with Neovim](https://youtu.be/m8C0Cq9Uv9o)
+- Run the tutorial within Neovim: `:Tutor`
+- Read the configs and explanations in `~/.config/nvim/init.lua`
+
+## Configuration language and init file
+
+Vim's configuration language is "Vimscript".
+Neovim's configuration language is "Lua".
+
+Vimscript is still available but Lua is more powerful.
+
+Neovim's main configuration file is:
+
+    ~/.config/nvim/init.lua
+
+Other Lua files are contained under this directory:
+
+    ~/.config/nvim/lua/
+
+## Basic configuration files structure
+
+There are many ways to structure your configuration files. Some like a single "init.lua", others like to have plugins separated in a single "plugins.lua" (~/.config/nvim/lua/plugins.lua).
+
+To better organize files and help with file sharing, I prefer to put plugins each in its own file under a "plugins/" directory and configurations by topic under a "config/" directory. Like this:
+
+```
+$ tree ~/.config/nvim
+~/.config/nvim
+├── init.lua
+├── lua
+│   ├── config
+│   │   └── lazy.lua
+│   └── plugins
+│       ├── coc.lua
+│       ├── CopilotChat.lua
+│       ├── Copilot.lua
+│       ├── fzf.lua
+│       ├── LargeFile.lua
+│       ├── lualine.lua
+│       ├── lualine-so-fancy.lua
+│       ├── LunarVim-Colorschemes.lua
+│       ├── none-ls.lua
+│       ├── nvim-coverage.lua
+│       ├── nvim-lspconfig.lua
+│       ├── nvim-treesitter-context.lua
+│       ├── nvim-treesitter.lua
+│       ├── nvim-web-devicons.lua
+│       ├── telescope.lua
+│       ├── toggle-lsp-diagnostics.lua
+│       ├── vim-clang-format.lua
+│       └── vim-fugitive.lua
+│       └── ...
+└── ...
+```
+## The main init.lua
+
+The init.lua sets up your default variables, loads plugins and configs.
+
+In this repository, the main init.lua file is based on the one from the [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) project as well as customizations from myself, [Jean-Sébastien Trottier (JST)](mailto:jst@qualipsoft.com). The kickstart plugins are moved to individual directories to ease maintenance and sharing and many more are added.
+
+Feel free to modify all of this to your liking. Remember, it's your **PDE**!
+
 
 # Cheatsheet
 
@@ -241,7 +241,7 @@ vim.g.have_nerd_font = false
 | n         | `<leader>sr`       | \[S]earch \[R]esume                       |
 | Telescope | `<leader>/`        | Telescope help (`/` is `?` without shift) |
 
-### Completion (nvim-cmp)
+### Completion (nvim-cmp, luasnip, ...)
 
 | Mode | Mapping             | Description                                    |
 | ---- | ------------------- | ---------------------------------------------- |
@@ -252,6 +252,19 @@ vim.g.have_nerd_font = false
 | i    | `<C-y>`             | Accept (\[Y]es) completion                     |
 | i, s | `<C-l>`             | Expand or jump to next snippet insert location |
 | i, s | `<C-h>`             | Jump to previous snippet insert location       |
+
+
+### Completion (GitHub Copilot)
+
+| Mode | Mapping       | Description                                       |
+| ---- | ------------- | ------------------------------------------------- |
+| i    | `<Tab>`       | Accept completion                                 |
+| i    | `<C-]>`       | Dismiss the current suggestion                    |
+| i    | `<M-]>`       | Cycle to the next suggestion, if one is available |
+| i    | `<M-\>`       | Explicitly request a suggestion                   |
+| i    | `<M-Right>`   | Accept the next word of the current suggestion    |
+| i    | `<M-C-Right>` | Accept the next line of the current suggestion    |
+
 
 ### Language Server Protocol (LSP)
 
