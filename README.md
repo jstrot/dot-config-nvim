@@ -16,6 +16,7 @@ Neovim is highly extensible using the Lua programming language. This means that 
 In short, as [TJ DeVries](https://github.com/tjdevries) coins it, it is a **PDE**, a **Personal Development Environment**: You write code to mould the editor to your taste, your habits, your workflow.
 With the help of plugins, it can be made to *look* like an IDE but it will always be much more than just an IDE.
 
+
 # Features
 
 This configuration repository comes preinstalled with many plugins that offer a wide range of features. Here are some of the highlights:
@@ -44,7 +45,6 @@ Before starting, I'm assuming you have no prior Neovim configuration directory (
 git clone https://TODO/dot-config-nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
-
 ## Neovim executable location
 
 First, make sure you have a recent version of Neovim installed by picking one at <https://github.com/neovim/neovim/releases>.
@@ -62,7 +62,6 @@ For newbies and seasoned veterans alike, these are great starting points to enha
 - kickstart.nvim's (TJ DeVries's) [The Only Video You Need to Get Started with Neovim](https://youtu.be/m8C0Cq9Uv9o)
 - Run the tutorial within Neovim: `:Tutor`
 - Read the configs and explanations in `~/.config/nvim/init.lua`
-
 
 ## Configuration language and init file
 
@@ -114,7 +113,6 @@ $ tree ~/.config/nvim
 │       └── ...
 └── ...
 ```
-
 ## The main init.lua
 
 The init.lua sets up your default variables, loads plugins and configs.
@@ -122,7 +120,6 @@ The init.lua sets up your default variables, loads plugins and configs.
 In this repository, the main init.lua file is based on the one from the [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) project as well as customizations from myself, [Jean-Sébastien Trottier (JST)](mailto:jst@qualipsoft.com). The kickstart plugins are moved to individual directories to ease maintenance and sharing and many more are added.
 
 Feel free to modify all of this to your liking. Remember, it's your **PDE**!
-
 
 ## Nerd/Patched fonts
 
@@ -143,6 +140,18 @@ vim.g.have_nerd_font = false
 
 ## Keymaps
 
+### Standard keymaps
+
+| Mode | Mapping             | Description                                                 |
+| ---- | ------------------- | ----------------------------------------------------------- |
+| n    | `<C-w>s`            | \[W]indow \[S]plit horizontally                             |
+| n    | `<C-w>v`            | \[W]indow split \[V]ertically                               |
+| n    | `<C-w>h` or `<C-h>` | Navigate \[W]indow left(h)                                  |
+| n    | `<C-w>j` or `<C-j>` | Navigate \[W]indow up(j)                                    |
+| n    | `<C-w>k` or `<C-k>` | Navigate \[W]indow down(k)                                  |
+| n    | `<C-w>l` or `<C-l>` | Navigate \[W]indow right(l)                                 |
+| n    | `ZZ`                | Update (save if needed) and close window (`:update` + `:q`) |
+
 ### Miscellaneous
 
 | Mode | Mapping      | Description                                         |
@@ -153,32 +162,34 @@ vim.g.have_nerd_font = false
 
 ### Searching (telescope)
 
-| Mode | Mapping            | Description                             |
-| ---- | ------------------ | --------------------------------------- |
-| n    | `<leader>sh`       | \[S]earch \[H]elp                       |
-| n    | `<leader>sk`       | \[S]earch \[K]eymaps                    |
-| n    | `<leader>sf`       | \[S]earch \[F]iles                      |
-| n    | `<leader>ss`       | \[S]earch \[S]elect Telescope           |
-| n    | `<leader>sw`       | \[S]earch current \[W]ord               |
-| n    | `<leader>sg`       | \[S]earch by live \[G]rep               |
-| n    | `<leader>/`        | \[/] Fuzzily search in current buffer   |
-| n    | `<leader>s/`       | \[S]earch by live grep in open files    |
-| n    | `<leader>s.`       | \[S]earch recent files ("." for repeat) |
-| n    | `<leader><leader>` | \[ ] Find existing buffers              |
-| n    | `<leader>sd`       | \[S]earch \[D]iagnostics                |
-| n    | `<leader>sn`       | \[S]earch \[N]eovim files               |
-| n    | `<leader>sr`       | \[S]earch \[R]esume                     |
+| Mode      | Mapping            | Description                               |
+| --------- | ------------------ | ----------------------------------------- |
+| n         | `<leader>sh`       | \[S]earch \[H]elp                         |
+| n         | `<leader>sk`       | \[S]earch \[K]eymaps                      |
+| n         | `<leader>sf`       | \[S]earch \[F]iles                        |
+| n         | `<leader>ss`       | \[S]earch \[S]elect Telescope             |
+| n         | `<leader>sw`       | \[S]earch current \[W]ord                 |
+| n         | `<leader>sg`       | \[S]earch by live \[G]rep                 |
+| n         | `<leader>/`        | \[/] Fuzzily search in current buffer     |
+| n         | `<leader>s/`       | \[S]earch by live grep in open files      |
+| n         | `<leader>s.`       | \[S]earch recent files ("." for repeat)   |
+| n         | `<leader><leader>` | \[ ] Find existing buffers                |
+| n         | `<leader>sd`       | \[S]earch \[D]iagnostics                  |
+| n         | `<leader>sn`       | \[S]earch \[N]eovim files                 |
+| n         | `<leader>sr`       | \[S]earch \[R]esume                       |
+| Telescope | `<leader>/`        | Telescope help (`/` is `?` without shift) |
 
 ### Completion (nvim-cmp)
 
-| Mode | Mapping             | Description                               |
-| ---- | ------------------- | ----------------------------------------- |
-| i    | `<C-n>` or `<Down>` | Select \[N]ext item                       |
-| i    | `<C-p>` or `<Up>`   | Select \[P]revious item                   |
-| i    | `<C-b>`             | Scroll \[B]ack in documentation window    |
-| i    | `<C-f>`             | Scroll \[F]orward in documentation window |
-| i    | `<C-y>`             | Accept (\[Y]es) completion                |
-
+| Mode | Mapping             | Description                                    |
+| ---- | ------------------- | ---------------------------------------------- |
+| i    | `<C-n>` or `<Down>` | Select \[N]ext item                            |
+| i    | `<C-p>` or `<Up>`   | Select \[P]revious item                        |
+| i    | `<C-b>`             | Scroll \[B]ack in documentation window         |
+| i    | `<C-f>`             | Scroll \[F]orward in documentation window      |
+| i    | `<C-y>`             | Accept (\[Y]es) completion                     |
+| i, s | `<C-l>`             | Expand or jump to next snippet insert location |
+| i, s | `<C-h>`             | Jump to previous snippet insert location       |
 
 ### Language Server Protocol (LSP)
 
@@ -199,7 +210,6 @@ vim.g.have_nerd_font = false
 | n    | `<leader>e`  | Show diagnostic \[E]rror messages   |                                                                                                           |
 | n    | `<leader>q`  | Open diagnostic \[Q]uickfix list    |                                                                                                           |
 
-
 ### Quickfix
 
 | Mode | Mapping     | Description                                             |
@@ -208,7 +218,6 @@ vim.g.have_nerd_font = false
 | n    | `]q`        | Display the next error in the quickfix list (`:cn`)     |
 | n    | `[q`        | Display the previous error in the quickfix list (`:cp`) |
 | n    | `<leader>q` | Open diagnostic \[Q]uickfix list                        |
-
 
 ### Various toggles (toggle-lsp-diagnostics, nvim-lspconfig, etc)
 
@@ -228,7 +237,6 @@ vim.g.have_nerd_font = false
 | n    | `<leader>tp`   | \[T]oggle \[P]aste mode                                                                |                                                                                |
 | n    | `<leader>ts`   | \[T]oggle \[S]ign column                                                               |                                                                                |
 
-
 ### Cscope (cscope_maps)
 
 Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). LSPs (e.g., clangd) are preferred.
@@ -246,7 +254,6 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | n    | `<leader>ca` | Find places where this symbol is \[A]ssigned a value    |
 | n    | `<leader>cb` | \[B]uild cscope database                                |
 | n    | `<C-]>`      | Do `:Cstag <cword>`                                     |
-
 
 ### Git (fugitive, gitsigns)
 
@@ -267,7 +274,6 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | n    | `<leader>tb` | \[T]oggle current line \[B]lame                |
 | n    | `<leader>td` | \[T]oggle \[D]eleted hunks                     |
 
-
 ### Comments (numToStr/Comment)
 
 | Mode | Mapping             | Description                                                        |
@@ -280,7 +286,6 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | n    | `gb[count]{motion}` | (Op-pending) Toggles the region using blockwise comment            |
 | v    | `gc`<br>            | Toggles the region using linewise comment                          |
 | v    | `gb`                | Toggles the region using blockwise comment                         |
-
 
 # Window & tmux pane navigation (vim-tmux-navigator)
 
