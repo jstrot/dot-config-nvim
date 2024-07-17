@@ -13,7 +13,7 @@ Neovim is a fork of Vim that focuses on extensibility and usability.
 But it's not like any other *configurable* text editor like Sublime Text, Atom, or VS Code.
 Neovim is highly extensible using the Lua programming language. This means that you are not limited to the features provided by the core editor or a predetermines set of configurations in a JSON file.
 
-In short, as [TJ DeVries](https://github.com/tjdevries) coins it, it is a **PDE**, a **Personal Development Environment**: You write code to mould the editor to your taste, your habits, your workflow.
+In short, as [TJ DeVries](https://github.com/tjdevries) coins it, it is a **PDE**, a **Personalised Development Environment**: You write code to mould the editor to your taste, your habits, your workflow.
 With the help of plugins, it can be made to *look* like an IDE but it will always be much more than just an IDE.
 
 
