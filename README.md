@@ -472,3 +472,48 @@ To tell Neovim to use this virtual environment, add this near the top of your `i
 ```lua
   vim.g.python3_host_prog = vim.env.HOME .. "/.pyenv/versions/neovim/bin/python"
 ```
+
+
+## Extra Tools
+
+### `ruff` -- An extremely fast Python linter and code formatter, written in Rust.
+
+#### Install using Mason
+
+The Mason Neovim plugin can manage your installation of tools, making it easy to add, update, remove.
+
+Within Neovim, run:
+```
+:MasonInstall ruff
+```
+
+The above will create a Python virtual environment in `~/.local/share/nvim/mason/packages/ruff/venv`
+
+#### Install in Neovim's Python virtual environment
+
+Assuming you've setup a Python virtual environment as described above, here is the suggested approach:
+
+```sh
+# Activate Neovim's Python virtual environment
+pyenv activate neovim
+# or
+source ~/.pyenv/versions/neovim/bin/activate
+
+# Install ruff
+pip install ruff
+
+# Deactivate the Python virtual environment
+deactivate
+```
+
+#### Using from the command-line
+
+If you want to use `ruff` from the command-line as well, the easy way is to link the executable within the Python virtual environment from you `~/bin` directory:
+
+```sh
+cd ~/bin
+
+ln -s ~/.local/share/nvim/mason/packages/ruff/venv/bin/ruff
+# or
+ln -s ~/.pyenv/versions/neovim/bin/ruff
+```
