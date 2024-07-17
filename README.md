@@ -129,6 +129,68 @@ It is highly recommended to install a patched font that contains extended charac
 
 The easy way is to download a font from <https://www.nerdfonts.com/>, install it in your OS (if you're running remotely over ssh, for example, that's the host running your terminal emulator!) and then enable that font in your terminal's configuration. A good starting point is to try the one I use, "DroidSansM Nerd Font", a patched version of the "Droid Sans Mono" which has fairly square letters and scalable to small sizes without issues.
 
+### MacOS
+
+#### OS: MacOS
+
+Run the "Font Book" application and use the "Install Font" button to add your Nerd font files (decompress the .zip!).
+
+<!-- TODO: How to select the default monospace font? -->
+
+#### Terminal: iTerm2
+
+<!-- TODO: How to select the font or the default? -->
+
+### Windows
+
+#### OS: Windows
+
+Copy the font files (decompress the .zip!) into the `C:/Windows/Fonts` directory.
+
+<!-- TODO: How to select the default monospace font? -->
+
+#### Windows Terminal
+
+<!-- TODO: How to select the font or the default? -->
+
+### Linux
+
+In most modern distributions, you can copy the font's .otf files (decompress the .zip!) to your `~/.local/share/fonts/` and run `fc-cache -f -v` to update the font cache.
+
+It can also be added for all users copying to `/usr/local/share/fonts` as root and running `sudo fc-cache -f -v`.
+
+Now applications can select the font (some applications may need to be restarted to see new fonts).
+
+#### Display Manager: Gnome
+
+To make it the default monospace font, install and run the "Gnome Tweaks" application (`gnome-tweaks` package). Under the "Fonts" section, set "Monospace Text" to your Nerd font.
+
+#### Display Manager: KDE
+
+<!-- TODO: How to select the default monospace font? -->
+
+#### Application: Gnome Terminal
+
+Shift-Right-Click in Gnome Terminal, select the "Preferences" mena, then select a profile on the left (e.g., "Unnamed"). The font selection is under the "Text" tab.
+
+If you made your Nerd font the default monotype font, just make sure the "Custom font" is unchecked.
+Otherwise, or if you want to override the default size too, check the box and select your Nerd font.
+
+#### Application: Terminator
+
+This is my preference as Terminator is written in Python, has more options than Gnome Terminal, and is easily extandable with plugins.
+
+Shift-Right-Click in Terminator, select the "Preferences" mena, then the "Profiles" tab, and select your profile (e.g., "default"). The font selection is under the "General" tab.
+
+If you made your Nerd font the default monotype font, just make sure the "Use the system fixed width font" is checked.
+Otherwise, or if you want to override the default size too, uncheck the box and select your Nerd font.
+
+#### Example: xterm under VNC
+
+<!-- TODO: What's needed here? Suggest a better setup too!! -->
+
+### Not a Nerd?
+
 If you can't or don't want to enable Nerd/patched fonts, make sure to set the `have_nerd_font` global variable to `false` by editing this line in your `init.lua`:
 
 ```lua
