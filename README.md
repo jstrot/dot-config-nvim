@@ -42,7 +42,7 @@ This configuration repository comes preinstalled with many plugins that offer a 
 
 Before starting, I'm assuming you have no prior Neovim configuration directory (`~/.config/nvim`)
 ```sh
-git clone https://TODO/dot-config-nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/jstrot/dot-config-nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
 ## Neovim executable location
