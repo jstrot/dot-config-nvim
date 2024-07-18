@@ -131,6 +131,29 @@ If you can't or don't want to enable Nerd/patched fonts, make sure to set the `h
 vim.g.have_nerd_font = false
 ```
 
+## Terminal Colors
+
+Most modern terminals are capable of displaying "true colors" (24-bit colors). Make sure your terminal is correctly configured and your `TERM` environment variable is appropriate. Sometimes that means using `TERM=xterm-256color` if that's all the system supports (see /usr/share/terminfo for available terminal types).
+
+### Tmux True Color Support
+
+The following tmux configuration (`~/.config/tmux/config` or `~/.tmux.conf`) works well for me using Terminator running on Ubuntu, connected over `ssh` (latest `mosh` client & server, actually) and running `tmux` on my RHEL8 server:
+
+```
+# Enable true color support
+#set-option -g default-terminal "tmux-direct"  # Not on RHEL8
+#set-option -g default-terminal "tmux-256color"  # Not on RHEL8
+set-option -g default-terminal "screen-256color"
+
+# If using mosh, make sure it is >1.3.2 or build from git HEAD on both client and server
+set-environment -g COLORTERM "truecolor"
+set-environment -g COLORFGBG "15;0"
+
+# https://github.com/tmux/tmux/wiki/FAQ#how-do-i-use-rgb-colour
+set-option -ag terminal-overrides ",tmux-direct:Tc"
+set-option -ag terminal-overrides ",*-256color:Tc"
+```
+
 ## Getting started with Neovim
 
 For newbies and seasoned veterans alike, these are great starting points to enhance your Neovim experience:
