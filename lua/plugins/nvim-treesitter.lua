@@ -24,7 +24,11 @@ return {
         -- 'regex',
         -- 'toml', 'yaml',
         -- 'vim',
-        -- 'vimdoc',
+        -- FIXME: 'vimdoc' added by default to avoid the following error on first `:help` command:
+        --     treesitter/query.lua:252: Query error at 2:4. Invalid node type "delimiter":
+        --       (delimiter) @markup.heading.1
+        --        ^
+        'vimdoc',
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
