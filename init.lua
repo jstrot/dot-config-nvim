@@ -142,8 +142,10 @@ else
   vim.opt.switchbuf = { 'useopen', 'uselast' }
 end
 
--- I don't like to lose sight of modified buffers.
+-- I don't like to lose sight of modified buffers...
 vim.opt.hidden = false
+-- ... and please confirm instead of failing operations on unsaved buffers.
+vim.opt.confirm = true
 
 -- For vim old-timers, disable autoread
 vim.opt.autoread = false
