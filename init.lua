@@ -164,13 +164,18 @@ vim.keymap.set('n', '<f4>', ':cnext<CR>zv', { noremap = true, silent = true, des
 vim.keymap.set('n', '<leader>tp', ':set paste! paste?<CR>', { desc = '[T]oggle [P]aste mode' })
 
 -- Toggle 'signcolumn' mode using \ts
-vim.cmd([[
-  function ToggleSignColumn()
-    let &signcolumn = &signcolumn == 'no' ? 'yes' : 'no'
-    set signcolumn?
-  endfunction
-  map <leader>ts :call ToggleSignColumn() <cr>
-]])
+function ToggleSignColumn()
+  local win_id = vim.api.nvim_get_current_win()
+  if vim.wo.signcolumn == 'no' then
+    local _, saved_signcolumn = pcall(vim.api.nvim_win_get_var, win_id, "saved_signcolumn")
+    vim.wo.signcolumn = saved_signcolumn or 'yes'
+  else
+    vim.api.nvim_win_set_var(win_id, "saved_signcolumn", vim.wo.signcolumn)
+    vim.wo.signcolumn = 'no'
+  end
+  print(vim.wo.signcolumn)
+end
+vim.keymap.set('n', '<leader>ts', ':lua ToggleSignColumn()<CR>', { desc = '[T]oggle [S]ign column' })
 
 -- Visual searching
 vim.opt.incsearch = true
