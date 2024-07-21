@@ -191,7 +191,7 @@ return {
           filetypes = { 'c', 'cpp', 'cc', },
           offset_encoding = 'utf-16',
           cmd = {
-            'clangd',
+            (vim.g.clangd_host_prog or 'clangd'),
             '--offset-encoding=utf-16',  -- Keep in sync with clangd_extensions.lua
             '--inlay-hints=true',
           },

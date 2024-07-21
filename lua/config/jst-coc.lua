@@ -4,6 +4,8 @@
 --
 -- Configurations go in ~/.config/nvim/coc-settings.json, run `:CocConfig` to open it
 
+vim.g.coc_node_path = (vim.g.node_host_prog or 'node')
+
 -- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 -- delays and poor user experience
 vim.opt.updatetime = 300

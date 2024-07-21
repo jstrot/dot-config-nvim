@@ -5,7 +5,7 @@ return {
     -- enabled = false,  -- FIXME: XXXJST can get offset_encoding to match!
     opts = {
       cmd = {
-        'clangd',
+        (vim.g.clangd_host_prog or 'clangd'),
         '--offset-encoding=utf-16',  -- Keep in sync with nvim-lspconfig.lua
         -- '--inlay-hints=true',
       },
