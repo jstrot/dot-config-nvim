@@ -220,6 +220,24 @@ In this repository, the main init.lua file is based on the one from the [kicksta
 
 Feel free to modify all of this to your liking. Remember, it's your **PDE**!
 
+## Shell alias
+
+Suggestions to make Neovim your default editor:
+
+Add this to your rc files, preferably to your main profile rc file (`~/.profile`) which gets sources by Display Managers.
+
+```sh
+export EDITOR=nvim
+```
+
+Make sure your shell's own profile rc (`~/.bashrc`, `~/.zprofile`, ...) sources `~/.profile` so it gets loaded in remote login sessions too.
+
+In the interactive part of your rc files (`~/.bashrc`, `~/.zshrc`, `~/.bash_aliases`, ...), add an alias:
+
+```sh
+alias vi=nvim
+```
+
 
 # Cheatsheet
 
@@ -400,7 +418,9 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | v    | `gc`<br>            | Toggles the region using linewise comment                          |
 | v    | `gb`                | Toggles the region using blockwise comment                         |
 
+
 # Window & tmux pane navigation (vim-tmux-navigator)
+
 
 If you use tmux, you should setup the [Tmux Plugin Manager (TPM)](https://github.com/tmux-plugins/tpm) and install the [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator/?tab=readme-ov-file#tpm) plugin in tmux. This will let you navigate seamlessly between Neovim windows and tmux panes.
 
