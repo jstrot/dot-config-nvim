@@ -348,6 +348,7 @@ Note that Vim's and Neovim's default `<leader>` is the backslash (`\`) key. You 
 | n    | `<leader>td`   | \[T]oggle \[D]eleted hunks                                                             |                                                                                |
 | n    | `<leader>tp`   | \[T]oggle \[P]aste mode                                                                |                                                                                |
 | n    | `<leader>ts`   | \[T]oggle \[S]ign column                                                               |                                                                                |
+| n    | `<leader>tv`   | \[T]oggle \[V]irtual edit                                                              |                                                                                |
 
 ### Cscope (cscope_maps)
 

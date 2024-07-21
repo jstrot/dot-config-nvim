@@ -181,6 +181,29 @@ function ToggleSignColumn()
 end
 vim.keymap.set('n', '<leader>ts', ':lua ToggleSignColumn()<CR>', { desc = '[T]oggle [S]ign column' })
 
+-- Toggle 'virtualedit' mode using `<leader>tv`
+function ToggleVirtualEdit()
+  local win_id = vim.api.nvim_get_current_win()
+  local cur_virtualedit = vim.wo.virtualedit
+  if cur_virtualedit == "" then
+    -- "" uses global value
+    cur_virtualedit = vim.o.virtualedit
+  end
+  if not cur_virtualedit or cur_virtualedit == "" then
+    -- nil or "" at global level is the same as "none"
+    cur_virtualedit = "none"
+  end
+  if cur_virtualedit == 'none' then
+    local ok, saved_virtualedit = pcall(vim.api.nvim_win_get_var, win_id, "saved_virtualedit")
+    vim.wo.virtualedit = (ok and saved_virtualedit) or 'all'
+  else
+    vim.api.nvim_win_set_var(win_id, "saved_virtualedit", cur_virtualedit)
+    vim.wo.virtualedit = 'none'
+  end
+  print('Toggle virtualedit: ' .. vim.inspect(vim.wo.virtualedit))
+end
+vim.keymap.set('n', '<leader>tv', ':lua ToggleVirtualEdit()<CR>', { desc = '[T]oggle [V]irtual edit' })
+
 -- Visual searching
 vim.opt.incsearch = true
 
