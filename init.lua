@@ -161,7 +161,11 @@ vim.keymap.set('n', ']q', ':cnext<CR>zv', { noremap = true, silent = true, desc 
 vim.keymap.set('n', '<f4>', ':cnext<CR>zv', { noremap = true, silent = true, desc = 'Go to next [Q]uickfix position' })
 
 -- Toggle 'paste' mode using `<leader>tp`
-vim.keymap.set('n', '<leader>tp', ':set paste! paste?<CR>', { desc = '[T]oggle [P]aste mode' })
+function TogglePaste()
+  vim.o.paste = not vim.o.paste
+  print('Toggle paste: ' .. vim.inspect(vim.o.paste))
+end
+vim.keymap.set('n', '<leader>tp', ':lua TogglePaste()<CR>', { desc = '[T]oggle [P]aste mode' })
 
 -- Toggle 'signcolumn' mode using `<leader>ts`
 function ToggleSignColumn()
