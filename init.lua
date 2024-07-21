@@ -211,7 +211,7 @@ vim.opt.incsearch = true
 vim.opt.sidescrolloff = 5
 
 -- Wrapped lines makes it hard to read, but breakindent makes this good again
-vim.opt.wrap = not not vim.opt.breakindent  -- `not not` to avoid "must be the same value, otherwise that's weird!" error
+vim.opt.wrap = vim.o.breakindent
 
 -- Tip #709 - If you create lots of shell scripts, this will make them executable
 if vim.fn.has('unix') == 1 then
