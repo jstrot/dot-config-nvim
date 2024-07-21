@@ -7,8 +7,8 @@ return {
     event = 'VeryLazy',
     config = function()
       require('chatgpt').setup({
-        api_key_cmd = 'cat ' .. vim.env.HOME .. '/.OPENAI_API_KEY || echo dummy',
-        api_host_cmd = 'cat ' .. vim.env.HOME .. '/.OPENAI_API_HOST || echo dummy',
+        api_key_cmd = 'cat ' .. vim.env.HOME .. '/.OPENAI_API_KEY',
+        api_host_cmd = 'cat ' .. vim.env.HOME .. '/.OPENAI_API_HOST',
         openai_params = {
           model = 'codellama:13b',
           frequency_penalty = 0,
