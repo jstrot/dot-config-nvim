@@ -171,13 +171,13 @@ vim.keymap.set('n', '<leader>tp', ':lua TogglePaste()<CR>', { desc = '[T]oggle [
 function ToggleSignColumn()
   local win_id = vim.api.nvim_get_current_win()
   if vim.wo.signcolumn == 'no' then
-    local _, saved_signcolumn = pcall(vim.api.nvim_win_get_var, win_id, "saved_signcolumn")
-    vim.wo.signcolumn = saved_signcolumn or 'yes'
+    local ok, saved_signcolumn = pcall(vim.api.nvim_win_get_var, win_id, "saved_signcolumn")
+    vim.wo.signcolumn = (ok and saved_signcolumn) or 'yes'
   else
     vim.api.nvim_win_set_var(win_id, "saved_signcolumn", vim.wo.signcolumn)
     vim.wo.signcolumn = 'no'
   end
-  print(vim.wo.signcolumn)
+  print('Toggle signcolumn: ' .. vim.inspect(vim.wo.signcolumn))
 end
 vim.keymap.set('n', '<leader>ts', ':lua ToggleSignColumn()<CR>', { desc = '[T]oggle [S]ign column' })
 
