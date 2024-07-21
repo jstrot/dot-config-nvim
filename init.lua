@@ -200,6 +200,9 @@ end
 -- Use full wildmenu functionality but only complete to longest common string
 vim.opt.wildmode = { 'longest:full' }
 
+-- NOTE: Enable this to silence *temporarily* deprecated commands warning
+-- vim.deprecate = function() end
+
 -- [[ Configure and install plugins ]]
 require('config.lazy')
 
