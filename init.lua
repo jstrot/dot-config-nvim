@@ -203,13 +203,14 @@ vim.opt.wildmode = { 'longest:full' }
 -- [[ Configure and install plugins ]]
 require('config.lazy')
 
-local ok, _ = pcall(vim.cmd, 'colorscheme onedarker')
-if ok then
+-- vim.cmd 'colorscheme onedarker'
+vim.cmd 'colorscheme catppuccin'
+
+-- Colorscheme fixups?
+if vim.g.colors_name == 'onedarker' then
   -- onedarker doesn't set NonText so stuff like gitsigns's blame virtual text doesn't show
   local c = require('onedarker.palette')
   vim.api.nvim_set_hl(0, 'NonText', { fg = c.dark_gray, bg = 'NONE', italic = true })
-else
-  vim.cmd 'colorscheme default' -- if the above fails, then use default
 end
 
 -- vim: sw=2 et
