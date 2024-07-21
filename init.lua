@@ -160,10 +160,10 @@ vim.keymap.set('n', '[q', ':cprev<CR>zv', { noremap = true, silent = true, desc 
 vim.keymap.set('n', ']q', ':cnext<CR>zv', { noremap = true, silent = true, desc = 'Go to next [Q]uickfix position' })
 vim.keymap.set('n', '<f4>', ':cnext<CR>zv', { noremap = true, silent = true, desc = 'Go to next [Q]uickfix position' })
 
--- Toggle 'paste' mode using \tp
+-- Toggle 'paste' mode using `<leader>tp`
 vim.keymap.set('n', '<leader>tp', ':set paste! paste?<CR>', { desc = '[T]oggle [P]aste mode' })
 
--- Toggle 'signcolumn' mode using \ts
+-- Toggle 'signcolumn' mode using `<leader>ts`
 function ToggleSignColumn()
   local win_id = vim.api.nvim_get_current_win()
   if vim.wo.signcolumn == 'no' then
