@@ -140,6 +140,9 @@ return {
           --
           -- This may be unwanted, since they displace some of your code
           if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+            -- NOTE: The default mapping from kickstart.nvim is `<leader>th`
+            -- but here's I'm using `<leader>tlh` to match the mappings from
+            -- toggle-lsp-diagnostics.nvim.
             map('<leader>tlh', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end, '[T]oggle [L]sp diagnostics inlay [H]ints')

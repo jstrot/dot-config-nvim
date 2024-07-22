@@ -1,7 +1,7 @@
--- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
+-- https://github.com/qualIP/toggle-lsp-diagnostics.nvim
 return {
   {
-    "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+    "qualIP/toggle-lsp-diagnostics.nvim",
     config = function()
       require('toggle_lsp_diagnostics').init()
       vim.keymap.set('n', '<leader>tlu',  '<Plug>(toggle-lsp-diag-underline)',        { desc = '[T]oggle [L]sp diagnostics [U]nderline' })
