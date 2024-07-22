@@ -4,7 +4,10 @@
 local uv = vim.uv or vim.loop
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
+    -- "nvim-treesitter/nvim-treesitter",
+    -- Use my repo for now until installing parsers within an embedded git is safe
+    "qualIP/nvim-treesitter",
+    name = "qualip-nvim-treesitte",
     opts = {
       -- A list of parser names, or "all". See `TSInstallInfo` for available parsers.
       ensure_installed = {
