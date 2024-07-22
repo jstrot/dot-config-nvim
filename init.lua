@@ -233,8 +233,9 @@ vim.opt.wildmode = { 'longest:full' }
 -- [[ Configure and install plugins ]]
 require('config.lazy')
 
--- vim.cmd 'colorscheme onedarker'
-vim.cmd 'colorscheme catppuccin'
+-- vim.cmd 'colorscheme onedarker'  -- From LazyVim/Colorschemes
+vim.cmd 'colorscheme catppuccin'  -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+-- vim.cmd 'colorscheme tokyonight-night'  -- tokyonight (=> tokyonight-moon), tokyonight-night, tokyonight-storm, tokyonight-day (light)
 
 -- Colorscheme fixups?
 if vim.g.colors_name == 'onedarker' then

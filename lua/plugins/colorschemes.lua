@@ -18,6 +18,13 @@ return {
     name = 'LunarVim-Colorschemes',
     priority = 1000,
   },
+  {
+    -- https://github.com/folke/tokyonight.nvim
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 }
 
 -- vim: sw=2 et
