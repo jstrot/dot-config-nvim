@@ -2,6 +2,7 @@
 return {
   {
     "qualIP/toggle-lsp-diagnostics.nvim",
+    name = "qualip-toggle-lsp-diagnostics",
     config = function()
       require('toggle_lsp_diagnostics').init()
       vim.keymap.set('n', '<leader>tlu',  '<Plug>(toggle-lsp-diag-underline)',        { desc = '[T]oggle [L]sp diagnostics [U]nderline' })
