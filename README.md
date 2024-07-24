@@ -68,7 +68,7 @@ Enable support for Nerd/patched fonts.
 
 It is highly recommended to install a patched font that contains extended characters for development (Icons for "bugs", "git", "GitHub", file types, ...). Many plugins rely on the availability of patched fonts.
 
-The easy way is to download a font from <https://www.nerdfonts.com/>, install it in your OS (if you're running remotely over ssh, for example, that's the host running your terminal emulator!) and then enable that font in your terminal's configuration. A good starting point is to try the one I use, "DroidSansM Nerd Font", a patched version of the "Droid Sans Mono" which has fairly square letters and scalable to small sizes without issues.
+The easy way is to download a font from Mhttps://www.nerdfonts.com/>, install it in your OS (if you're running remotely over ssh, for example, that's the host running your terminal emulator!) and then enable that font in your terminal's configuration. A good starting point is to try the one I use, "DroidSansM Nerd Font Mono", a patched version of the "Droid Sans Mono" which has fairly square letters and scalable to small sizes without issues. Just make sure to use a "Mono" variant.
 
 ### MacOS
 
