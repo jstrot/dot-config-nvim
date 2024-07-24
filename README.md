@@ -473,7 +473,7 @@ I strongly suggest you install `pyenv` to manage your Python versions and `pyenv
 curl https://pyenv.run | bash
 ```
 
-Add this to your rc files, preferably to your main profile rc file (`~/.profile`) which gets sources by Display Managers.
+In the interactive part of your rc files (`~/.bashrc`, `~/.zshrc`), add this:
 
 ```sh
 # https://github.com/pyenv/pyenv?tab=readme-ov-file#automatic-installer
@@ -485,9 +485,7 @@ if [ -d "${PYENV_ROOT:-$HOME/.pyenv}" ] ; then
 fi
 ```
 
-Make sure your shell's own profile rc (`~/.bashrc`, `~/.zprofile`, ...) sources `~/.profile` so it gets loaded in remote login sessions too.
-
-Close the shell and start new login session or run the above code inline to activate the changes.
+Restart your shell or run the above code inline to activate the changes.
 
 Next, install a recent Python 3 version (According to <https://www.python.org/downloads/>, 3.12.4 is the latest bug fix release as of this writing):
 
