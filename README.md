@@ -38,6 +38,18 @@ This configuration repository comes preinstalled with many plugins that offer a 
 
 # Let's go!
 
+## Make some space
+
+Optional: If your home quota is limited I suggest you move your whole `~/.local` directory to a different location that has more free space before proceeding further. For example:
+
+```sh
+cd ~
+mv .local /auto/myws/local || mkdir /auto/myws/local
+ln -s /auto/myws/pyenv .local
+```
+
+For reference: At the time of this writing, my `~/.local/share/nvim/` is close to 600M.
+
 ## Clone the repository to setup your initial Neovim config
 
 Before starting, if you already have a prior Neovim configuration directory (`~/.config/nvim`), you move it aside first:
