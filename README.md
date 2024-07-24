@@ -40,7 +40,14 @@ This configuration repository comes preinstalled with many plugins that offer a 
 
 ## Clone the repository to setup your initial Neovim config
 
-Before starting, I'm assuming you have no prior Neovim configuration directory (`~/.config/nvim`)
+Before starting, if you already have a prior Neovim configuration directory (`~/.config/nvim`), you move it aside first:
+
+```sh
+mv -T ~/.config/nvim ~/.config/nvim.bak
+```
+
+Clone:
+
 ```sh
 git clone https://github.com/jstrot/dot-config-nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
