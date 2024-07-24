@@ -4,10 +4,7 @@
 local uv = vim.uv or vim.loop
 return {
   {
-    -- "nvim-treesitter/nvim-treesitter",
-    -- Use my repo for now until installing parsers within an embedded git is safe
-    "qualIP/nvim-treesitter",
-    name = "qualip-nvim-treesitte",
+    "nvim-treesitter/nvim-treesitter",
     opts = {
       -- A list of parser names, or "all". See `TSInstallInfo` for available parsers.
       ensure_installed = {
@@ -79,8 +76,8 @@ return {
       },
     },
     config = function(_, opts)
-      -- Prefer git instead of curl in order to improve connectivity in some environments
-      require('nvim-treesitter.install').prefer_git = true
+      -- Do not prefer git for installing parsers as it is not safe when already embedded in git.
+      require('nvim-treesitter.install').prefer_git = false
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup(opts)
 
