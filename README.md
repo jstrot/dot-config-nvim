@@ -473,6 +473,16 @@ I strongly suggest you install `pyenv` to manage your Python versions and `pyenv
 curl https://pyenv.run | bash
 ```
 
+This will install pyenv in your home directory (`~/.pyenv`).
+
+Optional: If your home quota is limited, I suggest you move this to a different location that has more free space before proceeding further. For example:
+
+```sh
+cd ~
+mv .pyenv /auto/myws/pyenv
+ln -s /auto/myws/pyenv .pyenv
+```
+
 In the interactive part of your rc files (`~/.bashrc`, `~/.zshrc`), add this:
 
 ```sh
