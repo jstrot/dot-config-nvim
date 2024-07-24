@@ -331,7 +331,6 @@ Note that Vim's and Neovim's default `<leader>` is the backslash (`\`) key. You 
 | i, s | `<C-l>`             | Expand or jump to next snippet insert location |
 | i, s | `<C-h>`             | Jump to previous snippet insert location       |
 
-
 ### Completion (GitHub Copilot)
 
 | Mode | Mapping       | Description                                       |
@@ -343,6 +342,11 @@ Note that Vim's and Neovim's default `<leader>` is the backslash (`\`) key. You 
 | i    | `<M-Right>`   | Accept the next word of the current suggestion    |
 | i    | `<M-C-Right>` | Accept the next line of the current suggestion    |
 
+### AI (GitHub Copilot)
+
+| Mode | Mapping       | Description                                       |
+| ---- | ------------- | ------------------------------------------------- |
+| n, v | `<leader>cc`  | Run \[C]opilot \[C]hat                            |
 
 ### Language Server Protocol (LSP)
 
