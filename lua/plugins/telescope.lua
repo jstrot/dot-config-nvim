@@ -46,7 +46,7 @@ return {
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
-      require('telescope').setup {
+      opts = {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         defaults = {
@@ -68,6 +68,16 @@ return {
           },
         },
       }
+
+      if true then
+        -- Enable top-down ordering (in sync with file content!)
+        opts.defaults = opts.defaults or {}
+        opts.defaults.layout_config = opts.defaults.layout_config or {}
+        opts.defaults.layout_config.prompt_position = 'top'
+        opts.defaults.sorting_strategy = 'ascending'
+      end
+
+      require('telescope').setup(opts)
 
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
