@@ -359,6 +359,7 @@ Note that Vim's and Neovim's default `<leader>` is the backslash (`\`) key. You 
 | Mode | Mapping       | Description                                       |
 | ---- | ------------- | ------------------------------------------------- |
 | n, v | `<leader>cc`  | Run \[C]opilot \[C]hat                            |
+| n, v | `<leader>ccf` | Run \[C]opilot \[C]hat \[F]ix                     |
 
 ### Language Server Protocol (LSP)
 
