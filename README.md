@@ -45,7 +45,7 @@ Optional: If your home quota is limited I suggest you move your whole `~/.local`
 ```sh
 cd ~
 mv .local /auto/myws/local || mkdir /auto/myws/local
-ln -s /auto/myws/pyenv .local
+ln -s /auto/myws/local .local
 ```
 
 For reference: At the time of this writing, my `~/.local/share/nvim/` is close to 600M.
