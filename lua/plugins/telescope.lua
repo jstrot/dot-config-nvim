@@ -118,6 +118,12 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- Locally disable paste mode in telescope prompt (otherwise all mappings are disabled)
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "TelescopePrompt",
+        callback = function() vim.opt_local.paste = false end,
+      })
     end,
   },
 }
