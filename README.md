@@ -311,6 +311,7 @@ Note that Vim's and Neovim's default `<leader>` is the backslash (`\`) key. You 
 | n    | `<Esc>`      | Clear `hlsearch` on pressing `<Esc>` in normal mode |
 | t    | `<C-\><C-n>` | Exit terminal mode (default)                        |
 | t    | `<Esc><Esc>` | Exit terminal mode (alternate)                      |
+| n    | `<leader>?`  | Show buffer local keymaps (which-key)               |
 
 ### Searching (telescope)
 
