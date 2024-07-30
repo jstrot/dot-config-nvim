@@ -16,12 +16,16 @@ return {
       'saadparwaiz1/cmp_luasnip',
       "L3MON4D3/LuaSnip",
       'tzachar/cmp-ai',
+      -- Extras:
+      'onsails/lspkind.nvim',
     },
     event = 'InsertEnter',
     config = function()
       local cmp = require('cmp')
       local luasnip = require('luasnip')
       luasnip.config.setup {}
+      local lspkind = require('lspkind')
+      lspkind.init()
 
       cmp.setup {
         snippet = {
@@ -116,16 +120,30 @@ return {
         formatting = {
           expandable_indicator = true,
           fields = {'menu', 'abbr', 'kind'},
-          format = function(entry, item)
-            local menu_icon ={
-              nvim_lsp = 'λ',
-              vsnip = '⋗',
-              buffer = 'Ω',
-              path = '◇',
-            }
-            item.menu = menu_icon[entry.source.name]
-            return item
-          end,
+          -- format = function(entry, item)
+          --   local menu_icon ={
+          --     nvim_lsp = 'λ',
+          --     vsnip = '⋗',
+          --     buffer = 'Ω',
+          --     path = '◇',
+          --   }
+          --   item.menu = menu_icon[entry.source.name]
+          --   return item
+          -- end,
+          format = lspkind.cmp_format({
+            mode = 'symbol', -- show only symbol annotations
+            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            -- can also be a function to dynamically calculate max width such as
+            -- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
+            ellipsis_char = '…', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+            show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+            -- The function below will be called before any actual modifications from lspkind
+            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+            -- before = function (entry, vim_item)
+            --   ...
+            --   return vim_item
+            -- end
+          })
         },
 
         window = {
