@@ -459,9 +459,28 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | v    | `gc`<br>            | Toggles the region using linewise comment                          |
 | v    | `gb`                | Toggles the region using blockwise comment                         |
 
+### Folding (builtin)
+
+These are default keymaps but folding is provided by Treesitter so is much more accurate than Vim's old regex-based folding.
+
+| Mode | Mapping  | Description                                                        |
+| ---- | -------- | ------------------------------------------------------------------ |
+| n    | `zR`     | Open all folds (updates `foldlevel=max`)                           |
+| n    | `zM`     | \[C]lose all folds (updates `foldlevel=0`)                         |
+| n    | `zo`     | \[O]pen one fold under the cursor                                  |
+| n    | `zc`     | \[C]pen one fold under the cursor                                  |
+| n    | `za`     | Toggle the fold under the cursor                                   |
+| n    | `zO`     | \[O]pen all folds under the cursor, recursively                    |
+| n    | `zC`     | \[C]lose all folds under the cursor, recursively                   |
+| n    | `zA`     | Toggle all folds under the cursor, resursively                     |
+| n    | `zv`     | Open enough folds to \[V]iew the cursor line                       |
+| n    | `zr`     | \[R]educe folding (updates `foldlevel++`)                          |
+| n    | `zm`     | Fold \[M]ore (updates `foldlevel--`)                               |
+| n    | `zx`     | Updates all folds (re-apply `foldlevel`) and view the cursor line  |
+| n    | `zX`     | Updates all folds (re-apply `foldlevel`)                           |
+
 
 # Window & tmux pane navigation (vim-tmux-navigator)
-
 
 If you use tmux, you should setup the [Tmux Plugin Manager (TPM)](https://github.com/tmux-plugins/tpm) and install the [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator/?tab=readme-ov-file#tpm) plugin in tmux. This will let you navigate seamlessly between Neovim windows and tmux panes.
 
