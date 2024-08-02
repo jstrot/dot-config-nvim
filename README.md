@@ -344,6 +344,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n         | `<Leader>s.`       | \[S]earch recent files ("." for repeat)   |
 | n         | `<Leader><Leader>` | \[ ] Find existing buffers                |
 | n         | `<Leader>sd`       | \[S]earch \[D]iagnostics                  |
+| n         | `<Leader>st`       | \[S]earch \[T]odo comments                |
 | n         | `<Leader>sn`       | \[S]earch \[N]eovim files                 |
 | n         | `<Leader>sr`       | \[S]earch \[R]esume                       |
 | Telescope | `<Leader>/`        | Telescope help (`/` is `?` without shift) |
@@ -358,6 +359,8 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `[q`        | Display the previous \[Q]uickfix position (`:cp`) |
 | n    | `]c`        | Goto next \[C]hanged hunk                         |
 | n    | `[c`        | Goto previous \[C]hanged hunk                     |
+| n    | `]t`        | Goto next \[T]odo comment                         |
+| n    | `[t`        | Goto previous \[T]odo comment                     |
 | n    | `]s`        | Goto next mis\[S]pelled word                      |
 | n    | `[s`        | Goto previous mis\[S]pelled word                  |
 | n    | `'"`        | Goto last exited position in current buffer       |
