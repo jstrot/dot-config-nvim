@@ -40,6 +40,9 @@ require("lazy").setup(
     checker = {
       -- enabled = true -- automatically check for plugin updates
     },
+    change_detection = {
+      enabled = false,
+    },
     performance = {
       rtp = { -- "runtimepath"
         -- disable some rtp plugins
