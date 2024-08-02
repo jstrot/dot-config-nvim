@@ -8,7 +8,7 @@ This is my Neovim configuration.
 
 Let's get things straight:
 Neovim is not an **IDE**, it's a **text editor**!
-Neovim is a fork of Vim that focuses on extensibility and usability. 
+Neovim is a fork of Vim that focuses on extensibility and usability.
 
 But it's not like any other *configurable* text editor like Sublime Text, Atom, or VS Code.
 Neovim is highly extensible using the Lua programming language. This means that you are not limited to the features provided by the core editor or a predetermined set of configurations in a JSON file.
@@ -76,7 +76,7 @@ The Neovim executable is the one called named `nvim`!
 
 ## Nerd/Patched fonts
 
-Enable support for Nerd/patched fonts. 
+Enable support for Nerd/patched fonts.
 
 It is highly recommended to install a patched font that contains extended characters for development (Icons for "bugs", "git", "GitHub", file types, ...). Many plugins rely on the availability of patched fonts.
 
@@ -280,29 +280,45 @@ Then restart Neovim. If you're stuck in the help window and the error keeps popp
 
 ### Legend
 
+| Key Notation       | Meaning                                                                            |
+| ------------------ | ---------------------------------------------------------------------------------- |
+| `<S-…>`            | shift-key comined with next key                                                    |
+| `<C-…>`            | control-key comined with next key                                                  |
+| `<A-…>` or `<M-…>` | alt-key or meta-key comined with next key                                          |
+| `<D-…>`            | command-key (MacOS) or "super" key (e.g., the "Windows" key) comined with next key |
+| `<Leader>`         | A configurable key. **Space** (` `) is used in this config repository!             |
+| `<CR>`             | Carriage return (Enter key)                                                        |
+
 See `:help key-notation` for a complete list.
 
-| Mode               | Meaning                                                                |
-| ------------------ | ---------------------------------------------------------------------- |
-| `<S-…>`            | shift-key                                                              |
-| `<C-…>`            | control-key                                                            |
-| `<A-…>` or `<M-…>` | alt-key or meta-key                                                    |
-| `<D-…>`            | command-key (MacOS) or "super" key (e.g., the "Windows" key)           |
-| `<leader>`         | A configurable key. **Space** (` `) is used in this config repository! |
+| Mode               | Meaning                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------- |
+| n                  | Normal mode: When typing commands                                                     |
+| i                  | Insert mode.  These are also used in Replace mode                                     |
+| v                  | Visual mode or select mode: When typing commands while the Visual area is highlighted |
+| x                  | Visual mode only                                                                      |
+| o                  | Operator-pending mode: When an operator is pending (after "d", "y", "c", etc.)        |
+| t                  | Terminal mode: When typing in a `:terminal` buffer                                    |
 
-Note that Vim's and Neovim's default `<leader>` is the backslash (`\`) key. You can change this to your liking, of course, just look for "mapleader" at the top of the `init.lua` file. More and more people change their default and the kickstart.nvim project uses  space by default and I left it as-is. See `:help mapleader` for details.
+See `:help map-modes` for a complete list.
+
+Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You can change this to your liking, of course, just look for "mapleader" at the top of the `init.lua` file. More and more people change their default and the kickstart.nvim project uses  space by default and I left it as-is. See `:help mapleader` for details.
 
 ### Standard keymaps
 
 | Mode | Mapping             | Description                                                 |
 | ---- | ------------------- | ----------------------------------------------------------- |
+| n    | `:q<cr>`            | \[Q]uit/close current buffer                                |
+| n    | `:qa<cr>`           | \[Q]uit/close all buffers                                   |
+| n    | `:qa!<cr>`          | \[Q]uit/close all buffers without saving                    |
+| n    | `ZZ`                | Update (save if needed) and close window (`:update` + `:q`) |
+| n    | `h`, `j`, `k`, `l`  | Move left(`h`), down(`j`), up(`k`), right(`l`)              |
 | n    | `<C-w>s`            | \[W]indow \[S]plit horizontally                             |
 | n    | `<C-w>v`            | \[W]indow split \[V]ertically                               |
 | n    | `<C-w>h` or `<C-h>` | Navigate \[W]indow left(h)                                  |
 | n    | `<C-w>j` or `<C-j>` | Navigate \[W]indow up(j)                                    |
 | n    | `<C-w>k` or `<C-k>` | Navigate \[W]indow down(k)                                  |
 | n    | `<C-w>l` or `<C-l>` | Navigate \[W]indow right(l)                                 |
-| n    | `ZZ`                | Update (save if needed) and close window (`:update` + `:q`) |
 
 ### Miscellaneous
 
@@ -311,26 +327,42 @@ Note that Vim's and Neovim's default `<leader>` is the backslash (`\`) key. You 
 | n    | `<Esc>`      | Clear `hlsearch` on pressing `<Esc>` in normal mode |
 | t    | `<C-\><C-n>` | Exit terminal mode (default)                        |
 | t    | `<Esc><Esc>` | Exit terminal mode (alternate)                      |
-| n    | `<leader>?`  | Show buffer local keymaps (which-key)               |
+| n    | `<Leader>?`  | Show buffer local keymaps (which-key)               |
 
 ### Searching (telescope)
 
 | Mode      | Mapping            | Description                               |
 | --------- | ------------------ | ----------------------------------------- |
-| n         | `<leader>sh`       | \[S]earch \[H]elp                         |
-| n         | `<leader>sk`       | \[S]earch \[K]eymaps                      |
-| n         | `<leader>sf`       | \[S]earch \[F]iles                        |
-| n         | `<leader>ss`       | \[S]earch \[S]elect Telescope             |
-| n         | `<leader>sw`       | \[S]earch current \[W]ord                 |
-| n         | `<leader>sg`       | \[S]earch by live \[G]rep                 |
-| n         | `<leader>/`        | \[/] Fuzzily search in current buffer     |
-| n         | `<leader>s/`       | \[S]earch by live grep in open files      |
-| n         | `<leader>s.`       | \[S]earch recent files ("." for repeat)   |
-| n         | `<leader><leader>` | \[ ] Find existing buffers                |
-| n         | `<leader>sd`       | \[S]earch \[D]iagnostics                  |
-| n         | `<leader>sn`       | \[S]earch \[N]eovim files                 |
-| n         | `<leader>sr`       | \[S]earch \[R]esume                       |
-| Telescope | `<leader>/`        | Telescope help (`/` is `?` without shift) |
+| n         | `<Leader>sh`       | \[S]earch \[H]elp                         |
+| n         | `<Leader>sk`       | \[S]earch \[K]eymaps                      |
+| n         | `<Leader>sf`       | \[S]earch \[F]iles                        |
+| n         | `<Leader>ss`       | \[S]earch \[S]elect Telescope             |
+| n         | `<Leader>sw`       | \[S]earch current \[W]ord                 |
+| n         | `<Leader>sg`       | \[S]earch by live \[G]rep                 |
+| n         | `<Leader>/`        | \[/] Fuzzily search in current buffer     |
+| n         | `<Leader>s/`       | \[S]earch by live grep in open files      |
+| n         | `<Leader>s.`       | \[S]earch recent files ("." for repeat)   |
+| n         | `<Leader><Leader>` | \[ ] Find existing buffers                |
+| n         | `<Leader>sd`       | \[S]earch \[D]iagnostics                  |
+| n         | `<Leader>sn`       | \[S]earch \[N]eovim files                 |
+| n         | `<Leader>sr`       | \[S]earch \[R]esume                       |
+| Telescope | `<Leader>/`        | Telescope help (`/` is `?` without shift) |
+
+### More Nativation
+
+| Mode | Mapping     | Description                                       |
+| ---- |------------ |-------------------------------------------------- |
+| n    | `]d`        | Goto next \[D]iagnostic                           |
+| n    | `[d`        | Goto previous \[D]iagnostic                       |
+| n    | `]q`        | Display the next \[Q]uickfix position (`:cn`)     |
+| n    | `[q`        | Display the previous \[Q]uickfix position (`:cp`) |
+| n    | `]c`        | Goto next \[C]hanged hunk                         |
+| n    | `[c`        | Goto previous \[C]hanged hunk                     |
+| n    | `]s`        | Goto next mis\[S]pelled word                      |
+| n    | `[s`        | Goto previous mis\[S]pelled word                  |
+| n    | `'"`        | Goto last exited position in current buffer       |
+| n    | `'.`        | Goto last modified position in current buffer     |
+| n    | `<C-o>`     | Goto previous position in jump list               |
 
 ### Completion (nvim-cmp, luasnip, ...)
 
@@ -359,8 +391,8 @@ Note that Vim's and Neovim's default `<leader>` is the backslash (`\`) key. You 
 
 | Mode | Mapping       | Description                                       |
 | ---- | ------------- | ------------------------------------------------- |
-| n, v | `<leader>cc`  | Run \[C]opilot \[C]hat                            |
-| n, v | `<leader>ccf` | Run \[C]opilot \[C]hat \[F]ix                     |
+| n, v | `<Leader>cc`  | Run \[C]opilot \[C]hat                            |
+| n, v | `<Leader>ccf` | Run \[C]opilot \[C]hat \[F]ix                     |
 
 ### Language Server Protocol (LSP)
 
@@ -372,42 +404,42 @@ Note that Vim's and Neovim's default `<leader>` is the backslash (`\`) key. You 
 | n    | `gD`         | \[G]oto \[D]eclaration              | Jump to the declaration of the word under your cursor.                                                    |
 | n    | `gr`         | \[G]oto \[R]eferences               | Find references for the word under your cursor.                                                           |
 | n    | `gI`         | \[G]oto \[I]mplementation           | Jump to the implementation of the word under your cursor.                                                 |
-| n    | `<leader>D`  | Type \[D]efinition                  | Jump to the type of the word under your cursor, the definition of its *type*, not where it was *defined*. |
-| n    | `<leader>ds` | \[D]ocument \[S]ymbols              | Fuzzy find all the symbols in your current document.                                                      |
-| n    | `<leader>ws` | \[W]orkspace \[S]ymbols             | Fuzzy find all the symbols in your current workspace.                                                     |
-| n    | `<leader>rn` | \[R]e\[N]ame                        | Rename the variable under your cursor.                                                                    |
-| n    | `<leader>ca` | \[C]ode \[A]ction                   | Execute a code action, usually your cursor needs to be on top of an error or a suggestion.                |
+| n    | `<Leader>D`  | Type \[D]efinition                  | Jump to the type of the word under your cursor, the definition of its *type*, not where it was *defined*. |
+| n    | `<Leader>ds` | \[D]ocument \[S]ymbols              | Fuzzy find all the symbols in your current document.                                                      |
+| n    | `<Leader>ws` | \[W]orkspace \[S]ymbols             | Fuzzy find all the symbols in your current workspace.                                                     |
+| n    | `<Leader>rn` | \[R]e\[N]ame                        | Rename the variable under your cursor.                                                                    |
+| n    | `<Leader>ca` | \[C]ode \[A]ction                   | Execute a code action, usually your cursor needs to be on top of an error or a suggestion.                |
 | n    | `K`          | Hover documentation (see `:help K`) | Opens a popup that displays documentation about the word under your cursor.                               |
-| n    | `<leader>e`  | Show diagnostic \[E]rror messages   |                                                                                                           |
-| n    | `<leader>q`  | Open diagnostic \[Q]uickfix list    |                                                                                                           |
+| n    | `<Leader>e`  | Show diagnostic \[E]rror messages   |                                                                                                           |
+| n    | `<Leader>q`  | Open diagnostic \[Q]uickfix list    |                                                                                                           |
 
 ### Quickfix
 
-| Mode | Mapping     | Description                                             |
-| ---- | ----------- | ------------------------------------------------------- |
-| n    | `<F4>`      | Display the next error in the quickfix list (`:cn`)     |
-| n    | `]q`        | Display the next error in the quickfix list (`:cn`)     |
-| n    | `[q`        | Display the previous error in the quickfix list (`:cp`) |
-| n    | `<leader>q` | Open diagnostic \[Q]uickfix list                        |
+| Mode | Mapping     | Description                                       |
+| ---- | ----------- | ------------------------------------------------- |
+| n    | `<F4>`      | Display the next \[Q]uickfix position (`:cn`)     |
+| n    | `]q`        | Display the next \[Q]uickfix position (`:cn`)     |
+| n    | `[q`        | Display the previous \[Q]uickfix position (`:cp`) |
+| n    | `<Leader>q` | Open diagnostic \[Q]uickfix list                  |
 
 ### Various toggles (toggle-lsp-diagnostics, nvim-lspconfig, etc)
 
 | Mode | Mapping        | Description                                                                            |                                                                                |
 | ---- | -------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| n    | `<leader>tlu`  | \[T]oggle \[L]sp diagnostics \[U]nderline                                              |                                                                                |
-| n    | `<leader>tls`  | \[T]oggle \[L]sp diagnostics \[S]igns                                                  |                                                                                |
-| n    | `<leader>tlv`  | \[T]oggle \[L]sp diagnostics \[V]irtual text                                           |                                                                                |
-| n    | `<leader>tlp`  | \[T]oggle \[L]sp diagnostics information u\[P]date while in insert mode                |                                                                                |
-| n    | `<leader>tld`  | \[T]oggle \[L]sp diagnostics                                                           |                                                                                |
-| n    | `<leader>tldd` | \[T]oggle \[L]sp diagnostics back to \[D]efaults (on, except overrides passed on init) |                                                                                |
-| n    | `<leader>tldo` | \[T]oggle \[L]sp diagnostics \[O]n                                                     |                                                                                |
-| n    | `<leader>tldf` | \[T]oggle \[L]sp diagnostics o\[F]f                                                    |                                                                                |
-| n    | `<leader>tlh`  | \[T]oggle \[L]sp inlay \[H]ints                                                        | Few LSPs support inlay hints: `lua_ls`, `pylyzer`, `slangd`, `clangd` (>=15.0) |
-| n    | `<leader>tb`   | \[T]oggle current line \[B]lame                                                        |                                                                                |
-| n    | `<leader>td`   | \[T]oggle \[D]eleted hunks                                                             |                                                                                |
-| n    | `<leader>tp`   | \[T]oggle \[P]aste mode                                                                |                                                                                |
-| n    | `<leader>ts`   | \[T]oggle \[S]ign column                                                               |                                                                                |
-| n    | `<leader>tv`   | \[T]oggle \[V]irtual edit                                                              |                                                                                |
+| n    | `<Leader>tlu`  | \[T]oggle \[L]sp diagnostics \[U]nderline                                              |                                                                                |
+| n    | `<Leader>tls`  | \[T]oggle \[L]sp diagnostics \[S]igns                                                  |                                                                                |
+| n    | `<Leader>tlv`  | \[T]oggle \[L]sp diagnostics \[V]irtual text                                           |                                                                                |
+| n    | `<Leader>tlp`  | \[T]oggle \[L]sp diagnostics information u\[P]date while in insert mode                |                                                                                |
+| n    | `<Leader>tld`  | \[T]oggle \[L]sp diagnostics                                                           |                                                                                |
+| n    | `<Leader>tldd` | \[T]oggle \[L]sp diagnostics back to \[D]efaults (on, except overrides passed on init) |                                                                                |
+| n    | `<Leader>tldo` | \[T]oggle \[L]sp diagnostics \[O]n                                                     |                                                                                |
+| n    | `<Leader>tldf` | \[T]oggle \[L]sp diagnostics o\[F]f                                                    |                                                                                |
+| n    | `<Leader>tlh`  | \[T]oggle \[L]sp inlay \[H]ints                                                        | Few LSPs support inlay hints: `lua_ls`, `pylyzer`, `slangd`, `clangd` (>=15.0) |
+| n    | `<Leader>tb`   | \[T]oggle current line \[B]lame                                                        |                                                                                |
+| n    | `<Leader>td`   | \[T]oggle \[D]eleted hunks                                                             |                                                                                |
+| n    | `<Leader>tp`   | \[T]oggle \[P]aste mode                                                                |                                                                                |
+| n    | `<Leader>ts`   | \[T]oggle \[S]ign column                                                               |                                                                                |
+| n    | `<Leader>tv`   | \[T]oggle \[V]irtual edit                                                              |                                                                                |
 
 ### Cscope (cscope_maps)
 
@@ -415,16 +447,16 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 
 | Mode | Mapping      | Description                                             |
 | ---- | ------------ | ------------------------------------------------------- |
-| n    | `<leader>cs` | Find all references to the token/\[S]ymbol under cursor |
-| n    | `<leader>cg` | Find \[G]lobal definition(s) of the token under cursor  |
-| n    | `<leader>cc` | Find all \[C]alls to the function name under cursor     |
-| n    | `<leader>ct` | Find all instances of the \[T]ext under cursor          |
-| n    | `<leader>ce` | \[E]grep search for the word under cursor               |
-| n    | `<leader>cf` | Open the \[F]ilename under cursor                       |
-| n    | `<leader>ci` | Find files that \[I]nclude the filename under cursor    |
-| n    | `<leader>cd` | Find functions that function under cursor calls         |
-| n    | `<leader>ca` | Find places where this symbol is \[A]ssigned a value    |
-| n    | `<leader>cb` | \[B]uild cscope database                                |
+| n    | `<Leader>cs` | Find all references to the token/\[S]ymbol under cursor |
+| n    | `<Leader>cg` | Find \[G]lobal definition(s) of the token under cursor  |
+| n    | `<Leader>cc` | Find all \[C]alls to the function name under cursor     |
+| n    | `<Leader>ct` | Find all instances of the \[T]ext under cursor          |
+| n    | `<Leader>ce` | \[E]grep search for the word under cursor               |
+| n    | `<Leader>cf` | Open the \[F]ilename under cursor                       |
+| n    | `<Leader>ci` | Find files that \[I]nclude the filename under cursor    |
+| n    | `<Leader>cd` | Find functions that function under cursor calls         |
+| n    | `<Leader>ca` | Find places where this symbol is \[A]ssigned a value    |
+| n    | `<Leader>cb` | \[B]uild cscope database                                |
 | n    | `<C-]>`      | Do `:Cstag <cword>`                                     |
 
 ### Git (fugitive, gitsigns)
@@ -433,18 +465,18 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | ---- | ------------ | ---------------------------------------------- |
 | n    | `]c`         | Goto next \[C]hanged hunk                      |
 | n    | `[c`         | Goto previous \[C]hanged hunk                  |
-| n, v | `<leader>hs` | \[H]unk \[S]tage                               |
-| n, v | `<leader>hr` | \[H]unk \[R]eset                               |
-| n    | `<leader>hu` | \[H]unk stage \[U]ndo                          |
-| n    | `<leader>hS` | \[S]tage buffer                                |
-| n    | `<leader>hR` | \[R]eset buffer                                |
-| n    | `<leader>hp` | \[H]unk \[P]review                             |
-| n    | `<leader>hb` | \[H]unk \[B]lame                               |
-| n    | `<leader>hd` | Perform vim\[D]iff                             |
-| n    | `<leader>hD` | Perform vim\[D]iff last commit                 |
+| n, v | `<Leader>hs` | \[H]unk \[S]tage                               |
+| n, v | `<Leader>hr` | \[H]unk \[R]eset                               |
+| n    | `<Leader>hu` | \[H]unk stage \[U]ndo                          |
+| n    | `<Leader>hS` | \[S]tage buffer                                |
+| n    | `<Leader>hR` | \[R]eset buffer                                |
+| n    | `<Leader>hp` | \[H]unk \[P]review                             |
+| n    | `<Leader>hb` | \[H]unk \[B]lame                               |
+| n    | `<Leader>hd` | Perform vim\[D]iff                             |
+| n    | `<Leader>hD` | Perform vim\[D]iff last commit                 |
 | o, x | `ih`         | Select hunk (after movement or in visual mode) |
-| n    | `<leader>tb` | \[T]oggle current line \[B]lame                |
-| n    | `<leader>td` | \[T]oggle \[D]eleted hunks                     |
+| n    | `<Leader>tb` | \[T]oggle current line \[B]lame                |
+| n    | `<Leader>td` | \[T]oggle \[D]eleted hunks                     |
 
 ### Comments (numToStr/Comment)
 
