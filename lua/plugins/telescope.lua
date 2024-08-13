@@ -1,5 +1,5 @@
--- https://github.com/nvim-telescope/telescope.nvim
 return {
+  -- https://github.com/nvim-telescope/telescope.nvim
   {
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
@@ -20,8 +20,10 @@ return {
         end,
       },
       {
+        -- https://github.com/nvim-telescope/telescope-ui-select.nvim
         'nvim-telescope/telescope-ui-select.nvim',
       },
+
       'nvim-tree/nvim-web-devicons',
     },
     config = function()
@@ -126,6 +128,16 @@ return {
         callback = function() vim.opt_local.paste = false end,
       })
     end,
+  },
+  -- https://github.com/prochri/telescope-all-recent.nvim
+  {
+    'prochri/telescope-all-recent.nvim',
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "kkharji/sqlite.lua",
+      -- optional, if using telescope for vim.ui.select
+      "stevearc/dressing.nvim"
+    },
   },
 }
 
