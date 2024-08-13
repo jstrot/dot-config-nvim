@@ -70,6 +70,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n         | `<Leader>sd`       | \[S]earch \[D]iagnostics                  |
 | n         | `<Leader>st`       | \[S]earch \[T]odo comments                |
 | n         | `<Leader>sn`       | \[S]earch \[N]eovim files                 |
+| n         | `<Leader>se`       | \[S]earch symbols/\[E]mojis               |
 | n         | `<Leader>sr`       | \[S]earch \[R]esume                       |
 | Telescope | `<Leader>/`        | Telescope help (`/` is `?` without shift) |
 

@@ -139,6 +139,17 @@ return {
       "stevearc/dressing.nvim"
     },
   },
+  -- https://github.com/nvim-telescope/telescope-symbols.nvim
+  {
+    'nvim-telescope/telescope-symbols.nvim',
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      pcall(require('telescope').load_extension, 'symbols')
+      vim.keymap.set('n', '<leader>se', '<cmd>Telescope symbols<CR>', { desc = '[S]earch Symbols/[E]mojis' })
+    end,
+  },
 }
 
 -- vim: sw=2 et
