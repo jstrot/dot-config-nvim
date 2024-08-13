@@ -248,7 +248,7 @@ If you use tmux, you should setup the [Tmux Plugin Manager (TPM)](https://github
 | n    | `<C-h>`     | Navigate split left (Tmux aware)                    |
 | n    | `<C-j>`     | Navigate split down (Tmux aware)                    |
 | n    | `<C-k>`     | Navigate split up (Tmux aware)                      |
-| n    | `<C-l>`     | Navigate split right (Tmux aware)                   |
+| n    | `<C-l>`     | Navigate split right (Tmux aware) and clear+redraw  |
 | n    | `<C-\>`     | Navigate to previous split (Tmux aware)             |
 | n    | `<C-Space>` | Navigate to next split, by pane number (Tmux aware) |
 
