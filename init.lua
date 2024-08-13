@@ -247,4 +247,7 @@ if vim.g.colors_name == 'onedarker' then
   vim.api.nvim_set_hl(0, 'NonText', { fg = c.dark_gray, bg = 'NONE', italic = true })
 end
 
+-- JSON: Disable default syntax highlighting concealment
+vim.g.vim_json_conceal = 0
+
 -- vim: sw=2 et
