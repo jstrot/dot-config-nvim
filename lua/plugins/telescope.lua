@@ -175,6 +175,17 @@ return {
       vim.keymap.set('n', '<leader>se', '<cmd>Telescope symbols<CR>', { desc = '[S]earch Symbols/[E]mojis' })
     end,
   },
+  -- https://github.com/nvim-telescope/telescope-bibtex.nvim
+  {
+    'nvim-telescope/telescope-bibtex.nvim',
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      pcall(require('telescope').load_extension, 'bibtex')
+      vim.keymap.set('n', '<leader>sb', '<cmd>Telescope bibtex<CR>', { desc = '[S]earch [B]ibtex references' })
+    end,
+  },
 }
 
 -- vim: sw=2 et
