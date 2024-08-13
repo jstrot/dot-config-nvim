@@ -34,26 +34,27 @@ return {
 
           -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
           -- https://github.com/nvimtools/none-ls-extras.nvim/tree/main/lua/none-ls/formatting
-          null_ls.builtins.formatting.stylua,
-          -- null_ls.builtins.formatting.autopep8, -> ruff
-          -- null_ls.builtins.formatting.autoflake, -> ruff
-          require("none-ls.formatting.ruff"),
-          null_ls.builtins.formatting.black,
-          null_ls.builtins.formatting.clang_format.with({
+          null_ls.builtins.formatting.stylua, -- Lua
+          -- null_ls.builtins.formatting.autopep8, -- Python: use ruff instead
+          -- null_ls.builtins.formatting.autoflake, -- Python: use ruff instead
+          require("none-ls.formatting.ruff"), -- Python
+          null_ls.builtins.formatting.black, -- Python
+          null_ls.builtins.formatting.clang_format.with({ -- C/C++
             generator_opts = {
               command = vim.g.clang_format_host_prog or 'clang-format',
             },
           }),
+          null_ls.builtins.formatting.buildifier, -- Bazel
 
           -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/completion
-          -- https://github.com/nvimtools/none-ls-extras.nvim/tree/main/lua/none-ls/completion
           null_ls.builtins.completion.spell,
           null_ls.builtins.completion.tags,
 
           -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
           -- https://github.com/nvimtools/none-ls-extras.nvim/tree/main/lua/none-ls/diagnostics
           -- null_ls.builtins.diagnostics.flake8, -> ruff
-          require("none-ls.diagnostics.ruff"),
+          require("none-ls.diagnostics.ruff"), -- Python
+          null_ls.builtins.diagnostics.buildifier, -- Bazel
         },
       })
     end
