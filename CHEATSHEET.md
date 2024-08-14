@@ -254,3 +254,13 @@ If you use tmux, you should setup the [Tmux Plugin Manager (TPM)](https://github
 | n    | `<C-Space>` | Navigate to next split, by pane number (Tmux aware) |
 
 P.S.: If you love the combination of Neovim and tmux and you have a QMK/VIA programmable keyboard like me, try configuring your Fn+arrow keys to `C-h/j/k/l`!
+
+## GUI
+
+When running a graphical version of Neovim, like [Neovim-QT](https://github.com/equalsraf/neovim-qt), these mappings are available.
+
+| Mode    | Mapping      | Description                                                        |
+| ------- | ------------ | ------------------------------------------------------------------ |
+| v       | `<C-+>`      | Copy: Copy the selection to the clipboard\[+]                      |
+| i, c, n | `<S-insert>` | Paste: Insert the content of the clipboard(+)                      |
+| i, c, n | `<S-C-v>`    | Paste: Insert the content of the clipboard(+)                      |
