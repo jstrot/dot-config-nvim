@@ -153,4 +153,24 @@ In the interactive part of your rc files (`~/.bashrc`, `~/.zshrc`, `~/.bash_alia
 alias vi=nvim
 ```
 
+# Install Dependencies
 
+## rg (ripgrep)
+
+`rg` is a fast and efficient grep replacement. It is used in Neovim by the Telescope plugin for fuzzy finding.
+
+On Debian-based systems, you can install it with:
+
+```sh
+sudo apt install ripgrep
+```
+
+## fd (fd-find)
+
+`fd` is a fast and user-friendly alternative to `find`. It is used in Neovim by the Telescope plugin for enhanced file finding capabilities.
+
+On Debian-based systems, you can install it with:
+
+```sh
+sudo apt install fd-find
+```
