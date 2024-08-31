@@ -42,7 +42,14 @@ Enable support for Nerd/patched fonts.
 
 It is highly recommended to install a patched font that contains extended characters for development (Icons for "bugs", "git", "GitHub", file types, ...). Many plugins rely on the availability of patched fonts.
 
-The easy way is to download a font from https://www.nerdfonts.com/, install it in your OS (if you're running remotely over ssh, for example, that's the host running your terminal emulator!) and then enable that font in your terminal's configuration. A good starting point is to try the one I use, "DroidSansM Nerd Font Mono", a patched version of the "Droid Sans Mono" which has fairly square letters and scalable to small sizes without issues. Just make sure to use a "Mono" variant.
+The easy way is to download a font from https://www.nerdfonts.com/, install it in your OS (if you're running remotely over ssh, for example, that's the host running your terminal emulator!) and then enable that font in your terminal's configuration.
+
+In general, if you're using a modern terminal emulator, you should choose a font that is a monospaced and has regular, bold, italic, and bold-italic variants (you'll find out the variants when you download it).
+Some terminals may support emulating bold and italic, but it's better to have the actual font variants.
+
+If your terminal supports it, you can also enable ligatures for a more pleasing experience.
+
+A good starting point is to try the one I use, "FiraCode Nerd Font", a patched version of the "Fira Mono" font with programming ligatures and enlarged operators.
 
 ## MacOS
 
@@ -93,12 +100,35 @@ Otherwise, or if you want to override the default size too, check the box and se
 
 ### Application: Terminator
 
-This is my preference as Terminator is written in Python, has more options than Gnome Terminal, and is easily extensible with plugins.
+This is my preference as Terminator is written in Python around the libvte library (same as Gnome Terminal), has more options than Gnome Terminal, and is easily extensible with plugins.
 
 Shift-Right-Click in Terminator, select the "Preferences" menu, then the "Profiles" tab, and select your profile (e.g., "default"). The font selection is under the "General" tab.
 
 If you made your Nerd font the default monotype font, just make sure the "Use the system fixed width font" is checked.
 Otherwise, or if you want to override the default size too, uncheck the box and select your Nerd font.
+
+Supports true colors, but not ligatures.
+
+### Application: Kitty
+
+Kitty is a modern and fast terminal with great hardware acceleration support.
+
+Here's my ~/.config/kitty/kitty.conf:
+
+```
+font_family      FiraCode Nerd Font Mono
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+font_size 10.0
+
+copy_on_select clipboard
+map ctrl+shift+insert paste_from_buffer clipboard
+strip_trailing_spaces smart
+select_by_word_characters _
+```
+
+Supports true colors and ligatures.
 
 ### Example: xterm under VNC
 
