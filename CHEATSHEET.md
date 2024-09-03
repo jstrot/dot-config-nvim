@@ -55,24 +55,29 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 
 ## Searching (telescope)
 
-| Mode      | Mapping            | Description                               |
-| --------- | ------------------ | ----------------------------------------- |
-| n         | `<Leader>sh`       | \[S]earch \[H]elp                         |
-| n         | `<Leader>sk`       | \[S]earch \[K]eymaps                      |
-| n         | `<Leader>sf`       | \[S]earch \[F]iles                        |
-| n         | `<Leader>ss`       | \[S]earch \[S]elect Telescope             |
-| n         | `<Leader>sw`       | \[S]earch current \[W]ord                 |
-| n         | `<Leader>sg`       | \[S]earch by live \[G]rep                 |
-| n         | `<Leader>/`        | \[/] Fuzzily search in current buffer     |
-| n         | `<Leader>s/`       | \[S]earch by live grep in open files      |
-| n         | `<Leader>s.`       | \[S]earch recent files ("." for repeat)   |
-| n         | `<Leader><Leader>` | \[ ] Find existing buffers                |
-| n         | `<Leader>sd`       | \[S]earch \[D]iagnostics                  |
-| n         | `<Leader>st`       | \[S]earch \[T]odo comments                |
-| n         | `<Leader>sn`       | \[S]earch \[N]eovim files                 |
-| n         | `<Leader>se`       | \[S]earch symbols/\[E]mojis               |
-| n         | `<Leader>sr`       | \[S]earch \[R]esume                       |
-| Telescope | `<Leader>/`        | Telescope help (`/` is `?` without shift) |
+| Mode      | Mapping                 | Description                                  |
+| --------- | ----------------------- | -------------------------------------------- |
+| n         | `<Leader>sh`            | \[S]earch \[H]elp                            |
+| n         | `<Leader>sk`            | \[S]earch \[K]eymaps                         |
+| n         | `<Leader>sf`            | \[S]earch \[F]iles (scoped)                  |
+| n         | `<Leader>st`            | \[S]earch select \[T]elescope                |
+| n         | `<Leader>sw`            | \[S]earch current \[W]ord                    |
+| n         | `<Leader>sg`            | \[S]earch by live \[G]rep (scoped)           |
+| n         | `<Leader>/`             | \[/] Fuzzily search in current buffer        |
+| n         | `<Leader>s/`            | \[S]earch by live grep in open files         |
+| n         | `<Leader>s.`            | \[S]earch recent files ("." for repeat)      |
+| n         | `<Leader><Leader>`      | \[ ] Find existing buffers                   |
+| n         | `<Leader>sd`            | \[S]earch \[D]iagnostics                     |
+| n         | `<Leader>st`            | \[S]earch \[T]odo comments                   |
+| n         | `<Leader>sn`            | \[S]earch \[N]eovim files                    |
+| n         | `<Leader>se`            | \[S]earch symbols/\[E]mojis                  |
+| n         | `<Leader>ss`            | \[S]earch select \[S]cope                    |
+| n         | `<Leader>sr`            | \[S]earch \[R]esume                          |
+| Telescope | `<Leader>/`             | Telescope help (`/` is `?` without shift)    |
+| Telescope | `<C-c>` or `<Esc><Esc>` | Close telescope                              |
+| Telescope | `<CR>`                  | Open selected entry in current window        |
+| Telescope | `<C-v>`                 | Open selected entry in new vertial split     |
+| Telescope | `<C-x>`                 | Open selected entry in new horizontal split  |
 
 ## More Nativation
 
