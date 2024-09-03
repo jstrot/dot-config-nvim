@@ -96,6 +96,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `'"`        | Goto last exited position in current buffer       |
 | n    | `'.`        | Goto last modified position in current buffer     |
 | n    | `<C-o>`     | Goto previous position in jump list               |
+| n    | `<C-t>`     | Goto previous position in tag stack               |
 
 ## Completion (nvim-cmp, luasnip, ...)
 
@@ -243,7 +244,6 @@ These are default keymaps but folding is provided by Treesitter so is much more 
 | n    | `zm`     | Fold \[M]ore (updates `foldlevel--`)                               |
 | n    | `zx`     | Updates all folds (re-apply `foldlevel`) and view the cursor line  |
 | n    | `zX`     | Updates all folds (re-apply `foldlevel`)                           |
-
 
 ## Window & tmux pane navigation (vim-tmux-navigator)
 
