@@ -50,6 +50,7 @@ Some terminals may support emulating bold and italic, but it's better to have th
 If your terminal supports it, you can also enable ligatures for a more pleasing experience.
 
 A good starting point is to try the one I use, "FiraCode Nerd Font", a patched version of the "Fira Mono" font with programming ligatures and enlarged operators.
+You can try out the different fonts here: https://www.programmingfonts.org/#firacode
 
 ## MacOS
 
