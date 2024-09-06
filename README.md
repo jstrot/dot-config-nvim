@@ -19,20 +19,20 @@ With the help of plugins, it can be made to *look* like an IDE but it will alway
 
 # Features
 
-This configuration repository comes preinstalled with many plugins that offer a wide range of features. Here are some of the highlights:
+This configuration repository comes preinstalled with many plugins that offer a wide range of features out-of-the-box. Here are some of the highlights:
 
-- Language servers (LSPs) (clangd, ...)
+- Language servers (LSPs) (clangd, ruff, buildifier, bashls, ...)
 - GitHub Copilot integration (completion & chat)
+- Diagnostic messages
 - Code completion
 - Code formatting
-- Diagnostic messages
 - Snippets
 - Code coverage integration
-- Nerd fonts support
+- Large project management / scopes (Neoscopes)
 - Fuzzy finder (Telescope)
 - Git integration (Fugitive, Gitsigns)
 - Advanced syntax-based highlighting and indentation (Treesitter)
-- Cosmetic candy (icons, colorschemes, statusline, ...)
+- Cosmetic candy (Nerd fonts, icons, colorschemes, statusline, ...)
 - Tmux integration (vim-tmux-navigator)
 
 
