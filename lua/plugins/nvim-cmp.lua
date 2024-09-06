@@ -99,22 +99,23 @@ return {
           -- ['<C-e>'] = cmp.mapping.abort(),
         },
         sources = cmp.config.sources(
-          -- Group 1
           {
-            { name = 'path' },                              -- file paths
+            -- [[ LSP ]]
             { name = 'nvim_lsp', keyword_length = 3 },      -- from language server
             { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
             { name = 'nvim_lua', keyword_length = 2},       -- complete neovim's Lua runtime API such vim.lsp.*
+
+            { name = 'calc' },                              -- source for math calculation
+            { name = 'path' },                              -- file paths
+            { name = 'buffer', keyword_length = 2 },        -- source current buffer
+
+            -- [[ Snippets ]]
             -- { name = 'vsnip', keyword_length = 2 },      -- For `vsnip` users.
             { name = 'luasnip' },                           -- For `luasnip` users.
             -- { name = 'ultisnips' },                      -- For `ultisnips` users.
             -- { name = 'snippy' },                         -- For `snippy` users.
-            { name = 'calc'},                               -- source for math calculation
+
             { name = 'cmp_ai' },
-          },
-          -- Group 2
-          {
-            { name = 'buffer', keyword_length = 2 },        -- source current buffer
           }
         ),
         formatting = {
