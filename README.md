@@ -32,7 +32,7 @@ This configuration repository comes preinstalled with many plugins that offer a 
 - Fuzzy finder (Telescope)
 - Git integration (Fugitive, Gitsigns)
 - Advanced syntax-based highlighting and indentation (Treesitter)
-- Cosmetic candy (Nerd fonts, icons, colorschemes, statusline, ...)
+- Cosmetic candy (Nerd fonts, icons, colorschemes, statusline, code outline, ...)
 - Tmux integration (vim-tmux-navigator)
 
 
