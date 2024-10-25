@@ -1,7 +1,6 @@
 -- https://github.com/nvim-treesitter/nvim-treesitter
 -- INSTRUCTIONS:
 --   - Install new parsers with `:TSInstall <parser>`
-local uv = vim.uv or vim.loop
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -46,15 +45,13 @@ return {
       highlight = {
         enable = true,  -- false will disable the whole extension
         disable = function(lang, bufnr)
+
           -- Disable treesitter in help files. (EXTREME speedup => From 0 fps to 165 fps)
           if vim.bo.filetype == 'help' then
             return true
           end
-          local max_filesize = 100 * 1024 -- 100 KB
-          local ok, stats = pcall(uv.fs_stat, vim.api.nvim_buf_get_name(bufnr))
-          if ok and stats and stats.size > max_filesize then
-            return true
-          end
+
+          if vim.b.LargeFile_mode then return true end -- See LargeFile plugin
           return false
         end,
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
@@ -65,9 +62,15 @@ return {
 
       indent = {
         enable = true,
-        disable = {
-          'ruby',
-        },
+        disable = function(lang, bufnr)
+
+          if vim.bo.filetype == 'ruby' then -- TODO: Find reference why indent should be disabled for Ruby
+            return true
+          end
+
+          if vim.b.LargeFile_mode then return true end -- See LargeFile plugin
+          return false  -- Do not disable
+        end,
       },
       rainbow = {
         enable = false,  -- Enable if you like this sort of thing!
