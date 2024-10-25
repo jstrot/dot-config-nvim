@@ -212,7 +212,7 @@ return {
           end,
         },
 
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/lua_ls.lua
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -226,6 +226,32 @@ return {
               -- diagnostics = { disable = { 'missing-fields' } },
               hint = {
                 enable = true,
+              },
+              -- https://luals.github.io/wiki/formatter/
+              format = {
+                enable = true,
+                -- Put format options here
+                -- NOTE: the value should be STRING!!
+                defaultConfig = {
+                  indent_style = "space",
+                  indent_size = "2",
+                }
+              },
+              runtime = {
+                -- Tell the language server which version of Lua you're using
+                -- (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT'
+              },
+              workspace = {
+                checkThirdParty = false,
+                library = {
+                  vim.env.VIMRUNTIME
+                  -- Depending on the usage, you might want to add additional paths here.
+                  -- "${3rd}/luv/library"
+                  -- "${3rd}/busted/library",
+                }
+                -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+                -- library = vim.api.nvim_get_runtime_file("", true)
               }
             },
           },
