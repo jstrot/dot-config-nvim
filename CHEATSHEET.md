@@ -170,6 +170,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tldf` | \[T]oggle \[L]sp diagnostics o\[F]f                                                    |                                                                                |
 | n    | `<Leader>tlh`  | \[T]oggle \[L]sp inlay \[H]ints                                                        | Few LSPs support inlay hints: `lua_ls`, `pylyzer`, `slangd`, `clangd` (>=15.0) |
 | n    | `<Leader>tb`   | \[T]oggle current line \[B]lame                                                        |                                                                                |
+| n    | `<Leader>tc`   | \[T]oggle \[C]overage signs                                                            |                                                                                |
 | n    | `<Leader>td`   | \[T]oggle \[D]eleted hunks                                                             |                                                                                |
 | n    | `<Leader>tp`   | \[T]oggle \[P]aste mode                                                                |                                                                                |
 | n    | `<Leader>ts`   | \[T]oggle \[S]ign column                                                               |                                                                                |

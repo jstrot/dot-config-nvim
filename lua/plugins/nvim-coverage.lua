@@ -1,5 +1,13 @@
 -- https://github.com/andythigpen/nvim-coverage
 -- https://github.com/strottie/nvim-coverage
+local function ToggleCoverage()
+  local signs = require('coverage.signs')
+  if signs.is_enabled() then
+    require('coverage').toggle()
+  else
+    require('coverage').load(true)
+  end
+end
 return {
   {
     -- 'andythigpen/nvim-coverage',
@@ -23,6 +31,11 @@ return {
         partial = { hl = 'CoveragePartial', text = '◔' },
       },
     },
+
+    config = function(_, opts)
+      require('coverage').setup(opts)
+      vim.keymap.set('n', '<leader>tc', ToggleCoverage, { desc = '[T]oggle [C]overage signs' })
+    end,
   },
 }
 
