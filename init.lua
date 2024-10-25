@@ -248,6 +248,10 @@ if vim.g.colors_name == 'onedarker' then
 end
 
 -- JSON: Disable default syntax highlighting concealment
-vim.g.vim_json_conceal = 0
+-- vim.g.vim_json_conceal = 0
+
+-- Default is 'nc' which makes it hard to predict moves required to edit the current line or search matching patterns.
+-- Conceiling only in visual mode makes it more consistent, IMO.
+vim.opt.concealcursor = 'v'
 
 -- vim: sw=2 et
