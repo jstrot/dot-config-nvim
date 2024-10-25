@@ -6,6 +6,7 @@ return {
   },
   config = function ()
     require("markview").setup();
+    vim.keymap.set('n', '<leader>tm', '<CMD>Markview toggle<CR>', { desc = '[T]oggle [M]arkView' })
   end
 
 }

@@ -175,6 +175,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>ts`   | \[T]oggle \[S]ign column                                                               |                                                                                |
 | n    | `<Leader>tv`   | \[T]oggle \[V]irtual edit                                                              |                                                                                |
 | n    | `<Leader>to`   | \[T]oggle \[O]utline                                                                   |                                                                                |
+| n    | `<Leader>tm`   | \[T]oggle \[M]arkview (markdown files)                                                 |                                                                                |
 
 ## Cscope (cscope_maps)
 
