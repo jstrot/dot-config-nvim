@@ -25,6 +25,7 @@ return {
       },
 
       'nvim-tree/nvim-web-devicons',
+      'folke/trouble.nvim',
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -48,7 +49,7 @@ return {
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
-      opts = {
+      local opts = {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         defaults = {
