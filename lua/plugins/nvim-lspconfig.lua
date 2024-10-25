@@ -196,8 +196,11 @@ return {
           filetypes = { 'c', 'cpp', 'cc', },
           offset_encoding = 'utf-16',
           cmd = {
+            -- See https://manpages.debian.org/experimental/clangd/clangd.1.en.html
             (vim.g.clangd_host_prog or 'clangd'),
             '--offset-encoding=utf-16',  -- Keep in sync with clangd_extensions.lua
+            '--clang-tidy', -- Enable clang-tidy diagnostics: https://clang.llvm.org/extra/clang-tidy/
+            '--suggest-missing-includes',
             '--inlay-hints=true',
           },
           root_dir = function(fname)
