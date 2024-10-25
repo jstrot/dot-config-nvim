@@ -4,8 +4,13 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  config = function ()
-    require("markview").setup();
+  opts = {
+    code_blocks = {
+      icons = "devicons",
+    },
+  },
+  config = function(_, opts)
+    require("markview").setup(opts);
     vim.keymap.set('n', '<leader>tm', '<CMD>Markview toggle<CR>', { desc = '[T]oggle [M]arkView' })
   end
 
