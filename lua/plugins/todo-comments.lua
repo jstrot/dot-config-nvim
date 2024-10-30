@@ -7,7 +7,7 @@ return {
       'nvim-lua/plenary.nvim',
     },
     opts = {
-      signs = false,  -- Enable this if you want to see signs in the margin
+      signs = true,  -- Enable this if you want to see signs in the margin
       keywords = {
         -- Standard keywords:
         -- FIX: Looks like this
