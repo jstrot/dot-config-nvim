@@ -170,6 +170,13 @@ function TogglePaste()
 end
 vim.keymap.set('n', '<leader>tp', ':lua TogglePaste()<CR>', { desc = '[T]oggle [P]aste mode' })
 
+-- Toggle 'wrap' mode using `<leader>tw`
+function ToggleWrap()
+  vim.o.wrap = not vim.o.wrap
+  print('Toggle wrap: ' .. vim.inspect(vim.o.wrap))
+end
+vim.keymap.set('n', '<leader>tw', ':lua ToggleWrap()<CR>', { desc = '[T]oggle [W]rap mode' })
+
 -- Toggle 'signcolumn' mode using `<leader>ts`
 function ToggleSignColumn()
   local win_id = vim.api.nvim_get_current_win()

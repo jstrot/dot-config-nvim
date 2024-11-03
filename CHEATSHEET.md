@@ -173,6 +173,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tc`   | \[T]oggle \[C]overage signs                                                            |                                                                                |
 | n    | `<Leader>td`   | \[T]oggle \[D]eleted hunks                                                             |                                                                                |
 | n    | `<Leader>tp`   | \[T]oggle \[P]aste mode                                                                |                                                                                |
+| n    | `<Leader>tw`   | \[T]oggle \[W]rap mode                                                                 |                                                                                |
 | n    | `<Leader>ts`   | \[T]oggle \[S]ign column                                                               |                                                                                |
 | n    | `<Leader>tv`   | \[T]oggle \[V]irtual edit                                                              |                                                                                |
 | n    | `<Leader>to`   | \[T]oggle \[O]utline                                                                   |                                                                                |
