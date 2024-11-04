@@ -17,6 +17,18 @@ return {
             "~/.config/nvim",
           },
         },
+        {
+          name = "Home",
+          dirs = {
+            "~",
+          },
+        },
+        {
+          name = "Home bin",
+          dirs = {
+            "~/bin",
+          },
+        },
 
         --[[
         {
