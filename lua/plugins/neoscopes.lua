@@ -48,25 +48,27 @@ return {
       })
       --]]
 
-      local ok, ts_builtin = pcall(require, 'telescope.builtin')
-      if ok then
+      local has_telescope, ts_builtin = pcall(require, 'telescope.builtin')
+      if has_telescope then
         local function scoped_find_files()
-          ts_builtin.find_files({
+          ts_builtin.find_files {
             search_dirs = scopes.get_current_scope() and scopes.get_current_paths() or {},
-          })
+          }
         end
         local function scoped_grep_string()
-          ts_builtin.grep_string({
+          ts_builtin.grep_string {
             search_dirs = scopes.get_current_scope() and scopes.get_current_paths() or {},
-          })
+          }
         end
         local function scoped_live_grep()
-          ts_builtin.live_grep({
+          local has_live_grep_args, _ = pcall(require('telescope').load_extension, 'live-grep-args')
+          local live_grep = has_live_grep_args and require('telescope').extensions.live_grep_args.live_grep_args or ts_builtin.live_grep
+          live_grep {
             search_dirs = scopes.get_current_scope() and scopes.get_current_paths() or {},
-          })
+          }
         end
         vim.keymap.set('n', '<leader>sf', scoped_find_files, { desc = '[S]earch [F]iles (scoped)' })
-        vim.keymap.set('n', '<leader>sw', scoped_grep_string, { desc = '[S]earch by live [G]rep (scoped)' })
+        vim.keymap.set('n', '<leader>sw', scoped_grep_string, { desc = '[S]earch current [W]ord (scoped)' })
         vim.keymap.set('n', '<leader>sg', scoped_live_grep, { desc = '[S]earch by live [G]rep (scoped)' })
         vim.keymap.set('n', '<leader>ss', scopes.select, { desc = '[S]earch select [S]cope' })
       end

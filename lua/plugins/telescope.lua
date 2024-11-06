@@ -26,6 +26,14 @@ return {
 
       'nvim-tree/nvim-web-devicons',
       'folke/trouble.nvim',
+
+      -- https://github.com/nvim-telescope/telescope-live-grep-args.nvim
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        -- This will not install any breaking changes.
+        -- For major updates, this must be adjusted manually.
+        version = "^1.0.0",
+      },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -47,6 +55,17 @@ return {
       -- Telescope picker. This is really useful to discover what Telescope can
       -- do as well as how to actually do it!
 
+      local _, src_trouble = pcall(require, 'trouble.sources.telescope')
+      local function open_in_trouble(args)
+        src_trouble.open(args)
+      end
+
+      local _, lga_actions = pcall(require, 'telescope-live-grep-args.actions')
+      local lga_quote_prompt = lga_actions and lga_actions.quote_prompt()
+      local function quote_prompt(args)
+        lga_quote_prompt(args)
+      end
+
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
       local opts = {
@@ -56,11 +75,12 @@ return {
           mappings = {
             -- TODO: XXXJST These are not working!?
             i = {
-              ['<c-t>'] = require("trouble.sources.telescope").open,
-              -- ['<c-enter>'] = 'to_fuzzy_refine',
+              ['<c-t>'] = src_trouble and open_in_trouble,
+              ["<c-k>"] = lga_quote_prompt and quote_prompt,
             },
             n = {
-                ['<c-t>'] = require("trouble.sources.telescope").open,
+              ['<c-t>'] = src_trouble and open_in_trouble,
+              ["<c-k>"] = lga_quote_prompt and quote_prompt,
             },
           },
         },
@@ -81,19 +101,23 @@ return {
       end
 
       require('telescope').setup(opts)
+      local telescope = require('telescope')
 
       -- Enable Telescope extensions if they are installed
-      pcall(require('telescope').load_extension, 'fzf')
-      pcall(require('telescope').load_extension, 'ui-select')
+      pcall(telescope.load_extension, 'fzf')
+      pcall(telescope.load_extension, 'ui-select')
+      local has_live_grep_args, _ = pcall(telescope.load_extension, 'live-grep-args')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
+      local live_grep = has_live_grep_args and require('telescope').extensions.live_grep_args.live_grep_args or builtin.live_grep
+
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>st', builtin.builtin, { desc = '[S]earch select [T]elescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by live [G]rep' })
+      vim.keymap.set('n', '<leader>sg', live_grep, { desc = '[S]earch by live [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[S]earch [B]uffers' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
@@ -112,7 +136,7 @@ return {
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
       vim.keymap.set('n', '<leader>s/', function()
-        builtin.live_grep {
+        live_grep {
           grep_open_files = true,
           prompt_title = 'Live Grep in Open Files',
         }
