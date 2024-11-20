@@ -142,12 +142,10 @@ python -m pip install --upgrade pip
 python -m pip install pynvim
 ```
 
-To tell Neovim to use this virtual environment, add this near the top of your `init.lua`:
-
-```lua
-  vim.g.python3_host_prog = vim.env.HOME .. "/.pyenv/versions/neovim/bin/python"
-```
-
+To tell Neovim to use this virtual environment, the Vim `python3_host_prog`
+global variable must be set. In `init.lua` there's this is already done if
+the default virtual environment is found but you can point it elsewhere if you
+like.
 
 ## Extra Tools
 

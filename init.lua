@@ -254,11 +254,23 @@ if vim.g.colors_name == 'onedarker' then
   vim.api.nvim_set_hl(0, 'NonText', { fg = c.dark_gray, bg = 'NONE', italic = true })
 end
 
+require('config.utils')
+
+vim.keymap.set({'n', 'v'}, '<leader>gq', function()
+  vim.lsp.buf.format({ async = true })
+end, { desc = 'Format using LSP' })
+
 -- JSON: Disable default syntax highlighting concealment
 -- vim.g.vim_json_conceal = 0
 
 -- Default is 'nc' which makes it hard to predict moves required to edit the current line or search matching patterns.
 -- Conceiling only in visual mode makes it more consistent, IMO.
 vim.opt.concealcursor = 'v'
+
+function LjamUT()
+  vim.cmd([[
+    terminal env DISABLE_SCH_YANG_CHECK_UPDATE=1 ljam -sL2VPN_UT=1
+  ]])
+end
 
 -- vim: sw=2 et
