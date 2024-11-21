@@ -158,28 +158,38 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 
 ## Various toggles (toggle-lsp-diagnostics, nvim-lspconfig, etc)
 
-| Mode | Mapping        | Description                                                                            |                                                                                |
-| ---- | -------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| n    | `<Leader>tlu`  | \[T]oggle \[L]sp diagnostics \[U]nderline                                              |                                                                                |
-| n    | `<Leader>tls`  | \[T]oggle \[L]sp diagnostics \[S]igns                                                  |                                                                                |
-| n    | `<Leader>tlv`  | \[T]oggle \[L]sp diagnostics \[V]irtual text                                           |                                                                                |
-| n    | `<Leader>tlp`  | \[T]oggle \[L]sp diagnostics information u\[P]date while in insert mode                |                                                                                |
-| n    | `<Leader>tld`  | \[T]oggle \[L]sp diagnostics                                                           |                                                                                |
-| n    | `<Leader>tldd` | \[T]oggle \[L]sp diagnostics back to \[D]efaults (on, except overrides passed on init) |                                                                                |
-| n    | `<Leader>tldo` | \[T]oggle \[L]sp diagnostics \[O]n                                                     |                                                                                |
-| n    | `<Leader>tldf` | \[T]oggle \[L]sp diagnostics o\[F]f                                                    |                                                                                |
-| n    | `<Leader>tlh`  | \[T]oggle \[L]sp inlay \[H]ints                                                        | Few LSPs support inlay hints: `lua_ls`, `pylyzer`, `slangd`, `clangd` (>=15.0) |
-| n    | `<Leader>tb`   | \[T]oggle current line \[B]lame                                                        |                                                                                |
-| n    | `<Leader>tc`   | \[T]oggle \[C]overage signs                                                            |                                                                                |
-| n    | `<Leader>td`   | \[T]oggle \[D]eleted hunks                                                             |                                                                                |
-| n    | `<Leader>tp`   | \[T]oggle \[P]aste mode                                                                |                                                                                |
-| n    | `<Leader>tw`   | \[T]oggle \[W]rap mode                                                                 |                                                                                |
-| n    | `<Leader>ta`   | \[T]oggle \[A]NSI escape codes                                                         |                                                                                |
-| n    | `<Leader>ti`   | \[T]oggle \[I]indent highlighting                                                      |                                                                                |
-| n    | `<Leader>ts`   | \[T]oggle \[S]ign column                                                               |                                                                                |
-| n    | `<Leader>tv`   | \[T]oggle \[V]irtual edit                                                              |                                                                                |
-| n    | `<Leader>to`   | \[T]oggle \[O]utline                                                                   |                                                                                |
-| n    | `<Leader>tm`   | \[T]oggle \[M]arkview (markdown files)                                                 |                                                                                |
+| Mode | Mapping           | Description                                                                               |                                                                                |
+| ---- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| n    | `<Leader>ta`      | \[T]oggle \[A]NSI escape codes                                                            |                                                                                |
+| n    | `<Leader>td<cr>`  | \[T]oggle \[D]iff mode                                                                    |                                                                                |
+| n    | `<Leader>tdb`     | \[T]oggle \[D]iff ignore \[B]lank lines                                                   |                                                                                |
+| n    | `<Leader>tdc`     | \[T]oggle \[D]iff ignore \[C]ase of text                                                  |                                                                                |
+| n    | `<Leader>tdw`     | \[T]oggle \[D]iff ignore \[W]hite spaces                                                  |                                                                                |
+| n    | `<Leader>tgb`     | \[T]oggle \[G]it current line \[B]lame                                                    |                                                                                |
+| n    | `<Leader>tgd`     | \[T]oggle \[G]it \[D]eleted hunks                                                         |                                                                                |
+| n    | `<Leader>ti`      | \[T]oggle \[I]indent highlighting                                                         |                                                                                |
+| n    | `<Leader>tld<cr>` | \[T]oggle \[L]SP \[D]iagnostics                                                           |                                                                                |
+| n    | `<Leader>tldd`    | \[T]oggle \[L]SP \[D]iagnostics back to \[D]efaults (on, except overrides passed on init) |                                                                                |
+| n    | `<Leader>tldf`    | \[T]oggle \[L]SP \[D]iagnostics o\[F]f                                                    |                                                                                |
+| n    | `<Leader>tldo`    | \[T]oggle \[L]SP \[D]iagnostics \[O]n                                                     |                                                                                |
+| n    | `<Leader>tlh`     | \[T]oggle \[L]SP inlay \[H]ints                                                           | Few LSPs support inlay hints: `lua_ls`, `pylyzer`, `slangd`, `clangd` (>=15.0) |
+| n    | `<Leader>tlp`     | \[T]oggle \[L]SP diagnostics information u\[P]date while in insert mode                   |                                                                                |
+| n    | `<Leader>tls`     | \[T]oggle \[L]SP diagnostics \[S]igns                                                     |                                                                                |
+| n    | `<Leader>tlu`     | \[T]oggle \[L]SP diagnostics \[U]nderline                                                 |                                                                                |
+| n    | `<Leader>tlv`     | \[T]oggle \[L]SP diagnostics \[V]irtual text                                              |                                                                                |
+| n    | `<Leader>tm`      | \[T]oggle \[M]arkview (markdown files)                                                    |                                                                                |
+| n    | `<Leader>to`      | \[T]oggle \[O]utline                                                                      |                                                                                |
+| n    | `<Leader>tp`      | \[T]oggle \[P]aste mode                                                                   |                                                                                |
+| n    | `<Leader>ts<cr>`  | \[T]oggle \[S]ign column                                                                  |                                                                                |
+| n    | `<Leader>ts0`     | \[T]oggle \[S]ign column: 0 wide (no/off)                                                 |                                                                                |
+| n    | `<Leader>ts1`     | \[T]oggle \[S]ign column: 1 wide                                                          |                                                                                |
+| n    | `<Leader>ts2`     | \[T]oggle \[S]ign column: 2 wide                                                          |                                                                                |
+| n    | `<Leader>ts3`     | \[T]oggle \[S]ign column: 3 wide                                                          |                                                                                |
+| n    | `<Leader>tsc`     | \[T]oggle \[S]ign column \[C]overage info                                                 |                                                                                |
+| n    | `<Leader>tsg`     | \[T]oggle \[S]ign column \[G]it info                                                      |                                                                                |
+| n    | `<Leader>tsl`     | \[T]oggle \[S]ign column \[L]SP diagnostics                                               |                                                                                |
+| n    | `<Leader>tv`      | \[T]oggle \[V]irtual edit                                                                 |                                                                                |
+| n    | `<Leader>tw`      | \[T]oggle \[W]rap mode                                                                    |                                                                                |
 
 ## Cscope (cscope_maps)
 

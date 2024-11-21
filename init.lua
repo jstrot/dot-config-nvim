@@ -163,33 +163,52 @@ vim.keymap.set('n', '[q', ':cprev<CR>zv', { noremap = true, silent = true, desc 
 vim.keymap.set('n', ']q', ':cnext<CR>zv', { noremap = true, silent = true, desc = 'Go to next [Q]uickfix position' })
 vim.keymap.set('n', '<f4>', ':cnext<CR>zv', { noremap = true, silent = true, desc = 'Go to next [Q]uickfix position' })
 
--- Toggle 'paste' mode using `<leader>tp`
-function TogglePaste()
-  vim.o.paste = not vim.o.paste
-  print('Toggle paste: ' .. vim.inspect(vim.o.paste))
+function ToggleBoolOpt(option)
+  vim.o[option] = not vim.o[option]
+  print('Toggle ' .. option .. ': ' .. vim.inspect(vim.o[option]))
 end
-vim.keymap.set('n', '<leader>tp', ':lua TogglePaste()<CR>', { desc = '[T]oggle [P]aste mode' })
-
--- Toggle 'wrap' mode using `<leader>tw`
-function ToggleWrap()
-  vim.o.wrap = not vim.o.wrap
-  print('Toggle wrap: ' .. vim.inspect(vim.o.wrap))
-end
-vim.keymap.set('n', '<leader>tw', ':lua ToggleWrap()<CR>', { desc = '[T]oggle [W]rap mode' })
-
--- Toggle 'signcolumn' mode using `<leader>ts`
-function ToggleSignColumn()
-  local win_id = vim.api.nvim_get_current_win()
-  if vim.wo.signcolumn == 'no' then
-    local ok, saved_signcolumn = pcall(vim.api.nvim_win_get_var, win_id, "saved_signcolumn")
-    vim.wo.signcolumn = (ok and saved_signcolumn) or 'yes'
+function ToggleSubOpt(option, subopt)
+  if string.find(vim.o[option], subopt) then
+    vim.opt[option]:remove(subopt)
   else
-    vim.api.nvim_win_set_var(win_id, "saved_signcolumn", vim.wo.signcolumn)
-    vim.wo.signcolumn = 'no'
+    vim.opt[option]:append(subopt)
+  end
+  print('Toggle ' .. option .. ' ' .. subopt .. ': ' .. vim.o[option])
+end
+
+vim.keymap.set('n', '<leader>tp', function () ToggleBoolOpt('paste') end, { desc = '[T]oggle [P]aste mode' })
+vim.keymap.set('n', '<leader>tw', function () ToggleBoolOpt('wrap') end, { desc = '[T]oggle [W]rap mode' })
+
+-- Toggle 'signcolumn' mode using `<leader>ts...`
+function ToggleSignColumn(width)
+  local win_id = vim.api.nvim_get_current_win()
+  if width then
+    if width == 0 then
+      if vim.wo.signcolumn ~= 'no' then
+        vim.api.nvim_win_set_var(win_id, "saved_signcolumn", vim.wo.signcolumn)
+        vim.wo.signcolumn = 'no'
+      end
+    elseif width == 1 then
+      vim.wo.signcolumn = 'yes'
+    else
+      vim.wo.signcolumn = 'yes:' .. tostring(width)
+    end
+  else
+    if vim.wo.signcolumn == 'no' then
+      local ok, saved_signcolumn = pcall(vim.api.nvim_win_get_var, win_id, "saved_signcolumn")
+      vim.wo.signcolumn = (ok and saved_signcolumn) or 'yes'
+    else
+      vim.api.nvim_win_set_var(win_id, "saved_signcolumn", vim.wo.signcolumn)
+      vim.wo.signcolumn = 'no'
+    end
   end
   print('Toggle signcolumn: ' .. vim.inspect(vim.wo.signcolumn))
 end
-vim.keymap.set('n', '<leader>ts', ':lua ToggleSignColumn()<CR>', { desc = '[T]oggle [S]ign column' })
+vim.keymap.set('n', '<leader>ts<cr>', ToggleSignColumn, { desc = '[T]oggle [S]ign column' })
+vim.keymap.set('n', '<leader>ts0', function () ToggleSignColumn(0) end, { desc = '[T]oggle [S]ign column: [0] wide (no/off)' })
+vim.keymap.set('n', '<leader>ts1', function () ToggleSignColumn(1) end, { desc = '[T]oggle [S]ign column: [1] wide' })
+vim.keymap.set('n', '<leader>ts2', function () ToggleSignColumn(2) end, { desc = '[T]oggle [S]ign column: [2] wide' })
+vim.keymap.set('n', '<leader>ts3', function () ToggleSignColumn(3) end, { desc = '[T]oggle [S]ign column: [3] wide' })
 
 -- Toggle 'virtualedit' mode using `<leader>tv`
 function ToggleVirtualEdit()
@@ -212,7 +231,13 @@ function ToggleVirtualEdit()
   end
   print('Toggle virtualedit: ' .. vim.inspect(vim.wo.virtualedit))
 end
-vim.keymap.set('n', '<leader>tv', ':lua ToggleVirtualEdit()<CR>', { desc = '[T]oggle [V]irtual edit' })
+vim.keymap.set('n', '<leader>tv', ToggleVirtualEdit, { desc = '[T]oggle [V]irtual edit' })
+
+-- Toggle diff-related options using `<leader>td...`
+vim.keymap.set('n', '<leader>td<cr>', function () ToggleBoolOpt('diff') end,             { desc = '[T]oggle [D]iff mode' })
+vim.keymap.set('n', '<leader>tdb',    function () ToggleSubOpt('diffopt', 'iblank') end, { desc = '[T]oggle [D]iff ignore [B]lank lines' })
+vim.keymap.set('n', '<leader>tdc',    function () ToggleSubOpt('diffopt', 'icase') end,  { desc = '[T]oggle [D]iff ignore [C]ase of text' })
+vim.keymap.set('n', '<leader>tdw',    function () ToggleSubOpt('diffopt', 'iwhite') end, { desc = '[T]oggle [D]iff ignore [W]hite spaces' })
 
 -- Visual searching
 vim.opt.incsearch = true

@@ -145,7 +145,7 @@ return {
             -- toggle-lsp-diagnostics.nvim.
             map('<leader>tlh', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-            end, '[T]oggle [L]sp diagnostics inlay [H]ints')
+            end, '[T]oggle [L]SP diagnostics inlay [H]ints')
           end
 
           local name = client and client.name

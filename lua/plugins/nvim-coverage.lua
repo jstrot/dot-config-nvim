@@ -34,7 +34,7 @@ return {
 
     config = function(_, opts)
       require('coverage').setup(opts)
-      vim.keymap.set('n', '<leader>tc', ToggleCoverage, { desc = '[T]oggle [C]overage signs' })
+      vim.keymap.set('n', '<leader>tsc', ToggleCoverage, { desc = '[T]oggle [S]ign column [C]overage info' })
     end,
   },
 }
