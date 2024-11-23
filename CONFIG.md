@@ -190,3 +190,21 @@ ln -s ~/.local/share/nvim/mason/packages/ruff/venv/bin/ruff
 # or
 ln -s ~/.pyenv/versions/neovim/bin/ruff
 ```
+
+## Images support
+
+### Kitty
+
+Kitty is great terminal emulator with many features. One of those features is the "Kitty Graphics Protocol" to allow displaying images in your "text" terminal.
+
+Some other terminal applications like Konsole, wayst and WezTerm also off some support for the Kitty Graphics Protocol but Kitty is the recommended one.
+
+### Tmux
+
+See the included tmux.con file. Amongst other things, it enable "allow-passthrough" so terminal protocol extensions, like the "Kitty Graphics Protocol" can be used.
+
+The following can be added to your ~/.tmux.conf or ~/.config/tmux/config:
+
+```
+source ~/.config/nvim/tmux.conf
+```
