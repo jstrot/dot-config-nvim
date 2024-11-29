@@ -82,17 +82,13 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 ## More Nativation
 
 | Mode | Mapping     | Description                                       |
-| ---- |------------ |-------------------------------------------------- |
-| n    | `]d`        | Goto next \[D]iagnostic                           |
-| n    | `[d`        | Goto previous \[D]iagnostic                       |
-| n    | `]q`        | Display the next \[Q]uickfix position (`:cn`)     |
-| n    | `[q`        | Display the previous \[Q]uickfix position (`:cp`) |
-| n    | `]c`        | Goto next \[C]hanged hunk                         |
-| n    | `[c`        | Goto previous \[C]hanged hunk                     |
-| n    | `]t`        | Goto next \[T]odo comment                         |
-| n    | `[t`        | Goto previous \[T]odo comment                     |
-| n    | `]s`        | Goto next mis\[S]pelled word                      |
-| n    | `[s`        | Goto previous mis\[S]pelled word                  |
+| ---- | ----------- |-------------------------------------------------- |
+| n    | `]d` / `[d` | Goto next/previous \[D]iagnostic                  |
+| n    | `]e` / `[e` | Goto next/previous diagnostic \[E]rror            |
+| n    | `]q` / `[q` | Goto next/previous \[Q]uickfix position (`:cn`)   |
+| n    | `]c` / `[c` | Goto next/previous \[C]hanged hunk                |
+| n    | `]t` / `[t` | Goto next/previous \[T]odo comment                |
+| n    | `]s` / `[s` | Goto next/previous mis\[S]pelled word             |
 | n    | `'"`        | Goto last exited position in current buffer       |
 | n    | `'.`        | Goto last modified position in current buffer     |
 | n    | `<C-o>`     | Goto previous position in jump list               |
