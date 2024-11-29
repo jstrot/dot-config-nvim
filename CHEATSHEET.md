@@ -119,10 +119,10 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 
 ## AI (GitHub Copilot)
 
-| Mode | Mapping       | Description                                       |
-| ---- | ------------- | ------------------------------------------------- |
-| n, v | `<Leader>cc`  | Run \[C]opilot \[C]hat                            |
-| n, v | `<Leader>ccf` | Run \[C]opilot \[C]hat \[F]ix                     |
+| Mode | Mapping          | Description                                       |
+| ---- | ---------------- | ------------------------------------------------- |
+| n, v | `<Leader>cc<cr>` | Run \[C]opilot \[C]hat                            |
+| n, v | `<Leader>ccf`    | Run \[C]opilot \[C]hat \[F]ix                     |
 
 ## Language Server Protocol (LSP)
 

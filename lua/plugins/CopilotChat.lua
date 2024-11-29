@@ -53,8 +53,8 @@ return {
       -- },
     },
     keys = {
-      { "<leader>cc",     "<cmd>CopilotChat<cr>",         mode = "n", desc = "Run [C]opilot [C]hat" },
-      { "<leader>cc",     "<cmd>'<,'>CopilotChat<cr>",    mode = "v", desc = "Run [C]opilot [C]hat" },
+      { "<leader>cc<cr>", "<cmd>CopilotChat<cr>",         mode = "n", desc = "Run [C]opilot [C]hat" },
+      { "<leader>cc<cr>", "<cmd>'<,'>CopilotChat<cr>",    mode = "v", desc = "Run [C]opilot [C]hat" },
       { "<leader>ccf",    "<cmd>CopilotChatFix<cr>",      mode = "n", desc = "Run [C]opilot [C]hat [F]ix" },
       { "<leader>ccf",    "<cmd>'<,'>CopilotChatFix<cr>", mode = "v", desc = "Run [C]opilot [C]hat [F]ix" },
     },
