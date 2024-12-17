@@ -185,6 +185,9 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tsc`     | \[T]oggle \[S]ign column \[C]overage info                                                 |                                                                                |
 | n    | `<Leader>tsg`     | \[T]oggle \[S]ign column \[G]it info                                                      |                                                                                |
 | n    | `<Leader>tsl`     | \[T]oggle \[S]ign column \[L]SP diagnostics                                               |                                                                                |
+| n    | `<Leader>tt<cr>`  | \[T]oggle \[T]reesitter                                                                   |                                                                                |
+| n    | `<Leader>ttb`     | \[T]oggle \[T]reesitter in \[B]uffer                                                      |                                                                                |
+| n    | `<Leader>ttc`     | \[T]oggle \[T]reesitter \[C]ontext                                                        |                                                                                |
 | n    | `<Leader>tv`      | \[T]oggle \[V]irtual edit                                                                 |                                                                                |
 | n    | `<Leader>tw`      | \[T]oggle \[W]rap mode                                                                    |                                                                                |
 
