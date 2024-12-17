@@ -4,6 +4,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    event = 'VeryLazy',
     opts = {
       -- A list of parser names, or "all". See `TSInstallInfo` for available parsers.
       ensure_installed = {

@@ -2,6 +2,11 @@
 return {
   {
     "goodell/vim-mscgen",
+    ft = {
+      'mscgen',
+      'msgenny',
+      'xu',
+    },
   }
 }
 

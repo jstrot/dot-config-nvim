@@ -2,13 +2,23 @@
 return {
   {
     "hedyhli/outline.nvim",
+    event = 'VeryLazy',
     opts = {
     },
-    config = function(_, opts)
-      require("outline").setup(opts)
-
-      vim.keymap.set("n", "<leader>to", "<cmd>Outline<CR>", { desc = "[T]oggle [O]utline" })
-    end,
+    cmd = {
+      'Outline',
+      'OutlineClose',
+      'OutlineFocus',
+      'OutlineFocusCode',
+      'OutlineFocusOutline',
+      'OutlineFollow',
+      'OutlineOpen',
+      'OutlineRefresh',
+      'OutlineStatus',
+    },
+    keys = {
+      { "<leader>to", "<cmd>Outline<CR>", desc = "[T]oggle [O]utline" },
+    },
   },
 }
 

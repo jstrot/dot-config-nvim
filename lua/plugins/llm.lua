@@ -2,6 +2,7 @@
 return {
   'huggingface/llm.nvim',
   enabled = false,  -- TODO: XXXJST Finish local AI setup
+  event = 'VeryLazy',
   config = function()
     require('llm').setup({
       backend = 'ollama',

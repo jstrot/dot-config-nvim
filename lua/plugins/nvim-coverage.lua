@@ -16,6 +16,8 @@ return {
     -- https://github.com/andythigpen/nvim-coverage/pull/44
     'https://github.com/strottie/nvim-coverage', branch = 'strottie-cpp-cobertura',
 
+    event = 'VeryLazy',
+
     dependencies = {
       'nvim-lua/plenary.nvim',
     },

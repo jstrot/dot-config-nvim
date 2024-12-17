@@ -2,6 +2,7 @@
 return {
   {
     enabled = false,  -- NOTE: using cmp for now
+    event = 'InsertEnter',
     "neoclide/coc.nvim",
     branch = "release",
   }

@@ -3,6 +3,7 @@ return {
   {
     "David-Kunz/gen.nvim",
     enabled = false,  -- TODO: XXXJST Finish local AI setup
+    event = 'VeryLazy',
     opts = {
       -- model = "mistral", -- The default model to use.
       model = "codestral", -- The default model to use.

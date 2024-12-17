@@ -4,6 +4,7 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     lazy = not default_enabled,
+    event = default_enabled and 'VeryLazy' or nil,
     main = "ibl",
     opts = {
       enabled = default_enabled,

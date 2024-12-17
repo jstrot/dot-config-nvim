@@ -2,7 +2,8 @@
 return {
   {
     'equalsraf/neovim-gui-shim',
-    enabled = vim.fn.has('gui_running') == 1,
+    enabled = true,
+    lazy = vim.fn.has('gui_running') == 0,
   }
 }
 

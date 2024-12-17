@@ -3,12 +3,12 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
+    event = 'VeryLazy',
     dependencies = {
       -- { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
       { "github/copilot.vim" },
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     },
-    lazy = false,
     opts = {
       -- debug = true, -- Enable debugging
       -- See Configuration section for rest

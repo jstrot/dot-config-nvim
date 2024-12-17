@@ -4,6 +4,11 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
+  ft = {
+    "markdown",
+    "quarto",
+    "rmd",
+  },
   opts = {
     code_blocks = {
       icons = "devicons",

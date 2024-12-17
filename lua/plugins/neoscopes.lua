@@ -2,6 +2,7 @@
 return {
   {
     'smartpde/neoscopes',
+    event = 'VeryLazy',
     dependencies = {
       'nvim-telescope/telescope.nvim' -- Optionally, install telescope for nicer scope selection UI.
     },

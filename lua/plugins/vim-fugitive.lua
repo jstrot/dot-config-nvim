@@ -2,6 +2,7 @@
 return {
   {
     "tpope/vim-fugitive",
+    event = 'VeryLazy',
     config = function()
       -- require('fugitive')  -- Auto-loading
 

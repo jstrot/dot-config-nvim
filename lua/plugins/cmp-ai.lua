@@ -3,6 +3,7 @@ return {
   {
     'tzachar/cmp-ai',
     enabled = false,  -- TODO: XXXJST Finish local AI setup
+    event = 'VeryLazy',
     dependencies = {
       'nvim-lua/plenary.nvim',
     },

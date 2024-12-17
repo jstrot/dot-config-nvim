@@ -1,8 +1,10 @@
 -- https://github.com/Faywyn/llama-copilot.nvim
 return {
   {
+    -- Use `:LlamaCopilotComplete` and `:LlamaCopilotAccept`
     "Faywyn/llama-copilot.nvim",
     enabled = false,  -- TODO: XXXJST Finish local AI setup
+    event = 'VeryLazy',
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

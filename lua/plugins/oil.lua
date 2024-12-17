@@ -2,6 +2,7 @@
 return {
   {
     'stevearc/oil.nvim',
+    -- event = 'VeryLazy',  lazy-loading would break `nvim .`
     dependencies = {
       -- 'echasnovski/mini.icons',
       'nvim-tree/nvim-web-devicons',

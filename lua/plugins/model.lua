@@ -2,6 +2,7 @@
 return {
   'gsuuon/model.nvim',
   enabled = false,  -- TODO: XXXJST Finish local AI setup
+  event = 'VeryLazy',
 
   -- Don't need these if lazy = false
   cmd = { 'M', 'Model', 'Mchat' },

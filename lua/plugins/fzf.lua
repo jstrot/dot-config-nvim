@@ -3,6 +3,7 @@ return {
   {
     "ibhagwan/fzf-lua",
     enabled = false,  -- NOTE: For now, use telescope
+    event = 'VeryLazy',
     branch = "main",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     init = function()

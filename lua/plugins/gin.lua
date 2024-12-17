@@ -3,6 +3,7 @@ return {
   {
     'lambdalisue/gin.vim',
     enabled = false,  -- TODO: XXXJST Not enabling due to Deno dependency
+    event = 'VeryLazy',
     dependencies = { 'vim-denops/denops.vim' },
   }
 }

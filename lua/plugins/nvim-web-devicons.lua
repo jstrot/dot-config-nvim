@@ -2,6 +2,7 @@
 return {
   {
     'nvim-tree/nvim-web-devicons',
+    event = 'VeryLazy',
     enabled = vim.g.have_nerd_font,
   }
 }

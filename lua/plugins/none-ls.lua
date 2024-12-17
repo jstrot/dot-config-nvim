@@ -4,6 +4,7 @@ return {
   {
     "nvimtools/none-ls.nvim",
     -- debug = true,
+    event = 'VeryLazy',
     branch = "main",
     dependencies = {
       "nvim-lua/plenary.nvim",
