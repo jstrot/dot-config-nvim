@@ -34,6 +34,11 @@ return {
         -- For major updates, this must be adjusted manually.
         version = "^1.0.0",
       },
+
+      -- https://github.com/nvim-telescope/telescope-media-files.nvim
+      {
+        'nvim-telescope/telescope-media-files.nvim',
+      }
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -89,6 +94,27 @@ return {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
+          ['media_files'] = {
+            filetypes = {
+              -- images: Requires https://hpjansson.org/chafa/
+              'jpg', 'jpeg',
+              'png',
+              'tiff',
+              'webp',
+              -- movies: Requires https://github.com/dirkvdb/ffmpegthumbnailer
+              'mkv', 'webm',
+              'mov', 'mp4',
+              -- fonts: Requires https://github.com/sdushantha/fontpreview
+              'otf',
+              'ttf',
+              'woff',
+              -- other
+              'svg', -- Requires https://imagemagick.org/index.php
+              'epub', -- Requires https://github.com/marianosimone/epub-thumbnailer
+              'pdf', -- Requires https://linux.die.net/man/1/pdftoppm
+            },
+            find_cmd = vim.fn.executable('fd') == 1 and 'fd' or 'rg',
+          },
         },
       }
 
@@ -104,13 +130,15 @@ return {
       local telescope = require('telescope')
 
       -- Enable Telescope extensions if they are installed
+      local extensions = require('telescope').extensions
       pcall(telescope.load_extension, 'fzf')
       pcall(telescope.load_extension, 'ui-select')
+      local has_media_files, _ = pcall(telescope.load_extension, 'media_files')
       local has_live_grep_args, _ = pcall(telescope.load_extension, 'live-grep-args')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      local live_grep = has_live_grep_args and require('telescope').extensions.live_grep_args.live_grep_args or builtin.live_grep
+      local live_grep = has_live_grep_args and extensions.live_grep_args.live_grep_args or builtin.live_grep
 
       vim.keymap.set('n', '<leader>sh', builtin.help_tags,     { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps,       { desc = '[S]earch [K]eymaps' })
@@ -123,6 +151,10 @@ return {
       vim.keymap.set('n', '<leader>sr', builtin.resume,        { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles,      { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+
+      if has_media_files then
+        vim.keymap.set('n', '<leader>sm', extensions.media_files.media_files, { desc = '[S]earch [M]edia files' })
+      end
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
