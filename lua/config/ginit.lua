@@ -27,6 +27,7 @@ end
 
 -- Ctrl-+ (Ctrl-Shift-=) copies to the X11 CLIPBOARD
 vim.keymap.set({'v'}, '<C-+>',           '"+y',    { desc = 'Copy: Copy the selection to the clipboard[+]' })
+vim.keymap.set({'v'}, '<S-C-c>',         '"+y',    { desc = 'Copy: Copy the selection to the clipboard[+]' })
 
 -- Shift-Insert and Shift-Ctrl-V paste the X11 CLIPBOARD
 vim.keymap.set({'i', 'c'}, '<S-Insert>', '<C-R>+', { desc = 'Paste: Insert the content of the clipboard(+)' })
