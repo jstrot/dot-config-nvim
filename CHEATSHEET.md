@@ -188,6 +188,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tt<cr>`  | \[T]oggle \[T]reesitter                                                                   |                                                                                |
 | n    | `<Leader>ttb`     | \[T]oggle \[T]reesitter in \[B]uffer                                                      |                                                                                |
 | n    | `<Leader>ttc`     | \[T]oggle \[T]reesitter \[C]ontext                                                        |                                                                                |
+| n    | `<Leader>tsn`     | \[T]oggle \[S]ign column line \[N]umber                                                   |                                                                                |
 | n    | `<Leader>tv`      | \[T]oggle \[V]irtual edit                                                                 |                                                                                |
 | n    | `<Leader>tw`      | \[T]oggle \[W]rap mode                                                                    |                                                                                |
 

@@ -211,6 +211,7 @@ vim.keymap.set('n', '<leader>ts0', function () ToggleSignColumn(0) end, { desc =
 vim.keymap.set('n', '<leader>ts1', function () ToggleSignColumn(1) end, { desc = '[T]oggle [S]ign column: [1] wide' })
 vim.keymap.set('n', '<leader>ts2', function () ToggleSignColumn(2) end, { desc = '[T]oggle [S]ign column: [2] wide' })
 vim.keymap.set('n', '<leader>ts3', function () ToggleSignColumn(3) end, { desc = '[T]oggle [S]ign column: [3] wide' })
+vim.keymap.set('n', '<leader>tsn', function () ToggleBoolOpt('number') end, { desc = '[T]oggle [S]ign column line [N]umber' })
 
 -- Toggle 'virtualedit' mode using `<leader>tv`
 function ToggleVirtualEdit()
