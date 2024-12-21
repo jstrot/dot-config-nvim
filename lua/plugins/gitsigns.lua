@@ -31,24 +31,28 @@ return {
         end)
 
         -- Actions
-        map('n', '<leader>hs', gitsigns.stage_hunk, { desc = '[H]unk [S]tage' })
-        map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = '[H]unk [S]tage' })
-        map('n', '<leader>hr', gitsigns.reset_hunk, { desc = '[H]unk [R]eset' })
-        map('v', '<leader>hr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = '[H]unk [R]eset' })
-        map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = '[H]unk stage [U]ndo' })
-        map('n', '<leader>hS', gitsigns.stage_buffer, { desc = '[S]tage buffer' })
-        map('n', '<leader>hR', gitsigns.reset_buffer, { desc = '[R]eset buffer' })
-        map('n', '<leader>hp', gitsigns.preview_hunk, { desc = '[H]unk [P]review' })
-        map('n', '<leader>hb', function() gitsigns.blame_line{full=true} end, { desc = '[H]unk [B]lame' })
-        map('n', '<leader>hd', gitsigns.diffthis, { desc = 'Perform vim[D]iff' })
-        map('n', '<leader>hD', function() gitsigns.diffthis('~') end, { desc = 'Perform vim[D]iff last commit' })
+        map('n', '<leader>gs', gitsigns.stage_hunk, { desc = '[G]it [S]tage hunk' })
+        map('v', '<leader>gs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = '[G]it [S]tage hunk' })
+        map('n', '<leader>gr', gitsigns.reset_hunk, { desc = '[G]it [R]eset hunk' })
+        map('v', '<leader>gr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = '[G]it [R]eset hunk' })
+        map('n', '<leader>gu', gitsigns.undo_stage_hunk, { desc = '[G]it [U]ndo stage hunk' })
+        map('n', '<leader>gp', gitsigns.preview_hunk, { desc = '[G]it [P]review hunk' })
+        map('n', '<leader>gb', function() gitsigns.blame_line{full=true} end, { desc = '[G]it [B]lame line' })
+        -- Prefer vim-fugitive bindings, if available
+        if vim.g.autoloaded_fugitive == nil then
+          map('n', '<leader>gS', gitsigns.stage_buffer, { desc = '[G]it [S]tage buffer' })
+          map('n', '<leader>gR', gitsigns.reset_buffer, { desc = '[G]it [R]eset buffer' })
+          map('n', '<leader>gd', gitsigns.diffthis, { desc = '[G]it vim[D]iff file against the index (or current base)' })
+          map('n', '<leader>gD', function() gitsigns.diffthis('~') end, { desc = '[G]it vim[D]iff file against the last commit' })
+        end
 
+        -- Toggles
         map('n', '<leader>tgb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle [G]it current line [B]lame' })
         map('n', '<leader>tgd', gitsigns.toggle_deleted,            { desc = '[T]oggle [G]it [D]eleted hunks' })
         map('n', '<leader>tsg', gitsigns.toggle_signs,              { desc = '[T]oggle [S]ign column [G]it info' })
 
         -- Text object
-        map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'Select [H]unk' })
+        map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'Select [I]nside [H]unk' })
       end
     },
   }

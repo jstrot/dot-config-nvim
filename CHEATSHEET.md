@@ -212,22 +212,24 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 
 ## Git (fugitive, gitsigns)
 
-| Mode | Mapping      | Description                                    |
-| ---- | ------------ | ---------------------------------------------- |
-| n    | `]c`         | Goto next \[C]hanged hunk                      |
-| n    | `[c`         | Goto previous \[C]hanged hunk                  |
-| n, v | `<Leader>hs` | \[H]unk \[S]tage                               |
-| n, v | `<Leader>hr` | \[H]unk \[R]eset                               |
-| n    | `<Leader>hu` | \[H]unk stage \[U]ndo                          |
-| n    | `<Leader>hS` | \[S]tage buffer                                |
-| n    | `<Leader>hR` | \[R]eset buffer                                |
-| n    | `<Leader>hp` | \[H]unk \[P]review                             |
-| n    | `<Leader>hb` | \[H]unk \[B]lame                               |
-| n    | `<Leader>hd` | Perform vim\[D]iff                             |
-| n    | `<Leader>hD` | Perform vim\[D]iff last commit                 |
-| o, x | `ih`         | Select hunk (after movement or in visual mode) |
-| n    | `<Leader>tb` | \[T]oggle current line \[B]lame                |
-| n    | `<Leader>td` | \[T]oggle \[D]eleted hunks                     |
+| Mode | Mapping       | Description                                                 |
+| ---- | ------------- | ----------------------------------------------------------- |
+| n    | `]c`          | Goto next \[C]hanged hunk                                   |
+| n    | `[c`          | Goto previous \[C]hanged hunk                               |
+| n, v | `<Leader>gs`  | \[G]it \[S]tage hunk                                        |
+| n, v | `<Leader>gr`  | \[G]it \[R]eset hunk                                        |
+| n    | `<Leader>gu`  | \[G]it \[U]ndo stage hunk                                   |
+| n    | `<Leader>gS`  | \[G]it \[S]tage buffer                                      |
+| n    | `<Leader>gR`  | \[G]it \[R]eset buffer                                      |
+| n    | `<Leader>gp`  | \[G]it \[P]review hunk                                      |
+| n    | `<Leader>gc`  | \[G]it \[C]ommit                                            |
+| n    | `<Leader>gb`  | \[G]it \[B]lame line                                        |
+| n    | `<Leader>gd`  | \[G]it vim\[D]iff file against the index                    |
+| n    | `<Leader>gD`  | \[G]it vim\[D]iff file against the last commit              |
+| o, x | `ih`          | Select \[I]nside \[H]unk (after movement or in visual mode) |
+| n    | `<Leader>tgb` | \[T]oggle \[G]it current line \[B]lame                      |
+| n    | `<Leader>tgd` | \[T]oggle \[G]it \[D]eleted hunks                           |
+| n    | `<Leader>tsg` | \[T]oggle \[S]ign column \[G]it info                        |
 
 ## Comments (numToStr/Comment)
 

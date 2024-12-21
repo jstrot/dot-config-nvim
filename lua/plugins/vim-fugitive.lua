@@ -14,6 +14,13 @@ return {
         vim.cmd [[ execute '.Gclog -L :' . expand('<cword>') . ':%' ]]
       end, { bang = true, bar = true, })
 
+      vim.keymap.set('n', '<leader>gd', '<cmd>Gvdiffsplit<CR>', { desc = '[G]it vim[D]iff file against the index' })
+      vim.keymap.set('n', '<leader>gD', '<cmd>Gvdiffsplit HEAD~1<CR>', { desc = '[G]it vim[D]iff file against the last commit' })
+
+      vim.keymap.set('n', '<leader>gc', '<cmd>Git commit<CR>', { desc = '[G]it [C]commit' })
+      vim.keymap.set('n', '<leader>gS', '<cmd>Git stage %<CR>', { desc = '[G]it [S]tage buffer' })
+      vim.keymap.set('n', '<leader>gR', '<cmd>Git reset %<CR>', { desc = '[G]it [R]eset buffer' })
+
     end
   }
 }
