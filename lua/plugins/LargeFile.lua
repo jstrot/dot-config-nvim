@@ -22,6 +22,17 @@ return {
           end
         end,
       })
+
+      function ToggleLargeFile()
+        if vim.b.LargeFile_mode == 1 then
+          vim.cmd [[ Unlarge ]]
+        else
+          vim.cmd [[ Large! % ]]
+        end
+      end
+
+      vim.keymap.set('n', '<leader>tL', ToggleLargeFile, { desc = '[T]oggle [L]arge file handling' })
+
     end
   },
 }

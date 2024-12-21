@@ -174,6 +174,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tls`     | \[T]oggle \[L]SP diagnostics \[S]igns                                                     |                                                                                |
 | n    | `<Leader>tlu`     | \[T]oggle \[L]SP diagnostics \[U]nderline                                                 |                                                                                |
 | n    | `<Leader>tlv`     | \[T]oggle \[L]SP diagnostics \[V]irtual text                                              |                                                                                |
+| n    | `<Leader>tL`      | \[T]oggle \[L]arge file handling                                                          |                                                                                |
 | n    | `<Leader>tm`      | \[T]oggle \[M]arkview (markdown files)                                                    |                                                                                |
 | n    | `<Leader>to`      | \[T]oggle \[O]utline                                                                      |                                                                                |
 | n    | `<Leader>tp`      | \[T]oggle \[P]aste mode                                                                   |                                                                                |
