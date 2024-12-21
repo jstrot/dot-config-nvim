@@ -21,11 +21,11 @@ return {
       'IBLToggleScope',
     },
     keys = {
-      { '<leader>ti', '<cmd>IBLToggle<CR>', desc = '[T]oggle [I]ndent highlighting' },
+      { '<leader>tih', '<cmd>IBLToggle<CR>', desc = '[T]oggle [I]ndent [H]ighlighting' },
     },
     config = function(_, opts)
       require('ibl').setup(opts);
-      vim.keymap.set('n', '<leader>ti', '<cmd>IBLToggle<CR>', { desc = '[T]oggle [I]ndent highlighting' })
+      vim.keymap.set('n', '<leader>tih', '<cmd>IBLToggle<CR>', { desc = '[T]oggle [I]ndent [H]ighlighting' })
     end
   }
 }
