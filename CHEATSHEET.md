@@ -246,6 +246,26 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | v    | `gc`<br>            | Toggles the region using linewise comment                          |
 | v    | `gb`                | Toggles the region using blockwise comment                         |
 
+## Text operations (mini.operators)
+
+See `:help mini.operators` for more details.
+
+For each operator the following mappings are created:
+
+- In Normal mode to operate on textobject. Uses `prefix` directly.
+- In Normal mode to operate on line. Appends to `prefix` the last character.
+  This aligns with |operator-doubled| and established patterns for operators
+  with more than two characters, like |guu|, |gUU|, etc.
+- In Visual mode to operate on visual selection. Uses `prefix` directly.
+
+| Mapping prefix  | Description                                                        |
+| --------------- | ------------------------------------------------------------------ |
+| `g=`            | Evaluate text and replace with output                              |
+| `gx`            | Exchange text regions                                              |
+| `gm`            | Multiply (duplicate) text                                          |
+| `gr`            | Replace text with register                                         |
+| `gs`            | Sort text                                                          |
+
 ## Folding (builtin)
 
 These are default keymaps but folding is provided by Treesitter so is much more accurate than Vim's old regex-based folding.
