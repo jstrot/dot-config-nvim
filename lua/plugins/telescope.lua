@@ -38,7 +38,10 @@ return {
       -- https://github.com/nvim-telescope/telescope-media-files.nvim
       {
         'nvim-telescope/telescope-media-files.nvim',
-      }
+      },
+
+      -- https://github.com/rcarriga/nvim-notify
+      "rcarriga/nvim-notify", -- See lua/plugins/vim-notify.lua
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -135,6 +138,7 @@ return {
       pcall(telescope.load_extension, 'ui-select')
       local has_media_files, _ = pcall(telescope.load_extension, 'media_files')
       local has_live_grep_args, _ = pcall(telescope.load_extension, 'live-grep-args')
+      local has_notify, _ = pcall(telescope.load_extension, 'notify')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -154,6 +158,10 @@ return {
 
       if has_media_files then
         vim.keymap.set('n', '<leader>sm', extensions.media_files.media_files, { desc = '[S]earch [M]edia files' })
+      end
+
+      if has_notify then
+        vim.keymap.set('n', '<leader>s!', extensions.notify.notify, { desc = '[S]earch notifications[!]' })
       end
 
       -- Slightly advanced example of overriding default behavior and theme
