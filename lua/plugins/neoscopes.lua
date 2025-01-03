@@ -2,7 +2,7 @@
 return {
   {
     'smartpde/neoscopes',
-    event = 'VeryLazy',
+    event = 'VimEnter',  -- Match Telescope's event to make sure any Telescope is bounded by the initial scope.
     dependencies = {
       'nvim-telescope/telescope.nvim' -- Optionally, install telescope for nicer scope selection UI.
     },
