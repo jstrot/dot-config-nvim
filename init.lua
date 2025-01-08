@@ -139,6 +139,9 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 8
 
+-- Speed up
+vim.opt.lazyredraw = true
+
 -- Reuse windows
 if false then
   -- I don't use tabs, but this could be useful
