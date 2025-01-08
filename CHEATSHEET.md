@@ -128,22 +128,24 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 
 ## Language Server Protocol (LSP)
 
-| Mode | Mapping      | Description                         | Notes                                                                                                     |
-| ---- | ------------ | ----------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| n    | `]d`         | Goto next \[D]iagnostic             |                                                                                                           |
-| n    | `[d`         | Goto previous \[D]iagnostic         |                                                                                                           |
-| n    | `gd`         | \[G]oto \[D]efinition               | Jump to the definition of the word under your cursor.                                                     |
-| n    | `gD`         | \[G]oto \[D]eclaration              | Jump to the declaration of the word under your cursor.                                                    |
-| n    | `gr`         | \[G]oto \[R]eferences               | Find references for the word under your cursor.                                                           |
-| n    | `gI`         | \[G]oto \[I]mplementation           | Jump to the implementation of the word under your cursor.                                                 |
-| n    | `<Leader>D`  | Type \[D]efinition                  | Jump to the type of the word under your cursor, the definition of its *type*, not where it was *defined*. |
-| n    | `<Leader>ds` | \[D]ocument \[S]ymbols              | Fuzzy find all the symbols in your current document.                                                      |
-| n    | `<Leader>ws` | \[W]orkspace \[S]ymbols             | Fuzzy find all the symbols in your current workspace.                                                     |
-| n    | `<Leader>rn` | \[R]e\[N]ame                        | Rename the variable under your cursor.                                                                    |
-| n    | `<Leader>ca` | \[C]ode \[A]ction                   | Execute a code action, usually your cursor needs to be on top of an error or a suggestion.                |
-| n    | `K`          | Hover documentation (see `:help K`) | Opens a popup that displays documentation about the word under your cursor.                               |
-| n    | `<Leader>e`  | Show diagnostic \[E]rror messages   |                                                                                                           |
-| n    | `<Leader>q`  | Open diagnostic \[Q]uickfix list    |                                                                                                           |
+| Mode | Mapping          | Description                         | Notes                                                                                                     |
+| ---- | ---------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| n    | `]d`             | Goto next \[D]iagnostic             |                                                                                                           |
+| n    | `[d`             | Goto previous \[D]iagnostic         |                                                                                                           |
+| n    | `gd`             | \[G]oto \[D]efinition               | Jump to the definition of the word under your cursor.                                                     |
+| n    | `gD`             | \[G]oto \[D]eclaration              | Jump to the declaration of the word under your cursor.                                                    |
+| n    | `gr`             | \[G]oto \[R]eferences               | Find references for the word under your cursor.                                                           |
+| n    | `gI`             | \[G]oto \[I]mplementation           | Jump to the implementation of the word under your cursor.                                                 |
+| n    | `<Leader>D`      | Type \[D]efinition                  | Jump to the type of the word under your cursor, the definition of its *type*, not where it was *defined*. |
+| n    | `<Leader>ds`     | \[D]ocument \[S]ymbols              | Fuzzy find all the symbols in your current document.                                                      |
+| n    | `<Leader>ws`     | \[W]orkspace \[S]ymbols             | Fuzzy find all the symbols in your current workspace.                                                     |
+| n    | `<Leader>rn`     | \[R]e\[N]ame                        | Rename the variable under your cursor.                                                                    |
+| n    | `<Leader>ca`     | \[C]ode \[A]ction                   | Execute a code action, usually your cursor needs to be on top of an error or a suggestion.                |
+| n    | `K`              | Hover documentation (see `:help K`) | Opens a popup that displays documentation about the word under your cursor.                               |
+| n    | `<Leader>e`      | Show diagnostic \[E]rror messages   |                                                                                                           |
+| n    | `<Leader>q`      | Open diagnostic \[Q]uickfix list    |                                                                                                           |
+| n, v | `<Leader>f<cr>`  | \[F]ormat using "conform"           |                                                                                                           |
+| n, v | `<Leader>fl`     | \[F]ormat using \[L]SP              |                                                                                                           |
 
 ## Quickfix
 
@@ -163,6 +165,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tdb`     | \[T]oggle \[D]iff ignore \[B]lank lines                                                   |                                                                                |
 | n    | `<Leader>tdc`     | \[T]oggle \[D]iff ignore \[C]ase of text                                                  |                                                                                |
 | n    | `<Leader>tdw`     | \[T]oggle \[D]iff ignore \[W]hite spaces                                                  |                                                                                |
+| n    | `<Leader>tf`      | \[T]oggle auto\[F]ormat on save using "conform"                                           |                                                                                |
 | n    | `<Leader>tgb`     | \[T]oggle \[G]it current line \[B]lame                                                    |                                                                                |
 | n    | `<Leader>tgd`     | \[T]oggle \[G]it \[D]eleted hunks                                                         |                                                                                |
 | n    | `<Leader>ti`      | \[T]oggle \[I]indent highlighting                                                         |                                                                                |
