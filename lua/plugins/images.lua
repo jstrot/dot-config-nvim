@@ -77,6 +77,11 @@ return {
           --   layout = nil,
           --   sketch = nil,
           -- },
+          -- gnuplot = {
+          --   size = nil, -- nil | "800,600" | ...
+          --   font = nil, -- nil | "Arial,12" | ...
+          --   theme = nil, -- nil | "light" | "dark" | custom theme string
+          -- },
         }
       })
     end,
