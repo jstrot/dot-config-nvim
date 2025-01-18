@@ -26,6 +26,12 @@ return {
         mode = { "n", "v" },
         desc = '[F]ormat using "conform"',
       },
+      {
+        "<leader>tf",
+        "<cmd>FormatOnSaveToggle<CR>",
+        mode = { "n" },
+        desc = '[T]oggle [F]ormat-on-save using "conform"',
+      },
     },
     opts = {
       notify_on_error = false,
@@ -164,12 +170,6 @@ return {
         desc = "Toggle format-on-save",
         bang = true,
       })
-      vim.keymap.set(
-        "n",
-        "<leader>tf",
-        "<cmd>FormatOnSaveToggle<CR>",
-        { desc = '[T]oggle [F]ormat-on-save using "conform"' }
-      )
     end,
   },
 }
