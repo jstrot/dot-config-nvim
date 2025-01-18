@@ -11,6 +11,7 @@ return {
   {
     'echasnovski/mini.operators',
     version = '*',
+    enabled = false, -- Really annoying that it overrides a lot of default mappings
     event = 'VeryLazy',
     opts = {},
   },
