@@ -100,7 +100,7 @@ return {
           c = false,
           cpp = false,
           php = false,
-          lua = true,
+          -- lua = true,
         }
         local format_on_save_default_opts = {
           timeout_ms = 500,
