@@ -68,7 +68,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n         | `<Leader>sr`            | \[S]earch \[R]ecent files                    |
 | n         | `<Leader>sj`            | \[S]earch \[J]ump list                       |
 | n         | `<Leader><Leader>`      | \[ ] Find existing buffers                   |
-| n         | `<Leader>sd`            | \[S]earch \[D]iagnostics                     |
+| n         | `<Leader>sd`            | \[S]earch workspace \[D]iagnostics           |
 | n         | `<leader>slr`           | \[S]earch \[L]SP \[R]eferences               |
 | n         | `<leader>sli`           | \[S]earch \[L]SP \[I]mplementations          |
 | n         | `<Leader>st`            | \[S]earch \[T]odo comments                   |
