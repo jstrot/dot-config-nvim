@@ -151,6 +151,12 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n, v | `<Leader>f<cr>`  | \[F]ormat using "conform"           |                                                                                                           |
 | n, v | `<Leader>fl`     | \[F]ormat using \[L]SP              |                                                                                                           |
 
+## Inspection (Introspection and Information)
+
+| Mode | Mapping          | Description                                       | Notes         |
+| ---- | ---------------- | ------------------------------------------------- | ------------- |
+| n    | `<Leader>id`     | \[I]nspect word in \[D]ictionary                  | opt-in        |
+
 ## Quickfix
 
 | Mode | Mapping     | Description                                       |
