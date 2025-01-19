@@ -153,6 +153,7 @@ return {
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics,   { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sb', builtin.buffers,       { desc = '[S]earch [B]uffers' })
       vim.keymap.set('n', '<leader>sr', builtin.oldfiles,      { desc = '[S]earch [R]ecent files' })
+      vim.keymap.set('n', '<leader>sj', builtin.jumplist,      { desc = '[S]earch [J]ump list' })
       vim.keymap.set('n', '<leader>s.', builtin.resume,        { desc = '[S]earch resume/repeat (`.` = repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 

@@ -66,6 +66,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n         | `<Leader>/`             | \[/] Fuzzily search in current buffer        |
 | n         | `<Leader>s/`            | \[S]earch by live grep in open files         |
 | n         | `<Leader>sr`            | \[S]earch \[R]ecent files                    |
+| n         | `<Leader>sj`            | \[S]earch \[J]ump list                       |
 | n         | `<Leader><Leader>`      | \[ ] Find existing buffers                   |
 | n         | `<Leader>sd`            | \[S]earch \[D]iagnostics                     |
 | n         | `<leader>slr`           | \[S]earch \[L]SP \[R]eferences               |
@@ -96,6 +97,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `'"`        | Goto last exited position in current buffer       |
 | n    | `'.`        | Goto last modified position in current buffer     |
 | n    | `<C-o>`     | Goto previous position in jump list               |
+| n    | `<C-i>`     | Goto next position in jump list                   |
 | n    | `<C-t>`     | Goto previous position in tag stack               |
 
 ## Completion (nvim-cmp, luasnip, ...)
