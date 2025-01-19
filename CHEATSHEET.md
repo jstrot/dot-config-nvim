@@ -68,6 +68,8 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n         | `<Leader>s.`            | \[S]earch recent files ("." for repeat)      |
 | n         | `<Leader><Leader>`      | \[ ] Find existing buffers                   |
 | n         | `<Leader>sd`            | \[S]earch \[D]iagnostics                     |
+| n         | `<leader>slr`           | \[S]earch \[L]SP \[R]eferences               |
+| n         | `<leader>sli`           | \[S]earch \[L]SP \[I]mplementations          |
 | n         | `<Leader>st`            | \[S]earch \[T]odo comments                   |
 | n         | `<Leader>sn`            | \[S]earch \[N]eovim files                    |
 | n         | `<Leader>se`            | \[S]earch symbols/\[E]mojis                  |
@@ -134,8 +136,8 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `[d`             | Goto previous \[D]iagnostic         |                                                                                                           |
 | n    | `gd`             | \[G]oto \[D]efinition               | Jump to the definition of the word under your cursor.                                                     |
 | n    | `gD`             | \[G]oto \[D]eclaration              | Jump to the declaration of the word under your cursor.                                                    |
-| n    | `gr`             | \[G]oto \[R]eferences               | Find references for the word under your cursor.                                                           |
-| n    | `gI`             | \[G]oto \[I]mplementation           | Jump to the implementation of the word under your cursor.                                                 |
+| n    | `<leader>slr`    | \[S]earch \[L]SP \[R]eferences      | Find references for the word under your cursor.                                                           |
+| n    | `<leader>sli`    | \[S]earch \[L]SP \[I]mplementations | Jump to the implementation of the word under your cursor.                                                 |
 | n    | `<Leader>D`      | Type \[D]efinition                  | Jump to the type of the word under your cursor, the definition of its *type*, not where it was *defined*. |
 | n    | `<Leader>ds`     | \[D]ocument \[S]ymbols              | Fuzzy find all the symbols in your current document.                                                      |
 | n    | `<Leader>ws`     | \[W]orkspace \[S]ymbols             | Fuzzy find all the symbols in your current workspace.                                                     |
