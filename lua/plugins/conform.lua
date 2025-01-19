@@ -61,6 +61,14 @@ return {
           "xmlstarlet", -- XMLStarlet is a command-line XML toolkit that can be used to format XML files.
           stop_after_first = true,
         },
+        json = {
+          "jq",
+          "yq",
+          "fixjson",
+          "jsonnetfmt",
+          "deno_fmt",
+          stop_after_first = true,
+        },
       },
       formatters = {
         php = {
