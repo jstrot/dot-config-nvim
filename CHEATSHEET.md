@@ -65,7 +65,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n         | `<Leader>sg`            | \[S]earch by live \[G]rep (scoped)           |
 | n         | `<Leader>/`             | \[/] Fuzzily search in current buffer        |
 | n         | `<Leader>s/`            | \[S]earch by live grep in open files         |
-| n         | `<Leader>s.`            | \[S]earch recent files ("." for repeat)      |
+| n         | `<Leader>sr`            | \[S]earch \[R]ecent files                    |
 | n         | `<Leader><Leader>`      | \[ ] Find existing buffers                   |
 | n         | `<Leader>sd`            | \[S]earch \[D]iagnostics                     |
 | n         | `<leader>slr`           | \[S]earch \[L]SP \[R]eferences               |
@@ -76,7 +76,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n         | `<Leader>sb`            | \[S]earch \[B]ibtex references               |
 | n         | `<Leader>ss`            | \[S]earch select \[S]cope                    |
 | n         | `<Leader>s!`            | \[S]earch notifications\[!]                  |
-| n         | `<Leader>sr`            | \[S]earch \[R]esume                          |
+| n         | `<Leader>s.`            | \[S]earch resume/repeat (`.` = repeat)       |
 | Telescope | `<Leader>/`             | Telescope help (`/` is `?` without shift)    |
 | Telescope | `<C-c>` or `<Esc><Esc>` | Close telescope                              |
 | Telescope | `<CR>`                  | Open selected entry in current window        |
