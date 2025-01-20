@@ -319,7 +319,7 @@ return {
       vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
         pattern = { '/tmp/*', },
         callback = function ()
-          vim.diagnostic.disable(0)
+          vim.diagnostic.enable(false)
         end,
       })
 
