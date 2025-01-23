@@ -65,11 +65,28 @@ return {
       if has_telescope then
         local function scoped_find_files()
           ts_builtin.find_files {
+            prompt_title = 'Find Files (scoped)',
             search_dirs = scopes.get_current_scope() and scopes.get_current_paths() or {},
           }
         end
         local function scoped_grep_string()
+
+          -- Determine `word` as in lua/telescope/builtin/__files.lua `files.grep_string`
+          local word
+          local visual = vim.fn.mode() == "v"
+          if visual == true then
+            local saved_reg = vim.fn.getreg "v"
+            vim.cmd [[noautocmd sil norm! "vy]]
+            local sele = vim.fn.getreg "v"
+            vim.fn.setreg("v", saved_reg)
+            word = vim.F.if_nil(opts.search, sele)
+          else
+            word = vim.F.if_nil(opts.search, vim.fn.expand "<cword>")
+          end
+          word = tostring(word)
+
           ts_builtin.grep_string {
+            prompt_title = "Find Word (" .. word:gsub("\n", "\\n") .. ") (scoped)",
             search_dirs = scopes.get_current_scope() and scopes.get_current_paths() or {},
           }
         end
@@ -77,6 +94,7 @@ return {
           local has_live_grep_args, _ = pcall(require('telescope').load_extension, 'live-grep-args')
           local live_grep = has_live_grep_args and require('telescope').extensions.live_grep_args.live_grep_args or ts_builtin.live_grep
           live_grep {
+            prompt_title = 'Live Grep (scoped)',
             search_dirs = scopes.get_current_scope() and scopes.get_current_paths() or {},
           }
         end
