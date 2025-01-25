@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Wrapper to read an `info` document within Neovim.
+# Works in conjunction with the vinfo plugin (lua/plugins/vinfo.lua).
+# Also see `:Vinfo` command within Neovim.
+#
+# Usage:
+#
+#    vinfo <doc>
+
+if (( $# == 1 )) ; then
+    doc=$1 ; shift
+else
+    echo "Usage: $0 <doc>" >&2
+    exit 1
+fi
+
+prog=${EDITOR:-${VISUAL:-}}
+[[ "$prog" =~ "nvim" ]] || prog=vim
+
+"$prog" -c "Vinfo $doc" -c 'silent only'

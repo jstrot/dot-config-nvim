@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Wrapper to read a `man` page within Neovim.
+# Works in conjunction with the builtin Man command (`:help ft-man-plugin`).
+# Also see `:Man` command within Neovim.
+#
+# Usage:
+#
+#    vman name
+#    vman name(section)
+#    vman section name
+#    vman path
+
+if (( $# == 1 )) ; then
+    name=$1 ; shift  # or path
+    sect=
+elif (( $# == 2 )) ; then
+    sect=$1 ; shift
+    name=$2 ; shift
+else
+    echo "Usage: $0 <name>" >&2
+    echo "Usage: $0 <name>(<section>)" >&2
+    echo "Usage: $0 sect name" >&2
+    echo "Usage: $0 path" >&2
+    exit 1
+fi
+
+prog=${EDITOR:-${VISUAL:-}}
+[[ "$prog" =~ "nvim" ]] || prog=vim
+
+"$prog" -c "Man $sect $name" -c 'silent only'
