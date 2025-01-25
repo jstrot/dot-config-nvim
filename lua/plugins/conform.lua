@@ -103,7 +103,7 @@ return {
           -- lua = true,
         }
         local format_on_save_default_opts = {
-          timeout_ms = 500,
+          timeout_ms = 5000,
           lsp_fallback = "fallback",
         }
         local format_on_save = nil

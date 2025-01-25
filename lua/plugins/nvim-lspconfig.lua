@@ -114,7 +114,12 @@ return {
 
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap.
-          map({'n', 'v'}, '<leader>fl', vim.lsp.buf.format, {desc='LSP: [F]ormat using [L]SP'})
+          map({'n', 'v'}, '<leader>fl',
+            function ()
+              vim.lsp.buf.format({
+                timeout_ms = 5000,
+              })
+            end, {desc='LSP: [F]ormat using [L]SP'})
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
