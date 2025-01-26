@@ -39,6 +39,11 @@ return {
           -- null_ls.builtins.formatting.autoflake, -> ruff
           require("none-ls.formatting.ruff"),
           null_ls.builtins.formatting.black,
+          null_ls.builtins.formatting.clang_format.with({
+            generator_opts = {
+              command = vim.g.clang_format_host_prog or 'clang-format',
+            },
+          }),
 
           -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/completion
           -- https://github.com/nvimtools/none-ls-extras.nvim/tree/main/lua/none-ls/completion
