@@ -52,7 +52,7 @@ For reference: At the time of this writing, my `~/.local/share/nvim/` is close t
 
 ## Clone the repository to setup your initial Neovim config
 
-Before starting, if you already have a prior Neovim configuration directory (`~/.config/nvim`), you move it aside first:
+Before starting, if you already have a prior Neovim configuration directory (`~/.config/nvim`), you must move it aside first:
 
 ```sh
 mv -T ~/.config/nvim ~/.config/nvim.bak
