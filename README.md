@@ -11,7 +11,7 @@ Neovim is not an **IDE**, it's a **text editor**!
 Neovim is a fork of Vim that focuses on extensibility and usability. 
 
 But it's not like any other *configurable* text editor like Sublime Text, Atom, or VS Code.
-Neovim is highly extensible using the Lua programming language. This means that you are not limited to the features provided by the core editor or a predetermines set of configurations in a JSON file.
+Neovim is highly extensible using the Lua programming language. This means that you are not limited to the features provided by the core editor or a predetermined set of configurations in a JSON file.
 
 In short, as [TJ DeVries](https://github.com/tjdevries) coins it, it is a **PDE**, a **Personalised Development Environment**: You write code to mould the editor to your taste, your habits, your workflow.
 With the help of plugins, it can be made to *look* like an IDE but it will always be much more than just an IDE.
@@ -59,7 +59,7 @@ The Neovim executable is the one called named `nvim`!
 
 Enable support for Nerd/patched fonts. 
 
-It is highly recommended to install a patched font that contains extended characters for development (Icons for "bugs", "git", "github", file types, ...). Many plugins rely on the availability of patched fonts.
+It is highly recommended to install a patched font that contains extended characters for development (Icons for "bugs", "git", "GitHub", file types, ...). Many plugins rely on the availability of patched fonts.
 
 The easy way is to download a font from <https://www.nerdfonts.com/>, install it in your OS (if you're running remotely over ssh, for example, that's the host running your terminal emulator!) and then enable that font in your terminal's configuration. A good starting point is to try the one I use, "DroidSansM Nerd Font", a patched version of the "Droid Sans Mono" which has fairly square letters and scalable to small sizes without issues.
 
@@ -105,7 +105,7 @@ To make it the default monospace font, install and run the "Gnome Tweaks" applic
 
 #### Application: Gnome Terminal
 
-Shift-Right-Click in Gnome Terminal, select the "Preferences" mena, then select a profile on the left (e.g., "Unnamed"). The font selection is under the "Text" tab.
+Shift-Right-Click in Gnome Terminal, select the "Preferences" menu, then select a profile on the left (e.g., "Unnamed"). The font selection is under the "Text" tab.
 
 If you made your Nerd font the default monotype font, just make sure the "Custom font" is unchecked.
 Otherwise, or if you want to override the default size too, check the box and select your Nerd font.
@@ -114,7 +114,7 @@ Otherwise, or if you want to override the default size too, check the box and se
 
 This is my preference as Terminator is written in Python, has more options than Gnome Terminal, and is easily extandable with plugins.
 
-Shift-Right-Click in Terminator, select the "Preferences" mena, then the "Profiles" tab, and select your profile (e.g., "default"). The font selection is under the "General" tab.
+Shift-Right-Click in Terminator, select the "Preferences" menu, then the "Profiles" tab, and select your profile (e.g., "default"). The font selection is under the "General" tab.
 
 If you made your Nerd font the default monotype font, just make sure the "Use the system fixed width font" is checked.
 Otherwise, or if you want to override the default size too, uncheck the box and select your Nerd font.
@@ -375,7 +375,7 @@ If you use tmux, you should setup the [Tmux Plugin Manager (TPM)](https://github
 | n    | `<C-\>`     | Navigate to previous split (Tmux aware)             |
 | n    | `<C-Space>` | Navigate to next split, by pane number (Tmux aware) |
 
-P.S.: If you love the combination of Neovim and tmux and you have a QMK/VIA programmable keyboard like me, try configuring your Fn+arrow keys to Ctrl-h/j/k/l!
+P.S.: If you love the combination of Neovim and tmux and you have a QMK/VIA programmable keyboard like me, try configuring your Fn+arrow keys to `C-h/j/k/l`!
 
 
 # Advanced Configuration
@@ -408,7 +408,7 @@ Make sure your shell's own profile rc (`~/.bashrc`, `~/.zprofile`, ...) sources 
 
 Close the shell and start new login session or run the above code inline to activate the changes.
 
-Next, install a recent Python 3 version (According to <https://www.python.org/downloads/>, 3.12.4 is the latest bugfix release as of this writing):
+Next, install a recent Python 3 version (According to <https://www.python.org/downloads/>, 3.12.4 is the latest bug fix release as of this writing):
 
 ```sh
 pyenv install 3.12.4
