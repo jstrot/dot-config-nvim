@@ -256,7 +256,7 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | n    | `[count]gbc`        | Toggles the number of line given as a prefix-count using blockwise |
 | n    | `gc[count]{motion}` | (Op-pending) Toggles the region using linewise comment             |
 | n    | `gb[count]{motion}` | (Op-pending) Toggles the region using blockwise comment            |
-| v    | `gc`<br>            | Toggles the region using linewise comment                          |
+| v    | `gc`                | Toggles the region using linewise comment                          |
 | v    | `gb`                | Toggles the region using blockwise comment                         |
 
 ## Text operations (mini.operators)
