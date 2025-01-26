@@ -16,7 +16,7 @@ if (( $# == 1 )) ; then
     sect=
 elif (( $# == 2 )) ; then
     sect=$1 ; shift
-    name=$2 ; shift
+    name=$1 ; shift
 else
     echo "Usage: $0 <name>" >&2
     echo "Usage: $0 <name>(<section>)" >&2
