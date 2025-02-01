@@ -390,6 +390,11 @@ return {
           },
         },
 
+        --[[ Markdown ]]
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/marksman.lua
+        marksman = {
+        },
+
       }
       local servers_no_install = {
         -- TODO: XXXJST This is broken when using mason-tool-installer
