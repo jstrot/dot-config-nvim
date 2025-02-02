@@ -6,6 +6,9 @@ vim.g.format_lsp_async = false
 -- Use a custom clang-format. Also see none-ls.lua
 local use_custom_clang_format = (vim.g.clang_format_host_prog ~= nil)
 
+local ruff_path = vim.env.VIRTUAL_ENV and vim.fn.exepath(vim.env.VIRTUAL_ENV .. '/bin/ruff')
+if not ruff_path or ruff_path == '' then ruff_path = 'ruff' end
+
 return {
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -52,6 +55,7 @@ return {
       -- If you're wondering about lsp vs treesitter, you can check out the wonderfully
       -- and elegantly composed help section, `:help lsp-vs-treesitter`
 
+      local util = require('lspconfig.util')
       -- Lsp logs can get very big very fast!
       -- See ~/local/state/nvim/lsp.log
       vim.lsp.set_log_level('off')
@@ -223,8 +227,42 @@ return {
         -- tsserver = {},
         --
 
+        --[[ Python ]]
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/ruff.lua
+        -- Ruff can be configured through a pyproject.toml, ruff.toml, or .ruff.toml file.
+        -- See https://docs.astral.sh/ruff/configuration/
+        ruff = {
+          -- DEFAULT: cmd = { 'ruff', 'server' },
+          -- OK: cmd = { '/home/jst/src/merryclaude-woo-manager/venv/bin/ruff', 'server' },
+          -- WORKS to pick up the right ruff but it can't find venv-specific modules
+          cmd = { ruff_path, 'server' },
+          -- filetypes = { 'python' },
+          on_attach = function (client, bufnr)
+            -- Disable hover in favor of Pyright
+            client.server_capabilities.hoverProvider = false
+          end,
+          settings = {
+	    -- configuration = "~/path/to/ruff.toml"
+	    -- configurationPreference = "filesystemFirst", -- "editorFirst" | "filesystemFirst" | "editorOnly"
+          },
+        },
         -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/pyright.lua
-        pyright = {},
+        pyright = {
+          settings = {
+            pyright = {
+              disableOrganizeImports = true, -- use ruff instead
+            },
+            python = {
+              analysis = {
+                ignore = { '*' }, -- use ruff instead
+                -- typeCheckingMode = 'off', -- Using mypy
+              },
+            },
+          },
+        },
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/basedpyright
+        -- https://detachhead.github.io/basedpyright
+        -- basedpyright = {},
 
         -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/clangd.lua
         clangd = {
@@ -240,14 +278,14 @@ return {
             '--inlay-hints=true',
           },
           root_dir = function(fname)
-            return require('lspconfig.util').root_pattern(unpack({
+            return util.root_pattern(unpack({
               '.clangd',
               '.clang-tidy',
               '.clang-format',
               'compile_commands.json',
               'compile_flags.txt',
             }))(fname)
-            -- or require('lspconfig.util').find_git_ancestor(fname)
+            -- or util.find_git_ancestor(fname)
           end,
         },
 
@@ -405,11 +443,11 @@ return {
             lspcopnfig = {
               filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'opencl' },
               root_dir = function(fname)
-                return require('lspconfig.util').root_pattern(unpack({
+                return util.root_pattern(unpack({
                   -- prefer clangd: 'compile_commands.json',
                   '.ccls',
                 }))(fname)
-                -- or require('lspconfig.util').find_git_ancestor(fname)
+                -- or util.find_git_ancestor(fname)
               end,
             },
           },

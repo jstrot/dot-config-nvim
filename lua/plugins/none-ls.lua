@@ -59,14 +59,22 @@ return {
 
           -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
           -- https://github.com/nvimtools/none-ls-extras.nvim/tree/main/lua/none-ls/diagnostics
-          -- null_ls.builtins.diagnostics.flake8, -> ruff
-          require("none-ls.diagnostics.ruff"), -- Python
+
           null_ls.builtins.diagnostics.buildifier, -- Bazel
 
           -- https://github.com/nvimtools/none-ls.nvim/blob/main/lua/null-ls/builtins/diagnostics/markdownlint.lua
           null_ls.builtins.diagnostics.markdownlint,
           -- https://github.com/nvimtools/none-ls.nvim/blob/main/lua/null-ls/builtins/diagnostics/markdownlint_cli2.lua
           -- null_ls.builtins.diagnostics.markdownlint_cli2,
+
+          --[[ Python ]]
+          -- See nvim-lspconfig.lua -- null_ls.builtins.formatting.autopep8, -- use ruff instead
+          -- See nvim-lspconfig.lua -- null_ls.builtins.formatting.autoflake, -- use ruff instead
+          -- See nvim-lspconfig.lua require("none-ls.formatting.ruff"), -- Python
+          -- See nvim-lspconfig.lua null_ls.builtins.formatting.black, -- Python
+          -- See nvim-lspconfig.lua -- null_ls.builtins.diagnostics.flake8, -> use ruff instead
+          -- See nvim-lspconfig.lua require("none-ls.diagnostics.ruff"),
+
         },
       })
     end
