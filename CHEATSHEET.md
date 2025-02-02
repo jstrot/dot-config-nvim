@@ -168,7 +168,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 
 ## Various toggles (toggle-lsp-diagnostics, nvim-lspconfig, etc)
 
-| Mode | Mapping           | Description                                                                               |                                                                                |
+| Mode | Mapping           | Description                                                                               | Notes                                                                          |
 | ---- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | n    | `<Leader>ta`      | \[T]oggle \[A]NSI escape codes                                                            |                                                                                |
 | n    | `<Leader>td<cr>`  | \[T]oggle \[D]iff mode                                                                    |                                                                                |
@@ -206,6 +206,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tsn`     | \[T]oggle \[S]ign column line \[N]umber                                                   |                                                                                |
 | n    | `<Leader>tv`      | \[T]oggle \[V]irtual edit                                                                 |                                                                                |
 | n    | `<Leader>tw`      | \[T]oggle \[W]rap mode                                                                    |                                                                                |
+| n    | `<Leader>t=`      | \[T]oggle \[S]pell mode                                                                   | `g=` for spelling suggestions                                                  |
 
 ## Cscope (cscope_maps)
 

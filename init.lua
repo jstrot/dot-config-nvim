@@ -182,6 +182,7 @@ function ToggleSubOpt(option, subopt)
 end
 
 vim.keymap.set('n', '<leader>tp', function () ToggleBoolOpt('paste') end, { desc = '[T]oggle [P]aste mode' })
+vim.keymap.set('n', '<leader>t=', function () ToggleBoolOpt('spell') end, { desc = '[T]oggle spell mode' })
 vim.keymap.set('n', '<leader>tw', function () ToggleBoolOpt('wrap') end, { desc = '[T]oggle [W]rap mode' })
 
 -- Toggle 'signcolumn' mode using `<leader>ts...`
