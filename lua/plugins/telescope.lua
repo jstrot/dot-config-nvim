@@ -185,8 +185,11 @@ return {
 
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[S]earch [N]eovim files' })
+        builtin.find_files {
+          prompt_title = 'Find Files (Neovim config)',
+          cwd = vim.fn.stdpath 'config',
+        }
+      end, { desc = '[S]earch [N]eovim config files' })
 
       -- Locally disable paste mode in telescope prompt (otherwise all mappings are disabled)
       vim.api.nvim_create_autocmd("FileType", {
