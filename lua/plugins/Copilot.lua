@@ -1,15 +1,20 @@
 -- https://docs.github.com/en/copilot/getting-started-with-github-copilot?tool=vimneovim
+-- https://github.com/github/copilot.vim
+require('config.ai')
+
+if vim.g.github_copilot_enabled and vim.g.github_copilot_active and not vim.g.auto_suggest_completion_plugin then
+  vim.g.auto_suggest_completion_plugin = 'copilot'
+end
+
 return {
   {
     "github/copilot.vim",
+    enabled = vim.g.github_copilot_enabled,
+    cond = vim.g.auto_suggest_completion_plugin == 'copilot',
+    priority = 60, -- default is 50, this is the preferred auto-suggest completion plugin
 
-    -- FIXME: Lazy-loading doesn't seem to work for Copilot because it always
-    -- requires the file to be re-loaded (`:e`) before getting attached.
-    -- event = 'InsertEnter',
-    -- cmd = {
-    --   'Copilot',
-    -- },
-
+    -- event = 'VeryLazy' | 'InsertEnter', -- Does not load on command-line files until `:e`
+    event = { "BufReadPre", "BufNewFile" },
     init = function()
 
       --[[ Change the default key mapping (default is <Tab>) ]]
@@ -31,6 +36,9 @@ return {
       -- vim.g.copilot_workspace_folders = {"~/Projects/myproject"}
 
     end,
+    cmd = {
+      'Copilot',
+    },
   },
 }
 

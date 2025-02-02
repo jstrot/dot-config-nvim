@@ -2,8 +2,7 @@
 return {
   {
     "folke/edgy.nvim",
-    enabled = false, -- I don't use this
-    event = "VeryLazy",
+    lazy = true, -- Only used as a dependency only right now
     init = function()
       -- vim.opt.laststatus = 3
       vim.opt.splitkeep = "screen" -- or "topline" or "screen"
@@ -49,6 +48,8 @@ return {
 	end,
       },
       right = {
+
+	--[[ OGPT ]]
 	{
 	  title = "OGPT Popup",
 	  ft = "ogpt-popup",
@@ -115,6 +116,7 @@ return {
 	    wrap = true,
 	  },
 	},
+
       },
     },
   }

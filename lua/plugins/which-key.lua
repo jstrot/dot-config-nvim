@@ -7,7 +7,7 @@ return {
     spec = {
       { '<leader>[', group = 'Navigate backward' },
       { '<leader>]', group = 'Navigate forward' },
-      { '<leader>cc', group = '[C]opilot [C]hat' },
+      { '<leader>cc', group = 'AI/[C]opilot [C]hat' },
       { '<leader>g', group = '[G]it' },
       { '<leader>s', group = '[S]earching (telescope)' },
       { '<leader>t', group = '[T]oggle' },

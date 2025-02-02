@@ -123,11 +123,12 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | i    | `<M-Right>`   | Accept the next word of the current suggestion    |
 | i    | `<M-C-Right>` | Accept the next line of the current suggestion    |
 
-## AI (GitHub Copilot)
+## AI
 
 | Mode | Mapping          | Description                                       |
 | ---- | ---------------- | ------------------------------------------------- |
 | n, v | `<Leader>cc<cr>` | Run \[C]opilot \[C]hat                            |
+| n    | `<Leader>cc<cr>` | Run OGPT \[C]hat                                  |
 | n, v | `<Leader>ccf`    | Run \[C]opilot \[C]hat \[F]ix                     |
 
 ## Language Server Protocol (LSP)

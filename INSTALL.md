@@ -230,7 +230,8 @@ $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bas
 
 Once installed and your shell is restarted, install the latest version of nodejs from <https://nodejs.org/en>:
 ```sh
-$ nvm install v22.15.0
+$ nvm install --lts
+$ nvm use --lts
 $ node -v
-v22.15.0
+v22.15.1
 ```

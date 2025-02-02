@@ -16,7 +16,8 @@ return {
       -- 'hrsh7th/vim-vsnip',
       'saadparwaiz1/cmp_luasnip',
       "L3MON4D3/LuaSnip",
-      'tzachar/cmp-ai',
+      -- 'tzachar/cmp-ai',
+      -- 'nzlov/cmp-fauxpilot', -- https://github.com/nzlov/cmp-fauxpilot
       -- Extras:
       'onsails/lspkind.nvim',
     },
@@ -116,7 +117,8 @@ return {
             -- { name = 'ultisnips' },                      -- For `ultisnips` users.
             -- { name = 'snippy' },                         -- For `snippy` users.
 
-            { name = 'cmp_ai' },
+            -- { name = 'cmp_ai' },
+            -- { name = 'cmp_fauxpilot' },
           }
         ),
         formatting = {
@@ -155,6 +157,20 @@ return {
       }
       -- Avoid extra ins-completion-menu messages
       vim.opt.shortmess:append 'c'
+
+      if false then
+        local fauxpilot = require('cmp_fauxpilot.config')
+        fauxpilot:setup({
+          host = 'http://fauxpilot.jsoft.lan:5000',
+          -- model = 'py-model',
+          model = 'codegen-6B-multi',
+          max_tokens = 100,
+          max_lines = 1000,
+          max_num_results = 4,
+          temperature = 0.6,
+        })
+      end
+
     end,
   },
 }
