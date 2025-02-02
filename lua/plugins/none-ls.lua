@@ -14,7 +14,7 @@ return {
     config = function()
       local null_ls = require("null-ls")
       null_ls.setup({
-        debug = true,
+        -- debug = true, -- Enable and check logs with `:NullLsLog`
 
         on_init = function(new_client, _)
           -- https://github.com/jose-elias-alvarez/null-ls.nvim/issues/428
