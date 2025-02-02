@@ -1,4 +1,8 @@
 -- https://github.com/neovim/nvim-lspconfig
+
+vim.g.format_lsp_timeout_ms = 5000
+vim.g.format_lsp_async = false
+
 return {
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -117,7 +121,8 @@ return {
           map({'n', 'v'}, '<leader>fl',
             function ()
               vim.lsp.buf.format({
-                timeout_ms = 5000,
+                timeout_ms = vim.g.format_lsp_timeout_ms or 1000,
+                async = vim.g.format_lsp_async or false,
               })
             end, {desc='LSP: [F]ormat using [L]SP'})
 
