@@ -103,8 +103,9 @@ return {
       vim.opt.foldmethod = 'expr'
       vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
-      vim.keymap.set('n', '<leader>tt<cr>', '<cmd>TSToggle<CR>', { desc = '[T]oggle [T]reesitter' })
-      vim.keymap.set('n', '<leader>ttb', '<cmd>TSBufToggle<CR>', { desc = '[T]oggle [T]reesitter in [B]uffer' })
+      vim.keymap.set('n', '<leader>tt<cr>', '<cmd>TSToggle highlight<CR>', { desc = '[T]oggle [T]reesitter highlight' })
+      vim.keymap.set('n', '<leader>ttb', '<cmd>TSBufToggle highlight<CR>', { desc = '[T]oggle [T]reesitter highlight in [B]uffer' })
+      vim.keymap.set('n', '<leader>tti', '<cmd>TSBufToggle indent<CR>', { desc = '[T]oggle [T]reesitter indent in [B]uffer' })
 
       -- There are additional nvim-treesitter modules that you can use to interact
       -- with nvim-treesitter. You should go explore a few and see what interests you:
