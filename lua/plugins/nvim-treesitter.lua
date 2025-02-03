@@ -52,6 +52,20 @@ return {
             return true
           end
 
+          -- Disable treesitter in CSV files if you're using a plugin such as rainbow_csv
+          local csv_fts = {
+            "csv",
+            "tsv",
+            "csv_semicolon",
+            "csv_whitespace",
+            "csv_pipe",
+            "rfc_csv",
+            "rfc_semicolon",
+          }
+          if vim.tbl_contains(csv_fts, vim.bo.filetype) then
+            return true
+          end
+
           if vim.b.LargeFile_mode then return true end -- See LargeFile plugin
           return false
         end,
