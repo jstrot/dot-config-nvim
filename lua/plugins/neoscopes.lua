@@ -64,10 +64,13 @@ return {
       local has_telescope, ts_builtin = pcall(require, 'telescope.builtin')
       if has_telescope then
         local function scoped_find_files()
-          ts_builtin.find_files {
-            prompt_title = 'Find Files (scoped)',
-            search_dirs = scopes.get_current_scope() and scopes.get_current_paths() or {},
-          }
+          local search_opts = {}
+          local search_dirs = scopes.get_current_scope() and scopes.get_current_paths() or {}
+          if next(search_dirs) ~= nil then
+            search_opts.prompt_title = 'Find Files (scoped)'
+            search_opts.search_dirs = search_dirs
+          end
+          ts_builtin.find_files(search_opts)
         end
         local function scoped_grep_string()
 
@@ -85,18 +88,24 @@ return {
           end
           word = tostring(word)
 
-          ts_builtin.grep_string {
-            prompt_title = "Find Word (" .. word:gsub("\n", "\\n") .. ") (scoped)",
-            search_dirs = scopes.get_current_scope() and scopes.get_current_paths() or {},
-          }
+          local search_opts = {}
+          local search_dirs = scopes.get_current_scope() and scopes.get_current_paths() or {}
+          if next(search_dirs) ~= nil then
+            search_opts.prompt_title = "Find Word (" .. word:gsub("\n", "\\n") .. ") (scoped)"
+            search_opts.search_dirs = search_dirs
+          end
+          ts_builtin.grep_string(search_opts)
         end
         local function scoped_live_grep()
           local has_live_grep_args, _ = pcall(require('telescope').load_extension, 'live-grep-args')
           local live_grep = has_live_grep_args and require('telescope').extensions.live_grep_args.live_grep_args or ts_builtin.live_grep
-          live_grep {
-            prompt_title = 'Live Grep (scoped)',
-            search_dirs = scopes.get_current_scope() and scopes.get_current_paths() or {},
-          }
+          local search_opts = {}
+          local search_dirs = scopes.get_current_scope() and scopes.get_current_paths() or {}
+          if next(search_dirs) ~= nil then
+            search_opts.prompt_title = 'Live Grep (scoped)'
+            search_opts.search_dirs = search_dirs
+          end
+          live_grep(search_opts)
         end
         vim.keymap.set('n', '<leader>sf', scoped_find_files, { desc = '[S]earch [F]iles (scoped)' })
         vim.keymap.set('n', '<leader>sw', scoped_grep_string, { desc = '[S]earch current [W]ord (scoped)' })
