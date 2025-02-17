@@ -246,6 +246,11 @@ vim.keymap.set('n', '<leader>tdb',    function () ToggleSubOpt('diffopt', 'iblan
 vim.keymap.set('n', '<leader>tdc',    function () ToggleSubOpt('diffopt', 'icase') end,  { desc = '[T]oggle [D]iff ignore [C]ase of text' })
 vim.keymap.set('n', '<leader>tdw',    function () ToggleSubOpt('diffopt', 'iwhite') end, { desc = '[T]oggle [D]iff ignore [W]hite spaces' })
 
+vim.opt.diffopt:append('closeoff')
+vim.opt.diffopt:append('hiddenoff')
+vim.opt.diffopt:append('indent-heuristic')
+-- vim.opt.diffopt:append('linematch:60') -- Breaks `do]c` motion macros
+
 -- Visual searching
 vim.opt.incsearch = true
 
