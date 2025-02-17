@@ -3,7 +3,7 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "main",
-    event = 'VeryLazy',
+    -- event = 'VeryLazy', -- Load on commands or keys
     dependencies = {
       -- { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
       { "github/copilot.vim" },
@@ -51,6 +51,29 @@ return {
       -- footer = nil, -- footer of chat window
       -- zindex = 1, -- determines if window is on top or below other floating windows
       -- },
+    },
+    cmd = {
+      'CopilotChat',
+      'CopilotChatAgents',
+      'CopilotChatClose',
+      'CopilotChatCommit',
+      'CopilotChatCommitStaged',
+      'CopilotChatDebugInfo',
+      'CopilotChatDocs',
+      'CopilotChatExplain',
+      'CopilotChatFix',
+      'CopilotChatFixDiagnostic',
+      'CopilotChatLoad',
+      'CopilotChatModels',
+      'CopilotChatOpen',
+      'CopilotChatOptimize',
+      'CopilotChatReset',
+      'CopilotChatReview',
+      'CopilotChatSave',
+      'CopilotChatStop',
+      'CopilotChatTests',
+      'CopilotChatToggle',
+      'CopilotChatToggleCopilotChat',
     },
     keys = {
       { "<leader>cc<cr>", "<cmd>CopilotChat<cr>",         mode = "n", desc = "Run [C]opilot [C]hat" },
