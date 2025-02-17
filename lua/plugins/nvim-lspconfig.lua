@@ -3,6 +3,9 @@
 vim.g.format_lsp_timeout_ms = 5000
 vim.g.format_lsp_async = false
 
+-- Use a custom clang-format. Also see none-ls.lua
+local use_custom_clang_format = (vim.g.clang_format_host_prog ~= nil)
+
 return {
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -123,6 +126,14 @@ return {
               vim.lsp.buf.format({
                 timeout_ms = vim.g.format_lsp_timeout_ms or 1000,
                 async = vim.g.format_lsp_async or false,
+                filter = function (client)
+                  if client.name == 'clangd' and use_custom_clang_format then
+                    -- Don't let clangd use an old version of clang-format. Instead, let none-ls handle it, even though it's slower outside the LSP.
+                    return false
+                  else
+                    return true
+                  end
+                end,
               })
             end, {desc='LSP: [F]ormat using [L]SP'})
 
@@ -175,6 +186,10 @@ return {
               pcall(clangd_extensions.setup_autocmd)
               pcall(clangd_extensions.set_inlay_hints)
             end
+            if use_custom_clang_format then
+              client.capabilities.textDocument.formatting = nil
+              client.capabilities.textDocument.rangeFormatting = nil
+            end
           end
         end,
       })
@@ -220,6 +235,7 @@ return {
             (vim.g.clangd_host_prog or 'clangd'),
             '--offset-encoding=utf-16',  -- Keep in sync with clangd_extensions.lua
             '--clang-tidy', -- Enable clang-tidy diagnostics: https://clang.llvm.org/extra/clang-tidy/
+            '--fallback-style=none',
             '--suggest-missing-includes',
             '--inlay-hints=true',
           },

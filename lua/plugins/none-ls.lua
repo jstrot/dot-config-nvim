@@ -1,9 +1,12 @@
 -- https://github.com/nvimtools/none-ls.nvim
 -- (drop-in successor to null-ls)
+
+-- Use a custom clang-format. Also see nvim-lspconfig.lua
+local use_custom_clang_format = (vim.g.clang_format_host_prog ~= nil)
+
 return {
   {
     "nvimtools/none-ls.nvim",
-    -- debug = true,
     event = 'VeryLazy',
     branch = "main",
     dependencies = {
@@ -40,11 +43,14 @@ return {
           -- null_ls.builtins.formatting.autoflake, -- Python: use ruff instead
           require("none-ls.formatting.ruff"), -- Python
           null_ls.builtins.formatting.black, -- Python
-          null_ls.builtins.formatting.clang_format.with({ -- C/C++
-            generator_opts = {
-              command = vim.g.clang_format_host_prog or 'clang-format',
-            },
-          }),
+
+          use_custom_clang_format and null_ls.builtins.formatting.clang_format.with({ -- C/C++, C#, Java, Cuda, Proto
+            command = vim.g.clang_format_host_prog or 'clang-format',
+            extra_args = {
+              "--fallback-style=GNU", -- Only use as default if no .clang-format file is found
+            }
+          }) or nil,
+
           null_ls.builtins.formatting.buildifier, -- Bazel
 
           -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/completion
