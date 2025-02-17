@@ -30,7 +30,24 @@ return {
     config = function(_, opts)
       require('todo-comments').setup(opts)
 
-      vim.keymap.set("n", "<leader>st", '<cmd>TodoTelescope<cr>', { desc = "[S]earch [T]odo comments" })
+      local has_telescope, telescope = pcall(require, 'telescope')
+      if has_telescope then
+        local has_neoscopes, neoscopes = pcall(require, 'neoscopes')
+        if has_neoscopes then
+          vim.keymap.set("n", "<leader>st", function ()
+            local search_dirs = neoscopes.get_current_paths()
+            local cwd = search_dirs[1]
+            telescope.extensions['todo-comments'].todo({
+              prompt_title = cwd and 'Find Todo (scoped: ' .. cwd .. ')' or 'Find Todo (<cwd>)', -- FIXME: todo-comments.lua overrides prompt_title
+              cwd = cwd,
+            })
+          end, { desc = "[S]earch [T]odo comments (scoped)" })
+        else
+          vim.keymap.set("n", "<leader>st", telescope.extensions['todo-comments'].todo, { desc = "[S]earch [T]odo comments" })
+        end
+      else
+        vim.keymap.set("n", "<leader>st", '<cmd>TodoQuickfix<cr>', { desc = "[S]earch [T]odo comments in quickfix" })
+      end
       vim.keymap.set("n", "]t", function() require("todo-comments").jump_next() end, { desc = "Next todo comment" })
       vim.keymap.set("n", "[t", function() require("todo-comments").jump_prev() end, { desc = "Previous todo comment" })
     end
