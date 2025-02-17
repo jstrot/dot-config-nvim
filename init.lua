@@ -298,4 +298,11 @@ end
 -- Conceiling only in visual mode makes it more consistent, IMO.
 vim.opt.concealcursor = 'v'
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.shiftwidth = 2 -- I prefer a more compact view. vim-sleuth will auto-adapt for existing files.
+  end
+})
+
 -- vim: sw=2 et
