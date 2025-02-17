@@ -3,8 +3,11 @@ return {
   {
     "vim-scripts/LargeFile",
 
-    config = function()
+    init = function()
       vim.g.LargeFile = 10 -- The default is 20 (megs)
+    end,
+
+    config = function()
 
       -- The LargeFile plugin sets `vim.b.LargeFile_mode=1` when it detects a large file.
       -- Dynamic checks (like in nvim-treesitter plugin) can check this variable.
@@ -33,7 +36,7 @@ return {
 
       vim.keymap.set('n', '<leader>tL', ToggleLargeFile, { desc = '[T]oggle [L]arge file handling' })
 
-    end
+    end,
   },
 }
 
