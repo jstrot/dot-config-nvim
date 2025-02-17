@@ -52,6 +52,11 @@ return {
             return true
           end
 
+          -- Geez Treesitter is bad at large Tcl files
+          if vim.bo.filetype == 'tcl' or vim.bo.filetype == 'tcl.doxygen' then
+            return true
+          end
+
           -- Disable treesitter in CSV files if you're using a plugin such as rainbow_csv
           local csv_fts = {
             "csv",
