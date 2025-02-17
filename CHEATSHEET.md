@@ -261,6 +261,24 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | v    | `gc`                | Toggles the region using linewise comment                          |
 | v    | `gb`                | Toggles the region using blockwise comment                         |
 
+## Markdown
+
+| Mode | Mapping             | Description                                                        |
+| ---- | ------------------- | ------------------------------------------------------------------ |
+| i    | `<cr>` or `<C-cr>`  | On bullet line, inserts a new bullet list item based on the current line bullet format |
+| n    | `o`                 | On bullet line, inserts a new bullet list item and starts insert mode                  |
+| n, v | `gN`                | On bullet line, renumbers entire list containing the current cursor position           |
+| n    | `<leader>x`         | On bullet line, toggles the checkbox (if any)                                          |
+| i    | `<C-Right>`         | On bullet line, demotes the current bullet item by indenting the line.                 |
+| n    | `>>`                | On bullet line, demotes the current bullet item by indenting the line.                 |
+| v    | `>`                 | On bullet line, demotes the selected bullet items by indenting the lines.              |
+| i    | `<C-Left>`          | On bullet line, promotes the current bullet item by unindenting the line.              |
+| n    | `<<`                | On bullet line, promotes the current bullet item by unindenting the line.              |
+| v    | `<`                 | On bullet line, promotes the selected bullet items by unindenting the lines.           |
+| n    | `<Leader>tm`        | \[T]oggle \[M]arkview                                                                  |
+
+- bullet keymaps apply to Markdown files and others like "text", "gitcommit", and "scratch".
+
 ## Text operations (mini.operators)
 
 See `:help mini.operators` for more details.

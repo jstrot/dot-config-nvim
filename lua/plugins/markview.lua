@@ -28,6 +28,9 @@ return {
       end,
     })
 
+    -- The default MarkviewCheckboxUnchecked mapping is that of an error state. Unchecked checkboxes are not errors, just in progress.
+    vim.cmd([[ highlight! link MarkviewCheckboxUnchecked Normal ]])
+
   end
 
 }
