@@ -201,6 +201,7 @@ return {
   -- https://github.com/prochri/telescope-all-recent.nvim
   {
     'prochri/telescope-all-recent.nvim',
+    event = 'VeryLazy', -- Don't need this on startup
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "kkharji/sqlite.lua",
