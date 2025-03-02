@@ -2,7 +2,9 @@
 return {
   {
     'simrat39/rust-tools.nvim',
-    event = 'VeryLazy',
+    ft = {
+      'rust',
+    },
     dependencies = {
       'neovim/nvim-lspconfig',
     },

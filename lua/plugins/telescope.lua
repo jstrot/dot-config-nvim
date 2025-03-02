@@ -214,26 +214,27 @@ return {
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
-    config = function()
-      pcall(require('telescope').load_extension, 'symbols')
-      vim.keymap.set('n', '<leader>se', function ()
-        local sources = {
+    keys = {
+      {
+        '<leader>se', function ()
+          local sources = {
             'emoji',
             'kaomoji',
             'gitmoji',
             'math',
             -- 'latex',
-        }
-        if vim.bo.filetype == 'gitcommit' then
-          sources = { 'gitmoji' }
-        elseif vim.bo.filetype == 'tex' or vim.bo.filetype == 'plaintex' or vim.bo.filetype == 'context' then
-          sources = { 'latex' }
-        end
-        require('telescope.builtin').symbols{
-          sources = sources,
-        }
-      end, { desc = '[S]earch Symbols/[E]mojis' })
-    end,
+          }
+          if vim.bo.filetype == 'gitcommit' then
+            sources = { 'gitmoji' }
+          elseif vim.bo.filetype == 'tex' or vim.bo.filetype == 'plaintex' or vim.bo.filetype == 'context' then
+            sources = { 'latex' }
+          end
+          require('telescope.builtin').symbols{
+            sources = sources,
+          }
+        end, desc = '[S]earch Symbols/[E]mojis'
+      },
+    },
   },
   -- https://github.com/nvim-telescope/telescope-bibtex.nvim
   {
@@ -241,10 +242,9 @@ return {
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
-    config = function()
-      pcall(require('telescope').load_extension, 'bibtex')
-      vim.keymap.set('n', '<leader>sb', '<cmd>Telescope bibtex<CR>', { desc = '[S]earch [B]ibtex references' })
-    end,
+    keys = {
+      { '<leader>sb', '<cmd>Telescope bibtex<CR>', desc = '[S]earch [B]ibtex references' },
+    },
   },
 }
 

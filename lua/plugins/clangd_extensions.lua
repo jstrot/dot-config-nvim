@@ -2,7 +2,7 @@
 return {
   {
     'p00f/clangd_extensions.nvim',
-    -- enabled = false,  -- FIXME: XXXJST can get offset_encoding to match!
+    lazy = true, -- Loaded by nvim-lspconfig
     opts = {
       cmd = {
         (vim.g.clangd_host_prog or 'clangd'),

@@ -2,7 +2,6 @@
 return {
   {
     "hedyhli/outline.nvim",
-    event = 'VeryLazy',
     opts = {
     },
     cmd = {

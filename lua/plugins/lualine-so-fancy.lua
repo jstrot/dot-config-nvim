@@ -2,6 +2,7 @@
 return {
   {
     "meuter/lualine-so-fancy.nvim",
+    event = 'VeryLazy',
     dependencies = { "arkav/lualine-lsp-progress" },
   }
 }

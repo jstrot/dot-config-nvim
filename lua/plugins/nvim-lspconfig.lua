@@ -195,6 +195,10 @@ return {
               client.capabilities.textDocument.rangeFormatting = nil
             end
           end
+          if name == 'ccls' then
+            local ok, ccls = pcall(require, 'ccls')
+          end
+
         end,
       })
 

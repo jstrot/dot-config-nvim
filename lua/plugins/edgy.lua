@@ -2,6 +2,7 @@
 return {
   {
     "folke/edgy.nvim",
+    enabled = false, -- I don't use this
     event = "VeryLazy",
     init = function()
       -- vim.opt.laststatus = 3

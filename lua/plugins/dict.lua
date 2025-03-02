@@ -6,10 +6,6 @@
 return {
   {
     "jalvesaq/dict.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
     keys = {
       {
         "<leader>id",
@@ -18,6 +14,9 @@ return {
         end,
         desc = "[I]nspect word in [D]ictionary",
       },
+    },
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
     },
     opts = {},
   },

@@ -3,6 +3,7 @@ return {
   {
     -- https://github.com/catppuccin/nvim
     'catppuccin/nvim',
+    -- enabled = false, -- This is the default, disable if you don't use it
     name = 'catppuccin',
     priority = 1000,
     opts = {
@@ -15,12 +16,14 @@ return {
   {
     -- https://github.com/LunarVim/Colorschemes
     'LunarVim/Colorschemes',
+    enabled = false, -- Enable if you with to use or test it
     name = 'LunarVim-Colorschemes',
     priority = 1000,
   },
   {
     -- https://github.com/folke/tokyonight.nvim
     "folke/tokyonight.nvim",
+    enabled = false, -- Enable if you with to use or test it
     lazy = false,
     priority = 1000,
     opts = {},

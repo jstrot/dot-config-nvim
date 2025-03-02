@@ -2,6 +2,7 @@
 return {
   {
     "huynle/ogpt.nvim",
+    enabled = false, -- Opt-in: Enable once configured
     event = "VeryLazy",
     opts = {
       default_provider = "ollama",

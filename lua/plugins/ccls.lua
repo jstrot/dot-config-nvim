@@ -2,6 +2,7 @@
 return {
   {
     "ranjithshegde/ccls.nvim",
+    lazy = true, -- Loaded by nvim-lspconfig
   }
 }
 
