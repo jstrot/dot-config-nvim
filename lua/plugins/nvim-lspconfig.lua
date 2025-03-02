@@ -255,6 +255,9 @@ return {
           settings = {
             pyright = {
               disableOrganizeImports = true, -- use ruff instead
+              -- There's no way to suppress tagged hints and they are mostly duplicates of other diagnostics.
+              -- See https://github.com/neovim/neovim/issues/30444
+              disableTaggedHints = true,
             },
             python = {
               analysis = {
