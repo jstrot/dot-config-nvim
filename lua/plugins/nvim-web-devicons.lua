@@ -1,4 +1,5 @@
 -- https://github.com/nvim-tree/nvim-web-devicons
+-- TEST: Run `:NvimWebDeviconsHiTest` to see all icons and their highlighting.
 return {
   {
     'nvim-tree/nvim-web-devicons',
