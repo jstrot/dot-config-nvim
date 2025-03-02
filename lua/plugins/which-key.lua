@@ -1,7 +1,6 @@
 -- https://github.com/folke/which-key.nvim
 return {
   "folke/which-key.nvim",
-  enabled = true,  -- If you disable, you may want to consider a longer `timeoutlen` in init.lua
   event = "VeryLazy",
   opts = {
   },
@@ -14,6 +13,10 @@ return {
       desc = "Show buffer local keymaps (which-key)",
     },
   },
+  init = function()
+    -- Decrease mapped sequence wait time to display which-key popup sooner
+    vim.opt.timeoutlen = 300
+  end,
 }
 
 -- vim: sw=2 et
