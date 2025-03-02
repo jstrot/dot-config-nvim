@@ -51,6 +51,13 @@ return {
       -- footer = nil, -- footer of chat window
       -- zindex = 1, -- determines if window is on top or below other floating windows
       -- },
+      mappings = {
+        -- Use shift-tab for completion so it doesn't conflict with Copilot
+        complete = {
+          detail = "Use @<S-Tab> or /<S-Tab> for options.",
+          insert = "<S-Tab>",
+        },
+      }
     },
     cmd = {
       'CopilotChat',
