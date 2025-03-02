@@ -2,7 +2,10 @@
 return {
   {
     "github/copilot.vim",
-    event = 'VeryLazy',
+    event = 'InsertEnter',
+    cmd = {
+      'Copilot',
+    },
   },
 }
 
