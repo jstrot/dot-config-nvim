@@ -4,7 +4,9 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    event = 'VeryLazy',
+    event = { "BufReadPre", "BufNewFile" },
+    -- event = 'VeryLazy', -- Interferes with startup diff mode folding
+    -- event = 'VimEnter', -- Interferes with startup diff mode folding
     opts = {
       -- A list of parser names, or "all". See `TSInstallInfo` for available parsers.
       ensure_installed = {
