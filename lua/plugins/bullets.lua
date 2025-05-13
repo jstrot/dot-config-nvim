@@ -33,12 +33,12 @@ return {
         {'nmap', '<leader>x', '<Plug>(bullets-toggle-checkbox)'},
 
         {'imap', '<C-Right>', '<Plug>(bullets-demote)'},
-        {'nmap', '>>', '<Plug>(bullets-demote)'},
-        {'vmap', '>', '<Plug>(bullets-demote)'},
+        -- {'nmap', '>>', '<Plug>(bullets-demote)'}, -- range not supported and can't repeat
+        -- {'vmap', '>', '<Plug>(bullets-demote)'}, -- can't repeat
 
         {'imap', '<C-Left>', '<Plug>(bullets-promote)'},
-        {'nmap', '<<', '<Plug>(bullets-promote)'},
-        {'vmap', '<', '<Plug>(bullets-promote)'},
+        -- {'nmap', '<<', '<Plug>(bullets-promote)'} -- range not supported and can't repeat
+        -- {'vmap', '<', '<Plug>(bullets-promote)'}, -- can't repeat
       }
 
       vim.g.bullets_checkbox_markers = ' .oOx' -- empty, <33%, <66%, <100%, completed
