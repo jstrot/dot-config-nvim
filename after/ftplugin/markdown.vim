@@ -17,20 +17,4 @@ function s:fmt_line(line) abort
   return indent .. title
 endfunction
 
-function s:show_toc() abort
-  let bufname = bufname('%')
-  let info = getloclist(0, {'winid': 1})
-  if !empty(info) && getwinvar(info.winid, 'qf_toc') ==# bufname
-    lopen
-    return
-  endif
-  call setloclist(0, range(1, line('$'))
-        \->filter({ _, lnum -> getline(lnum) =~ '\v^\s{0,3}#+\s+.*$' })
-        \->map({ _, lnum -> {'bufnr': bufnr('%'), 'lnum': lnum,
-        \ 'text': s:fmt_line(getline(lnum))} }))
-  call setloclist(0, [], 'a', {'title': 'Markdown TOC'})
-  lopen
-  let w:qf_toc = bufname
-endfunction
-
-nnoremap <silent> <buffer> gO <CMD>call <SID>show_toc()<CR>
+" NOTE: For a TOC window, use the LSP-based `gO` mapping
