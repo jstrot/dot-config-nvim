@@ -25,6 +25,8 @@ return {
         -- Add your own:
         -- XXXJST: Looks like this
         XXXJST = { icon = '😎', color = 'warning', alt = {} },
+        -- TEMP: Looks like this
+        TEMP = { icon = '🕔', color = 'info', alt = {} },
       },
     },
     config = function(_, opts)
