@@ -205,3 +205,32 @@ On Debian-based systems, you can install it with:
 ```sh
 sudo apt install fd-find
 ```
+
+# AI
+
+## GitHub Copilot
+
+Copilot requires nodeJS (`node`) version 20 or later.
+If you don't have a compatible version installed, follow the instructions below.
+
+You should not need anything from the official [GitHub Copilot Neovim instructions](https://github.com/github/copilot.vim).
+The plugin is already available as `lua/plugins/Copilot.lua`.
+
+All you need is to run `:Copilot` once within Neovim to link your account and set it up.
+
+# Setup `node`
+
+For tools that depend on "nodeJS", here's a quick installation method.
+
+Install nvm (full instructions here: <https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating>):
+
+```sh
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+```
+
+Once installed and your shell is restarted, install the latest version of nodejs from <https://nodejs.org/en>:
+```sh
+$ nvm install v22.15.0
+$ node -v
+v22.15.0
+```
