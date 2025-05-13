@@ -63,7 +63,7 @@ return {
           null_ls.builtins.diagnostics.buildifier, -- Bazel
 
           -- https://github.com/nvimtools/none-ls.nvim/blob/main/lua/null-ls/builtins/diagnostics/markdownlint.lua
-          null_ls.builtins.diagnostics.markdownlint,
+          -- null_ls.builtins.diagnostics.markdownlint, -- Disabled because it keeps running when not available
           -- https://github.com/nvimtools/none-ls.nvim/blob/main/lua/null-ls/builtins/diagnostics/markdownlint_cli2.lua
           -- null_ls.builtins.diagnostics.markdownlint_cli2,
 
