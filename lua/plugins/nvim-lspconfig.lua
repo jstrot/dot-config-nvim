@@ -246,8 +246,9 @@ return {
             client.server_capabilities.hoverProvider = false
           end,
           settings = {
-	    -- configuration = "~/path/to/ruff.toml"
-	    -- configurationPreference = "filesystemFirst", -- "editorFirst" | "filesystemFirst" | "editorOnly"
+            -- configuration = "~/path/to/ruff.toml"
+            -- configurationPreference = "filesystemFirst", -- "editorFirst" | "filesystemFirst" | "editorOnly"
+            -- reportMatchNotExhaustive = true, -- NOTE: enable in pyright instead
           },
         },
         -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/pyright.lua
@@ -263,6 +264,7 @@ return {
               analysis = {
                 ignore = { '*' }, -- use ruff instead
                 -- typeCheckingMode = 'off', -- Using mypy
+                -- reportMatchNotExhaustive = true,
               },
             },
           },
