@@ -54,7 +54,7 @@ return {
 
       local util = require('lspconfig.util')
       -- Lsp logs can get very big very fast!
-      -- See ~/local/state/nvim/lsp.log
+      -- See ~/.local/state/nvim/lsp.log
       vim.lsp.set_log_level('off')
       -- vim.lsp.set_log_level('debug')
 
