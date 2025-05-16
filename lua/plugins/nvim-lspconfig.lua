@@ -12,7 +12,8 @@ if not ruff_path or ruff_path == '' then ruff_path = 'ruff' end
 return {
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
-    event = 'VeryLazy',
+    -- event = 'VeryLazy', -- Does not load on command-line files until `:e`
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
