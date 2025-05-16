@@ -2,6 +2,7 @@
 return {
   {
     'hrsh7th/nvim-cmp',
+    enabled = vim.g.cmp_plugin == 'nvim-cmp',
     dependencies = {
       'neovim/nvim-lspconfig',
       -- LSP completion sources:

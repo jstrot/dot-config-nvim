@@ -1,9 +1,9 @@
 -- https://github.com/neoclide/coc.nvim
 return {
   {
-    enabled = false,  -- NOTE: using cmp for now
-    event = 'InsertEnter',
     "neoclide/coc.nvim",
+    enabled = vim.g.cmp_plugin == 'coc',
+    event = 'InsertEnter',
     branch = "release",
   }
 }

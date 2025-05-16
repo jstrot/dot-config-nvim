@@ -29,7 +29,7 @@ $ tree ~/.config/nvim
 │   ├── config
 │   │   └── lazy.lua
 │   └── plugins
-│       ├── coc.lua
+│       ├── blink.cmp.lua
 │       ├── CopilotChat.lua
 │       ├── Copilot.lua
 │       ├── fzf.lua

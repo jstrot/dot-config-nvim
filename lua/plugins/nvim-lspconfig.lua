@@ -24,7 +24,10 @@ return {
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
 
-      'hrsh7th/cmp-nvim-lsp',
+      {
+        'hrsh7th/cmp-nvim-lsp',
+        enabled = vim.g.cmp_plugin == 'nvim-cmp',
+      }
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -217,7 +220,11 @@ return {
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      if vim.g.cmp_plugin == 'blink.cmp' then
+        capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities({}, false))
+      elseif vim.g.cmp_plugin == 'nvim-cmp' then
+        capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      end
 
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.

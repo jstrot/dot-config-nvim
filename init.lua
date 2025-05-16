@@ -291,6 +291,9 @@ vim.opt.wildmode = { 'longest:full' }
 -- NOTE: Enable this to silence *temporarily* deprecated commands warning
 -- vim.deprecate = function() end
 
+-- [[ Make plugin choices ]]
+vim.g.cmp_plugin = 'blink.cmp' -- 'blink.cmp', 'nvim-cmp'
+
 -- [[ Configure and install plugins ]]
 require('config.lazy')
 
