@@ -3,6 +3,15 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = {
+    -- Document existing key chains
+    spec = {
+      { '<leader>[', group = 'Navigate backward' },
+      { '<leader>]', group = 'Navigate forward' },
+      { '<leader>cc', group = '[C]opilot [C]hat' },
+      { '<leader>g', group = '[G]it' },
+      { '<leader>s', group = '[S]earching (telescope)' },
+      { '<leader>t', group = '[T]oggle' },
+    },
   },
   keys = {
     {
