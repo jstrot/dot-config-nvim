@@ -147,7 +147,11 @@ return {
 
       -- When doing `nvim somefile.txt`, it will render the file as quickly as possible, before loading your plugins. ‼️
       quickfile = {
-        enabled = false,
+        enabled = true,
+        -- any treesitter langs to exclude
+        exclude = {
+          "latex", -- Folke's default
+        },
       },
 
       -- LSP-integrated file renaming with support for plugins like neo-tree.nvim and mini.files.
