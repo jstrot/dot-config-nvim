@@ -7,6 +7,7 @@ return {
     dependencies = {
       -- 'rafamadriz/friendly-snippets', -- optional: provides snippets for the snippet source
       'L3MON4D3/LuaSnip',
+      'folke/lazydev.nvim',
     },
 
     ---@module 'blink.cmp'
@@ -37,6 +38,9 @@ return {
           'buffer',
           -- 'cmdline',
           -- 'omni',
+        },
+        providers = {
+          lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         },
       },
 
