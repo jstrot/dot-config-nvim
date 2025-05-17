@@ -105,7 +105,7 @@ return {
 
       -- Indent guides and scopes
       indent = {
-        enabled = false,
+        enabled = false, -- Select default and use keymap to toggle
       },
 
       -- Better vim.ui.input ‼️
@@ -210,6 +210,15 @@ return {
     keys = {
       -- browse
       { '<leader>gB', function () Snacks.gitbrowse() end, desc = '[G]it [B]rowse repo online' },
+      -- indent
+      { '<leader>tih', function ()
+        local snacks_indent = require('snacks.indent')
+        if snacks_indent.enabled then
+          snacks_indent.disable()
+        else
+          snacks_indent.enable()
+        end
+      end, desc = '[T]oggle [I]ndent [H]ighlighting' },
     },
     config = function(_, opts)
       require("snacks").setup(opts);

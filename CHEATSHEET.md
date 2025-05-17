@@ -178,7 +178,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tf`      | \[T]oggle auto\[F]ormat on save using "conform"                                           |                                                                                |
 | n    | `<Leader>tgb`     | \[T]oggle \[G]it current line \[B]lame                                                    |                                                                                |
 | n    | `<Leader>tgd`     | \[T]oggle \[G]it \[D]eleted hunks                                                         |                                                                                |
-| n    | `<Leader>ti`      | \[T]oggle \[I]indent highlighting                                                         |                                                                                |
+| n    | `<Leader>ti`      | \[T]oggle \[I]ndent highlighting                                                          |                                                                                |
 | n    | `<Leader>tld<cr>` | \[T]oggle \[L]SP \[D]iagnostics                                                           |                                                                                |
 | n    | `<Leader>tldd`    | \[T]oggle \[L]SP \[D]iagnostics back to \[D]efaults (on, except overrides passed on init) |                                                                                |
 | n    | `<Leader>tldf`    | \[T]oggle \[L]SP \[D]iagnostics o\[F]f                                                    |                                                                                |
