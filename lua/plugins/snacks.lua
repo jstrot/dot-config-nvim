@@ -31,7 +31,43 @@ return {
 
       -- Beautiful declarative dashboards ‼️
       dashboard = {
-        enabled = false,
+        enabled = true,
+
+        sections = {
+          { section = "header" },
+          { pane = 2, section = "terminal", padding = 1,
+            cmd = "fortune -s | cowsay",
+            hl = "header",
+            indent = 8,
+            enabled = vim.fn.executable('fortune') == 1 and vim.fn.executable('cowsay') == 1,
+          },
+          { section = "keys", gap = 1, padding = 1, },
+          { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+          { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+          {
+            pane = 2, icon = " ", title = "Git Status", section = "terminal", indent = 3, padding = 1,
+            enabled = function()
+              return Snacks.git.get_root() ~= nil
+            end,
+            cmd = "git status --short --branch --renames",
+            height = 5,
+            ttl = 5 * 60,
+          },
+          { section = "startup" },
+        },
+
+        preset = {
+          keys = {
+            { icon = " ", key = "f", desc = "Find File", action = "<leader>sf" },
+            { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+            { icon = " ", key = "g", desc = "Find Text", action = "<leader>sg" },
+            { icon = " ", key = "r", desc = "Recent Files", action = "<leader>sr" },
+            { icon = " ", key = "c", desc = "Config", action = "<leader>sn" },
+            { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+            { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          },
+        },
       },
 
       -- Pretty inspect & backtraces for debugging
@@ -173,6 +209,7 @@ return {
     config = function(_, opts)
       require("snacks").setup(opts);
 
+      -- dashboard
       vim.api.nvim_create_user_command('Dashboard', Snacks.dashboard.open, {})
     end,
   },
