@@ -126,7 +126,8 @@ return {
 
       -- Pretty vim.notify ‼️
       notifier = {
-        enabled = false,
+        enabled = true,
+        style = 'fancy', -- 'compact', 'minimal', 'fancy'
       },
 
       -- Utility functions to work with Neovim's vim.notify
