@@ -8,11 +8,11 @@ vim.g.coc_node_path = (vim.g.node_host_prog or 'node')
 
 -- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 -- delays and poor user experience
-vim.opt.updatetime = 300
+vim.o.updatetime = 300
 
 -- Always show the signcolumn, otherwise it would shift the text each time
 -- diagnostics appeared/became resolved
-vim.opt.signcolumn = "yes"
+vim.o.signcolumn = "yes"
 
 local keyset = vim.keymap.set
 -- Autocomplete
@@ -165,8 +165,8 @@ vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'edito
 -- NOTE: Please see `:h coc-status` for integrations with external plugins that
 -- provide custom statusline: lightline.vim, vim-airline
 -- TODO: XXXJST Provide a default statusline
-if vim.opt.statusline:get() == "" then
-    vim.opt.statusline = "%<%f%= [%M%R%H%W%Y] %15(l(%l/%L,%P)%) %9(c(%c%V%)) %9([%2Bx,%b]%) %3(#%n%)"
+if vim.o.statusline == "" then
+    vim.o.statusline = "%<%f%= [%M%R%H%W%Y] %15(l(%l/%L,%P)%) %9(c(%c%V%)) %9([%2Bx,%b]%) %3(#%n%)"
 end
 vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
 

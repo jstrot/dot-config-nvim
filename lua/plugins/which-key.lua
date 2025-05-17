@@ -15,7 +15,7 @@ return {
   },
   init = function()
     -- Decrease mapped sequence wait time to display which-key popup sooner
-    vim.opt.timeoutlen = 300
+    vim.o.timeoutlen = 300
   end,
 }
 
