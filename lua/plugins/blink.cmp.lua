@@ -5,7 +5,8 @@ return {
     enabled = vim.g.cmp_plugin == 'blink.cmp',
     version = '1.*',
     dependencies = {
-      'rafamadriz/friendly-snippets', -- optional: provides snippets for the snippet source
+      -- 'rafamadriz/friendly-snippets', -- optional: provides snippets for the snippet source
+      'L3MON4D3/LuaSnip',
     },
 
     ---@module 'blink.cmp'
@@ -41,7 +42,7 @@ return {
 
       -- https://cmp.saghen.dev/configuration/reference.html#snippets
       snippets = {
-        preset = 'default', -- or 'luasnip' or 'mini_snippets'
+        preset = 'luasnip' -- 'default', 'luasnip', 'mini_snippets'
       },
 
       -- Enable or disable per file type:
