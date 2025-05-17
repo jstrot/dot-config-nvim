@@ -44,6 +44,10 @@ return {
         },
       },
 
+      cmdline = {
+        enabled = false, -- I've never had a good experience with fuzzy completion on the Neovim cmdline
+      },
+
       -- https://cmp.saghen.dev/configuration/reference.html#snippets
       snippets = {
         preset = 'luasnip' -- 'default', 'luasnip', 'mini_snippets'
