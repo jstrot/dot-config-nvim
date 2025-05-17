@@ -18,7 +18,10 @@ return {
 
       -- Deal with big files ‼️
       bigfile = {
-        enabled = false,
+        enabled = true,
+        notify = true,
+        size = 20 * 1024 * 1024,
+        line_lenght = 1000,
       },
 
       -- Delete buffers without disrupting window layout

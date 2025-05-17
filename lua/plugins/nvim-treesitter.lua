@@ -49,13 +49,11 @@ return {
         enable = true,  -- false will disable the whole extension
         disable = function(lang, bufnr)
 
-          -- Disable treesitter in help files. (EXTREME speedup => From 0 fps to 165 fps)
-          if vim.bo.filetype == 'help' then
-            return true
-          end
-
-          -- Geez Treesitter is bad at large Tcl files
-          if vim.bo.filetype == 'tcl' or vim.bo.filetype == 'tcl.doxygen' then
+          if vim.tbl_contains({
+            'help', -- Disable treesitter in help files. (EXTREME speedup => From 0 fps to 165 fps)
+            'tcl', 'tcl.doxygen', -- Geez Treesitter is bad at large-ish Tcl files
+            'largefile',
+          }, vim.bo.filetype) then
             return true
           end
 
@@ -73,7 +71,6 @@ return {
             return true
           end
 
-          if vim.b.LargeFile_mode then return true end -- See LargeFile plugin
           return false
         end,
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
@@ -86,11 +83,13 @@ return {
         enable = true,
         disable = function(lang, bufnr)
 
-          if vim.bo.filetype == 'ruby' then -- TODO: Find reference why indent should be disabled for Ruby
+          if vim.tbl_contains({
+            'ruby', -- TODO: Find reference why indent should be disabled for Ruby
+            'largefile',
+          }, vim.bo.filetype) then
             return true
           end
 
-          if vim.b.LargeFile_mode then return true end -- See LargeFile plugin
           return false  -- Do not disable
         end,
       },

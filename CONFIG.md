@@ -33,7 +33,6 @@ $ tree ~/.config/nvim
 │       ├── CopilotChat.lua
 │       ├── Copilot.lua
 │       ├── fzf.lua
-│       ├── LargeFile.lua
 │       ├── lualine.lua
 │       ├── lualine-so-fancy.lua
 │       ├── LunarVim-Colorschemes.lua
