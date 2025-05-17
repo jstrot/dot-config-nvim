@@ -2,6 +2,7 @@
 return {
   {
     'folke/snacks.nvim',
+    event = 'VimEnter',
     init = function()
 
       -- This is an animation library, not actual animations. Disable if you encounter issues.
@@ -205,6 +206,10 @@ return {
         enabled = false,
       },
 
+    },
+    keys = {
+      -- browse
+      { '<leader>gB', function () Snacks.gitbrowse() end, desc = '[G]it [B]rowse repo online' },
     },
     config = function(_, opts)
       require("snacks").setup(opts);

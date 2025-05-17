@@ -227,7 +227,7 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | n    | `<Leader>cb` | \[B]uild cscope database                                |
 | n    | `<C-]>`      | Do `:Cstag <cword>`                                     |
 
-## Git (fugitive, gitsigns)
+## Git (fugitive, gitsigns, snacks.gitbrowse)
 
 | Mode | Mapping       | Description                                                 |
 | ---- | ------------- | ----------------------------------------------------------- |
@@ -241,6 +241,7 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | n    | `<Leader>gp`  | \[G]it \[P]review hunk                                      |
 | n    | `<Leader>gc`  | \[G]it \[C]ommit                                            |
 | n    | `<Leader>gb`  | \[G]it \[B]lame line                                        |
+| n    | `<Leader>gB`  | \[G]it \[B]rowse repo online                                |
 | n    | `<Leader>gd`  | \[G]it vim\[D]iff file against the index                    |
 | n    | `<Leader>gD`  | \[G]it vim\[D]iff file against the last commit              |
 | o, x | `ih`          | Select \[I]nside \[H]unk (after movement or in visual mode) |
