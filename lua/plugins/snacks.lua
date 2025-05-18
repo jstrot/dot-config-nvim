@@ -232,6 +232,9 @@ return {
 
       -- dashboard
       vim.api.nvim_create_user_command('Dashboard', Snacks.dashboard.open, {})
+
+      -- input
+      Snacks.input.enable()
     end,
   },
 }
