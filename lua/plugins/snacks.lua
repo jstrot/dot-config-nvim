@@ -208,7 +208,7 @@ return {
 
       -- Zen mode • distraction-free coding
       zen = {
-        enabled = false,
+        -- Use keymap to toggle
       },
 
     },
@@ -224,6 +224,8 @@ return {
           snacks_indent.enable()
         end
       end, desc = '[T]oggle [I]ndent [H]ighlighting' },
+      -- zen
+      { '<leader>tz', function () Snacks.zen() end, desc = '[T]oggle [Z]en mode' },
     },
     config = function(_, opts)
       require("snacks").setup(opts);
