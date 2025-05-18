@@ -27,25 +27,19 @@ $ tree ~/.config/nvim
 ├── init.lua
 ├── lua
 │   ├── config
+│   │   ├── ginit.lua
 │   │   └── lazy.lua
 │   └── plugins
+│       ├── AnsiEsc.lua
 │       ├── blink.cmp.lua
+│       ├── bullets.lua
+│       ├── colorschemes.lua
+│       ├── Comment.lua
+│       ├── conform.lua
 │       ├── CopilotChat.lua
 │       ├── Copilot.lua
-│       ├── fzf.lua
-│       ├── lualine.lua
-│       ├── lualine-so-fancy.lua
-│       ├── LunarVim-Colorschemes.lua
-│       ├── none-ls.lua
-│       ├── nvim-coverage.lua
-│       ├── nvim-lspconfig.lua
-│       ├── nvim-treesitter-context.lua
-│       ├── nvim-treesitter.lua
-│       ├── nvim-web-devicons.lua
-│       ├── telescope.lua
-│       ├── toggle-lsp-diagnostics.lua
-│       ├── vim-clang-format.lua
-│       └── vim-fugitive.lua
+│       ├── dict.lua
+│       ├── edgy.lua
 │       └── ...
 └── ...
 ```
