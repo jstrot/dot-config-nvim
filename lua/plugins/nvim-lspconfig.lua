@@ -28,6 +28,14 @@ return {
         enabled = vim.g.cmp_plugin == 'nvim-cmp',
       }
     },
+    init = function()
+      -- Not about nvim-lspconfig but this is where you'd expect to fit it:
+      vim.diagnostic.config({
+        float = {
+          border = 'rounded',
+        },
+      })
+    end,
     config = function()
       -- Brief aside: **What is LSP?**
       --
