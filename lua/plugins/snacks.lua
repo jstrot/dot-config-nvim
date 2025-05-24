@@ -3,10 +3,30 @@ return {
   {
     'folke/snacks.nvim',
     event = 'VimEnter',
+    priority = 100, -- default is 50, this is high priority so snacks.bigfile loads early
     init = function()
 
       -- This is an animation library, not actual animations. Disable if you encounter issues.
       vim.g.snacks_animate = true -- vim.b.snacks_animate = false locally for the buffer
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "bigfile",
+        callback = function()
+          -- Mimic LargeFile plugin
+          -- TODO: Save settings and restore on filetype change away from bigfile?
+          vim.opt_local.swapfile = false
+          vim.opt_local.bufhidden = 'unload'
+          vim.opt_local.foldmethod = 'manual'
+          vim.opt_local.foldenable = false
+          vim.opt_local.complete:remove { 'w', 'b', 'u', 'U', }
+          vim.opt_local.backup = false
+          vim.opt_local.writebackup = false
+          vim.opt_local.undolevels = -1 -- Disable undo history
+          -- TODO: snacks.bigfile will schedule to set the syntax back to the original, "off" would be best!
+          -- More
+          vim.opt_local.wrap = false
+        end
+      })
 
     end,
     opts = {
