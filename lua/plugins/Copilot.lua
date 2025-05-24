@@ -26,12 +26,13 @@ return {
 
       vim.g.copilot_node_command = vim.g.node_host_prog or 'node'
 
-      -- vim.g.copilot_filetypes = {
-      --   c = true,
-      --   markdown = true,
-      --   python = true,
-      -- }
-      -- vim.g.copilot_filetypes['*'] = false
+      vim.g.copilot_filetypes = {
+        bigfile = false, -- Do not enable on large files
+        -- c = true,
+        -- markdown = true,
+        -- python = true,
+      }
+      vim.g.copilot_filetypes['*'] = true -- default
 
       -- vim.g.copilot_workspace_folders = {"~/Projects/myproject"}
 

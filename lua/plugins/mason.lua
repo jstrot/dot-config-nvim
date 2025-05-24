@@ -2,6 +2,7 @@ return {
   -- https://github.com/williamboman/mason.nvim
   {
     'williamboman/mason.nvim',
+    enabled = vim.fn.has('nvim-0.10.0') == 1,
     lazy = true,
     cmd = {
       'Mason',
@@ -25,6 +26,7 @@ return {
   -- Gives option to use lspconfig names instead of Mason names.
   {
     'williamboman/mason-lspconfig.nvim',
+    enabled = vim.fn.has('nvim-0.11.0') == 1,
     dependencies = {
       'williamboman/mason.nvim',
     },
