@@ -11,7 +11,7 @@ return {
     "github/copilot.vim",
     enabled = vim.g.github_copilot_enabled,
     cond = vim.g.auto_suggest_completion_plugin == 'copilot',
-    priority = 60, -- default is 50, this is the preferred auto-suggest completion plugin
+    priority = 45, -- default is 50, 45 is the preferred auto-suggest completion plugin, others are 40
 
     -- event = 'VeryLazy' | 'InsertEnter', -- Does not load on command-line files until `:e`
     event = { "BufReadPre", "BufNewFile" },
