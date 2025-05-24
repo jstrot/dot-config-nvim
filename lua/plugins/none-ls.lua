@@ -7,12 +7,14 @@ local use_custom_clang_format = (vim.g.clang_format_host_prog ~= nil)
 return {
   {
     "nvimtools/none-ls.nvim",
-    event = 'VeryLazy',
+    -- event = 'VeryLazy', -- Does not load on command-line files until `:e`
+    event = { "BufReadPre", "BufNewFile" },
     branch = "main",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "jay-babu/mason-null-ls.nvim",
       -- https://github.com/nvimtools/none-ls-extras.nvim
-      "nvimtools/none-ls-extras.nvim"
+      "nvimtools/none-ls-extras.nvim",
     },
     config = function()
       local null_ls = require("null-ls")
