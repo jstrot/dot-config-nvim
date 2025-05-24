@@ -39,6 +39,43 @@ local opts = {
   },
   edgy = true, -- enable this. See lua/plugins/edgy.lua for options
   single_window = false, -- set this to true if you want only one OGPT window to appear at a time
+  edit = {
+    diff = false,
+    keymaps = {
+      close = "q", -- "<C-c>",
+      accept = "<C-y>", -- "<M-CR>",
+      toggle_diff = "<C-d>",
+      toggle_parameters = "<C-p>", -- "<C-o>",
+      cycle_windows = nil, -- "<Tab>",
+      use_output_as_input = "<C-u>",
+    },
+  },
+  chat = {
+    keymaps = {
+      close = "q", -- { "<C-c>" },
+      yank_last = "<C-y>",
+      yank_last_code = "<C-i>",
+      scroll_up = "<C-u>",
+      scroll_down = "<C-d>",
+      new_session = "<C-n>",
+      cycle_windows = "<Tab>",
+      cycle_modes = "<C-f>",
+      next_message = "J",
+      prev_message = "K",
+      select_session = "<CR>",
+      rename_session = "r",
+      delete_session = "d",
+      draft_message = "<C-d>",
+      edit_message = "e",
+      delete_message = "d",
+      toggle_parameters = "<C-p>", -- "<C-o>",
+      toggle_message_role = "<C-r>",
+      toggle_system_role_open = "<C-s>",
+      stop_generating = "<C-x>",
+    },
+  },
+
+
 }
 -- For debugging: OGPT_opts=opts
 return {
