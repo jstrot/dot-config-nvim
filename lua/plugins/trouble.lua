@@ -2,6 +2,7 @@
 return {
   {
     'folke/trouble.nvim',
+    enabled = vim.fn.has('nvim-0.9.2') == 1,
     event = 'VeryLazy',
     dependencies = {
       'nvim-tree/nvim-web-devicons',

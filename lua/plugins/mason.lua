@@ -45,6 +45,7 @@ return {
   -- Gives option to use none-ls/null-ls names instead of Mason names.
   {
     'jay-babu/mason-null-ls.nvim',
+    enabled = vim.fn.has('nvim-0.10.0') == 1, -- Officially, 0.7.0
     dependencies = {
       'williamboman/mason.nvim',
     },
@@ -64,6 +65,7 @@ return {
   -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
+    enabled = vim.fn.has('nvim-0.10.0') == 1, -- Not official
     lazy = true,
     cmd = {
       'MasonToolsClean',

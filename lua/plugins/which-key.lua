@@ -1,6 +1,7 @@
 -- https://github.com/folke/which-key.nvim
 return {
   "folke/which-key.nvim",
+  enabled = vim.fn.has('nvim-0.9.4') == 1,
   event = "VeryLazy",
   opts = {
     -- Document existing key chains

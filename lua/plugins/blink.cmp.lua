@@ -2,7 +2,7 @@
 return {
   {
     'Saghen/blink.cmp',
-    enabled = vim.g.cmp_plugin == 'blink.cmp',
+    enabled = vim.fn.has('nvim-0.10.0') == 1 and vim.g.cmp_plugin == 'blink.cmp',
     version = '1.*',
     dependencies = {
       -- 'rafamadriz/friendly-snippets', -- optional: provides snippets for the snippet source

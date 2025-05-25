@@ -12,6 +12,7 @@ if not ruff_path or ruff_path == '' then ruff_path = 'ruff' end
 return {
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
+    enabled = vim.fn.has('nvim-0.10.0') == 1,
     -- event = 'VeryLazy', -- Does not load on command-line files until `:e`
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {

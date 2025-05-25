@@ -46,6 +46,7 @@ end
 return {
   {
     'folke/snacks.nvim',
+    enabled = vim.fn.has('nvim-0.9.4') == 1,
     event = 'VimEnter',
     priority = 100, -- default is 50, this is high priority so snacks.bigfile loads early
     init = function()
