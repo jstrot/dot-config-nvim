@@ -2,6 +2,8 @@
 local keys = {
   -- browse
   { '<leader>gB', function () Snacks.gitbrowse() end, desc = '[G]it [B]rowse repo online' },
+  -- explorer
+  { '<leader>te', function() Snacks.explorer() end, desc = '[T]oggle [E]xplorer' },
   -- indent
   { '<leader>tih', function ()
     local snacks_indent = require('snacks.indent')
@@ -144,9 +146,7 @@ return {
 
       -- A file explorer (picker in disguise) ‼️
       explorer = {
-        enabled = false,
-        replace_netrw = false,
-        -- `lua Snacks.explorer()`
+        replace_netrw = false, -- Using oil plugin to open directories
       },
 
       -- Git utilities

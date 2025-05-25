@@ -177,6 +177,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tdb`     | \[T]oggle \[D]iff ignore \[B]lank lines                                                   |                                                                                |
 | n    | `<Leader>tdc`     | \[T]oggle \[D]iff ignore \[C]ase of text                                                  |                                                                                |
 | n    | `<Leader>tdw`     | \[T]oggle \[D]iff ignore \[W]hite spaces                                                  |                                                                                |
+| n    | `<Leader>te`      | \[T]oggle \[E]xplorer                                                                     |                                                                                |
 | n    | `<Leader>tf`      | \[T]oggle auto\[F]ormat on save using "conform"                                           |                                                                                |
 | n    | `<Leader>tgb`     | \[T]oggle \[G]it current line \[B]lame                                                    |                                                                                |
 | n    | `<Leader>tgd`     | \[T]oggle \[G]it \[D]eleted hunks                                                         |                                                                                |
