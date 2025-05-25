@@ -5,12 +5,20 @@ return {
   opts = {
     -- Document existing key chains
     spec = {
-      { '<leader>[', group = 'Navigate backward' },
-      { '<leader>]', group = 'Navigate forward' },
-      { '<leader>cc', group = 'AI/[C]opilot [C]hat' },
-      { '<leader>g', group = '[G]it' },
-      { '<leader>s', group = '[S]earching (telescope)' },
-      { '<leader>t', group = '[T]oggle' },
+      { '[',           icon='', group = 'Navigate backward' },
+      { ']',           icon='', group = 'Navigate forward' },
+      { '<leader>c',   icon='', group = '[C]ode & [C]ompletion' },
+      { '<leader>cc',  icon='󱜸', group = 'AI/[C]opilot [C]hat' },
+      { '<leader>d',   icon='󰱼', group = '[D]ocument' },
+      { '<leader>f',   icon='󰛖', group = '[F]ormat' },
+      { '<leader>g',   icon='', group = '[G]it' },
+      { '<leader>i',   icon='', group = '[I]inspect' },
+      { '<leader>r',   icon='', group = '[R]ename' },
+      { '<leader>s',   icon='', group = '[S]earch (pickers)' },
+      { '<leader>sl',  icon='', group = '[S]earch [L]SP' },
+      { '<leader>t',   icon='', group = '[T]oggle' },
+      { '<leader>td',  icon='', group = '[T]oggle [D]iff' },
+      { '<leader>w',   icon='󱝩', group = '[W]orkspace' },
     },
   },
   keys = {
