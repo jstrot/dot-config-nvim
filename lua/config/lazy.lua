@@ -81,6 +81,9 @@ require("lazy").setup(
         lazy = '💤 ',
       },
     },
+    rocks = {
+      hererocks = vim.fn.executable('lua') == 0, -- recommended if you do not have global installation of Lua 5.1.
+    }
   }
 )
 
