@@ -53,22 +53,23 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | t    | `<Esc><Esc>` | Exit terminal mode (alternate)                      |
 | n    | `<Leader>?`  | Show buffer local keymaps (which-key)               |
 
-## Searching (telescope)
+## Searching (telescope, snacks.picker)
 
 | Mode      | Mapping                 | Description                                  |
 | --------- | ----------------------- | -------------------------------------------- |
 | n         | `<Leader>sh`            | \[S]earch \[H]elp                            |
 | n         | `<Leader>sk`            | \[S]earch \[K]eymaps                         |
 | n         | `<Leader>sf`            | \[S]earch \[F]iles (scoped)                  |
-| n         | `<Leader>st`            | \[S]earch select \[T]elescope                |
+| n         | `<Leader>sp`            | \[S]earch \[P]ickers                         |
 | n         | `<Leader>sw`            | \[S]earch current \[W]ord                    |
 | n         | `<Leader>sg`            | \[S]earch by live \[G]rep (scoped)           |
 | n         | `<Leader>/`             | \[/] Fuzzily search in current buffer        |
-| n         | `<Leader>s/`            | \[S]earch by live grep in open files         |
+| n         | `<Leader>s/`            | \[S]earch by live grep in open buffers       |
 | n         | `<Leader>sr`            | \[S]earch \[R]ecent files                    |
 | n         | `<Leader>sj`            | \[S]earch \[J]ump list                       |
 | n         | `<Leader><Leader>`      | \[ ] Find existing buffers                   |
 | n         | `<Leader>sd`            | \[S]earch workspace \[D]iagnostics           |
+| n         | `<Leader>sD`            | \[S]earch buffer \[D]iagnostics              |
 | n         | `<leader>slr`           | \[S]earch \[L]SP \[R]eferences               |
 | n         | `<leader>sli`           | \[S]earch \[L]SP \[I]mplementations          |
 | n         | `<Leader>st`            | \[S]earch \[T]odo comments                   |

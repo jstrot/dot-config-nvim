@@ -1,4 +1,44 @@
 -- https://github.com/folke/snacks.nvim
+local keys = {
+  -- browse
+  { '<leader>gB', function () Snacks.gitbrowse() end, desc = '[G]it [B]rowse repo online' },
+  -- indent
+  { '<leader>tih', function ()
+    local snacks_indent = require('snacks.indent')
+    if snacks_indent.enabled then
+      snacks_indent.disable()
+    else
+      snacks_indent.enable()
+    end
+  end, desc = '[T]oggle [I]ndent [H]ighlighting' },
+  -- zen
+  { '<leader>tz', function () Snacks.zen() end, desc = '[T]oggle [Z]en mode' },
+}
+if (vim.g.picker_plugin == 'snacks.picker') then
+  vim.list_extend(keys, {
+    { '<leader>sp', function() Snacks.picker.pickers() end, desc = '[S]earch select [P]icker' },
+    { '<leader>s!', function() Snacks.picker.notifications() end, desc = '[S]earch notifications[!]' },
+    -- find
+    { '<leader><leader>', function() Snacks.picker.buffers() end, desc = '[ ] Find existing buffers' },
+    { '<leader>sn', function() Snacks.picker.files({ cwd = vim.fn.stdpath('config'), title = 'Neovim config files' }) end, desc = '[S]earch [N]eovim config files' },
+    -- { '<leader>sf', function() Snacks.picker.files() end, desc = '[S]earch [F]iles' },
+    { '<leader>sf', function() Snacks.picker.smart() end, desc = '[S]earch [F]iles' },
+    { '<leader>sr', function() Snacks.picker.recent() end, desc = '[S]earch [R]ecent files' },
+    -- git
+    -- Grep
+    { '<leader>s/', function() Snacks.picker.grep_buffers() end, desc = '[S]earch by live grep in open buffers' },
+    { '<leader>sg', function() Snacks.picker.grep() end, desc = '[S]earch by live [G]rep' },
+    { '<leader>sw', function() Snacks.picker.grep_word() end, desc = '[S]earch current [W]ord', mode = { 'n', 'x' } },
+    -- search
+    { '<leader>sd', function() Snacks.picker.diagnostics() end, desc = '[S]earch workspace [D]iagnostics' },
+    { '<leader>sD', function() Snacks.picker.diagnostics_buffer() end, desc = '[S]earch buffer [D]iagnostics' },
+    { '<leader>sh', function() Snacks.picker.help() end, desc = '[S]earch [H]elp' },
+    { '<leader>se', function() Snacks.picker.icons() end, desc = '[S]earch Symbols/[E]mojis' },
+    { '<leader>sj', function() Snacks.picker.jumps() end, desc = '[S]earch [J]ump list' },
+    { '<leader>sk', function() Snacks.picker.keymaps() end, desc = '[S]earch [K]eymaps' },
+    { '<leader>s.', function() Snacks.picker.resume() end, desc = '[S]earch resume/repeat (`.` = repeat)' },
+  })
+end
 return {
   {
     'folke/snacks.nvim',
@@ -158,7 +198,7 @@ return {
 
       -- Picker for selecting items ‼️
       picker = {
-        enabled = false, -- Using telescope for now
+        enabled = vim.g.picker_plugin == 'snacks.picker',
       },
 
       -- Neovim lua profiler
@@ -233,21 +273,7 @@ return {
       },
 
     },
-    keys = {
-      -- browse
-      { '<leader>gB', function () Snacks.gitbrowse() end, desc = '[G]it [B]rowse repo online' },
-      -- indent
-      { '<leader>tih', function ()
-        local snacks_indent = require('snacks.indent')
-        if snacks_indent.enabled then
-          snacks_indent.disable()
-        else
-          snacks_indent.enable()
-        end
-      end, desc = '[T]oggle [I]ndent [H]ighlighting' },
-      -- zen
-      { '<leader>tz', function () Snacks.zen() end, desc = '[T]oggle [Z]en mode' },
-    },
+    keys = keys,
     config = function(_, opts)
       require("snacks").setup(opts);
 

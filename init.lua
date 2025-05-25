@@ -293,6 +293,7 @@ vim.opt.wildmode = { 'longest:full' }
 
 -- [[ Make plugin choices ]]
 vim.g.cmp_plugin = 'blink.cmp' -- 'blink.cmp', 'nvim-cmp'
+vim.g.picker_plugin = 'snacks.picker' -- 'snacks.picker', 'telescope'
 
 -- [[ Configure and install plugins ]]
 require('config.lazy')

@@ -1,11 +1,16 @@
-return {
+local telescope_spec = {
   -- https://github.com/nvim-telescope/telescope.nvim
-  {
+  'nvim-telescope/telescope.nvim',
+  branch = '0.1.x',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+  },
+}
+if (vim.g.picker_plugin == 'telescope') then
+  telescope_spec = vim.tbl_deep_extend('force', telescope_spec, {
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
-    branch = '0.1.x',
     dependencies = {
-      'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
         'nvim-telescope/telescope-fzf-native.nvim',
 
@@ -151,6 +156,7 @@ return {
       vim.keymap.set('n', '<leader>sw', builtin.grep_string,   { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', live_grep,             { desc = '[S]earch by live [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics,   { desc = '[S]earch workspace [D]iagnostics' })
+      vim.keymap.set('n', '<leader>sD', function() builtin.diagnostics({bufnr=0}) end, { desc = '[S]earch buffer [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.oldfiles,      { desc = '[S]earch [R]ecent files' })
       vim.keymap.set('n', '<leader>sj', builtin.jumplist,      { desc = '[S]earch [J]ump list' })
       vim.keymap.set('n', '<leader>s.', builtin.resume,        { desc = '[S]earch resume/repeat (`.` = repeat)' })
@@ -178,9 +184,9 @@ return {
       vim.keymap.set('n', '<leader>s/', function()
         live_grep {
           grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
+          prompt_title = 'Live Grep in Open buffers',
         }
-      end, { desc = '[S]earch by live grep in open files' })
+      end, { desc = '[S]earch by live grep in open buffers' })
 
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
@@ -196,10 +202,16 @@ return {
         callback = function() vim.opt_local.paste = false end,
       })
     end,
-  },
+  })
+else
+  telescope_spec.lazy = true -- Dependency only
+end
+return {
+  telescope_spec,
   -- https://github.com/prochri/telescope-all-recent.nvim
   {
     'prochri/telescope-all-recent.nvim',
+    enabled = (vim.g.picker_plugin == 'telescope'),
     event = 'VeryLazy', -- Don't need this on startup
     dependencies = {
       "nvim-telescope/telescope.nvim",
@@ -211,6 +223,7 @@ return {
   -- https://github.com/nvim-telescope/telescope-symbols.nvim
   {
     'nvim-telescope/telescope-symbols.nvim',
+    enabled = (vim.g.picker_plugin == 'telescope'),
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
@@ -239,6 +252,7 @@ return {
   -- https://github.com/nvim-telescope/telescope-bibtex.nvim
   {
     'nvim-telescope/telescope-bibtex.nvim',
+    enabled = (vim.g.picker_plugin == 'telescope'),
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },

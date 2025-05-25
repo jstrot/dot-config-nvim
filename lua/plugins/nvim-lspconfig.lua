@@ -92,27 +92,63 @@ return {
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('n', 'gd', require('telescope.builtin').lsp_definitions, {desc='LSP: [G]oto [D]efinition'})
+          map('n', 'gd', function()
+            if (vim.g.picker_plugin == 'snacks.picker') then
+              require('snacks.picker').lsp_definitions()
+            else
+              require('telescope.builtin').lsp_definitions()
+            end
+          end, {desc='LSP: [G]oto [D]efinition'})
 
           -- Find references for the word under your cursor.
-          map('n', '<leader>slr', require('telescope.builtin').lsp_references, {desc='LSP: [S]earch [L]SP [R]eferences'})
+          map('n', '<leader>slr', function()
+            if (vim.g.picker_plugin == 'snacks.picker') then
+              require('snacks.picker').lsp_references()
+            else
+              require('telescope.builtin').lsp_references()
+            end
+          end, {desc='LSP: [S]earch [L]SP [R]eferences'})
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
-          map('n', '<leader>sli', require('telescope.builtin').lsp_implementations, {desc='LSP: [S]earch [L]SP [I]mplementations'})
+          map('n', '<leader>sli', function()
+            if (vim.g.picker_plugin == 'snacks.picker') then
+              require('snacks.picker').lsp_implementations()
+            else
+              require('telescope.builtin').lsp_implementations()
+            end
+          end, {desc='LSP: [S]earch [L]SP [I]mplementations'})
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('n', '<leader>D', require('telescope.builtin').lsp_type_definitions, {desc='LSP: Type [D]efinition'})
+          map('n', '<leader>D', function()
+            if (vim.g.picker_plugin == 'snacks.picker') then
+              require('snacks.picker').lsp_type_definitions()
+            else
+              require('telescope.builtin').lsp_type_definitions()
+            end
+          end , {desc='LSP: Type [D]efinition'})
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, {desc='LSP: [D]ocument [S]ymbols'})
+          map('n', '<leader>ds', function()
+            if (vim.g.picker_plugin == 'snacks.picker') then
+              require('snacks.picker').lsp_symbols()
+            else
+              require('telescope.builtin').lsp_document_symbols()
+            end
+          end, {desc='LSP: [D]ocument [S]ymbols'})
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, {desc='LSP: [W]orkspace [S]ymbols'})
+          map('n', '<leader>ws', function()
+            if (vim.g.picker_plugin == 'snacks.picker') then
+              require('snacks.picker').lsp_workspace_symbols()
+            else
+              require('telescope.builtin').lsp_dynamic_workspace_symbols()
+            end
+          end, {desc='LSP: [W]orkspace [S]ymbols'})
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
@@ -128,7 +164,13 @@ return {
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
-          map('n', 'gD', vim.lsp.buf.declaration, {desc='LSP: [G]oto [D]eclaration'})
+          map('n', 'gD', function()
+            if (vim.g.picker_plugin == 'snacks.picker') then
+              Snacks.picker.lsp_declarations()
+            else
+              vim.lsp.buf.declaration()
+            end
+          end , {desc='LSP: [G]oto [D]eclaration'})
 
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap.
