@@ -32,6 +32,8 @@ if (vim.g.picker_plugin == 'snacks.picker') then
     { '<leader>sg', function() Snacks.picker.grep() end, desc = '[S]earch by live [G]rep' },
     { '<leader>sw', function() Snacks.picker.grep_word() end, desc = '[S]earch current [W]ord', mode = { 'n', 'x' } },
     -- search
+    { '<leader>s\'', function() Snacks.picker.marks() end, desc = '[S]earch/jump marks (`\'` = mark jump)' },
+    { '<leader>s\"', function() Snacks.picker.registers() end, desc = '[S]earch/copy registers (`\"` = register)' },
     { '<leader>sd', function() Snacks.picker.diagnostics() end, desc = '[S]earch workspace [D]iagnostics' },
     { '<leader>sD', function() Snacks.picker.diagnostics_buffer() end, desc = '[S]earch buffer [D]iagnostics' },
     { '<leader>sh', function() Snacks.picker.help() end, desc = '[S]earch [H]elp' },

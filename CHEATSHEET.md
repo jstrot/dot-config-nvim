@@ -53,37 +53,39 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | t    | `<Esc><Esc>` | Exit terminal mode (alternate)                      |
 | n    | `<Leader>?`  | Show buffer local keymaps (which-key)               |
 
-## Searching (telescope, snacks.picker)
+## Searching (snacks.picker, telescope)
 
-| Mode      | Mapping                 | Description                                  |
-| --------- | ----------------------- | -------------------------------------------- |
-| n         | `<Leader>sh`            | \[S]earch \[H]elp                            |
-| n         | `<Leader>sk`            | \[S]earch \[K]eymaps                         |
-| n         | `<Leader>sf`            | \[S]earch \[F]iles (scoped)                  |
-| n         | `<Leader>sp`            | \[S]earch \[P]ickers                         |
-| n         | `<Leader>sw`            | \[S]earch current \[W]ord                    |
-| n         | `<Leader>sg`            | \[S]earch by live \[G]rep (scoped)           |
-| n         | `<Leader>/`             | \[/] Fuzzily search in current buffer        |
-| n         | `<Leader>s/`            | \[S]earch by live grep in open buffers       |
-| n         | `<Leader>sr`            | \[S]earch \[R]ecent files                    |
-| n         | `<Leader>sj`            | \[S]earch \[J]ump list                       |
-| n         | `<Leader><Leader>`      | \[ ] Find existing buffers                   |
-| n         | `<Leader>sd`            | \[S]earch workspace \[D]iagnostics           |
-| n         | `<Leader>sD`            | \[S]earch buffer \[D]iagnostics              |
-| n         | `<leader>slr`           | \[S]earch \[L]SP \[R]eferences               |
-| n         | `<leader>sli`           | \[S]earch \[L]SP \[I]mplementations          |
-| n         | `<Leader>st`            | \[S]earch \[T]odo comments                   |
-| n         | `<Leader>sn`            | \[S]earch \[N]eovim files                    |
-| n         | `<Leader>se`            | \[S]earch symbols/\[E]mojis                  |
-| n         | `<Leader>sb`            | \[S]earch \[B]ibtex references               |
-| n         | `<Leader>ss`            | \[S]earch select \[S]cope                    |
-| n         | `<Leader>s!`            | \[S]earch notifications\[!]                  |
-| n         | `<Leader>s.`            | \[S]earch resume/repeat (`.` = repeat)       |
-| Telescope | `<Leader>/`             | Telescope help (`/` is `?` without shift)    |
-| Telescope | `<C-c>` or `<Esc><Esc>` | Close telescope                              |
-| Telescope | `<CR>`                  | Open selected entry in current window        |
-| Telescope | `<C-v>`                 | Open selected entry in new vertial split     |
-| Telescope | `<C-x>`                 | Open selected entry in new horizontal split  |
+| Mode      | Mapping                     | Description                                  |
+| --------- | --------------------------- | -------------------------------------------- |
+| n         | `<Leader>sh`                | \[S]earch \[H]elp                            |
+| n         | `<Leader>sk`                | \[S]earch \[K]eymaps                         |
+| n         | `<Leader>sf`                | \[S]earch \[F]iles (scoped)                  |
+| n         | `<Leader>sp`                | \[S]earch \[P]ickers                         |
+| n         | `<Leader>sw`                | \[S]earch current \[W]ord                    |
+| n         | `<Leader>sg`                | \[S]earch by live \[G]rep (scoped)           |
+| n         | `<Leader>/`                 | \[/] Fuzzily search in current buffer        |
+| n         | `<Leader>s/`                | \[S]earch by live grep in open buffers       |
+| n         | `<Leader>sr`                | \[S]earch \[R]ecent files                    |
+| n         | `<Leader>sj`                | \[S]earch \[J]ump list                       |
+| n         | `<Leader><Leader>`          | \[ ] Find existing buffers                   |
+| n         | `<Leader>sd`                | \[S]earch workspace \[D]iagnostics           |
+| n         | `<Leader>sD`                | \[S]earch buffer \[D]iagnostics              |
+| n         | `<leader>slr`               | \[S]earch \[L]SP \[R]eferences               |
+| n         | `<leader>sli`               | \[S]earch \[L]SP \[I]mplementations          |
+| n         | `<Leader>st`                | \[S]earch \[T]odo comments                   |
+| n         | `<Leader>sn`                | \[S]earch \[N]eovim files                    |
+| n         | `<Leader>se`                | \[S]earch symbols/\[E]mojis                  |
+| n         | `<Leader>sb`                | \[S]earch \[B]ibtex references               |
+| n         | `<Leader>ss`                | \[S]earch select \[S]cope                    |
+| n         | `<Leader>s'`                | \[S]earch/jump marks (`'` = mark jump)       |
+| n         | `<Leader>s"`                | \[S]earch/copy registers (`"` = register)    |
+| n         | `<Leader>s!`                | \[S]earch notifications\[!]                  |
+| n         | `<Leader>s.`                | \[S]earch resume/repeat (`.` = repeat)       |
+| Telescope | `<Leader>/`                 | Telescope help (`/` is `?` without shift)    |
+| Telescope | `<C-c>` or `<Esc><Esc>`     | Close telescope                              |
+| Telescope | `<CR>`                      | Open selected entry in current window        |
+| Telescope | `<C-v>`                     | Open selected entry in new vertial split     |
+| Telescope | `<C-x>`                     | Open selected entry in new horizontal split  |
 
 ## More Nativation
 
