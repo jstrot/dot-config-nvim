@@ -2,7 +2,7 @@
 return {
   {
     'p00f/clangd_extensions.nvim',
-    lazy = true, -- Loaded by nvim-lspconfig
+    lazy = true, -- Loaded by clangd LSP on_attach
     opts = {
       cmd = {
         (vim.g.clangd_host_prog or 'clangd'),

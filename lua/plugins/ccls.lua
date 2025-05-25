@@ -2,7 +2,7 @@
 return {
   {
     "ranjithshegde/ccls.nvim",
-    lazy = true, -- Loaded by nvim-lspconfig
+    lazy = true, -- Loaded by ccls LSP on_attach
   }
 }
 

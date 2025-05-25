@@ -421,6 +421,9 @@ vim.env.PATH = vim.fn.stdpath('config') .. '/nvim-bin:' .. vim.env.PATH
 -- [[ Configure and install plugins ]]
 require('config.lazy')
 
+-- [[ Enable LSPs ]]
+require('config.lsp')
+
 -- vim.cmd 'colorscheme onedarker'  -- From LazyVim/Colorschemes
 vim.cmd 'colorscheme catppuccin'  -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 -- vim.cmd 'colorscheme tokyonight-night'  -- tokyonight (=> tokyonight-moon), tokyonight-night, tokyonight-storm, tokyonight-day (light)
