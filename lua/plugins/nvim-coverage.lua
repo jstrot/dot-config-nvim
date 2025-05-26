@@ -15,6 +15,7 @@ return {
     -- TODO: XXXJST Until corbertura support is fixed, use my fork:
     -- https://github.com/andythigpen/nvim-coverage/pull/44
     'https://github.com/strottie/nvim-coverage', branch = 'strottie-cpp-cobertura',
+    enabled = vim.fn.has('nvim-0.10.0') == 1, -- FIXME: Seeing Lua errors during build with 0.9.5
 
     event = 'VeryLazy',
 
