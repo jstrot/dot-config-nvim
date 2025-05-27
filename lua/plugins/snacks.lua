@@ -213,6 +213,14 @@ return {
       -- Picker for selecting items ‼️
       picker = {
         enabled = vim.g.picker_plugin == 'snacks.picker',
+        win = {
+          input = {
+            keys = {
+              ["<c-g>"]     = { "toggle_live", mode = { "i", "n" } }, -- default
+              ["<c-space>"] = { "toggle_live", mode = { "i", "n" } }, -- Alternate, to match Telescope
+            },
+          },
+        },
       },
 
       -- Neovim lua profiler
