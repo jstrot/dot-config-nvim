@@ -31,8 +31,8 @@ return {
         -- c = true,
         -- markdown = true,
         -- python = true,
+        ['*'] = true, -- default
       }
-      vim.g.copilot_filetypes['*'] = true -- default
 
       -- vim.g.copilot_workspace_folders = {"~/Projects/myproject"}
 
