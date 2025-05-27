@@ -4,50 +4,58 @@ return {
     "nvim-lualine/lualine.nvim",
     event = 'VeryLazy',
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require('lualine').setup {
-        options = {
-          -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-          theme = 'auto',
+    opts = {
+      options = {
+        -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
+        theme = 'auto',
+      },
+      sections = {
+        lualine_a = {
+          'mode',
         },
-        sections = {
-          lualine_a = {
-            'mode',
-          },
-          lualine_b = {
-            { 'filename', newfile_status = true, path = 1, }
-          },
-          lualine_c = {
-            'branch',
-            'diff',
-            'diagnostics',
-            'lsp_progress',
-          },
-          lualine_x = {
-            'encoding',
-            'fileformat',
-            'filetype',
-            'fancy_lsp_servers',
-          },
-          lualine_y = {
-            'progress',
-          },
-          lualine_z = {
-            'location',
-          }
+        lualine_b = {
+          { 'filename', newfile_status = true, path = 1, }
         },
-      }
-      -- NOTE: Same icons as lualine
-      local signs = {
-        Error = '󰅚 ', -- x000f015a
-        Warn  = '󰀪 ', -- x000f002a
-        Info  = '󰋽 ', -- x000f02fd
-        Hint  = '󰌶 ', -- x000f0336
-      }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-      end
+        lualine_c = {
+          'branch',
+          'diff',
+          'diagnostics',
+          'lsp_progress',
+        },
+        lualine_x = {
+          'encoding',
+          'fileformat',
+          'filetype',
+          'fancy_lsp_servers',
+        },
+        lualine_y = {
+          'progress',
+        },
+        lualine_z = {
+          'location',
+        }
+      },
+    },
+    config = function(_, opts)
+      require('lualine').setup(opts)
+
+      -- NOTE: Same icons as lualine:
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '󰅚 ', -- x000f015a
+            [vim.diagnostic.severity.WARN]  = '󰀪 ', -- x000f002a
+            [vim.diagnostic.severity.INFO]  = '󰋽 ', -- x000f02fd
+            [vim.diagnostic.severity.HINT]  = '󰌶 ', -- x000f0336
+          },
+          numhl = {
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+            [vim.diagnostic.severity.WARN]  = 'DiagnosticSignWarn',
+            [vim.diagnostic.severity.INFO]  = 'DiagnosticSignInfo',
+            [vim.diagnostic.severity.HINT]  = 'DiagnosticSignHint',
+          },
+        },
+      })
     end,
   }
 }
