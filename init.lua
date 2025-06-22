@@ -260,6 +260,41 @@ vim.keymap.set('n', '<leader>tdb',    function () ToggleSubOpt('diffopt', 'iblan
 vim.keymap.set('n', '<leader>tdc',    function () ToggleSubOpt('diffopt', 'icase') end,  { desc = '[T]oggle [D]iff ignore [C]ase of text' })
 vim.keymap.set('n', '<leader>tdw',    function () ToggleSubOpt('diffopt', 'iwhite') end, { desc = '[T]oggle [D]iff ignore [W]hite spaces' })
 
+-- Toggle diagnostics
+local default_diagnostic_opts = {
+  underline = true, -- Neovim default is true
+  virtual_text = true, -- Neovim default is false
+  virtual_lines = false, -- Neovim default is false
+  signs = true, -- Neovim default is true
+  update_in_insert = false, -- Neovim default is false
+  severity_sort = true, -- Neovim default is false. {reverse = true} is also supported
+}
+vim.diagnostic.config(default_diagnostic_opts)
+local function ToggleDiagnosticOpt(opt)
+  local new_value = not vim.diagnostic.config()[opt]
+  vim.diagnostic.config({ [opt] = new_value })
+  vim.notify('Toggle diagnostic ' .. opt .. ': ' .. vim.inspect(new_value))
+end
+local function DefaultDiagnosticOpts()
+  vim.diagnostic.config(default_diagnostic_opts)
+  vim.notify('Defaulted diagnostic opts')
+end
+local function ToggleDiagnostics()
+  local new_value = not vim.diagnostic.is_enabled()
+  vim.diagnostic.enable(new_value)
+  vim.notify('Toggle diagnostics: ' .. vim.inspect(new_value))
+end
+vim.keymap.set('n', '<leader>tlu', function() ToggleDiagnosticOpt('underline') end, { desc = '[T]oggle [L]SP diagnostics [U]nderline' })
+vim.keymap.set('n', '<leader>tls', function() ToggleDiagnosticOpt('signs') end, { desc = '[T]oggle [L]SP diagnostics [S]igns' })
+vim.keymap.set('n', '<leader>tsl', function() ToggleDiagnosticOpt('signs') end, { desc = '[T]oggle [S]ign column [L]SP diagnostics' })
+vim.keymap.set('n', '<leader>tlv', function() ToggleDiagnosticOpt('virtual_text') end, { desc = '[T]oggle [L]SP diagnostics [V]irtual text' })
+vim.keymap.set('n', '<leader>tlV', function() ToggleDiagnosticOpt('virtual_lines') end, { desc = '[T]oggle [L]SP diagnostics [V]irtual lines' })
+vim.keymap.set('n', '<leader>tlp', function() ToggleDiagnosticOpt('update_in_insert') end, { desc = '[T]oggle [L]SP diagnostics information u[P]date while in insert mode' })
+vim.keymap.set('n', '<leader>tld<cr>', function() ToggleDiagnostics() end, { desc = '[T]oggle all [L]SP diagnostics' })
+vim.keymap.set('n', '<leader>tldd', function() DefaultDiagnosticOpts() end, { desc = '[T]oggle all [L]SP diagnostics back to [D]efaults (on, except overrides passed on init)' })
+vim.keymap.set('n', '<leader>tldo', function() vim.diagnostic.enable(true) end, { desc = '[T]oggle all [L]SP [D]iagnostics [O]n' })
+vim.keymap.set('n', '<leader>tldf', function() vim.diagnostic.enable(false) end, { desc = '[T]oggle all [L]SP [D]iagnostics o[F]f' })
+
 vim.opt.diffopt:append('closeoff')
 vim.opt.diffopt:append('hiddenoff')
 vim.opt.diffopt:append('indent-heuristic')
