@@ -41,11 +41,10 @@ return {
         end)
 
         -- Actions
-        map('n', '<leader>gs', gitsigns.stage_hunk, { desc = '[G]it [S]tage hunk' })
-        map('v', '<leader>gs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = '[G]it [S]tage hunk' })
+        map('n', '<leader>gs', gitsigns.stage_hunk, { desc = '[G]it [S]tage/unstage hunk' })
+        map('v', '<leader>gs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = '[G]it [S]tage/unstage hunk' })
         map('n', '<leader>gr', gitsigns.reset_hunk, { desc = '[G]it [R]eset hunk' })
         map('v', '<leader>gr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, { desc = '[G]it [R]eset hunk' })
-        map('n', '<leader>gu', gitsigns.undo_stage_hunk, { desc = '[G]it [U]ndo stage hunk' })
         map('n', '<leader>gp', gitsigns.preview_hunk, { desc = '[G]it [P]review hunk' })
         map('n', '<leader>gb', function() gitsigns.blame_line{full=true} end, { desc = '[G]it [B]lame line' })
         -- Prefer vim-fugitive bindings, if available
@@ -58,7 +57,7 @@ return {
 
         -- Toggles
         map('n', '<leader>tgb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle [G]it current line [B]lame' })
-        map('n', '<leader>tgd', gitsigns.toggle_deleted,            { desc = '[T]oggle [G]it [D]eleted hunks' })
+        map('n', '<leader>tgd', gitsigns.toggle_deleted,            { desc = '[T]oggle [G]it [D]eleted hunks' }) -- FIXME: Supposedly deprecated but the suggested replacement makes no sense
         map('n', '<leader>tsg', gitsigns.toggle_signs,              { desc = '[T]oggle [S]ign column [G]it info' })
 
         -- Text object

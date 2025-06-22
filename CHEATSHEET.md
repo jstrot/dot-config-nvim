@@ -239,9 +239,8 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | ---- | ------------- | ----------------------------------------------------------- |
 | n    | `]c`          | Goto next \[C]hanged hunk                                   |
 | n    | `[c`          | Goto previous \[C]hanged hunk                               |
-| n, v | `<Leader>gs`  | \[G]it \[S]tage hunk                                        |
+| n, v | `<Leader>gs`  | \[G]it \[S]tage/unstage hunk                                |
 | n, v | `<Leader>gr`  | \[G]it \[R]eset hunk                                        |
-| n    | `<Leader>gu`  | \[G]it \[U]ndo stage hunk                                   |
 | n    | `<Leader>gS`  | \[G]it \[S]tage buffer                                      |
 | n    | `<Leader>gR`  | \[G]it \[R]eset buffer                                      |
 | n    | `<Leader>gp`  | \[G]it \[P]review hunk                                      |
