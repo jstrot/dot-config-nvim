@@ -19,7 +19,12 @@ return {
       { '<leader>sl',  icon='', group = '[S]earch [L]SP' },
       { '<leader>t',   icon='', group = '[T]oggle' },
       { '<leader>td',  icon='', group = '[T]oggle [D]iff' },
+      { '<leader>tg',  icon='', group = '[T]oggle [G]it' },
+      { '<leader>tl',  icon='', group = '[T]oggle [L]SP' },
+      { '<leader>ts',  icon='󰈿', group = '[T]oggle [S]ign' },
+      { '<leader>tt',  icon='󰐅', group = '[T]oggle [T]reesitter' },
       { '<leader>w',   icon='󱝩', group = '[W]orkspace' },
+      { '<leader>x',   icon='', group = '[T]oggle Trouble' },
     },
   },
   keys = {
