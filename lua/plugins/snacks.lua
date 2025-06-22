@@ -127,6 +127,7 @@ return {
             { icon = " ", key = "f", desc = "Find File", action = "<leader>sf" },
             -- { icon = " ", key = "n", desc = "New File", action = ":enew | startinsert" },
             { icon = " ", key = "n", desc = "New File", action = ":enew" },
+            { icon = "󱇧 ", key = "i", desc = "New File (insert mode)", action = ":enew | startinsert" },
             { icon = " ", key = "g", desc = "Find Text", action = "<leader>sg" },
             { icon = " ", key = "r", desc = "Recent Files", action = "<leader>sr" },
             { icon = " ", key = "c", desc = "Config", action = "<leader>sn" },
