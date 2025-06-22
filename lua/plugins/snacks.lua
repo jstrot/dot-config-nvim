@@ -23,8 +23,8 @@ if (vim.g.picker_plugin == 'snacks.picker') then
     -- find
     { '<leader><leader>', function() Snacks.picker.buffers() end, desc = '[ ] Find existing buffers' },
     { '<leader>sn', function() Snacks.picker.files({ cwd = vim.fn.stdpath('config'), title = 'Neovim config files' }) end, desc = '[S]earch [N]eovim config files' },
-    -- { '<leader>sf', function() Snacks.picker.files() end, desc = '[S]earch [F]iles' },
-    { '<leader>sf', function() Snacks.picker.smart() end, desc = '[S]earch [F]iles' },
+    { '<leader>sf', function() Snacks.picker.files() end, desc = '[S]earch [F]iles' },
+    { '<leader>sF', function() Snacks.picker.smart() end, desc = '[S]earch [F]iles (Smart)' },
     { '<leader>sr', function() Snacks.picker.recent() end, desc = '[S]earch [R]ecent files' },
     -- git
     -- Grep

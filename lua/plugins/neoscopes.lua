@@ -72,7 +72,7 @@ return {
               search_opts.title = 'Find Files (scoped)'
               search_opts.dirs = search_dirs
             end
-            snacks_picker.smart(search_opts)
+            snacks_picker.files(search_opts)
           end
           local function scoped_grep_string()
 
