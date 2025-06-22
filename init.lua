@@ -184,7 +184,7 @@ vim.keymap.set('n', '<f4>', ':cnext<CR>zv', { noremap = true, silent = true, des
 
 function ToggleBoolOpt(option)
   vim.o[option] = not vim.o[option]
-  print('Toggle ' .. option .. ': ' .. vim.inspect(vim.o[option]))
+  vim.notify('Toggle ' .. option .. ': ' .. vim.inspect(vim.o[option]))
 end
 function ToggleSubOpt(option, subopt)
   if string.find(vim.o[option], subopt) then
@@ -192,7 +192,7 @@ function ToggleSubOpt(option, subopt)
   else
     vim.o[option]:append(subopt)
   end
-  print('Toggle ' .. option .. ' ' .. subopt .. ': ' .. vim.o[option])
+  vim.notify('Toggle ' .. option .. ' ' .. subopt .. ': ' .. vim.o[option])
 end
 
 vim.keymap.set('n', '<leader>tp', function () ToggleBoolOpt('paste') end, { desc = '[T]oggle [P]aste mode' })
@@ -222,7 +222,7 @@ function ToggleSignColumn(width)
       vim.wo.signcolumn = 'no'
     end
   end
-  print('Toggle signcolumn: ' .. vim.inspect(vim.wo.signcolumn))
+  vim.notify('Toggle signcolumn: ' .. vim.inspect(vim.wo.signcolumn))
 end
 vim.keymap.set('n', '<leader>ts<cr>', ToggleSignColumn, { desc = '[T]oggle [S]ign column' })
 vim.keymap.set('n', '<leader>ts0', function () ToggleSignColumn(0) end, { desc = '[T]oggle [S]ign column: [0] wide (no/off)' })
@@ -250,7 +250,7 @@ function ToggleVirtualEdit()
     vim.api.nvim_win_set_var(win_id, "saved_virtualedit", cur_virtualedit)
     vim.wo.virtualedit = 'none'
   end
-  print('Toggle virtualedit: ' .. vim.inspect(vim.wo.virtualedit))
+  vim.notify('Toggle virtualedit: ' .. vim.inspect(vim.wo.virtualedit))
 end
 vim.keymap.set('n', '<leader>tv', ToggleVirtualEdit, { desc = '[T]oggle [V]irtual edit' })
 
