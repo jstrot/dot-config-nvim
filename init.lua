@@ -300,6 +300,36 @@ vim.keymap.set('n', '<leader>tldd', function() DefaultDiagnosticOpts() end, { de
 vim.keymap.set('n', '<leader>tldo', function() vim.diagnostic.enable(true) end, { desc = '[T]oggle all [L]SP [D]iagnostics [O]n' })
 vim.keymap.set('n', '<leader>tldf', function() vim.diagnostic.enable(false) end, { desc = '[T]oggle all [L]SP [D]iagnostics o[F]f' })
 
+-- Toggle 'laststatus'
+local function ToggleLaststatus()
+  local meanings = {
+    [0] = "never",
+    [1] = "only when more than one window",
+    [2] = "always",
+    [3] = "global statusline",
+  }
+
+  local current_value = vim.o.laststatus
+  local new_value
+  if false then
+    -- Cycle among all values
+    new_value = (current_value + 1) % 4
+  else
+    -- Cycle between 2 (default) and 3
+    if current_value == 3 then
+      new_value = 2
+    else
+      new_value = 3
+    end
+  end
+  vim.o.laststatus = new_value
+
+  local meaning = meanings[new_value]
+  vim.notify('Set laststatus to: ' .. vim.inspect(new_value)
+      .. (meaning and (' (' .. meaning .. ')') or ''))
+end
+vim.keymap.set('n', '<leader>t_', ToggleLaststatus, { desc = '[T]oggle \'laststatus\' [_] option' })
+
 vim.opt.diffopt:append('closeoff')
 vim.opt.diffopt:append('hiddenoff')
 vim.opt.diffopt:append('indent-heuristic')

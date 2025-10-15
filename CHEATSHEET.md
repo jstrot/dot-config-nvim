@@ -214,6 +214,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tw`      | \[T]oggle \[W]rap mode                                                                    |                                                                                |
 | n    | `<Leader>tz`      | \[T]oggle \[Z]en mode                                                                     |                                                                                |
 | n    | `<Leader>t=`      | \[T]oggle \[S]pell mode                                                                   | `g=` for spelling suggestions                                                  |
+| n    | `<Leader>t_`      | \[T]oggle 'laststatus' \[_] option                                                        | `_` reminescent of a status bar                                                |
 
 ## Cscope (cscope_maps)
 
