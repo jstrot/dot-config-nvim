@@ -49,6 +49,7 @@ if (vim.g.picker_plugin == 'snacks.picker') then
     { '<leader>sj', function() Snacks.picker.jumps() end, desc = '[S]earch [J]ump list' },
     { '<leader>sk', function() Snacks.picker.keymaps() end, desc = '[S]earch [K]eymaps' },
     { '<leader>s.', function() Snacks.picker.resume() end, desc = '[S]earch resume/repeat (`.` = repeat)' },
+    { '<leader>sc', function() Snacks.picker.highlights() end, desc = '[S]earch Neovim highlights/[C]olors' },
   })
 end
 return {
