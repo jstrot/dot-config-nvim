@@ -1,4 +1,12 @@
 -- https://github.com/folke/snacks.nvim
+
+-- Control whether snacks.dashboard is enabled on startup.
+-- Can be overridden on the command line with `nvim --cmd 'lua vim.g.snacks_dashboard_enabled = false'`
+-- Either way, use `:Dashboard` to open it instead or again later.
+if vim.g.snacks_dashboard_enabled == nil then
+  vim.g.snacks_dashboard_enabled = true
+end
+
 local keys = {
   -- browse
   { '<leader>gB', function () Snacks.gitbrowse() end, desc = '[G]it [B]rowse repo online' },
@@ -97,7 +105,7 @@ return {
 
       -- Beautiful declarative dashboards ‼️
       dashboard = {
-        enabled = true,
+        enabled = vim.g.snacks_dashboard_enabled,
 
         sections = {
           { section = "header" },
