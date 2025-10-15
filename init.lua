@@ -352,6 +352,9 @@ vim.o.sidescrolloff = 5
 -- Wrapped lines makes it hard to read, but breakindent makes this good again
 vim.o.wrap = vim.o.breakindent
 
+vim.go.laststatus = 3 -- global statusline to allow Avante windows to collapse seamlessly
+vim.go.laststatus = 2 -- I prefer the statusline to always be visible
+
 -- Tip #709 - If you create lots of shell scripts, this will make them executable
 if vim.fn.has('unix') == 1 then
   vim.cmd([[

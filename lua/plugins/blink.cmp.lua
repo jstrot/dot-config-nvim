@@ -8,6 +8,7 @@ return {
       -- 'rafamadriz/friendly-snippets', -- optional: provides snippets for the snippet source
       'L3MON4D3/LuaSnip',
       'folke/lazydev.nvim',
+      vim.g.agentic_mode_plugin == 'avante' and 'Kaiser-Yang/blink-cmp-avante' or nil, -- https://github.com/Kaiser-Yang/blink-cmp-avante
     },
 
     ---@module 'blink.cmp'
@@ -32,15 +33,24 @@ return {
       -- https://cmp.saghen.dev/configuration/reference.html#sources
       sources = {
         default = {
+          -- 'avante',
           'lsp',
           'path',
           'snippets',
           'buffer',
           -- 'cmdline',
           -- 'omni',
+          vim.g.agentic_mode_plugin == 'avante' and 'blink-cmp-avante' or nil,
         },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          ['blink-cmp-avante'] = {
+            module = 'blink-cmp-avante',
+            name = 'Avante',
+            opts = {
+              -- options for blink-cmp-avante
+            },
+          },
         },
       },
 

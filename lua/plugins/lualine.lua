@@ -9,6 +9,7 @@ return {
       options = {
         -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
         theme = 'auto',
+        globalstatus = false,  -- When false, 'laststatus' is left unchanged
       },
       sections = {
         lualine_a = {

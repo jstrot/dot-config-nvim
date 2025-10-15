@@ -12,10 +12,22 @@ return {
     "markdown",
     "quarto",
     "rmd",
+    "Avante",
   },
   opts = {
     code_blocks = {
       icons = "devicons",
+    },
+
+    preview = {
+      enable = true,
+      filetypes = {
+        "md",
+        "rmd",
+        "quarto",
+        "Avante",
+      },
+      ignore_buftypes = {}, -- Important to not ignore "nofile" buftypes for Avante
     },
 
     markdown = {
@@ -47,7 +59,7 @@ return {
     -- See https://github.com/OXY2DEV/markview.nvim/issues/248#issuecomment-2603697869
     vim.api.nvim_create_autocmd('FileType', {
       desc = 'Disable `wrap` to improve Markview table rendering',
-      pattern = { "markdown", "quarto", "rmd", },
+      pattern = { "markdown", "quarto", "rmd", }, -- Not "Avante"
       group = vim.api.nvim_create_augroup('Markview_wrap_disable', { clear = true }),
       callback = function (opts)
         vim.o.wrap = false

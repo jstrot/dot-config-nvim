@@ -24,6 +24,11 @@ return {
                 file_path = vim.fn.expand("~/mcphub.log"),
                 prefix = "MCPHub",
             },
+            extensions = {
+                avante = {
+                    make_slash_commands = true, -- make /slash commands from MCP server prompts
+                }
+            },
             auto_approve = true, -- This sets vim.g.mcphub_auto_approve to true by default (can also be toggled from the HUB UI with `ga`)
         },
         config = function(_, opts)

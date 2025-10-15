@@ -1,5 +1,7 @@
 -- https://github.com/huynle/ogpt.nvim
 require('config.ai')
+require('functions.secret')
+
 local opts = {
   default_provider = (jst_get_secret(vim.g.ollama_url_env, vim.g.ollama_url_file) and 'ollama') or (jst_get_secret(vim.g.huggingface_url_env, vim.g.huggingface_url_file) and 'textgenui') or '',
   providers = {

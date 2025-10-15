@@ -11,6 +11,7 @@ return {
       { '<leader>c',   icon='', group = '[C]ode & [C]ompletion' },
       { '<leader>a',   icon='󰵰', group = 'AI/[A]gentic' },
       { '<leader>cc',  icon='󱜸', group = 'AI/[C]opilot [C]hat' },
+      { '<leader>ccp', icon='󰭺', group = 'AI/[C]opilot [C]hat [P]rompt' },
       { '<leader>d',   icon='󰱼', group = '[D]ocument' },
       { '<leader>f',   icon='󰛖', group = '[F]ormat' },
       { '<leader>g',   icon='', group = '[G]it' },
