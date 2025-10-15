@@ -260,7 +260,15 @@ end
 vim.keymap.set('n', '<leader>tv', ToggleVirtualEdit, { desc = '[T]oggle [V]irtual edit' })
 
 -- Toggle diff-related options using `<leader>td...`
-vim.keymap.set('n', '<leader>td<cr>', function () ToggleBoolOpt('diff') end,             { desc = '[T]oggle [D]iff mode' })
+local function ToggleDiffMode()
+  if vim.o.diff then
+    vim.cmd([[ diffoff ]])
+  else
+    vim.cmd([[ diffthis ]])
+  end
+  vim.notify('Toggle diff: ' .. vim.inspect(vim.o.diff))
+end
+vim.keymap.set('n', '<leader>td<cr>', ToggleDiffMode,                                    { desc = '[T]oggle [D]iff mode' })
 vim.keymap.set('n', '<leader>tdb',    function () ToggleSubOpt('diffopt', 'iblank') end, { desc = '[T]oggle [D]iff ignore [B]lank lines' })
 vim.keymap.set('n', '<leader>tdc',    function () ToggleSubOpt('diffopt', 'icase') end,  { desc = '[T]oggle [D]iff ignore [C]ase of text' })
 vim.keymap.set('n', '<leader>tdw',    function () ToggleSubOpt('diffopt', 'iwhite') end, { desc = '[T]oggle [D]iff ignore [W]hite spaces' })
