@@ -193,9 +193,9 @@ function ToggleBoolOpt(option)
 end
 function ToggleSubOpt(option, subopt)
   if string.find(vim.o[option], subopt) then
-    vim.o[option]:remove(subopt)
+    vim.opt[option]:remove(subopt)
   else
-    vim.o[option]:append(subopt)
+    vim.opt[option]:append(subopt)
   end
   vim.notify('Toggle ' .. option .. ' ' .. subopt .. ': ' .. vim.o[option])
 end
