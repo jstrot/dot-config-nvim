@@ -239,6 +239,21 @@ return {
             },
           },
         },
+        lsp_declarations = {
+          jump = { reuse_win = false },
+        },
+        lsp_definitions = {
+          jump = { reuse_win = false },
+        },
+        lsp_implementations = {
+          jump = { reuse_win = false },
+        },
+        lsp_references = {
+          jump = { reuse_win = false },
+        },
+        lsp_type_definitions = {
+          jump = { reuse_win = false },
+        },
       },
 
       -- Neovim lua profiler
