@@ -1,118 +1,87 @@
--- https://github.com/nvim-treesitter/nvim-treesitter
 -- INSTRUCTIONS:
 --   - Install new parsers with `:TSInstall <parser>`
+local jst_ts = require('jst.treesitter.config')
+local jst_csv = require('jst.csv')
+
+-- jst.ts_enabled = false
+
+-- You can rely on `auto_install_new_parsers` to install missing parsers as new
+-- filetypes are opened. Or you can add to the `ensure_install` list to install
+-- them automatically on startup.
+local auto_install_new_parsers = true
+local ensure_install = {
+  -- 'bash',
+  -- 'c', 'cpp',
+  -- 'cmake',
+  -- 'css', 'scss',
+  -- 'doxygen',
+  -- 'html',
+  -- 'java',
+  -- 'javascript', 'typescript',
+  -- 'json', 'json5', 'jsonc',
+  'lua',
+  -- 'make',
+  'markdown',
+  'markdown_inline',
+  -- 'python',
+  -- 'regex',
+  -- 'toml', 'yaml',
+  -- 'vim',
+  'vimdoc',
+}
+
+local feat_opts = {
+  -- Enable highlighting, indentation, and folding per filetype
+  highlight = {
+    enable = true, -- default
+    -- 'filetype' = true/false,
+  },
+  indent = {
+    enable = true, -- default
+    -- 'filetype' = true/false,
+  },
+  folds = {
+    enable = true, -- default
+    -- 'filetype' = true/false,
+  },
+}
+
+local ts_opts = {
+  keys = {
+    { '<leader>tt<cr>', '<cmd>TSToggle highlight<CR>',    desc = '[T]oggle [T]reesitter highlight' },
+    { '<leader>ttb',    '<cmd>TSBufToggle highlight<CR>', desc = '[T]oggle [T]reesitter highlight in [B]uffer' },
+    { '<leader>tti',    '<cmd>TSBufToggle indent<CR>',    desc = '[T]oggle [T]reesitter [i]ndent in buffer' },
+  },
+}
+
+if jst_csv.rainbow_csv_enabled then
+  -- Disable treesitter in CSV files if you're using a plugin such as rainbow_csv
+  for _, ft in ipairs(jst_csv.csv_filetypes) do
+    feat_opts.highlight[ft] = false
+  end
+end
+
 return {
+  -- https://github.com/nvim-treesitter/nvim-treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPre", "BufNewFile" },
-    -- event = 'VeryLazy', -- Interferes with startup diff mode folding
-    -- event = 'VimEnter', -- Interferes with startup diff mode folding
-    branch = 'master', -- 'main' is an incompatible rewrite
-    opts = {
-      -- A list of parser names, or "all". See `TSInstallInfo` for available parsers.
-      ensure_installed = {
-        -- 'bash',
-        -- 'c', 'cpp',
-        -- 'cmake',
-        -- 'css', 'scss',
-        -- 'doxygen',
-        -- 'html',
-        -- 'java',
-        -- 'javascript', 'typescript',
-        -- 'json', 'json5',
-        'lua',
-        -- 'make',
-        'markdown', 'markdown_inline',
-        -- 'python',
-        -- 'regex',
-        -- 'toml', 'yaml',
-        -- 'vim',
-        -- FIXME: 'vimdoc' added by default to avoid the following error on first `:help` command:
-        --     treesitter/query.lua:252: Query error at 2:4. Invalid node type "delimiter":
-        --       (delimiter) @markup.heading.1
-        --        ^
-        'vimdoc',
-      },
-
-      -- Install parsers synchronously (only applied to `ensure_installed`)
-      sync_install = true,
-
-        -- Automatically install missing parsers when entering buffer
-        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-      auto_install = true,
-
-        -- List of parsers to ignore installing (or "all")
-      ignore_install = {
-        -- "diff",
-      },
-
-      highlight = {
-        enable = true,  -- false will disable the whole extension
-        disable = function(lang, bufnr)
-
-          if vim.tbl_contains({
-            'help', -- Disable treesitter in help files. (EXTREME speedup => From 0 fps to 165 fps)
-            'tcl', 'tcl.doxygen', -- Geez Treesitter is bad at large-ish Tcl files
-            'largefile',
-          }, vim.bo.filetype) then
-            return true
-          end
-
-          -- Disable treesitter in CSV files if you're using a plugin such as rainbow_csv
-          local csv_fts = {
-            "csv",
-            "tsv",
-            "csv_semicolon",
-            "csv_whitespace",
-            "csv_pipe",
-            "rfc_csv",
-            "rfc_semicolon",
-          }
-          if vim.tbl_contains(csv_fts, vim.bo.filetype) then
-            return true
-          end
-
-          return false
-        end,
-        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  If you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
-      },
-
-      indent = {
-        enable = true,
-        disable = function(lang, bufnr)
-
-          if vim.tbl_contains({
-            'ruby', -- TODO: Find reference why indent should be disabled for Ruby
-            'largefile',
-          }, vim.bo.filetype) then
-            return true
-          end
-
-          return false  -- Do not disable
-        end,
-      },
-      rainbow = {
-        enable = false,  -- Enable if you like this sort of thing!
-        extended_mode = true,
-        max_file_lines = nil,
-      },
-    },
+    enabled = jst_ts.ts_enabled,
+    branch = 'main',
+    lazy = false, -- "This plugin does not support lazy-loading."
+    build = function()
+      if vim.fn.executable('tree-sitter') == 0 then
+        vim.notify('tree-sitter CLI not found. Install with `:MasonInstall tree-sitter-cli`')
+        vim.cmd [[ TSUpdate ]]
+      end
+    end,
+    opts = ts_opts,
     config = function(_, opts)
-      -- Do not prefer git for installing parsers as it is not safe when already embedded in git.
-      require('nvim-treesitter.install').prefer_git = false
-      ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup(opts)
-
-      vim.opt.foldenable = false
-      vim.opt.foldmethod = 'expr'
-      vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-
-      vim.keymap.set('n', '<leader>tt<cr>', '<cmd>TSToggle highlight<CR>', { desc = '[T]oggle [T]reesitter highlight' })
-      vim.keymap.set('n', '<leader>ttb', '<cmd>TSBufToggle highlight<CR>', { desc = '[T]oggle [T]reesitter highlight in [B]uffer' })
-      vim.keymap.set('n', '<leader>tti', '<cmd>TSBufToggle indent<CR>', { desc = '[T]oggle [T]reesitter indent in [B]uffer' })
+      local ts = require('nvim-treesitter')
+      ts.setup(opts)
+      if false then
+        -- Without ts-install, install default parsers on startup here instead
+        ts.install(ensure_install) -- async
+      end
 
       -- There are additional nvim-treesitter modules that you can use to interact
       -- with nvim-treesitter. You should go explore a few and see what interests you:
@@ -120,13 +89,58 @@ return {
       --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+
+      vim.api.nvim_create_autocmd('FileType', {
+        callback = function(ev)
+          local ft, lang = ev.match, vim.treesitter.language.get_lang(ev.match)
+          if not jst_ts.have(ft) then
+            return
+          end
+
+          local function enabled(feat, query)
+            local f = feat_opts[feat] or {} ---@type lazyvim.TSFeat
+            return f.enable ~= false
+            and not (type(f.disable) == "table" and vim.tbl_contains(f.disable, lang))
+            and jst_ts.have(ft, query)
+          end
+
+          if enabled("highlight", "highlights") then
+            vim.treesitter.start()
+          end
+          if enabled("indent", "indents") then
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+          if enabled("folds", "folds") then
+            vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+            vim.wo[0][0].foldmethod = 'expr'
+          end
+
+        end,
+      })
+
+    end,
+    init = function()
+      vim.g.loaded_nvim_treesitter = 1 -- For ts-install?
     end,
     run = function()
       local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
       ts_update()
     end,
-    build = ':TSUpdate',
+  },
+
+  -- https://github.com/lewis6991/ts-install.nvim
+  {
+    'lewis6991/ts-install.nvim',
+    enabled = jst_ts.ts_enabled,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {
+      ensure_install = ensure_install,
+      auto_install = auto_install_new_parsers,
+    }
   }
+
 }
 
 -- vim: sw=2 et
