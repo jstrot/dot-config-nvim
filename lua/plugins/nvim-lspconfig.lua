@@ -414,6 +414,10 @@ return {
         bashls = {
         },
 
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/ts_ls.lua
+        ts_ls = {
+        },
+
         --[[ PHP ]]
         intelephense = {
           -- filetypes = { 'php' },
