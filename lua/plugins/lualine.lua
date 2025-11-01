@@ -1,4 +1,5 @@
 -- https://github.com/nvim-lualine/lualine.nvim
+local save_laststatus = vim.go.laststatus
 return {
   {
     "nvim-lualine/lualine.nvim",
@@ -38,6 +39,9 @@ return {
     },
     config = function(_, opts)
       require('lualine').setup(opts)
+
+      -- I don't care what lualine developers think, restore laststatus
+      vim.go.laststatus = save_laststatus
 
       -- NOTE: Same icons as lualine:
       vim.diagnostic.config({
