@@ -15,6 +15,20 @@ return {
     event = 'VeryLazy',
     opts = {},
   },
+
+  {
+    'echasnovski/mini.diff',
+    enabled = vim.g.auto_suggest_completion_plugin == 'codecompanion', -- Only using it to enhance CodeCompanion
+    config = function()
+      local diff = require("mini.diff")
+      local opts = {
+        -- Disabled by default
+        source = diff.gen_source.none(),
+      }
+      diff.setup(opts)
+    end,
+
+  }
 }
 
 -- vim: sw=2 et

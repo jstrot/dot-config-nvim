@@ -15,6 +15,7 @@ vim.g.github_copilot_chat_model = nil -- nil for default, `:CopilotChatModels` t
 vim.g.github_copilot_code_model = nil -- nil for default
 vim.g.github_copilot_agent_model = nil -- nil for default
 
+-- vim.g.agentic_mode_plugin = 'codecompanion'
 vim.g.agentic_mode_plugin = 'avante' -- Quite good, but doesn't support some industry standard features
 
 --[[ Ollama ]]
