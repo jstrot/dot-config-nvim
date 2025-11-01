@@ -5,40 +5,42 @@ return {
     "nvim-lualine/lualine.nvim",
     event = 'VeryLazy',
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      options = {
-        -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-        theme = 'auto',
-        globalstatus = false,  -- When false, 'laststatus' is left unchanged
-      },
-      sections = {
-        lualine_a = {
-          'mode',
+    config = function()
+      local opts = {
+        options = {
+          -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
+          theme = 'auto',
+          globalstatus = false,  -- When false, 'laststatus' is left unchanged
         },
-        lualine_b = {
-          { 'filename', newfile_status = true, path = 1, }
+        sections = {
+          lualine_a = {
+            'mode',
+          },
+          lualine_b = {
+            { 'filename', newfile_status = true, path = 1, }
+          },
+          lualine_c = {
+            'branch',
+            'diff',
+            'diagnostics',
+            'lsp_progress',
+          },
+          lualine_x = {
+            'encoding',
+            'fileformat',
+            'filetype',
+            'fancy_lsp_servers',
+          },
+          lualine_y = {
+            'progress',
+          },
+          lualine_z = {
+            'location',
+            vim.g.agentic_mode_plugin == 'opencode' and require("opencode").statusline or nil,
+          }
         },
-        lualine_c = {
-          'branch',
-          'diff',
-          'diagnostics',
-          'lsp_progress',
-        },
-        lualine_x = {
-          'encoding',
-          'fileformat',
-          'filetype',
-          'fancy_lsp_servers',
-        },
-        lualine_y = {
-          'progress',
-        },
-        lualine_z = {
-          'location',
-        }
-      },
-    },
-    config = function(_, opts)
+      }
+
       require('lualine').setup(opts)
 
       -- I don't care what lualine developers think, restore laststatus
