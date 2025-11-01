@@ -6,6 +6,7 @@ return {
     branch = "main",
     enabled = vim.g.github_copilot_enabled,
     cond = vim.g.github_copilot_active,
+    lazy = true, -- To load keymaps of custom prompts
 
     -- event = 'VeryLazy', -- Load on commands or keys
     dependencies = {
@@ -13,6 +14,7 @@ return {
       { "github/copilot.vim" },
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     },
+    build = "make tiktoken",
     opts = {
       -- See Configuration section for rest
       -- See Commands section for default commands if you want to lazy load on them
@@ -22,7 +24,7 @@ return {
       -- allow_insecure = false, -- Allow insecure server connections
 
       -- system_prompt = prompts.COPILOT_INSTRUCTIONS, -- System prompt to use
-      model = vim.g.github_copilot_chat_model, -- `:CopilotChatModels` to pick or list of models
+      model = vim.g.github_copilot_chat_model, -- Start typing `$` in `:CopilotChat` panel for the list of models
       -- temperature = 0.1, -- GPT temperature
 
       -- question_header = '## User ', -- Header to use for user questions
@@ -60,7 +62,10 @@ return {
           detail = "Use @<S-Tab> or /<S-Tab> for options.",
           insert = "<S-Tab>",
         },
-      }
+      },
+
+      prompts = require('functions.import_dir').import_dir('config.CopilotChatPrompts'),
+
     },
     cmd = {
       'CopilotChat',
@@ -83,10 +88,11 @@ return {
       'CopilotChatToggle',
     },
     keys = {
-      { "<leader>cc<cr>", "<cmd>CopilotChat<cr>",         mode = "n", desc = "Run [C]opilot [C]hat" },
-      { "<leader>cc<cr>", "<cmd>'<,'>CopilotChat<cr>",    mode = "v", desc = "Run [C]opilot [C]hat" },
-      { "<leader>ccf",    "<cmd>CopilotChatFix<cr>",      mode = "n", desc = "Run [C]opilot [C]hat [F]ix" },
-      { "<leader>ccf",    "<cmd>'<,'>CopilotChatFix<cr>", mode = "v", desc = "Run [C]opilot [C]hat [F]ix" },
+      { "<leader>cc<cr>",  "<cmd>CopilotChat<cr>",         mode = "n", desc = "Run [C]opilot [C]hat" },
+      { "<leader>cc<cr>",  "<cmd>'<,'>CopilotChat<cr>",    mode = "v", desc = "Run [C]opilot [C]hat" },
+      { "<leader>ccf",     "<cmd>CopilotChatFix<cr>",      mode = "n", desc = "Run [C]opilot [C]hat [F]ix" },
+      { "<leader>ccf",     "<cmd>'<,'>CopilotChatFix<cr>", mode = "v", desc = "Run [C]opilot [C]hat [F]ix" },
+      { "<leader>ccp<cr>", "<cmd>CopilotChatPrompts<cr>",  mode = "n", desc = "Pick [C]opilot [C]hat [P]rompts" },
     },
   },
 }
