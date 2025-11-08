@@ -72,4 +72,10 @@ vim.g.openai_chat_model_file = vim.env.HOME .. '/.OPENAI_MODEL_CHAT'
 vim.g.openai_chat_model = 'gpt-4.1'
 
 --[[ state ]]
-vim.g.auto_suggest_completion_plugin = nil -- force or let it auto-detect
+vim.g.auto_suggest_completion_plugin = nil -- let it pick one
+-- vim.g.auto_suggest_completion_plugin = 'copilot' -- Tim Pope's official plugin, stable but slower
+-- vim.g.auto_suggest_completion_plugin = 'copilot-lua' -- Zach Birenbaum's pure Lua replacement
+-- vim.g.auto_suggest_completion_plugin = 'copilot-lsp'
+-- vim.g.auto_suggest_completion_plugin = 'llm' -- Hugging Face's LLM plugin using llm-ls
+-- vim.g.auto_suggest_completion_plugin = 'codecompanion' -- Ollio Morris's CodeCompanion
+-- vim.g.auto_suggest_completion_plugin = 'avante' -- yetone's Avante -- NOTE: Prefer copilot/copilot-lua unless you want a different provider than Copilot
