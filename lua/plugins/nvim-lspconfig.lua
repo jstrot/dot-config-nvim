@@ -516,7 +516,7 @@ return {
         ccls = {
           -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/ccls.lua
           lsp = {
-            lspcopnfig = {
+            lspconfig = {
               filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'opencl' },
               root_dir = function(fname)
                 return util.root_pattern(unpack({
