@@ -83,6 +83,23 @@ return {
         end
       })
 
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(ev)
+          -- Do not allow specific LSPs to attach to big files
+          local buf = vim.bo[ev.buf]
+          local filetype = buf.filetype
+          if filetype == 'bigfile' then
+            local client = vim.lsp.get_client_by_id(ev.data.client_id)
+            if vim.list_contains({
+              'copilot',
+            }, client.name) then
+              client.stop()
+              return
+            end
+          end
+        end
+      })
+
     end,
     opts = {
 
