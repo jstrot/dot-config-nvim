@@ -1,0 +1,13 @@
+---
+MD013: false # line-length
+MD014: false # commands-show-output
+MD025: false # single-title/single-h1
+MD033: false # no-inline-html
+MD040: false # fenced-code-language
+MD046: false # code-block-style
+
+# Too many in presentations
+MD009: false # no-trailing-spaces -- some because of ^L
+MD012: false # no-multiple-blanks
+MD022: false # blanks-around-headings
+MD031: false # blanks-around-fences
