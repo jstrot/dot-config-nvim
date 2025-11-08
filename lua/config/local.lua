@@ -1,0 +1,8 @@
+-------------------------------------------
+--
+-- Place your local configs in this file.
+-- It will be loaded before LSPs and plugins.
+--
+-- Beyond this header, I promise not to create any merge conflicts in this file :)
+--
+-------------------------------------------
