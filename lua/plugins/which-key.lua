@@ -15,6 +15,7 @@ return {
       { '<leader>f',   icon='󰛖', group = '[F]ormat' },
       { '<leader>g',   icon='', group = '[G]it' },
       { '<leader>i',   icon='', group = '[I]inspect' },
+      { '<leader>o',   icon='', group = '[O]pen/[O]bsidian' },
       { '<leader>r',   icon='', group = '[R]ename' },
       { '<leader>s',   icon='', group = '[S]earch (pickers)' },
       { '<leader>sl',  icon='', group = '[S]earch [L]SP' },
