@@ -1,6 +1,10 @@
--- Fill this configuration:
-local is_kitty_term = true -- Support for Kitty's Graphics Protocol. Konsole, wayst and WezTerm supposedly also support this.
 
+if false then -- Set to true if you don't want this plugin, ever
+  return {}
+end
+
+-- Fill this configuration:
+local is_kitty_term = false -- Support for Kitty's Graphics Protocol. Konsole, wayst and WezTerm supposedly also support this.
 local have_magick_rock = false
 
 -- These should auto-configure themselves:
@@ -14,18 +18,19 @@ local is_terminal = vim.api.nvim_list_uis()[1] and vim.api.nvim_list_uis()[1].st
 -- Pick one:
 -- 1. If you have want to use ImageMagick CLI tools (convert, identify)
 --    On Ubuntu, you need `apt install imagemagick`
+-- 2. If you have want to use magick_rock.
+--    On Ubuntu, you need `apt install libmagickwand-dev`
 local _3rd_image_processor = (
   (have_imagemagick_cli and 'magick_cli')
   or (have_magick_rock and 'magick_rock'
   or nil))
--- 2. If you have want to use magick_rock.
---    On Ubuntu, you need `apt install libmagickwand-dev`
--- processor = 'magick_rock'
+
 local _3rd_backend = (
   is_terminal and (
     is_kitty_term and 'kitty' -- best in class, works great and is very snappy.
     or (have_ueberzug and 'ueberzug') -- backed by ueberzugpp, supports any terminal, but has lower performance.
-  ) or nil)
+  )
+  or nil)
 
 -- print('is_terminal = ' .. vim.inspect(is_terminal))
 -- print('_3rd_image_processor = ' .. vim.inspect(_3rd_image_processor))
@@ -37,8 +42,7 @@ return {
   -- 3rd/image.nvim is great with Kitty
   {
     '3rd/image.nvim',
-    enabled = true,
-    lazy = not (_3rd_image_processor and _3rd_backend),
+    cond = (_3rd_image_processor and _3rd_backend),
     build = _3rd_image_processor == 'magick_rock',
     opts = {
       backend = _3rd_backend,
@@ -53,8 +57,16 @@ return {
     dependencies = {
       "3rd/image.nvim",
     },
-    enabled = false, -- You need `mmdc` (mermaid), `plantuml`, and `d2` (ditaa) installed.
-    lazy = not (_3rd_image_processor and _3rd_backend),
+    cond = (
+      (_3rd_image_processor and _3rd_backend) -- 3rd/image's condition
+      and (
+        -- You need one of these:
+        vim.fn.executable('mmdc') == 1 -- Mermaid
+        or vim.fn.executable('plantuml') == 1 -- plantUML
+        or vim.fn.executable('d2') == 1 -- D2 (ditaa)
+        or vim.fn.executable('gnuplot') == 1 -- GNU Plot
+      )
+    ),
     config = function()
       require("diagram").setup({
         integrations = {
