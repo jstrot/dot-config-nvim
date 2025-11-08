@@ -9,6 +9,7 @@ return {
       { '[',           icon='', group = 'Navigate backward' },
       { ']',           icon='', group = 'Navigate forward' },
       { '<leader>c',   icon='', group = '[C]ode & [C]ompletion' },
+      { '<leader>a',   icon='󰵰', group = 'AI/[A]gentic' },
       { '<leader>cc',  icon='󱜸', group = 'AI/[C]opilot [C]hat' },
       { '<leader>d',   icon='󰱼', group = '[D]ocument' },
       { '<leader>f',   icon='󰛖', group = '[F]ormat' },
