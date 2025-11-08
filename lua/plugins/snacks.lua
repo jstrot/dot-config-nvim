@@ -52,6 +52,7 @@ if (vim.g.picker_plugin == 'snacks.picker') then
     { '<leader>sc', function() Snacks.picker.highlights() end, desc = '[S]earch Neovim highlights/[C]olors' },
   })
 end
+local quickfile_enabled = not vim.o.diff
 return {
   {
     'folke/snacks.nvim',
@@ -230,7 +231,7 @@ return {
 
       -- When doing `nvim somefile.txt`, it will render the file as quickly as possible, before loading your plugins. ‼️
       quickfile = {
-        enabled = true,
+        enabled = quickfile_enabled,
         -- any treesitter langs to exclude
         exclude = {
           "latex", -- Folke's default
