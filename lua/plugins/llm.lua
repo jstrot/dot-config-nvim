@@ -44,6 +44,36 @@ if not opts.backend then
   end
 end
 
+if opts.model and opts.model:find('starcoder') then
+  opts = vim.tbl_deep_extend('keep', opts, {
+    tokens_to_clear = { "<|endoftext|>" },
+    fim = {
+      enabled = true,
+      prefix = "<fim_prefix>",
+      middle = "<fim_middle>",
+      suffix = "<fim_suffix>",
+    },
+    context_window = 8192,
+    -- tokenizer = {
+    --   repository = "bigcode/starcoder",
+    -- }
+  })
+elseif opts.model and opts.model:find('codellama') then
+    opts = vim.tbl_deep_extend('keep', opts, {
+      tokens_to_clear = { "<EOT>" },
+      fim = {
+        enabled = true,
+        prefix = "<PRE> ",
+        middle = " <MID>",
+        suffix = " <SUF>",
+      },
+      context_window = 4096,
+      -- tokenizer = {
+      --   repository = "codellama/CodeLlama",
+      -- }
+    })
+end
+
 if opts.backend and not vim.g.auto_suggest_completion_plugin then
   vim.g.auto_suggest_completion_plugin = 'llm'
 end
