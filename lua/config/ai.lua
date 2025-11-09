@@ -30,6 +30,7 @@ vim.g.ollama_code_model_file = vim.env.HOME .. '/.OLLAMA_MODEL_CODE'
 vim.g.ollama_code_model = 'starcoder2:3b' -- Fast, very simplistic suggestions.
 vim.g.ollama_code_model = 'starcoder2:7b' -- Fast, very simplistic suggestions.
 vim.g.ollama_code_model = 'codellama:7b-code' -- Slow, good suggestions, some `<fim_end>` showing.
+vim.g.ollama_code_model = 'hf.co/bartowski/zed-industries_zeta-GGUF:Q4_K_M' -- Zeta, based on Qwen2.5-Coder-7B to support edit prediction in Zed editor. Quantized version in GGUF format
 vim.g.ollama_chat_model_env = 'OLLAMA_MODEL_CHAT'
 vim.g.ollama_chat_model_file = vim.env.HOME .. '/.OLLAMA_MODEL_CHAT'
 vim.g.ollama_chat_model = 'mistral:7b'
@@ -37,6 +38,8 @@ vim.g.ollama_chat_model = 'phi3:3.8b'
 vim.g.ollama_chat_model = 'deepseek-coder:1.3b'
 vim.g.ollama_chat_model = 'deepseek-coder:6.7b'
 vim.g.ollama_chat_model = 'deepseek-coder-v2:16b'
+vim.g.ollama_chat_model = 'gpt-oss:20b'
+vim.g.ollama_chat_model = 'gpt-oss:20b-64k'
 
 --[[ Hugging Face (TextGenUI) ]]
 -- Auto-suggest completion + Chat.
