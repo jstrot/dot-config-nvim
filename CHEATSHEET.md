@@ -197,6 +197,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tm`      | \[T]oggle \[M]arkview (markdown files)                                                    |                                                                                |
 | n    | `<Leader>to`      | \[T]oggle \[O]utline                                                                      |                                                                                |
 | n    | `<Leader>tp`      | \[T]oggle \[P]aste mode                                                                   |                                                                                |
+| n    | `<Leader>tP`      | \[T]oggle live \[P]review                                                                 | For markdown files                                                             |
 | n    | `<Leader>ts<cr>`  | \[T]oggle \[S]ign column                                                                  |                                                                                |
 | n    | `<Leader>ts0`     | \[T]oggle \[S]ign column: 0 wide (no/off)                                                 |                                                                                |
 | n    | `<Leader>ts1`     | \[T]oggle \[S]ign column: 1 wide                                                          |                                                                                |
