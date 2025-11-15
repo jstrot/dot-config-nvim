@@ -2,7 +2,7 @@
 return {
   {
     "ibhagwan/fzf-lua",
-    enabled = false,  -- NOTE: For now, use telescope
+    enabled = vim.g.picker_plugin == 'fzf-lua',
     event = 'VeryLazy',
     branch = "main",
     dependencies = { "nvim-tree/nvim-web-devicons" },
