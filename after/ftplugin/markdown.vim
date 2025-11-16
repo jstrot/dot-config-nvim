@@ -18,3 +18,7 @@ function s:fmt_line(line) abort
 endfunction
 
 " NOTE: For a TOC window, use the LSP-based `gO` mapping
+
+" Personally, I prefer to have wrapping and spell checking in markdown files:
+"setl wrap
+"setl spell
