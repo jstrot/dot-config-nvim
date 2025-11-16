@@ -223,4 +223,15 @@ if not vim.g.auto_suggest_completion_plugin then
   end
 end
 
+vim.g.next_edit_suggestion_plugin = jst.fn.get_secret(vim.g.next_edit_suggestion_plugin_env, nil) or vim.g.next_edit_suggestion_plugin
+if not vim.g.next_edit_suggestion_plugin then
+  if vim.g.auto_suggest_completion_plugin == 'copilot-lua' then
+    -- copilot-lua supports NES via copilot-lsp
+    vim.g.next_edit_suggestion_plugin = 'copilot-lsp'
+    vim.g.next_edit_suggestion_plugin = nil -- FIXME: NES is very intrusive; Disable for now.
+  else
+    vim.g.next_edit_suggestion_plugin = nil -- TODO: copilot-lsp standalone or another plugin?
+  end
+end
+
 -- vim: sw=2 et

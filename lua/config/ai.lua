@@ -101,6 +101,7 @@ vim.g.openai_agent_model = nil
 
 --[[ Plugin choices ]]
 
+-- Agentic Mode
 vim.g.agentic_mode_plugin_env = 'JST_AGENTIC_MODE_PLUGIN' -- Use this environment variable for a one-time override
 vim.g.agentic_mode_plugin = nil -- let it pick one
 -- vim.g.agentic_mode_plugin = 'codecompanion'
@@ -108,6 +109,7 @@ vim.g.agentic_mode_plugin = nil -- let it pick one
 -- vim.g.agentic_mode_plugin = 'opencode-tui' -- Opencode is recommended, requires installing opencode. Opencode TUI in a terminal.
 -- vim.g.agentic_mode_plugin = 'opencode-native' -- Opencode is recommended, requires installing opencode. Native Neovim frontend for opencode
 
+-- Inline Auto-suggest/Completion
 vim.g.auto_suggest_completion_plugin_env = 'JST_AUTO_SUGGEST_COMPLETION_PLUGIN' -- Use this environment variable for a one-time override
 vim.g.auto_suggest_completion_plugin = nil -- let it pick one
 -- vim.g.auto_suggest_completion_plugin = 'copilot' -- Tim Pope's official plugin, stable but slower
@@ -115,5 +117,9 @@ vim.g.auto_suggest_completion_plugin = nil -- let it pick one
 -- vim.g.auto_suggest_completion_plugin = 'llm' -- Hugging Face's LLM plugin using llm-ls, supports other providers
 -- vim.g.auto_suggest_completion_plugin = 'codecompanion' -- Ollio Morris's CodeCompanion
 -- vim.g.auto_suggest_completion_plugin = 'avante' -- yetone's Avante -- NOTE: Prefer copilot/copilot-lua unless you want a different provider than Copilot
+
+-- Next Edit Suggestion (NES)
+vim.g.next_edit_suggestion_plugin = nil -- let it pick one
+-- vim.g.next_edit_suggestion_plugin = 'copilot-lsp' -- Copilot LSP
 
 -- vim: sw=2 et

@@ -45,7 +45,16 @@ return {
           accept_line = "<M-C-Right>",
           next = "<M-]>",
           prev = "<M-[>",
-          dismiss = "<C-]>",
+          dismiss = "<C-]>", -- Stop showing suggestion
+        },
+      },
+      nes = {
+        enabled = vim.g.next_edit_suggestion_plugin == 'copilot-lsp', -- WARN: EXPERIMENTAL -- can't seem to choose inline vs nes
+        auto_trigger = false,
+        keymap = {
+          accept_and_goto = false,
+          accept = false,
+          dismiss = false,
         },
       },
       workspace_folders = {},
@@ -60,6 +69,10 @@ return {
         trace_lsp_progress = true, -- false,
         log_lsp_messages = true, -- false,
       },
+    },
+
+    dependencies = {
+      (vim.g.next_edit_suggestion_plugin == 'copilot-lsp' and 'copilotlsp-nvim/copilot-lsp' or nil),
     },
   }
 }
