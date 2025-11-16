@@ -1,6 +1,6 @@
 -- https://docs.github.com/en/copilot/getting-started-with-github-copilot?tool=vimneovim
 -- https://github.com/github/copilot.vim
-require('config.ai')
+require('jst.ai.config')
 
 if vim.g.github_copilot_enabled and vim.g.github_copilot_active and not vim.g.auto_suggest_completion_plugin then
   vim.g.auto_suggest_completion_plugin = 'copilot'

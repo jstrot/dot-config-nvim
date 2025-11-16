@@ -1,14 +1,14 @@
 -- https://github.com/zbirenbaum/copilot.lua
-require('config.ai')
+require('jst.ai.config')
 
-if vim.g.github_copilot_enabled and vim.g.github_copilot_active and not vim.g.auto_suggest_completion_plugin then
+if AI_is_copilot_active() and not vim.g.auto_suggest_completion_plugin then
   vim.g.auto_suggest_completion_plugin = 'copilot-lua'
 end
 
 return {
   {
     "zbirenbaum/copilot.lua",
-    enabled = vim.g.github_copilot_enabled and vim.g.auto_suggest_completion_plugin ~= 'copilot', -- Avoid plugin name conflict
+    enabled = AI_is_copilot_enabled() and vim.g.auto_suggest_completion_plugin ~= 'copilot-vim', -- Avoid plugin name conflict
     cond = vim.g.auto_suggest_completion_plugin == 'copilot-lua',
     priority = 45, -- default is 50, 45 is the preferred auto-suggest completion plugin, others are 40
 
@@ -49,7 +49,7 @@ return {
         },
       },
       workspace_folders = {},
-      copilot_model = vim.g.github_copilot_code_model or 'gpt-41-copilot', -- Start typing `$` in `:CopilotChat` panel for the list of models
+      copilot_model = AI_copilot_code_model(), -- Start typing `$` in `:CopilotChat` panel for the list of models
       logger = {
         file = vim.fn.stdpath("log") .. "/copilot-lua.log",
         file_log_level = vim.log.levels.DEBUG, -- vim.log.levels.OFF,

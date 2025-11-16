@@ -1,6 +1,5 @@
 -- https://github.com/tzachar/cmp-ai
-require('config.ai')
-require('functions.secret')
+require('jst.ai.config')
 
 local enabled = false -- TBD below
 local def_opts = {
@@ -20,25 +19,25 @@ local def_opts = {
 }
 
 local huggingface_opts = nil
-local api_token = jst_get_secret(vim.g.huggingface_token_env, vim.g.huggingface_token_file)
+local api_token = AI_huggingface_api_key()
 if api_token then
   enabled = true
   vim.us.os_setenv('HF_API_KEY', api_token) -- only by environment!?
   huggingface_opts = vim.tbl_deep_extend('force', def_opts, {
     provider = 'HF',
-    model = jst_get_secret(vim.g.huggingface_code_model_env, nil) or vim.g.huggingface_code_model,
+    model = AI_huggingface_code_model(),
   })
 end
 
 local ollama_opts = nil
-local url = jst_get_secret(vim.g.ollama_url_env, vim.g.ollama_url_file)
+local url = AI_ollama_url()
 if url then
   enabled = true
-  local model = jst_get_secret(vim.g.ollama_code_model_env, vim.g.ollama_code_model_file) or vim.g.ollama_code_model
+  local model = AI_ollama_code_model()
   ollama_opts = vim.tbl_deep_extend('force', def_opts, {
     provider = 'Ollama',
     base_url = url .. '/api/generate',
-    -- opts.api_token = jst_get_secret(vim.g.ollama_token_env, vim.g.ollama_token_file),
+    -- opts.api_token = AI_ollama_api_key(),
     provider_options = {
       model = model,
       auto_unload = false,

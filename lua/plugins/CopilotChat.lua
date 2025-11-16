@@ -1,11 +1,12 @@
 -- https://github.com/CopilotC-Nvim/CopilotChat.nvim
-require('config.ai')
+require('jst.ai.config')
+
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "main",
-    enabled = vim.g.github_copilot_enabled,
-    cond = vim.g.github_copilot_active,
+    enabled = AI_is_copilot_enabled(),
+    cond = AI_is_copilot_active(),
     lazy = true, -- To load keymaps of custom prompts
 
     -- event = 'VeryLazy', -- Load on commands or keys
@@ -24,7 +25,7 @@ return {
       -- allow_insecure = false, -- Allow insecure server connections
 
       -- system_prompt = prompts.COPILOT_INSTRUCTIONS, -- System prompt to use
-      model = vim.g.github_copilot_chat_model, -- Start typing `$` in `:CopilotChat` panel for the list of models
+      model = AI_copilot_chat_model(), -- Start typing `$` in `:CopilotChat` panel for the list of models
       -- temperature = 0.1, -- GPT temperature
 
       -- question_header = '## User ', -- Header to use for user questions

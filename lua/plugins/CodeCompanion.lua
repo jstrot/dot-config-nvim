@@ -1,5 +1,5 @@
 -- https://github.com/olimorris/codecompanion.nvim
-require('config.ai')
+require('jst.ai.config')
 
 if vim.g.github_copilot_enabled and vim.g.github_copilot_active and not vim.g.auto_suggest_completion_plugin then
   vim.g.auto_suggest_completion_plugin = 'codecompanion'

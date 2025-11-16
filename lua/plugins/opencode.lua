@@ -4,7 +4,7 @@
 --
 -- Your opencode configuration here: ~/.config/opencode/opencode.jsonc
 --
-require('config.ai')
+require('jst.ai.config')
 
 local function focus_opencode_window()
   local provider_opts = require('opencode.config').opts.provider

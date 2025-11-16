@@ -1,6 +1,47 @@
 -- https://github.com/yetone/avante.nvim
-require('config.ai')
-require('functions.secret')
+require('jst.ai.config')
+
+local function avante_shortcuts()
+  -- Prompts are used with "#<promptname>" in Avante sessions
+  local prompts_dirs = {
+    ".github/prompts",
+  }
+  local shortcuts = {
+    -- {
+    --   name = "refactor",
+    --   description = "Refactor code with best practices",
+    --   details = "Automatically refactor code to improve readability, maintainability, and follow best practices while preserving functionality",
+    --   prompt = "Please refactor this code following best practices, improving readability and maintainability while preserving functionality."
+    -- },
+    -- {
+    --   name = "test",
+    --   description = "Generate unit tests",
+    --   details = "Create comprehensive unit tests covering edge cases, error scenarios, and various input conditions",
+    --   prompt = "Please generate comprehensive unit tests for this code, covering edge cases and error scenarios."
+    -- },
+    -- Add more custom shortcuts, preferably using prompts_dir above.
+  }
+  for _, prompts_dir in ipairs(prompts_dirs) do
+    if vim.fn.isdirectory(prompts_dir) == 1 then
+      local files = vim.fn.glob(prompts_dir .. "/*.md", false, true)
+      for _, filepath in ipairs(files) do
+        local content = vim.fn.readfile(filepath)
+        if #content > 0 then
+          local promptname = vim.fn.fnamemodify(filepath, ":t:r")
+          promptname = promptname:gsub("%.prompt$", "")
+          local description = content[1]
+          local prompt = table.concat(content, "\n")
+          table.insert(shortcuts, {
+            name = promptname,
+            description = description,
+            prompt = prompt,
+          })
+        end
+      end
+    end
+  end
+  return shortcuts
+end
 
 return {
   {
@@ -33,16 +74,19 @@ return {
         return nil -- fallback to avante's default
       end)(),
       provider = (
-        vim.g.github_copilot_enabled and "copilot"
-        or jst_get_secret(vim.g.ollama_url_env, vim.g.ollama_url_file) and "ollama"
+        AI_is_copilot_active() and "copilot"
+        or AI_is_ollama_enabled() and "ollama"
         or nil),
-      -- TODO: provider = "codex",
       -- TODO: override_prompt_dir = vim.fn.expand("~/.config/nvim/avante_prompts"),
-      -- TODO: override_prompt_dir = ".github/prompts",
-      auto_suggestions_provider = nil, -- Using copilot for auto-suggestions, not Avante
+      auto_suggestions_provider = (
+        (vim.g.auto_suggest_completion_plugin == 'avante')
+        and (
+          AI_is_ollama_enabled() and "ollama_suggest"
+        )
+      ) or nil,
       providers = {
         copilot = {
-          model = vim.g.github_copilot_agent_model or "claude-sonnet-4.5", -- `:AvanteModels` to pick or list of models
+          model = AI_copilot_agent_model(), -- `:AvanteModels` to pick or list of models
           -- extra_request_body = {
           --   max_tokens = 128000,
           -- },
@@ -56,11 +100,16 @@ return {
           -- },
         },
         ollama = {
-          endpoint = jst_get_secret(vim.g.ollama_url_env, vim.g.ollama_url_file) or "http://127.0.0.1:11434",
+          endpoint = AI_ollama_url(),
+          model = AI_ollama_agent_model(), -- must be filled in, `:AvanteModels` won't provide a list
+        },
+        ollama_suggest = {
+          __inherited_from = 'ollama',
+          model = AI_copilot_code_model(),
         },
       },
       behaviour = {
-        auto_suggestions = false, -- Using separate Copilot plugin for auto-suggestions. WARN: Copilot rate and debouncing by Avante can lead to account freeze, do not enable!
+        auto_suggestions = vim.g.auto_suggest_completion_plugin == 'avante', -- WARN: Copilot rate and debouncing by Avante can lead to account freeze, do not enable for Copilot!
         auto_focus_sidebar = true,
         auto_approve_tool_permissions = true, -- automatically approve all tool permissions requests
         -- auto_approve_tool_permissions = false, -- Show permission prompts for all tools
@@ -143,21 +192,7 @@ return {
         },
         select_model = '<leader>am',
       },
-      -- shortcuts = {
-      --   {
-      --     name = "refactor",
-      --     description = "Refactor code with best practices",
-      --     details = "Automatically refactor code to improve readability, maintainability, and follow best practices while preserving functionality",
-      --     prompt = "Please refactor this code following best practices, improving readability and maintainability while preserving functionality."
-      --   },
-      --   {
-      --     name = "test",
-      --     description = "Generate unit tests",
-      --     details = "Create comprehensive unit tests covering edge cases, error scenarios, and various input conditions",
-      --     prompt = "Please generate comprehensive unit tests for this code, covering edge cases and error scenarios."
-      --   },
-      --   -- Add more custom shortcuts...
-      -- },
+      shortcuts = avante_shortcuts(),
       acp_providers = {
         ["gemini-cli"] = {
           command = "gemini",
@@ -189,13 +224,21 @@ return {
       },
     },
     dependencies = {
+
       vim.g.cmp_plugin == "nvim-cmp" and "hrsh7th/nvim-cmp" or {}, -- autocompletion for avante commands and mentions
       -- FIXME: window id errors after windows were closed with Avante active: vim.g.cmp_plugin == "blink.cmp" and "Saghen/blink.cmp" or {}, -- autocompletion for avante commands and mentions
       -- FIXME: window id errors after windows were closed with Avante active: vim.g.cmp_plugin == "blink.cmp" and "Kaiser-Yang/blink-cmp-avante" or {}, -- Avante source for blink.cmp
+
       vim.g.picker_plugin == 'fzf-lua' and "ibhagwan/fzf-lua" or {}, -- for file_selector provider fzf
       vim.g.picker_plugin == 'telescope' and "nvim-telescope/telescope.nvim" or {}, -- for file_selector provider telescope
       vim.g.picker_plugin == 'snacks.picker' and "folke/snacks.nvim" or {}, -- for input provider snacks
-      vim.g.auto_suggest_completion_plugin == 'copilot-lua' and "zbirenbaum/copilot.lua" or "github/copilot.vim", -- for provider copilot
+
+      AI_is_copilot_enabled() and ( -- For provider copilot
+        (vim.g.auto_suggest_completion_plugin == 'copilot-lua') and "zbirenbaum/copilot.lua"
+        or (vim.g.auto_suggest_completion_plugin == 'copilot-vim') and "github/copilot.vim"
+        or "github/copilot.vim" -- Default
+      ) or nil,
+
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons

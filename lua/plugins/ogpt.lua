@@ -1,21 +1,24 @@
 -- https://github.com/huynle/ogpt.nvim
-require('config.ai')
-require('functions.secret')
+require('jst.ai.config')
 
 local opts = {
-  default_provider = (jst_get_secret(vim.g.ollama_url_env, vim.g.ollama_url_file) and 'ollama') or (jst_get_secret(vim.g.huggingface_url_env, vim.g.huggingface_url_file) and 'textgenui') or '',
+  default_provider = (
+    AI_is_ollama_enabled() and 'ollama'
+    or AI_is_huggingface_enabled() and 'textgenui'
+    or ''
+  ),
   providers = {
     ollama = {
-      api_host = jst_get_secret(vim.g.ollama_url_env, vim.g.ollama_url_file) or '',
-      api_key = jst_get_secret(vim.g.ollama_token_env, vim.g.ollama_token_file) or '',
-      model = jst_get_secret(vim.g.ollama_code_model_env, vim.g.ollama_code_model_file) or vim.g.ollama_code_model or '',
+      api_host = AI_ollama_url() or '',
+      api_key = AI_ollama_api_key() or '',
+      model = AI_ollama_code_model() or '',
       api_params = {
-        model = jst_get_secret(vim.g.ollama_code_model_env, vim.g.ollama_code_model_file) or vim.g.ollama_code_model or '',
+        model = AI_ollama_code_model() or '',
         -- temperature = 0.8,
         -- top_p = 0.9,
       },
       api_chat_params = {
-        model = jst_get_secret(vim.g.ollama_chat_model_env, vim.g.ollama_chat_model_file) or vim.g.ollama_chat_model or '',
+        model = AI_ollama_chat_model() or '',
         -- frequency_penalty = 0,
         -- presence_penalty = 0,
         -- temperature = 0.5,
@@ -23,15 +26,15 @@ local opts = {
       },
     },
     textgenui = {
-      api_host = jst_get_secret(vim.g.huggingface_url_env, vim.g.huggingface_url_file) or '',
-      api_key = jst_get_secret(vim.g.huggingface_token_env, vim.g.huggingface_token_file) or '',
+      api_host = AI_huggingface_url() or '',
+      api_key = AI_huggingface_api_key() or '',
       api_params = {
-        model = jst_get_secret(vim.g.huggingface_code_model_env, vim.g.huggingface_code_model_file) or vim.g.huggingface_code_model or '',
+        model = AI_huggingface_code_model() or '',
         -- temperature = 0.8,
         -- top_p = 0.9,
       },
       api_chat_params = {
-        model = jst_get_secret(vim.g.huggingface_chat_model_env, vim.g.huggingface_chat_model_file) or vim.g.huggingface_chat_model or '',
+        model = AI_huggingface_chat_model() or '',
         -- frequency_penalty = 0,
         -- presence_penalty = 0,
         -- temperature = 0.5,
