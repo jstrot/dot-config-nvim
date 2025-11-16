@@ -42,7 +42,8 @@ return {
   -- 3rd/image.nvim is great with Kitty
   {
     '3rd/image.nvim',
-    cond = (_3rd_image_processor and _3rd_backend),
+    enabled = (_3rd_image_processor and _3rd_backend),
+    cond = (_3rd_image_processor and _3rd_backend) or false,
     build = _3rd_image_processor == 'magick_rock',
     opts = {
       backend = _3rd_backend,
@@ -57,7 +58,7 @@ return {
     dependencies = {
       "3rd/image.nvim",
     },
-    cond = (
+    enabled = (
       (_3rd_image_processor and _3rd_backend) -- 3rd/image's condition
       and (
         -- You need one of these:
@@ -67,6 +68,16 @@ return {
         or vim.fn.executable('gnuplot') == 1 -- GNU Plot
       )
     ),
+    cond = (
+      (_3rd_image_processor and _3rd_backend) -- 3rd/image's condition
+      and (
+        -- You need one of these:
+        vim.fn.executable('mmdc') == 1 -- Mermaid
+        or vim.fn.executable('plantuml') == 1 -- plantUML
+        or vim.fn.executable('d2') == 1 -- D2 (ditaa)
+        or vim.fn.executable('gnuplot') == 1 -- GNU Plot
+      )
+    ) or false,
     config = function()
       require("diagram").setup({
         integrations = {
