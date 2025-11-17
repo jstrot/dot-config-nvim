@@ -2,22 +2,33 @@
 
 -- Whether all list items should be rendered with extra padding on the left, like some editors (GitHub, Obsidian, ...)
 local default_list_items_add_padding = false -- disable for a more compact view
+local markdown_filetypes = {
+  "markdown",
+  "quarto",
+  "rmd",
+  "Avante",
+  "codecompanion",
+}
 
 return {
   'OXY2DEV/markview.nvim',
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  ft = {
-    "markdown",
-    "quarto",
-    "rmd",
-    "Avante",
-    "codecompanion",
-  },
+  ft = markdown_filetypes,
   opts = {
     code_blocks = {
       icons = "devicons",
+    },
+
+    preview = {
+      enable = true, -- Start enabled or not, toggle with `<leader>tm`
+      filetypes = markdown_filetypes,
+      ignore_buftypes = {
+        -- Important to not ignore "nofile" buftypes for Avante and CodeCompanion
+        (not vim.tbl_contains({'avante', 'codecompanion'}, vim.g.agentic_mode_plugin)) and "nofile" or nil,
+      },
+      icon_provider = "devicons", -- "internal", "mini", "devicons"
     },
 
     markdown = {
