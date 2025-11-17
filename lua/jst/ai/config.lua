@@ -1,5 +1,5 @@
 require('config.ai')
-require('functions.secret')
+local jst = require('jst')
 
 --[[ GitHub Copilot ]]
 
@@ -21,7 +21,7 @@ end
 -- @return string?
 function AI_copilot_chat_model()
   return (
-    jst_get_secret(vim.g.github_copilot_chat_model_env, vim.g.github_copilot_chat_model_file)
+    jst.fn.get_secret(vim.g.github_copilot_chat_model_env, vim.g.github_copilot_chat_model_file)
     or vim.g.github_copilot_chat_model
   )
 end
@@ -30,7 +30,7 @@ end
 -- @return string?
 function AI_copilot_code_model()
   return (
-    jst_get_secret(vim.g.github_copilot_code_model_env, vim.g.github_copilot_code_model_file)
+    jst.fn.get_secret(vim.g.github_copilot_code_model_env, vim.g.github_copilot_code_model_file)
     or vim.g.github_copilot_code_model
   )
 end
@@ -39,7 +39,7 @@ end
 -- @return string?
 function AI_copilot_agent_model()
   return (
-    jst_get_secret(vim.g.github_copilot_agent_model_env, vim.g.github_copilot_agent_model_file)
+    jst.fn.get_secret(vim.g.github_copilot_agent_model_env, vim.g.github_copilot_agent_model_file)
     or vim.g.github_copilot_agent_model
   )
 end
@@ -57,22 +57,22 @@ end
 -- @return string?
 function AI_ollama_url()
   return (
-    jst_get_secret(vim.g.ollama_url_env, nil)
-    or jst_get_secret(vim.g.ollama_url_env2, vim.g.ollama_url_file)
+    jst.fn.get_secret(vim.g.ollama_url_env, nil)
+    or jst.fn.get_secret(vim.g.ollama_url_env2, vim.g.ollama_url_file)
   )
 end
 
 --- Returns the Ollama API key/token (Optional).
 -- @return string?
 function AI_ollama_api_key()
-  return jst_get_secret(vim.g.ollama_token_env, vim.g.ollama_token_file)
+  return jst.fn.get_secret(vim.g.ollama_token_env, vim.g.ollama_token_file)
 end
 
 --- Returns Ollama model to use for Chat sessions.
 -- @return string?
 function AI_ollama_chat_model()
   return (
-    jst_get_secret(vim.g.ollama_chat_model_env, vim.g.ollama_chat_model_file)
+    jst.fn.get_secret(vim.g.ollama_chat_model_env, vim.g.ollama_chat_model_file)
     or vim.g.ollama_chat_model
   )
 end
@@ -81,7 +81,7 @@ end
 -- @return string?
 function AI_ollama_code_model()
   return (
-    jst_get_secret(vim.g.ollama_code_model_env, vim.g.ollama_code_model_file)
+    jst.fn.get_secret(vim.g.ollama_code_model_env, vim.g.ollama_code_model_file)
     or vim.g.ollama_code_model
   )
 end
@@ -90,7 +90,7 @@ end
 -- @return string?
 function AI_ollama_agent_model()
   return (
-    jst_get_secret(vim.g.ollama_agent_model_env, vim.g.ollama_agent_model_file)
+    jst.fn.get_secret(vim.g.ollama_agent_model_env, vim.g.ollama_agent_model_file)
     or vim.g.ollama_agent_model
   )
 end
@@ -106,20 +106,20 @@ end
 --- Returns the Hugging Face URL (optional).
 -- @return string?
 function AI_huggingface_url()
-  return jst_get_secret(vim.g.huggingface_url_env, vim.g.huggingface_url_file)
+  return jst.fn.get_secret(vim.g.huggingface_url_env, vim.g.huggingface_url_file)
 end
 
 --- Returns the Hugging Face API key/token.
 -- @return string?
 function AI_huggingface_api_key()
-  return jst_get_secret(vim.g.huggingface_token_env, vim.g.huggingface_token_file)
+  return jst.fn.get_secret(vim.g.huggingface_token_env, vim.g.huggingface_token_file)
 end
 
 --- Returns Hugging Face model to use for Chat sessions.
 -- @return string?
 function AI_huggingface_chat_model()
   return (
-    jst_get_secret(vim.g.huggingface_chat_model_env, vim.g.huggingface_chat_model_file)
+    jst.fn.get_secret(vim.g.huggingface_chat_model_env, vim.g.huggingface_chat_model_file)
     or vim.g.huggingface_chat_model
   )
 end
@@ -128,7 +128,7 @@ end
 -- @return string?
 function AI_huggingface_code_model()
   return (
-    jst_get_secret(vim.g.huggingface_code_model_env, vim.g.huggingface_code_model_file)
+    jst.fn.get_secret(vim.g.huggingface_code_model_env, vim.g.huggingface_code_model_file)
     or vim.g.huggingface_code_model
   )
 end
@@ -137,7 +137,7 @@ end
 -- @return string?
 function AI_huggingface_agent_model()
   return (
-    jst_get_secret(vim.g.huggingface_agent_model_env, vim.g.huggingface_agent_model_file)
+    jst.fn.get_secret(vim.g.huggingface_agent_model_env, vim.g.huggingface_agent_model_file)
     or vim.g.huggingface_agent_model
   )
 end
@@ -153,20 +153,20 @@ end
 --- Returns the OpenAI URL.
 -- @return string?
 function AI_openai_url()
-  return jst_get_secret(vim.g.openai_url_env, vim.g.openai_url_file)
+  return jst.fn.get_secret(vim.g.openai_url_env, vim.g.openai_url_file)
 end
 
 --- Returns the OpenAI API key/token.
 -- @return string?
 function AI_openai_api_key()
-  return jst_get_secret(vim.g.openai_token_env, vim.g.openai_token_file)
+  return jst.fn.get_secret(vim.g.openai_token_env, vim.g.openai_token_file)
 end
 
 --- Returns OpenAI model to use for Chat sessions.
 -- @return string?
 function AI_openai_chat_model()
   return (
-    jst_get_secret(vim.g.openai_chat_model_env, vim.g.openai_chat_model_file)
+    jst.fn.get_secret(vim.g.openai_chat_model_env, vim.g.openai_chat_model_file)
     or vim.g.openai_chat_model
   )
 end
@@ -175,7 +175,7 @@ end
 -- @return string?
 function AI_openai_code_model()
   return (
-    jst_get_secret(vim.g.openai_code_model_env, vim.g.openai_code_model_file)
+    jst.fn.get_secret(vim.g.openai_code_model_env, vim.g.openai_code_model_file)
     or vim.g.openai_code_model
   )
 end
@@ -184,7 +184,7 @@ end
 -- @return string?
 function AI_openai_agent_model()
   return (
-    jst_get_secret(vim.g.openai_agent_model_env, vim.g.openai_agent_model_file)
+    jst.fn.get_secret(vim.g.openai_agent_model_env, vim.g.openai_agent_model_file)
     or vim.g.openai_agent_model
   )
 end

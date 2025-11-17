@@ -1,5 +1,6 @@
 -- https://github.com/CopilotC-Nvim/CopilotChat.nvim
 require('jst.ai.config')
+local jst = require('jst')
 
 return {
   {
@@ -65,7 +66,7 @@ return {
         },
       },
 
-      prompts = require('functions.import_dir').import_dir('config.CopilotChatPrompts'),
+      prompts = jst.fn.import_dir('config.CopilotChatPrompts'),
 
     },
     cmd = {

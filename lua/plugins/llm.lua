@@ -1,5 +1,6 @@
 -- https://github.com/huggingface/llm.nvim
 require('jst.ai.config')
+local jst = require('jst')
 
 local opts = {
   -- backend = TBD,
@@ -24,7 +25,7 @@ local model
 if not opts.backend then
   if AI_is_huggingface_enabled() then
     -- https://github.com/huggingface/llm.nvim?tab=readme-ov-file#backend--huggingface
-    model = jst_get_secret('LLM_NVIM_MODEL', nil) or AI_huggingface_code_model()
+    model = jst.fn.get_secret('LLM_NVIM_MODEL', nil) or AI_huggingface_code_model()
     if model then
       opts = vim.tbl_deep_extend('force', opts, {
         backend = 'huggingface',
@@ -38,7 +39,7 @@ end
 
 if not opts.backend then
   if AI_is_ollama_enabled() then
-    model = jst_get_secret('LLM_NVIM_MODEL', nil) or AI_ollama_code_model()
+    model = jst.fn.get_secret('LLM_NVIM_MODEL', nil) or AI_ollama_code_model()
     if model then
       opts = vim.tbl_deep_extend('force', opts, {
         backend = 'ollama',
