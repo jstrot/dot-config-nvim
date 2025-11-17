@@ -33,10 +33,10 @@ return {
       cmdArgs = mcphub_build_type == "node" and ({vim.fn.stdpath('data') .. '/lazy/mcphub.nvim/bundled/mcp-hub/node_modules/mcp-hub/dist/cli.js'}) or nil,
       config = mcphub_config_file(),
       log = {
-        -- level = vim.log.levels.ERROR,
-        level = vim.log.levels.DEBUG,
+        level = vim.log.levels.ERROR,
+        -- level = vim.log.levels.DEBUG,
         to_file = true, -- false,
-        file_path = vim.fn.expand("~/mcphub.log"),
+        file_path = vim.fn.stdpath("log") .. "/mcphub.log",
         prefix = "MCPHub",
       },
       extensions = {
