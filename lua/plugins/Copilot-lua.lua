@@ -8,7 +8,7 @@ end
 return {
   {
     "zbirenbaum/copilot.lua",
-    enabled = AI_is_copilot_enabled() and vim.g.auto_suggest_completion_plugin ~= 'copilot-vim', -- Avoid plugin name conflict
+    enabled = AI_is_copilot_enabled() and vim.g.auto_suggest_completion_plugin ~= 'copilot', -- Avoid plugin name conflict
     cond = vim.g.auto_suggest_completion_plugin == 'copilot-lua',
     priority = 45, -- default is 50, 45 is the preferred auto-suggest completion plugin, others are 40
 

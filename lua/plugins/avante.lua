@@ -235,7 +235,7 @@ return {
 
       AI_is_copilot_enabled() and ( -- For provider copilot
         (vim.g.auto_suggest_completion_plugin == 'copilot-lua') and "zbirenbaum/copilot.lua"
-        or (vim.g.auto_suggest_completion_plugin == 'copilot-vim') and "github/copilot.vim"
+        or (vim.g.auto_suggest_completion_plugin == 'copilot') and "github/copilot.vim"
         or "github/copilot.vim" -- Default
       ) or nil,
 

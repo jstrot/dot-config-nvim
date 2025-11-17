@@ -12,9 +12,12 @@ return {
 
     -- event = 'VeryLazy', -- Load on commands or keys
     dependencies = {
-      -- { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-      { "github/copilot.vim" },
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+      (
+        (vim.g.auto_suggest_completion_plugin == 'copilot-lua') and "zbirenbaum/copilot.lua"
+        or (vim.g.auto_suggest_completion_plugin == 'copilot') and "github/copilot.vim"
+        or "github/copilot.vim" -- Default
+      ),
+      "nvim-lua/plenary.nvim", -- for curl, log wrapper
     },
     build = "make tiktoken",
     opts = {
