@@ -72,6 +72,9 @@ return {
     -- end,
 
     opts = {
+      frontmatter = {
+        enabled = false,
+      },
       workspaces = workspaces,
       checkbox = {
         order = { " ", "/", "x", "-", "<", ">" },
@@ -86,7 +89,7 @@ return {
         -- Obsidian additional syntax features require 'conceallevel' to be set to 1 or 2
         -- See https://github.com/epwalsh/obsidian.nvim/issues/286 for more details.
         -- If you don't want Obsidian's additional UI features, you can disable them and suppress this warning by setting 'ui.enable = false' in your Obsidian nvim config.
-        enable = false,
+        enable = false, -- Rely on Markview for Markdown rendering
       },
       completion = {
         nvim_cmp = vim.g.cmp_plugin == 'nvim-cmp',
