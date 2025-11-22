@@ -338,6 +338,36 @@ local function ToggleLaststatus()
 end
 vim.keymap.set('n', '<leader>t_', ToggleLaststatus, { desc = '[T]oggle \'laststatus\' [_] option' })
 
+-- Toggle 'conceallevel'
+local function ToggleConceallevel()
+  local meanings = {
+    [0] = "text is shown normally",
+    [1] = "each block of concealed text is replaced with one character",
+    [2] = "concealed text is completely hidden unless it has a custom replacement character",
+    [3] = "concealed text is completely hidden",
+  }
+
+  local current_value = vim.o.conceallevel
+  local new_value
+  if false then
+    -- Cycle among all values
+    new_value = (current_value + 1) % 4
+  else
+    -- Cycle between 0 (default) and 3
+    if current_value == 3 then
+      new_value = 0
+    else
+      new_value = 3
+    end
+  end
+  vim.o.conceallevel = new_value
+
+  local meaning = meanings[new_value]
+  vim.notify('Set conceallevel to: ' .. vim.inspect(new_value)
+      .. (meaning and (' (' .. meaning .. ')') or ''))
+end
+vim.keymap.set('n', '<leader>tc', ToggleConceallevel, { desc = '[T]oggle [C]onceal level' })
+
 vim.opt.diffopt:append('closeoff')
 vim.opt.diffopt:append('hiddenoff')
 vim.opt.diffopt:append('indent-heuristic')

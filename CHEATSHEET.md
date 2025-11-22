@@ -175,6 +175,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | Mode | Mapping           | Description                                                                               | Notes                                                                          |
 | ---- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | n    | `<Leader>ta`      | \[T]oggle \[A]NSI escape codes                                                            |                                                                                |
+| n    | `<Leader>tc`      | \[T]oggle \[T]oggle \[C]onceal level                                                      |                                                                                |
 | n    | `<Leader>td<cr>`  | \[T]oggle \[D]iff mode                                                                    |                                                                                |
 | n    | `<Leader>tdb`     | \[T]oggle \[D]iff ignore \[B]lank lines                                                   |                                                                                |
 | n    | `<Leader>tdc`     | \[T]oggle \[D]iff ignore \[C]ase of text                                                  |                                                                                |
