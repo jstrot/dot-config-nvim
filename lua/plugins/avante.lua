@@ -4,7 +4,9 @@ require('jst.ai.config')
 local function avante_shortcuts()
   -- Prompts are used with "#<promptname>" in Avante sessions
   local prompts_dirs = {
-    ".github/prompts",
+    vim.fn.stdpath('config') .. '/avante/prompts',
+    '.github/prompts',
+    '.avante/prompts',
   }
   local shortcuts = {
     -- {
