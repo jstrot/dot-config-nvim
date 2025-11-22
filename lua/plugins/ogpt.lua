@@ -87,7 +87,6 @@ return {
   {
     "huynle/ogpt.nvim",
     enabled = opts.default_provider ~= '',
-    event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",

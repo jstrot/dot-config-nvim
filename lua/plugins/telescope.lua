@@ -2,13 +2,13 @@ local telescope_spec = {
   -- https://github.com/nvim-telescope/telescope.nvim
   'nvim-telescope/telescope.nvim',
   branch = '0.1.x',
+  -- cond = vim.g.picker_plugin == 'telescope',
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
 }
 if (vim.g.picker_plugin == 'telescope') then
   telescope_spec = vim.tbl_deep_extend('force', telescope_spec, {
-    'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
     dependencies = {
       { -- If encountering errors, see telescope-fzf-native README for installation instructions

@@ -5,6 +5,7 @@ return {
     event = 'VeryLazy',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
     },
     opts = {
       signs = true,  -- Enable this if you want to see signs in the margin
