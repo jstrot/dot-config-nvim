@@ -210,8 +210,9 @@ if vim.env.JST_AUTO_SUGGEST_COMPLETION_PLUGIN then
 end
 if not vim.g.auto_suggest_completion_plugin then
   if AI_is_copilot_active() then
-    -- GitHub Copilot is largely the best auto-suggest/completion
-    vim.g.auto_suggest_completion_plugin = 'copilot'
+    -- GitHub Copilot is largely the best auto-suggest/completion.
+    -- 'copilot' vs 'copilot-lua': The lua version is supposedly faster. I know it has less quirks ('copilot' can stall on fast quit).
+    vim.g.auto_suggest_completion_plugin = 'copilot-lua'
   elseif AI_is_ollama_enabled() and vim.g.agentic_mode_plugin == 'avante' then
     -- Reuse same plugin
     vim.g.auto_suggest_completion_plugin = 'avante'
