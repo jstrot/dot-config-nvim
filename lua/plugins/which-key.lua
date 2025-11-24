@@ -20,6 +20,7 @@ return {
       { '<leader>r',   icon='', group = '[R]ename' },
       { '<leader>s',   icon='', group = '[S]earch (pickers)' },
       { '<leader>sl',  icon='', group = '[S]earch [L]SP' },
+      { '<leader>so',  icon='', group = '[S]earch [O]bsidian' },
       { '<leader>t',   icon='', group = '[T]oggle' },
       { '<leader>td',  icon='', group = '[T]oggle [D]iff' },
       { '<leader>tg',  icon='', group = '[T]oggle [G]it' },
