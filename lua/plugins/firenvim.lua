@@ -23,7 +23,7 @@ return {
     "glacambre/firenvim",
     build = ":call firenvim#install(0)",
     enabled = false, -- Opt-in: Enable if you want to use this browser extension
-    lazy = not vim.g.started_by_firenvim,
+    cond = vim.g.started_by_firenvim == true,
     config = function()
       vim.api.nvim_create_autocmd({ "BufEnter" }, {
         -- pattern = 'github.com_*.txt',
