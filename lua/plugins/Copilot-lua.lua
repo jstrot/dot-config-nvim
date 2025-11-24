@@ -52,7 +52,9 @@ return {
       copilot_model = AI_copilot_code_model(), -- Start typing `$` in `:CopilotChat` panel for the list of models
       logger = {
         file = vim.fn.stdpath("log") .. "/copilot-lua.log",
-        file_log_level = vim.log.levels.DEBUG, -- vim.log.levels.OFF,
+        -- file_log_level = vim.log.levels.OFF,
+        file_log_level = vim.log.levels.ERROR,
+        -- file_log_level = vim.log.levels.DEBUG,
         print_log_level = vim.log.levels.WARN,
         trace_lsp = "verbose", -- "off", -- "off" | "messages" | "verbose"
         trace_lsp_progress = true, -- false,
