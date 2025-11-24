@@ -9,6 +9,12 @@ return {
       require('vimade').setup {
         style = require('vimade.recipe.default').Default().style,
         fadelevel = 0.7, -- Vimade's default is 0.4, which I find too dark.
+        blocklist = {
+          default = {
+            -- Disable vimade in terminal buffers because all it does otherwise is make it gray text and lose all colors.
+            buf_opts = {buftype = {'terminal'}},
+          },
+        },
       }
     end,
   },
