@@ -191,9 +191,7 @@ end
 
 --[[ Agentic ]]
 
-if vim.env.JST_AGENTIC_MODE_PLUGIN then
-  vim.g.agentic_mode_plugin = vim.env.JST_AGENTIC_MODE_PLUGIN
-end
+vim.g.agentic_mode_plugin = jst.fn.get_secret(vim.g.agentic_mode_plugin_env, nil) or vim.g.agentic_mode_plugin
 if not vim.g.agentic_mode_plugin then
   if vim.fn.executable('opencode') == 1 then
     vim.g.agentic_mode_plugin = 'opencode' -- Recommended
@@ -205,9 +203,7 @@ end
 
 --[[ Auto-suggest/Completion ]]
 
-if vim.env.JST_AUTO_SUGGEST_COMPLETION_PLUGIN then
-  vim.g.auto_suggest_completion_plugin = vim.env.JST_AUTO_SUGGEST_COMPLETION_PLUGIN
-end
+vim.g.auto_suggest_completion_plugin = jst.fn.get_secret(vim.g.auto_suggest_completion_plugin_env, nil) or vim.g.auto_suggest_completion_plugin
 if not vim.g.auto_suggest_completion_plugin then
   if AI_is_copilot_active() then
     -- GitHub Copilot is largely the best auto-suggest/completion.
