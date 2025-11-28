@@ -18,7 +18,8 @@
 -- - lua/plugins/CopilotChat.lua
 -- - lua/plugins/codecompanion.lua
 -- - lua/plugins/avante.lua
--- - lua/plugins/opencode.lua
+-- - lua/plugins/opencode-tui.lua
+-- - lua/plugins/opencode-native.lua
 
 vim.g.github_copilot_enabled = true -- Main switch
 vim.g.github_copilot_active = true -- Turn off temporarily if your free plan runs out
@@ -35,7 +36,8 @@ vim.g.github_copilot_agent_model = nil -- nil for default
 -- - lua/plugins/ogpt.lua
 -- - lua/plugins/codecompanion.lua
 -- - lua/plugins/avante.lua
--- - lua/plugins/opencode.lua
+-- - lua/plugins/opencode-tui.lua
+-- - lua/plugins/opencode-native.lua
 -- - lua/plugins/cmp-ai.lua (DEPRECATED)
 
 vim.g.ollama_url_env = 'OLLAMA_API_HOST'
@@ -103,7 +105,8 @@ vim.g.agentic_mode_plugin_env = 'JST_AGENTIC_MODE_PLUGIN' -- Use this environmen
 vim.g.agentic_mode_plugin = nil -- let it pick one
 -- vim.g.agentic_mode_plugin = 'codecompanion'
 -- vim.g.agentic_mode_plugin = 'avante' -- Quite good, but doesn't support some industry standard features
--- vim.g.agentic_mode_plugin = 'opencode' -- Recommended, requires installing opencode.
+-- vim.g.agentic_mode_plugin = 'opencode-tui' -- Opencode is recommended, requires installing opencode. Opencode TUI in a terminal.
+-- vim.g.agentic_mode_plugin = 'opencode-native' -- Opencode is recommended, requires installing opencode. Native Neovim frontend for opencode
 
 vim.g.auto_suggest_completion_plugin_env = 'JST_AUTO_SUGGEST_COMPLETION_PLUGIN' -- Use this environment variable for a one-time override
 vim.g.auto_suggest_completion_plugin = nil -- let it pick one

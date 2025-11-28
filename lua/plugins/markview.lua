@@ -8,6 +8,8 @@ local markdown_filetypes = {
   "rmd",
   "Avante",
   "codecompanion",
+  "opencode_output",
+  "copilot-chat",
 }
 
 return {

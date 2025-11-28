@@ -194,7 +194,9 @@ end
 vim.g.agentic_mode_plugin = jst.fn.get_secret(vim.g.agentic_mode_plugin_env, nil) or vim.g.agentic_mode_plugin
 if not vim.g.agentic_mode_plugin then
   if vim.fn.executable('opencode') == 1 then
-    vim.g.agentic_mode_plugin = 'opencode' -- Recommended
+    -- Opencode is the recommended Agentic AI to use.
+    -- vim.g.agentic_mode_plugin = 'opencode-tui' -- Nick van Dyke's: Opencode TUI as a terminal within Neovim
+    vim.g.agentic_mode_plugin = 'opencode-native' -- Francis Belanger's: Native Neovim frontend for opencode
   else
     vim.g.agentic_mode_plugin = 'avante'
   end

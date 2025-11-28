@@ -1,0 +1,240 @@
+-- https://github.com/sudo-tee/opencode.nvim
+--
+-- Your opencode configuration here: ~/.config/opencode/opencode.jsonc
+--
+require('jst.ai.config')
+
+return {
+  {
+    "sudo-tee/opencode.nvim",
+    name = 'opencode-native', -- To distinguish from NickvanDyke/opencode.nvim
+    enabled = vim.g.agentic_mode_plugin == 'opencode-native',
+    event = 'VeryLazy',
+    opts = {
+      preferred_picker = (
+        vim.g.picker_plugin == 'fzf-lua' and "fzf"
+        or vim.g.picker_plugin == 'telescope' and "telescope"
+        or vim.g.picker_plugin == 'snacks.picker' and "snacks"
+        or vim.g.picker_plugin == "mini.pick" and "mini.pick"
+        or "select"),
+      preferred_completion = (
+        vim.g.cmp_plugin == 'blink.cmp' and 'blink'
+        or vim.g.cmp_plugin == 'nvim-cmp' and 'nvim-cmp'
+        or "vim_complete"),
+      -- default_mode = 'build', -- 'build' or 'plan' or any custom configured. @see [OpenCode Agents](https://opencode.ai/docs/modes/)
+
+      default_global_keymaps = false,
+      keymap = {
+        editor = {
+          -- ['<leader>aI'] = false,
+          ['<leader>aC'] = { function() vim.api.nvim_command('edit ~/.config/opencode/opencode.jsonc') end, desc = "[A]gentic: edit opencode [C]onfig" },
+          ['<leader>aR'] = { 'rename_session', desc = '[A]gentic: [R]ename opencode session' }, -- Rename current session
+          ['<leader>aT'] = { 'timeline', desc = '[A]gentic: [T]imeline picker' }, -- Display timeline picker to navigate/undo/redo/fork messages
+          ['<leader>a[d'] = { 'diff_prev', desc = '[A]gentic: previous diff' }, -- Navigate to previous file diff
+          ['<leader>a]d'] = { 'diff_next', desc = '[A]gentic: next diff' }, -- Navigate to next file diff
+          ['<leader>ac'] = { 'diff_close', desc = '[A]gentic: [C]lose diff view' }, -- Close diff view tab and return to normal editing
+          ['<leader>ad'] = { 'diff_open', desc = '[A]gentic: open [D]iff view' }, -- Opens a diff tab of a modified file since the last opencode prompt
+          ['<leader>af'] = { 'toggle_focus', desc = '[A]gentic: [F]ocus opencode/last window' }, -- Toggle focus between opencode and last window
+          -- ['<leader>ag'] = false,
+          ['<leader>ai'] = { 'open_input', desc = '[A]gentic: open [I]nput window' }, -- Opens and focuses on input window on insert mode
+          ['<leader>am'] = { 'configure_provider', desc = '[A]gentic: configure provider/[M]odel' }, -- Quick provider and model switch from predefined list
+          ['<leader>an'] = { 'open_input_new_session', desc = '[A]gentic: [N]ew opencode session' }, -- Opens and focuses on input window on insert mode. Creates a new session
+          ['<leader>ao'] = { 'open_output', desc = '[A]gentic: open [O]utput window' }, -- Opens and focuses on output window
+          -- ['<leader>ap'] = false,
+          ['<leader>apA'] = { 'permission_accept_all', desc = '[A]gentic: [P]ermission [A]ccept all' }, -- Accept all (for current tool)
+          ['<leader>apa'] = { 'permission_accept', desc = '[A]gentic: [P]ermission [A]ccept once' }, -- Accept permission request once
+          ['<leader>apd'] = { 'permission_deny', desc = '[A]gentic: [P]ermission [D]eny' }, -- Deny permission request once
+          ['<leader>aq'] = { 'close', desc = '[A]gentic: [Q]uit/close opencode' }, -- Close UI windows
+          ['<leader>arA'] = { 'diff_revert_all', desc = '[A]gentic: [R]evert [A]ll changes from session' }, -- Revert all file changes since the last opencode session
+          ['<leader>arR'] = { 'diff_restore_snapshot_all', desc = '[A]gentic: [R]estore snapshot [A]ll files' }, -- Restore all files to a restore point
+          ['<leader>arT'] = { 'diff_revert_this', desc = '[A]gentic: [R]evert [T]his file from session' }, -- Revert current file changes since the last opencode session
+          ['<leader>ara'] = { 'diff_revert_all_last_prompt', desc = '[A]gentic: [R]evert [A]ll changes from last prompt' }, -- Revert all file changes since the last opencode prompt
+          ['<leader>arr'] = { 'diff_restore_snapshot_file', desc = '[A]gentic: [R]estore snapshot [F]ile' }, -- Restore a file to a restore point
+          ['<leader>art'] = { 'diff_revert_this_last_prompt', desc = '[A]gentic: [R]evert [T]his file from last prompt' }, -- Revert current file changes since the last opencode prompt
+          ['<leader>as'] = { 'select_session', desc = '[A]gentic: [S]elect opencode session' }, -- Select and load a opencode session
+          ['<leader>at'] = { 'toggle', desc = '[A]gentic: [T]oggle opencode' }, -- Open opencode. Close if opened
+          ['<leader>av'] = { 'paste_image', desc = '[A]gentic: paste image from clipboard' }, -- Paste image from clipboard into current session
+          ['<leader>ax'] = { 'swap_position', desc = '[A]gentic: e[X]change pane position' }, -- Swap Opencode pane left/right
+          ['<leader>az'] = { 'toggle_zoom', desc = '[A]gentic: [Z]oom opencode windows' }, -- Zoom in/out on the Opencode windows
+        },
+        input_window = {
+          ['#'] = { 'context_items', desc = 'Manage context items', mode = 'i' }, -- Manage context items (current file, selection, diagnostics, mentioned files)
+          ['/'] = { 'slash_commands', desc = 'Slash commands', mode = 'i' }, -- Pick a command to run in the input window
+          ['<C-c>'] = { 'cancel', desc = 'Cancel opencode request' }, -- Cancel opencode request while it is running
+          ['<C-d>'] = { 'close', desc = 'Close opencode windows' }, -- Close UI windows
+          ['<C-i>'] = { 'focus_input', desc = 'Focus input window', mode = { 'n', 'i' } }, -- Focus on input window and enter insert mode at the end of the input from the output window
+          ['<cr>'] = { 'submit_input_prompt', desc = 'Submit prompt', }, -- Submit prompt (normal mode and insert mode)
+          ['<C-s>'] = { 'submit_input_prompt', desc = 'Submit prompt', mode = { 'n', 'i' } }, -- Submit prompt (normal mode and insert mode)
+          ['<M-m>'] = { 'switch_mode', desc = 'Switch mode (build/plan)' }, -- Switch between modes (build/plan)
+          ['<M-v>'] = { 'paste_image', mode = 'i' }, -- Paste image from clipboard as attachment
+          ['<S-tab>'] = { 'toggle_pane', desc = 'Toggle input/output pane', mode = { 'n', 'i' } }, -- Toggle between input and output panes
+          ['<down>'] = { 'next_prompt_history', desc = 'Next prompt in history', mode = { 'n', 'i' } }, -- Navigate to next prompt in history
+          ['<esc>'] = false,
+          ['<leader>av'] = { 'paste_image', desc = 'Paste image from clipboard', mode = 'i' }, -- Paste image from clipboard as attachment
+          ['<tab>'] = false,
+          ['<up>'] = { 'prev_prompt_history', desc = 'Previous prompt in history', mode = { 'n', 'i' } }, -- Navigate to previous prompt in history
+          ['@'] = { 'mention', desc = 'Insert mention', mode = 'i' }, -- Insert mention (file/agent)
+          ['~'] = { 'mention_file', desc = 'Mention file', mode = 'i' }, -- Pick a file and add to context. See File Mentions section
+        },
+        output_window = {
+          ['<C-c>'] = { 'cancel', desc = 'Cancel opencode request' }, -- Cancel opencode request while it is running
+          ['<C-d>'] = { 'close', desc = 'Close opencode windows' }, -- Close UI windows
+          ['<C-i>'] = { 'focus_input', desc = 'Focus input window', mode = 'n' }, -- Focus on input window and enter insert mode at the end of the input from the output window
+          ['<S-tab>'] = { 'toggle_pane', desc = 'Toggle input/output pane', mode = { 'n', 'i' } }, -- Toggle between input and output panes
+          ['<esc>'] = false,
+          ['<leader>aD'] = false,
+          ['<leader>aDm'] = { 'debug_message', desc = '[A]gentic: [D]ebug [M]essage' }, -- Open raw message in new buffer for debugging
+          ['<leader>aDo'] = { 'debug_output', desc = '[A]gentic: [D]ebug [O]utput' }, -- Open raw output in new buffer for debugging
+          ['<leader>aDs'] = { 'debug_session', desc = '[A]gentic: [D]ebug [S]ession' }, -- Open raw session in new buffer for debugging
+          ['<leader>aO'] = false,
+          ['<leader>aS'] = { 'select_child_session', desc = '[A]gentic: [S]elect child session' }, -- Select and load a child session
+          ['<leader>ads'] = false,
+          ['<leader>oD'] = { 'debug_message' }, -- Open raw message in new buffer for debugging
+          ['<leader>oO'] = { 'debug_output' }, -- Open raw output in new buffer for debugging
+          ['<leader>oS'] = { 'select_child_session' }, -- Select and load a child session
+          ['<leader>ods'] = { 'debug_session' }, -- Open raw session in new buffer for debugging
+          ['<tab>'] = false,
+          ['[['] = { 'prev_message', desc = 'Previous message in conversation' }, -- Navigate to previous message in the conversation
+          [']]'] = { 'next_message', desc = 'Next message in conversation' }, -- Navigate to next message in the conversation
+          ['i'] = false,
+        },
+        permission = {
+          accept = 'a', -- Accept permission request once (only available when there is a pending permission request)
+          accept_all = 'A', -- Accept all (for current tool) permission request once (only available when there is a pending permission request)
+          deny = 'd', -- Deny permission request once (only available when there is a pending permission request)
+        },
+        session_picker = {
+          rename_session = { '<C-r>' }, -- Rename selected session in the session picker
+          delete_session = { '<C-d>' }, -- Delete selected session in the session picker
+          new_session = { '<C-n>' }, -- Create and switch to a new session in the session picker
+        },
+        timeline_picker = {
+          undo = { '<C-u>', mode = { 'i', 'n' } }, -- Undo to selected message in timeline picker
+          fork = { '<C-f>', mode = { 'i', 'n' } }, -- Fork from selected message in timeline picker
+        },
+        history_picker = {
+          delete_entry = { '<C-d>', mode = { 'i', 'n' } }, -- Delete selected entry in the history picker
+          clear_all = { '<C-X>', mode = { 'i', 'n' } }, -- Clear all entries in the history picker
+        }
+      },
+
+      ui = {
+        -- position = 'right', -- 'right' (default) or 'left'. Position of the UI split
+        -- input_position = 'bottom', -- 'bottom' (default) or 'top'. Position of the input window
+        -- window_width = 0.40, -- Width as percentage of editor width
+        -- zoom_width = 0.8, -- Zoom width as percentage of editor width
+        -- input_height = 0.15, -- Input height as percentage of window height
+        -- display_model = true, -- Display model name on top winbar
+        -- display_context_size = true, -- Display context size in the footer
+        -- display_cost = true, -- Display cost in the footer
+        -- window_highlight = 'Normal:OpencodeBackground,FloatBorder:OpencodeBorder', -- Highlight group for the opencode window
+        -- icons = {
+        --   preset = 'nerdfonts', -- 'nerdfonts' | 'text'. Choose UI icon style (default: 'nerdfonts')
+        --   overrides = {}, -- Optional per-key overrides, see section below
+        -- },
+        -- output = {
+        --   tools = {
+        --     show_output = true, -- Show tools output [diffs, cmd output, etc.] (default: true)
+        --   },
+        --   rendering = {
+        --     markdown_debounce_ms = 250, -- Debounce time for markdown rendering on new data (default: 250ms)
+        --     on_data_rendered = nil, -- Called when new data is rendered; set to false to disable default RenderMarkdown/Markview behavior
+        --   },
+        -- },
+        input = {
+          text = {
+            wrap = true, -- Wraps text inside input window
+          },
+        },
+        -- completion = {
+        --   file_sources = {
+        --     enabled = true,
+        --     preferred_cli_tool = 'server', -- 'fd','fdfind','rg','git','server' if nil, it will use the best available tool, 'server' uses opencode cli to get file list (works cross platform) and supports folders
+        --     ignore_patterns = {
+        --       '^%.git/',
+        --       '^%.svn/',
+        --       '^%.hg/',
+        --       'node_modules/',
+        --       '%.pyc$',
+        --       '%.o$',
+        --       '%.obj$',
+        --       '%.exe$',
+        --       '%.dll$',
+        --       '%.so$',
+        --       '%.dylib$',
+        --       '%.class$',
+        --       '%.jar$',
+        --       '%.war$',
+        --       '%.ear$',
+        --       'target/',
+        --       'build/',
+        --       'dist/',
+        --       'out/',
+        --       'deps/',
+        --       '%.tmp$',
+        --       '%.temp$',
+        --       '%.log$',
+        --       '%.cache$',
+        --     },
+        --     max_files = 10,
+        --     max_display_length = 50, -- Maximum length for file path display in completion, truncates from left with "..."
+        --   },
+        -- },
+      },
+      -- context = {
+      --   enabled = true, -- Enable automatic context capturing
+      --   cursor_data = {
+      --     enabled = false, -- Include cursor position and line content in the context
+      --   },
+      --   diagnostics = {
+      --     info = false, -- Include diagnostics info in the context (default to false
+      --     warn = true, -- Include diagnostics warnings in the context
+      --     error = true, -- Include diagnostics errors in the context
+      --   },
+      --   current_file = {
+      --     enabled = true, -- Include current file path and content in the context
+      --   },
+      --   selection = {
+      --     enabled = true, -- Include selected text in the context
+      --   },
+      -- },
+      -- debug = {
+      --   enabled = false, -- Enable debug messages in the output window
+      -- },
+      -- prompt_guard = nil, -- Optional function that returns boolean to control when prompts can be sent (see Prompt Guard section)
+
+      -- User Hooks for custom behavior at certain events
+      -- hooks = {
+      --   on_file_edited = nil, -- Called after a file is edited by opencode.
+      --   on_session_loaded = nil, -- Called after a session is loaded.
+      --   on_done_thinking = nil, -- Called when opencode finishes thinking (all jobs complete).
+      --   on_permission_requested = nil, -- Called when a permission request is issued.
+      -- },
+
+    },
+    config = function(_, opts)
+      require("opencode").setup(opts)
+      local model = AI_copilot_agent_model()
+      if model then
+        require('opencode.state').current_model = 'github-copilot/' .. model
+      end
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      -- 'OXY2DEV/markview.nvim', -- or "MeanderingProgrammer/render-markdown.nvim" -- Let plugin load based on filetype
+      (
+        vim.g.cmp_plugin == 'blink.cmp' and 'Saghen/blink.cmp'
+        or vim.g.cmp_plugin == 'nvim-cmp' and 'hrsh7th/nvim-cmp'
+        or {}),
+      (
+        vim.g.picker_plugin == 'fzf-lua' and "ibhagwan/fzf-lua"
+        or vim.g.picker_plugin == 'telescope' and "nvim-telescope/telescope.nvim"
+        or vim.g.picker_plugin == 'snacks.picker' and "folke/snacks.nvim"
+        or vim.g.picker_plugin == 'mini.pick' and "nvim_mini/mini.nvim"
+        or {}),
+    },
+
+  }
+}
+
+-- vim: sw=2 et

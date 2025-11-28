@@ -21,7 +21,8 @@ end
 return {
   {
     "NickvanDyke/opencode.nvim",
-    enabled = vim.g.agentic_mode_plugin == 'opencode',
+    name = 'opencode-tui', -- To distinguish from sudo-tee/opencode.nvim
+    enabled = vim.g.agentic_mode_plugin == 'opencode-tui',
     dependencies = {
       "folke/snacks.nvim", -- opts = { input = {}, picker = {}, terminal = {} }
     },
