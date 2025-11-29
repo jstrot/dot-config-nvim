@@ -1,23 +1,15 @@
 -- https://github.com/OXY2DEV/markview.nvim
+jst_md = require('jst.markdown')
 
 -- Whether all list items should be rendered with extra padding on the left, like some editors (GitHub, Obsidian, ...)
 local default_list_items_add_padding = false -- disable for a more compact view
-local markdown_filetypes = {
-  "markdown",
-  "quarto",
-  "rmd",
-  "Avante",
-  "codecompanion",
-  "opencode_output",
-  "copilot-chat",
-}
 
 return {
   'OXY2DEV/markview.nvim',
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  ft = markdown_filetypes,
+  ft = jst_md.markdown_filetypes_per_plugin['markview'],
   opts = {
     code_blocks = {
       icons = "devicons",
@@ -25,7 +17,7 @@ return {
 
     preview = {
       enable = true, -- Start enabled or not, toggle with `<leader>tm`
-      filetypes = markdown_filetypes,
+      filetypes = jst_md.markdown_filetypes_per_plugin['markview'],
       ignore_buftypes = {
         -- Important to not ignore "nofile" buftypes for Avante and CodeCompanion
         (not vim.tbl_contains({'avante', 'codecompanion'}, vim.g.agentic_mode_plugin)) and "nofile" or nil,
@@ -57,7 +49,6 @@ return {
   },
   config = function(_, opts)
     require("markview").setup(opts);
-    vim.keymap.set('n', '<leader>tm', '<CMD>Markview toggle<CR>', { desc = '[T]oggle [M]arkView' })
 
     -- See https://github.com/OXY2DEV/markview.nvim/issues/248#issuecomment-2603697869
     vim.api.nvim_create_autocmd('FileType', {

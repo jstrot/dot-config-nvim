@@ -28,44 +28,44 @@ return {
         editor = {
           -- ['<leader>aI'] = false,
           ['<leader>aC'] = { function() vim.api.nvim_command('edit ~/.config/opencode/opencode.jsonc') end, desc = "[A]gentic: edit opencode [C]onfig" },
-          ['<leader>aR'] = { 'rename_session', desc = '[A]gentic: [R]ename opencode session' }, -- Rename current session
-          ['<leader>aT'] = { 'timeline', desc = '[A]gentic: [T]imeline picker' }, -- Display timeline picker to navigate/undo/redo/fork messages
-          ['<leader>a[d'] = { 'diff_prev', desc = '[A]gentic: previous diff' }, -- Navigate to previous file diff
-          ['<leader>a]d'] = { 'diff_next', desc = '[A]gentic: next diff' }, -- Navigate to next file diff
-          ['<leader>ac'] = { 'diff_close', desc = '[A]gentic: [C]lose diff view' }, -- Close diff view tab and return to normal editing
-          ['<leader>ad'] = { 'diff_open', desc = '[A]gentic: open [D]iff view' }, -- Opens a diff tab of a modified file since the last opencode prompt
-          ['<leader>af'] = { 'toggle_focus', desc = '[A]gentic: [F]ocus opencode/last window' }, -- Toggle focus between opencode and last window
+          ['<leader>aR'] = { 'rename_session', desc = '[A]gentic: [R]ename opencode session', mode = 'n' }, -- Rename current session
+          ['<leader>aT'] = { 'timeline', desc = '[A]gentic: [T]imeline picker', mode = 'n' }, -- Display timeline picker to navigate/undo/redo/fork messages
+          ['<leader>a[d'] = { 'diff_prev', desc = '[A]gentic: previous diff', mode = 'n' }, -- Navigate to previous file diff
+          ['<leader>a]d'] = { 'diff_next', desc = '[A]gentic: next diff', mode = 'n' }, -- Navigate to next file diff
+          ['<leader>ac'] = { 'diff_close', desc = '[A]gentic: [C]lose diff view', mode = 'n' }, -- Close diff view tab and return to normal editing
+          ['<leader>ad'] = { 'diff_open', desc = '[A]gentic: open [D]iff view', mode = 'n' }, -- Opens a diff tab of a modified file since the last opencode prompt
+          ['<leader>af'] = { 'toggle_focus', desc = '[A]gentic: [F]ocus opencode/last window', mode = 'n' }, -- Toggle focus between opencode and last window
           -- ['<leader>ag'] = false,
-          ['<leader>ai'] = { 'open_input', desc = '[A]gentic: open [I]nput window' }, -- Opens and focuses on input window on insert mode
-          ['<leader>am'] = { 'configure_provider', desc = '[A]gentic: configure provider/[M]odel' }, -- Quick provider and model switch from predefined list
-          ['<leader>an'] = { 'open_input_new_session', desc = '[A]gentic: [N]ew opencode session' }, -- Opens and focuses on input window on insert mode. Creates a new session
-          ['<leader>ao'] = { 'open_output', desc = '[A]gentic: open [O]utput window' }, -- Opens and focuses on output window
+          ['<leader>ai'] = { 'open_input', desc = '[A]gentic: open [I]nput window', mode = 'n' }, -- Opens and focuses on input window on insert mode
+          ['<leader>am'] = { 'configure_provider', desc = '[A]gentic: configure provider/[M]odel', mode = 'n' }, -- Quick provider and model switch from predefined list
+          ['<leader>an'] = { 'open_input_new_session', desc = '[A]gentic: [N]ew opencode session', mode = 'n' }, -- Opens and focuses on input window on insert mode. Creates a new session
+          ['<leader>ao'] = { 'open_output', desc = '[A]gentic: open [O]utput window', mode = 'n' }, -- Opens and focuses on output window
           -- ['<leader>ap'] = false,
-          ['<leader>apA'] = { 'permission_accept_all', desc = '[A]gentic: [P]ermission [A]ccept all' }, -- Accept all (for current tool)
-          ['<leader>apa'] = { 'permission_accept', desc = '[A]gentic: [P]ermission [A]ccept once' }, -- Accept permission request once
-          ['<leader>apd'] = { 'permission_deny', desc = '[A]gentic: [P]ermission [D]eny' }, -- Deny permission request once
-          ['<leader>aq'] = { 'close', desc = '[A]gentic: [Q]uit/close opencode' }, -- Close UI windows
-          ['<leader>arA'] = { 'diff_revert_all', desc = '[A]gentic: [R]evert [A]ll changes from session' }, -- Revert all file changes since the last opencode session
-          ['<leader>arR'] = { 'diff_restore_snapshot_all', desc = '[A]gentic: [R]estore snapshot [A]ll files' }, -- Restore all files to a restore point
-          ['<leader>arT'] = { 'diff_revert_this', desc = '[A]gentic: [R]evert [T]his file from session' }, -- Revert current file changes since the last opencode session
-          ['<leader>ara'] = { 'diff_revert_all_last_prompt', desc = '[A]gentic: [R]evert [A]ll changes from last prompt' }, -- Revert all file changes since the last opencode prompt
-          ['<leader>arr'] = { 'diff_restore_snapshot_file', desc = '[A]gentic: [R]estore snapshot [F]ile' }, -- Restore a file to a restore point
-          ['<leader>art'] = { 'diff_revert_this_last_prompt', desc = '[A]gentic: [R]evert [T]his file from last prompt' }, -- Revert current file changes since the last opencode prompt
-          ['<leader>as'] = { 'select_session', desc = '[A]gentic: [S]elect opencode session' }, -- Select and load a opencode session
-          ['<leader>at'] = { 'toggle', desc = '[A]gentic: [T]oggle opencode' }, -- Open opencode. Close if opened
-          ['<leader>av'] = { 'paste_image', desc = '[A]gentic: paste image from clipboard' }, -- Paste image from clipboard into current session
-          ['<leader>ax'] = { 'swap_position', desc = '[A]gentic: e[X]change pane position' }, -- Swap Opencode pane left/right
-          ['<leader>az'] = { 'toggle_zoom', desc = '[A]gentic: [Z]oom opencode windows' }, -- Zoom in/out on the Opencode windows
+          ['<leader>apA'] = { 'permission_accept_all', desc = '[A]gentic: [P]ermission [A]ccept all', mode = 'n' }, -- Accept all (for current tool)
+          ['<leader>apa'] = { 'permission_accept', desc = '[A]gentic: [P]ermission [A]ccept once', mode = 'n' }, -- Accept permission request once
+          ['<leader>apd'] = { 'permission_deny', desc = '[A]gentic: [P]ermission [D]eny', mode = 'n' }, -- Deny permission request once
+          ['<leader>aq'] = { 'close', desc = '[A]gentic: [Q]uit/close opencode', mode = 'n' }, -- Close UI windows
+          ['<leader>arA'] = { 'diff_revert_all', desc = '[A]gentic: [R]evert [A]ll changes from session', mode = 'n' }, -- Revert all file changes since the last opencode session
+          ['<leader>arR'] = { 'diff_restore_snapshot_all', desc = '[A]gentic: [R]estore snapshot [A]ll files', mode = 'n' }, -- Restore all files to a restore point
+          ['<leader>arT'] = { 'diff_revert_this', desc = '[A]gentic: [R]evert [T]his file from session', mode = 'n' }, -- Revert current file changes since the last opencode session
+          ['<leader>ara'] = { 'diff_revert_all_last_prompt', desc = '[A]gentic: [R]evert [A]ll changes from last prompt', mode = 'n' }, -- Revert all file changes since the last opencode prompt
+          ['<leader>arr'] = { 'diff_restore_snapshot_file', desc = '[A]gentic: [R]estore snapshot [F]ile', mode = 'n' }, -- Restore a file to a restore point
+          ['<leader>art'] = { 'diff_revert_this_last_prompt', desc = '[A]gentic: [R]evert [T]his file from last prompt', mode = 'n' }, -- Revert current file changes since the last opencode prompt
+          ['<leader>as'] = { 'select_session', desc = '[A]gentic: [S]elect opencode session', mode = 'n' }, -- Select and load a opencode session
+          ['<leader>at'] = { 'toggle', desc = '[A]gentic: [T]oggle opencode', mode = 'n' }, -- Open opencode. Close if opened
+          ['<leader>av'] = { 'paste_image', desc = '[A]gentic: paste image from clipboard', mode = 'n' }, -- Paste image from clipboard into current session
+          ['<leader>ax'] = { 'swap_position', desc = '[A]gentic: e[X]change pane position', mode = 'n' }, -- Swap Opencode pane left/right
+          ['<leader>az'] = { 'toggle_zoom', desc = '[A]gentic: [Z]oom opencode windows', mode = 'n' }, -- Zoom in/out on the Opencode windows
         },
         input_window = {
           ['#'] = { 'context_items', desc = 'Manage context items', mode = 'i' }, -- Manage context items (current file, selection, diagnostics, mentioned files)
           ['/'] = { 'slash_commands', desc = 'Slash commands', mode = 'i' }, -- Pick a command to run in the input window
-          ['<C-c>'] = { 'cancel', desc = 'Cancel opencode request' }, -- Cancel opencode request while it is running
-          ['<C-d>'] = { 'close', desc = 'Close opencode windows' }, -- Close UI windows
+          ['<C-c>'] = { 'cancel', desc = 'Cancel opencode request', mode = 'n' }, -- Cancel opencode request while it is running
+          ['<C-d>'] = { 'close', desc = 'Close opencode windows', mode = 'n' }, -- Close UI windows
           ['<C-i>'] = { 'focus_input', desc = 'Focus input window', mode = { 'n', 'i' } }, -- Focus on input window and enter insert mode at the end of the input from the output window
-          ['<cr>'] = { 'submit_input_prompt', desc = 'Submit prompt', }, -- Submit prompt (normal mode and insert mode)
+          ['<cr>'] = { 'submit_input_prompt', desc = 'Submit prompt', mode = 'n' }, -- Submit prompt (normal mode and insert mode)
           ['<C-s>'] = { 'submit_input_prompt', desc = 'Submit prompt', mode = { 'n', 'i' } }, -- Submit prompt (normal mode and insert mode)
-          ['<M-m>'] = { 'switch_mode', desc = 'Switch mode (build/plan)' }, -- Switch between modes (build/plan)
+          ['<M-m>'] = { 'switch_mode', desc = 'Switch mode (build/plan)', mode = 'n' }, -- Switch between modes (build/plan)
           ['<M-v>'] = { 'paste_image', mode = 'i' }, -- Paste image from clipboard as attachment
           ['<S-tab>'] = { 'toggle_pane', desc = 'Toggle input/output pane', mode = { 'n', 'i' } }, -- Toggle between input and output panes
           ['<down>'] = { 'next_prompt_history', desc = 'Next prompt in history', mode = { 'n', 'i' } }, -- Navigate to next prompt in history
@@ -77,25 +77,25 @@ return {
           ['~'] = { 'mention_file', desc = 'Mention file', mode = 'i' }, -- Pick a file and add to context. See File Mentions section
         },
         output_window = {
-          ['<C-c>'] = { 'cancel', desc = 'Cancel opencode request' }, -- Cancel opencode request while it is running
-          ['<C-d>'] = { 'close', desc = 'Close opencode windows' }, -- Close UI windows
+          ['<C-c>'] = { 'cancel', desc = 'Cancel opencode request', mode = 'n' }, -- Cancel opencode request while it is running
+          ['<C-d>'] = { 'close', desc = 'Close opencode windows', mode = 'n' }, -- Close UI windows
           ['<C-i>'] = { 'focus_input', desc = 'Focus input window', mode = 'n' }, -- Focus on input window and enter insert mode at the end of the input from the output window
           ['<S-tab>'] = { 'toggle_pane', desc = 'Toggle input/output pane', mode = { 'n', 'i' } }, -- Toggle between input and output panes
           ['<esc>'] = false,
           ['<leader>aD'] = false,
-          ['<leader>aDm'] = { 'debug_message', desc = '[A]gentic: [D]ebug [M]essage' }, -- Open raw message in new buffer for debugging
-          ['<leader>aDo'] = { 'debug_output', desc = '[A]gentic: [D]ebug [O]utput' }, -- Open raw output in new buffer for debugging
-          ['<leader>aDs'] = { 'debug_session', desc = '[A]gentic: [D]ebug [S]ession' }, -- Open raw session in new buffer for debugging
+          ['<leader>aDm'] = { 'debug_message', desc = '[A]gentic: [D]ebug [M]essage', mode = 'n' }, -- Open raw message in new buffer for debugging
+          ['<leader>aDo'] = { 'debug_output', desc = '[A]gentic: [D]ebug [O]utput', mode = 'n' }, -- Open raw output in new buffer for debugging
+          ['<leader>aDs'] = { 'debug_session', desc = '[A]gentic: [D]ebug [S]ession', mode = 'n' }, -- Open raw session in new buffer for debugging
           ['<leader>aO'] = false,
-          ['<leader>aS'] = { 'select_child_session', desc = '[A]gentic: [S]elect child session' }, -- Select and load a child session
+          ['<leader>aS'] = { 'select_child_session', desc = '[A]gentic: [S]elect child session', mode = 'n' }, -- Select and load a child session
           ['<leader>ads'] = false,
-          ['<leader>oD'] = { 'debug_message' }, -- Open raw message in new buffer for debugging
-          ['<leader>oO'] = { 'debug_output' }, -- Open raw output in new buffer for debugging
-          ['<leader>oS'] = { 'select_child_session' }, -- Select and load a child session
-          ['<leader>ods'] = { 'debug_session' }, -- Open raw session in new buffer for debugging
+          ['<leader>oD'] = { 'debug_message', mode = 'n' }, -- Open raw message in new buffer for debugging
+          ['<leader>oO'] = { 'debug_output', mode = 'n' }, -- Open raw output in new buffer for debugging
+          ['<leader>oS'] = { 'select_child_session', mode = 'n' }, -- Select and load a child session
+          ['<leader>ods'] = { 'debug_session', mode = 'n' }, -- Open raw session in new buffer for debugging
           ['<tab>'] = false,
-          ['[['] = { 'prev_message', desc = 'Previous message in conversation' }, -- Navigate to previous message in the conversation
-          [']]'] = { 'next_message', desc = 'Next message in conversation' }, -- Navigate to next message in the conversation
+          ['[['] = { 'prev_message', desc = 'Previous message in conversation', mode = 'n' }, -- Navigate to previous message in the conversation
+          [']]'] = { 'next_message', desc = 'Next message in conversation', mode = 'n' }, -- Navigate to next message in the conversation
           ['i'] = false,
         },
         permission = {
