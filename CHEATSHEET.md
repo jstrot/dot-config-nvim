@@ -87,7 +87,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | Telescope | `<C-v>`                     | Open selected entry in new vertial split     |
 | Telescope | `<C-x>`                     | Open selected entry in new horizontal split  |
 
-## More Nativation
+## More Navigation
 
 | Mode | Mapping     | Description                                       |
 | ---- | ----------- |-------------------------------------------------- |
