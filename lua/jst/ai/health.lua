@@ -1,4 +1,4 @@
--- Call `:checkhealth jst_ai`
+-- Call `:checkhealth jst.ai`
 require('jst.ai.config')
 
 local M = {}
