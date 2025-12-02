@@ -371,7 +371,7 @@ vim.keymap.set('n', '<leader>tc', ToggleConceallevel, { desc = '[T]oggle [C]once
 vim.opt.diffopt:append('closeoff')
 vim.opt.diffopt:append('hiddenoff')
 vim.opt.diffopt:append('indent-heuristic')
--- vim.opt.diffopt:append('linematch:60') -- Breaks `do]c` motion macros
+vim.opt.diffopt:append('linematch:60')
 
 -- Visual searching
 vim.o.incsearch = true
