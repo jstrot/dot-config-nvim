@@ -409,6 +409,10 @@ require('config.local')
 vim.g.cmp_plugin = vim.fn.has('nvim-0.10.0') == 1 and 'blink.cmp' or 'nvim-cmp' -- 'blink.cmp', 'nvim-cmp'
 vim.g.picker_plugin = vim.fn.has('nvim-0.9.4') == 1 and 'snacks.picker' or 'telescope' -- 'snacks.picker', 'telescope', 'fzf-lua'
 
+-- [[ Add a neovim-specific bin directory to PATH ]]
+-- `nvim-bin/` allows wrapper scripts or extra tools to override system tools when needed.
+vim.env.PATH = vim.fn.stdpath('config') .. '/nvim-bin:' .. vim.env.PATH
+
 -- [[ Configure and install plugins ]]
 require('config.lazy')
 
