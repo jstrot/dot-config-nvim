@@ -2,7 +2,8 @@
 return {
   {
     "ibhagwan/fzf-lua",
-    enabled = vim.g.picker_plugin == 'fzf-lua',
+    enabled = vim.g.picker_plugin == 'fzf-lua', -- Not required by any current plugin otherwise
+    lazy = vim.g.picker_plugin ~= 'fzf-lua',
     event = 'VeryLazy',
     branch = "main",
     dependencies = { "nvim-tree/nvim-web-devicons" },

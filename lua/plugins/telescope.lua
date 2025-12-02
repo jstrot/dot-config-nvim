@@ -1,8 +1,9 @@
 local telescope_spec = {
   -- https://github.com/nvim-telescope/telescope.nvim
   'nvim-telescope/telescope.nvim',
+  lazy = vim.g.picker_plugin ~= 'telescope',
+  event = 'VeryLazy',
   branch = '0.1.x',
-  -- cond = vim.g.picker_plugin == 'telescope',
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
