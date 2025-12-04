@@ -60,6 +60,8 @@ M._3rd_diagram_enabled =
     or M.have_gnuplot
   )
 
+M._3rd_diagram_auto = vim.g.images_auto_diagrams or false
+
 return M
 
 -- vim: sw=2 et

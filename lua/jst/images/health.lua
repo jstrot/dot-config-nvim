@@ -74,6 +74,11 @@ M.check = function()
   else
     vim.health.error("Backend: none -- Images support is limited")
   end
+  if jst_images._3rd_diagram_auto then
+    vim.health.ok("Diagram rendering: Automatic")
+  else
+    vim.health.ok("Diagram rendering: Manual only")
+  end
 
   vim.health.start("Plugins")
   if jst_images._3rd_image_enabled then

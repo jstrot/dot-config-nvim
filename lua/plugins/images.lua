@@ -54,8 +54,24 @@ return {
           -- },
         }
       }
+      if not jst_images._3rd_diagram_auto then
+        opts.events = {
+          render_buffer = {}, -- Empty = no automatic rendering
+          clear_buffer = { "BufLeave" },
+        }
+      end
       require("diagram").setup(opts)
     end,
+
+    keys = {
+      {
+        "<leader>gD",
+        function() require("diagram").show_diagram_hover() end,
+        mode = "n",
+        ft = { "markdown", "norg" }, -- Only in these filetypes
+        desc = "[G]o to [D]iagram in new tab",
+      },
+    },
   },
 
 }

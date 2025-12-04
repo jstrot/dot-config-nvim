@@ -25,4 +25,8 @@ vim.g.have_magick_rock = false
 -- If false, you need to start plugins manually using `:lua require(...)` or keymaps.
 vim.g.images_auto_start = true
 
+--- If true, diagrams will be rendered automatically.
+-- If false, diagrams will be rendered on demand only, with keybindings or commands.
+vim.g.images_auto_diagrams = true
+
 -- vim: sw=2 et
