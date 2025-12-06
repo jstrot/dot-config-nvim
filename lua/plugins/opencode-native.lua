@@ -4,6 +4,10 @@
 --
 require('jst.ai.config')
 
+-- Opencode in a native Neovim window will be affected by Neovim reload prompts.
+-- Enabling autoread is optional but recommended to avoid agent errors.
+local autoread = true -- Disable if you find this annoying
+
 return {
   {
     "sudo-tee/opencode.nvim",
@@ -215,11 +219,17 @@ return {
 
     },
     config = function(_, opts)
+
       require("opencode").setup(opts)
       local model = AI_copilot_agent_model()
       if model then
         require('opencode.state').current_model = 'github-copilot/' .. model
       end
+
+      if autoread then
+        vim.o.autoread = true
+      end
+
     end,
     dependencies = {
       "nvim-lua/plenary.nvim",

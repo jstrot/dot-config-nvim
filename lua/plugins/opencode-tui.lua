@@ -6,6 +6,10 @@
 --
 require('jst.ai.config')
 
+-- Opencode in a split terminal will not be affected by Neovim reload prompts.
+-- Enabling autoread is optional.
+local autoread = false
+
 local function focus_opencode_window()
   local provider_opts = require('opencode.config').opts.provider
   local win = require("snacks.terminal").get(provider_opts.cmd, vim.tbl_deep_extend("force", provider_opts, { create = false }))
@@ -42,16 +46,15 @@ return {
       -- { "<S-C-d>",    function() require("opencode").command("session.half.page.down") end,          desc = "[A]gentic: opencode half page down", mode = "n", },
     },
     config = function()
-      local auto_reload = true -- Disable if you find this annoying
 
       ---@type opencode.Opts
       vim.g.opencode_opts = {
-        auto_reload = auto_reload,
+        reload = autoread, -- Automatically reload files changed by opencode
       }
-
-      if auto_reload then
+      if autoread then
         vim.o.autoread = true
       end
+
     end,
   }
 }
