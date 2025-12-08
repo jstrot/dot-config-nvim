@@ -8,7 +8,9 @@ return {
   {
     '3rd/image.nvim',
     enabled = jst_images._3rd_image_enabled,
+    cond = jst_images._3rd_image_cond,
     lazy = not jst_images.auto_start,
+    event = 'VeryLazy',
     build = jst_images._3rd_image_processor == 'magick_rock',
     opts = {
       backend = jst_images._3rd_backend,
@@ -24,7 +26,9 @@ return {
       "3rd/image.nvim",
     },
     enabled = jst_images._3rd_diagram_enabled,
+    cond = jst_images._3rd_diagram_cond,
     lazy = not jst_images.auto_start,
+    event = 'VeryLazy',
     config = function()
       local opts = {
         integrations = {

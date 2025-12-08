@@ -48,6 +48,9 @@ M._3rd_backend = (
 M._3rd_image_enabled =
   M.enabled
   and M._3rd_image_processor
+
+M._3rd_image_cond =
+  M.is_terminal
   and M._3rd_backend
 
 M._3rd_diagram_enabled =
@@ -59,6 +62,9 @@ M._3rd_diagram_enabled =
     or M.have_d2
     or M.have_gnuplot
   )
+
+M._3rd_diagram_cond =
+  M._3rd_image_cond
 
 M._3rd_diagram_auto = vim.g.images_auto_diagrams or false
 

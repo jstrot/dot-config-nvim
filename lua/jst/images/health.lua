@@ -18,17 +18,17 @@ M.check = function()
   if jst_images.is_terminal then
     vim.health.ok("Running in terminal")
   else
-    vim.health.ok("NOT running in terminal")
-  end
-  if jst_images.have_kitty_graphics_protocol then
-    vim.health.ok("Kitty Graphics Protocol: Supported")
-  else
-    vim.health.warn("Kitty Graphics Protocol: NOT supported")
+    vim.health.warn("NOT running in terminal")
   end
   if jst_images.have_tmux then
     vim.health.ok("Running in tmux")
   else
     vim.health.ok("NOT running in tmux")
+  end
+  if jst_images.have_kitty_graphics_protocol then
+    vim.health.ok("Kitty Graphics Protocol: Supported")
+  else
+    vim.health.warn("Kitty Graphics Protocol: NOT supported")
   end
 
   vim.health.start("Applications")
@@ -64,6 +64,13 @@ M.check = function()
   end
 
   vim.health.start("Configuration")
+  if jst_images._3rd_diagram_auto then
+    vim.health.ok("Diagram rendering: Automatic")
+  else
+    vim.health.ok("Diagram rendering: Manual only")
+  end
+
+  vim.health.start("Plugins")
   if jst_images._3rd_image_processor then
     vim.health.ok("Image processor: " .. vim.inspect(jst_images._3rd_image_processor))
   else
@@ -74,23 +81,14 @@ M.check = function()
   else
     vim.health.error("Backend: none -- Images support is limited")
   end
-  if jst_images._3rd_diagram_auto then
-    vim.health.ok("Diagram rendering: Automatic")
-  else
-    vim.health.ok("Diagram rendering: Manual only")
-  end
-
-  vim.health.start("Plugins")
-  if jst_images._3rd_image_enabled then
-    vim.health.ok("'3rd/image': Enabled")
-  else
-    vim.health.ok("'3rd/image': Disabled")
-  end
-  if jst_images._3rd_diagram_enabled then
-    vim.health.ok("'3rd/diagram': Enabled")
-  else
-    vim.health.ok("'3rd/diagram': Disabled")
-  end
+  vim.health.ok("'3rd/image':"
+    .. " " .. (jst_images._3rd_image_enabled and "Enabled" or "Disabled")
+    .. "/" .. (jst_images._3rd_image_cond and "On" or "Off")
+  )
+  vim.health.ok("'3rd/diagram':"
+    .. " " .. (jst_images._3rd_diagram_enabled and "Enabled" or "Disabled")
+    .. "/" .. (jst_images._3rd_diagram_cond and "On" or "Off")
+  )
 
 end
 
