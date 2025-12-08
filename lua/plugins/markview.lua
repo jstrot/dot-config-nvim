@@ -1,5 +1,5 @@
 -- https://github.com/OXY2DEV/markview.nvim
-jst_md = require('jst.markdown')
+local jst_md = require('jst.markdown')
 
 -- Whether all list items should be rendered with extra padding on the left, like some editors (GitHub, Obsidian, ...)
 local default_list_items_add_padding = false -- disable for a more compact view
@@ -9,7 +9,8 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  ft = jst_md.markdown_filetypes_per_plugin['markview'],
+  lazy = true, -- On-demand only
+  ft = jst_md.markdown_filetypes_per_plugin['markview'] or {},
   opts = {
     code_blocks = {
       icons = "devicons",
@@ -17,7 +18,7 @@ return {
 
     preview = {
       enable = true, -- Start enabled or not, toggle with `<leader>tm`
-      filetypes = jst_md.markdown_filetypes_per_plugin['markview'],
+      filetypes = jst_md.markdown_filetypes_per_plugin['markview'] or {},
       ignore_buftypes = {
         -- Important to not ignore "nofile" buftypes for Avante and CodeCompanion
         (not vim.tbl_contains({'avante', 'codecompanion'}, vim.g.agentic_mode_plugin)) and "nofile" or nil,

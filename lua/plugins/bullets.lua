@@ -1,22 +1,21 @@
 -- https://github.com/bullets-vim/bullets.vim
+local jst_md = require('jst.markdown')
+
 return {
   {
     "bullets-vim/bullets.vim",
 
     init = function()
 
-      vim.g.bullets_enabled_file_types = {
-        --[[ Markdown ]]--
-        "markdown",
-        "markdown_inline",
-        "markdown.mdx",
-        "quarto",
-        "rmd",
-        --[[ Other ]]--
-        'text',
-        'gitcommit',
-        'scratch',
-      }
+      vim.g.bullets_enabled_file_types =
+        vim.tbl_extend(
+          'force',
+          jst_md.markdown_filetypes,
+          {
+            'text',
+            'gitcommit',
+            'scratch',
+          })
 
       -- vim.g.bullets_mapping_leader = '<M-b>' -- default = ''
 

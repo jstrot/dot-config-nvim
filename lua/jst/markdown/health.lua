@@ -12,6 +12,11 @@ M.check = function()
     vim.health.ok('Plugin: ' .. plugin .. ', filetypes: ' .. table.concat(fts, ', '))
   end
 
+  vim.health.start("Auto-preview")
+  for plugin, fts in pairs(jst_md.markdown_filetypes_auto_preview_per_plugin) do
+    vim.health.ok('Plugin: ' .. plugin .. ', filetypes: ' .. table.concat(fts, ', '))
+  end
+
 end
 
 return M
