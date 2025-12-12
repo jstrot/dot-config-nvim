@@ -19,6 +19,12 @@ return {
           },
         },
         {
+          name = "Neovim plugins",
+          dirs = {
+            "~/.local/share/nvim/lazy",
+          },
+        },
+        {
           name = "Home",
           dirs = {
             "~",
