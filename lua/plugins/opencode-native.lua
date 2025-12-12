@@ -124,6 +124,7 @@ return {
         -- input_position = 'bottom', -- 'bottom' (default) or 'top'. Position of the input window
         -- window_width = 0.40, -- Width as percentage of editor width
         -- zoom_width = 0.8, -- Zoom width as percentage of editor width
+        zoom_width = 1.0, -- Zoom width as percentage of editor width
         -- input_height = 0.15, -- Input height as percentage of window height
         -- display_model = true, -- Display model name on top winbar
         -- display_context_size = true, -- Display context size in the footer
