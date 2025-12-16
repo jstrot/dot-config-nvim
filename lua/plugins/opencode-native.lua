@@ -94,10 +94,10 @@ return {
           ['<leader>aO'] = false,
           ['<leader>aS'] = { 'select_child_session', desc = '[A]gentic/Opencode: [S]elect child session', mode = 'n' }, -- Select and load a child session
           ['<leader>ads'] = false,
-          ['<leader>oD'] = { 'debug_message', mode = 'n' }, -- Open raw message in new buffer for debugging
-          ['<leader>oO'] = { 'debug_output', mode = 'n' }, -- Open raw output in new buffer for debugging
-          ['<leader>oS'] = { 'select_child_session', mode = 'n' }, -- Select and load a child session
-          ['<leader>ods'] = { 'debug_session', mode = 'n' }, -- Open raw session in new buffer for debugging
+          ['<leader>oD'] = false,
+          ['<leader>oO'] = false,
+          ['<leader>oS'] = false,
+          ['<leader>ods'] = false,
           ['<tab>'] = false,
           ['[['] = { 'prev_message', desc = 'Previous message in conversation', mode = 'n' }, -- Navigate to previous message in the conversation
           [']]'] = { 'next_message', desc = 'Next message in conversation', mode = 'n' }, -- Navigate to next message in the conversation
