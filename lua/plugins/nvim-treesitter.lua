@@ -7,6 +7,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     -- event = 'VeryLazy', -- Interferes with startup diff mode folding
     -- event = 'VimEnter', -- Interferes with startup diff mode folding
+    branch = 'master', -- 'main' is an incompatible rewrite
     opts = {
       -- A list of parser names, or "all". See `TSInstallInfo` for available parsers.
       ensure_installed = {
