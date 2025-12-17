@@ -1,12 +1,5 @@
-local csv_fts = {
-  "csv",
-  "tsv",
-  "csv_semicolon",
-  "csv_whitespace",
-  "csv_pipe",
-  "rfc_csv",
-  "rfc_semicolon",
-}
+local jst_csv = require('jst.csv')
+
 return {
   {
     -- https://github.com/mechatroner/rainbow_csv
@@ -19,8 +12,8 @@ return {
     -- > If functionality is important to you, please use the original rainbow_csv.
     "cameron-wags/rainbow_csv.nvim",
 
-    ft = csv_fts,
-    enabled = true,
+    ft = jst_csv.csv_filetypes,
+    enabled = jst_csv.rainbow_csv_enabled,
     cmd = {
       'RainbowDelim',
       'RainbowDelimSimple',
