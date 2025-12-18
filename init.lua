@@ -160,6 +160,9 @@ vim.o.shiftwidth = 4
 vim.o.tabstop = 8
 vim.o.softtabstop = -1 -- negative values use shiftwidth value
 
+-- Initial folding state. Quickly toggle with `zi`
+vim.o.foldenable = false
+
 -- Speed up
 vim.o.lazyredraw = true
 
