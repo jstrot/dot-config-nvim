@@ -221,9 +221,11 @@ return {
     config = function(_, opts)
 
       require("opencode").setup(opts)
-      local model = AI_copilot_agent_model()
-      if model then
-        require('opencode.state').current_model = 'github-copilot/' .. model
+      if false then -- FIXME: Causes 'Error fetching Opencode providers: "No server base url"'
+        local model = AI_copilot_agent_model()
+        if model then
+          require('opencode.state').current_model = 'github-copilot/' .. model
+        end
       end
 
       if autoread then
