@@ -51,6 +51,20 @@ if not opts.backend then
   end
 end
 
+if not opts.backend then
+  if AI_is_openai_enabled() then
+    model = jst.fn.get_secret('LLM_NVIM_MODEL', nil) or AI_openai_code_model()
+    if model then
+      opts = vim.tbl_deep_extend('force', opts, {
+        backend = 'openai',
+        url = AI_openai_nover_url(), -- llm-ls uses "/v1/completions"
+        api_token = AI_openai_api_key(),
+        model = model,
+      })
+    end
+  end
+end
+
 if opts.model and opts.model:find('starcoder') then
   opts = vim.tbl_deep_extend('keep', opts, {
     tokens_to_clear = { "<|endoftext|>" },

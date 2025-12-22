@@ -44,7 +44,7 @@ M.check = function()
   if has then
     vim.health.ok('Chat: OGPT')
   else
-    vim.health.warn('Chat: OGPT not enabled', 'Available when one of Ollama or Hugging Face is enabled.')
+    vim.health.warn('Chat: OGPT not enabled', 'Available when one of Ollama, OpenAI, or Hugging Face is enabled.')
   end
   has, _ = pcall(require, 'chatgpt')
   if has then
@@ -164,6 +164,8 @@ M.check = function()
     vim.health.ok("Enabled")
     if AI_openai_url() then
       vim.health.ok("URL: " .. AI_openai_url())
+      vim.health.ok("URL w/ version: " .. AI_openai_ver_url())
+      vim.health.ok("URL w/o version: " .. AI_openai_nover_url())
     else
       vim.health.warn("URL not set (Optional).", url_msg)
     end

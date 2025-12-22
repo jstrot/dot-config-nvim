@@ -25,6 +25,22 @@ local opts = {
         -- top_p = 0.9,
       },
     },
+    openai= {
+      api_host = AI_openai_nover_url() or '', -- ogpt appends "/v1/..."
+      api_key = AI_openai_api_key() or '',
+      api_params = {
+        model = AI_openai_code_model() or '',
+        -- temperature = 0.8,
+        -- top_p = 0.9,
+      },
+      api_chat_params = {
+        model = AI_openai_chat_model() or '',
+        -- frequency_penalty = 0,
+        -- presence_penalty = 0,
+        -- temperature = 0.5,
+        -- top_p = 0.9,
+      },
+    },
     textgenui = {
       api_host = AI_huggingface_url() or '',
       api_key = AI_huggingface_api_key() or '',

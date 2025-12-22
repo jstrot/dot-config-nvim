@@ -156,6 +156,22 @@ function AI_openai_url()
   return jst.fn.get_secret(vim.g.openai_url_env, vim.g.openai_url_file)
 end
 
+function AI_openai_nover_url()
+  local url = AI_openai_url()
+  if url then
+    url, _ = string.gsub(url, '/?v%d+/?$', '')
+  end
+  return url
+end
+
+function AI_openai_ver_url()
+  local url = AI_openai_url()
+  if url and not string.find(url, '/?v%d+/?$') then
+    url, _ = string.gsub(url, '/?$', '/v1')
+  end
+  return url
+end
+
 --- Returns the OpenAI API key/token.
 -- @return string?
 function AI_openai_api_key()

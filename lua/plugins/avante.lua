@@ -78,12 +78,14 @@ return {
       provider = (
         AI_is_copilot_active() and "copilot"
         or AI_is_ollama_enabled() and "ollama"
+        or AI_is_openai_enabled() and "openai"
         or nil),
       -- TODO: override_prompt_dir = vim.fn.expand("~/.config/nvim/avante_prompts"),
       auto_suggestions_provider = (
         (vim.g.auto_suggest_completion_plugin == 'avante')
         and (
           AI_is_ollama_enabled() and "ollama_suggest"
+          or AI_is_openai_enabled() and "openai_suggest"
         )
       ) or nil,
       providers = {
@@ -107,7 +109,15 @@ return {
         },
         ollama_suggest = {
           __inherited_from = 'ollama',
-          model = AI_copilot_code_model(),
+          model = AI_ollama_code_model(),
+        },
+        openai = {
+          endpoint = AI_openai_ver_url(), -- avante expects "/v1" already in URL
+          model = AI_openai_agent_model(), -- must be filled in, `:AvanteModels` won't provide a list
+        },
+        openai_suggest = {
+          __inherited_from = 'openai',
+          model = AI_openai_code_model(),
         },
       },
       behaviour = {

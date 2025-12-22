@@ -1,7 +1,7 @@
 -- https://github.com/jackMort/ChatGPT.nvim
 require('jst.ai.config')
 
-local api_host = AI_openai_url()
+local api_host = AI_openai_nover_url() -- ChatGPT append "/v1/..."
 local api_key = AI_openai_api_key()
 return {
   {
