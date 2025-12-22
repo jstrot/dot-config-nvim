@@ -22,7 +22,7 @@
 -- - lua/plugins/opencode-native.lua
 
 vim.g.github_copilot_enabled = true -- Main switch
-vim.g.github_copilot_active = false -- Turn off temporarily if your free plan runs out
+vim.g.github_copilot_active = true -- Turn off temporarily if your free plan runs out
 vim.g.github_copilot_chat_model = nil -- nil for default, `:CopilotChatModels` to pick or list of models
 vim.g.github_copilot_code_model = nil -- nil for default
 vim.g.github_copilot_agent_model = nil -- nil for default
