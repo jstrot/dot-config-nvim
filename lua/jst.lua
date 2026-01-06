@@ -85,9 +85,13 @@ local function venv_exepath(name, opts)
     -- Already an resolved path: just non-venv implementation confirm.
     return M.fn.exepath(name, opts)
   end
-  local path = M.fn.venv_path()
-  if path then
-    return M.fn.exepath(path .. '/bin/' .. name, opts)
+  local path
+  local venv_path = M.fn.venv_path()
+  if venv_path then
+    path = vim.fn.exepath(venv_path .. '/bin/' .. name)
+    if path ~= '' then
+      return path
+    end
   end
   if opts.fallback_exepath then
     return M.fn.exepath(name, opts)
