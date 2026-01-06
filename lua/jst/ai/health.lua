@@ -17,7 +17,10 @@ M.check = function()
   vim.health.start("Plugins")
   if vim.g.auto_suggest_completion_plugin then
     health_cmd = 'checkhealth ' .. vim.g.auto_suggest_completion_plugin
-    if vim.g.auto_suggest_completion_plugin == 'copilot' then
+    if
+      vim.g.auto_suggest_completion_plugin == 'copilot'
+      or vim.g.auto_suggest_completion_plugin == 'llm'
+    then
       health_cmd = nil
     end
     msg = 'Auto-suggest/completion: ' .. vim.g.auto_suggest_completion_plugin
@@ -52,8 +55,6 @@ M.check = function()
   else
     vim.health.warn('Chat: ChatGPT not enabled', 'Available when OpenAI is enabled.')
   end
-
-
 
   vim.health.start("Copilot")
   if AI_is_copilot_enabled() then
