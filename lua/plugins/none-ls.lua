@@ -1,5 +1,6 @@
 -- https://github.com/nvimtools/none-ls.nvim
 -- (drop-in successor to null-ls)
+local jst = require('jst')
 
 -- Use a custom clang-format. Also see nvim-lspconfig.lua
 local use_custom_clang_format = (vim.g.clang_format_host_prog ~= nil)
@@ -44,7 +45,9 @@ return {
           -- null_ls.builtins.formatting.autopep8, -- Python: use ruff instead
           -- null_ls.builtins.formatting.autoflake, -- Python: use ruff instead
           -- See nvim-lspconfig.lua -- require("none-ls.formatting.ruff"), -- Python
-          null_ls.builtins.formatting.black, -- Python
+          null_ls.builtins.formatting.black.with({ -- Python
+            command = jst.fn.venv_exepath("black", { fallback_exepath = true, fallback_name = true }),
+          }),
 
           use_custom_clang_format and null_ls.builtins.formatting.clang_format.with({ -- C/C++, C#, Java, Cuda, Proto
             command = vim.g.clang_format_host_prog or 'clang-format',

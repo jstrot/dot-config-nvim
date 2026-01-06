@@ -1,4 +1,5 @@
 -- https://github.com/neovim/nvim-lspconfig
+local jst = require('jst')
 
 vim.g.format_lsp_timeout_ms = 5000
 vim.g.format_lsp_async = false
@@ -6,8 +7,8 @@ vim.g.format_lsp_async = false
 -- Use a custom clang-format. Also see none-ls.lua
 local use_custom_clang_format = (vim.g.clang_format_host_prog ~= nil)
 
-local ruff_path = vim.env.VIRTUAL_ENV and vim.fn.exepath(vim.env.VIRTUAL_ENV .. '/bin/ruff')
-if not ruff_path or ruff_path == '' then ruff_path = 'ruff' end
+local ruff_path = jst.fn.venv_exepath('ruff', { fallback_exepath = true, fallback_name = true })
+pyright_lsp_path = jst.fn.venv_exepath('pyright-langserver', { fallback_exepath = true, fallback_name = true })
 
 return {
   { -- LSP Configuration & Plugins
@@ -259,7 +260,7 @@ return {
             end
           end
           if name == 'ccls' then
-            local ok, ccls = pcall(require, 'ccls')
+            pcall(require, 'ccls')
           end
 
         end,
@@ -303,9 +304,6 @@ return {
         -- Ruff can be configured through a pyproject.toml, ruff.toml, or .ruff.toml file.
         -- See https://docs.astral.sh/ruff/configuration/
         ruff = {
-          -- DEFAULT: cmd = { 'ruff', 'server' },
-          -- OK: cmd = { '/home/jst/src/merryclaude-woo-manager/venv/bin/ruff', 'server' },
-          -- WORKS to pick up the right ruff but it can't find venv-specific modules
           cmd = { ruff_path, 'server' },
           -- filetypes = { 'python' },
           on_attach = function (client, bufnr)
@@ -318,8 +316,10 @@ return {
             -- reportMatchNotExhaustive = true, -- NOTE: enable in pyright instead
           },
         },
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/pyright.lua
+
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/pyright.lua
         pyright = {
+          cmd = { pyright_lsp_path, '--stdio' },
           settings = {
             pyright = {
               disableOrganizeImports = true, -- use ruff instead
