@@ -4,8 +4,9 @@ return {
     "benoror/gpg.nvim",
     -- This only works if you have a working graphical pinentry, not a text pinentry
     cond = (
-      vim.tbl_contains({ 'x11', 'wayland', }, vim.env.XDG_SESSION_TYPE) -- Linux
+      vim.tbl_contains({ 'x11', 'wayland', }, vim.env.XDG_SESSION_TYPE) -- Linux graphical session
       or vim.fn.executable('launchctl') == 1 and vim.tbl_contains({ 'Aqua', }, vim.system({'launchctl', 'managername'}):wait().stdout ~= nil) -- macOS
+      or vim.fn.executable('pinentry-tmux') == 1 -- Assume pinentry-tmux is also configured: https://github.com/qualIP/pinentry-tmux
     ),
   },
 }
