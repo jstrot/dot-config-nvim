@@ -535,6 +535,10 @@ return {
 
       }
 
+      for server, server_opts in pairs(servers) do
+        vim.lsp.config(server, server_opts)
+      end
+
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
