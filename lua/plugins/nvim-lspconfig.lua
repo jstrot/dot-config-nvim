@@ -8,7 +8,26 @@ vim.g.format_lsp_async = false
 local use_custom_clang_format = (vim.g.clang_format_host_prog ~= nil)
 
 local ruff_path = jst.fn.venv_exepath('ruff', { fallback_exepath = true, fallback_name = true })
-pyright_lsp_path = jst.fn.venv_exepath('pyright-langserver', { fallback_exepath = true, fallback_name = true })
+
+-- Prefer basedpyright to pyright; Prefer venv to $PATH.
+local pyright_lsp_path = ''
+local basedpyright_lsp_path = ''
+basedpyright_lsp_path = jst.fn.venv_exepath('basedpyright-langserver')
+if basedpyright_lsp_path == '' then
+  pyright_lsp_path = jst.fn.venv_exepath('pyright-langserver')
+end
+if basedpyright_lsp_path == '' and pyright_lsp_path == '' then
+  basedpyright_lsp_path = vim.fn.exepath('basedpyright-langserver')
+  if basedpyright_lsp_path == '' then
+    pyright_lsp_path = vim.fn.exepath('pyright-langserver')
+  end
+end
+if basedpyright_lsp_path == '' then
+  basedpyright_lsp_path = 'basedpyright-langserver'
+end
+if pyright_lsp_path == '' then
+  pyright_lsp_path = 'pyright-langserver'
+end
 
 return {
   { -- LSP Configuration & Plugins
@@ -320,6 +339,8 @@ return {
         -- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/pyright.lua
         pyright = {
           cmd = { pyright_lsp_path, '--stdio' },
+          filetypes = jst.fn.isresolvedpath(basedpyright_lsp_path) and {} -- prefer basedpyright
+            or { 'python' },
           settings = {
             pyright = {
               disableOrganizeImports = true, -- use ruff instead
@@ -336,9 +357,22 @@ return {
             },
           },
         },
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/basedpyright
+
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/basedpyright.lua
         -- https://detachhead.github.io/basedpyright
-        -- basedpyright = {},
+        basedpyright = {
+          cmd = { basedpyright_lsp_path, '--stdio' },
+          filetypes = { 'python' },
+          -- settings = {
+          --   basedpyright = {
+          --     analysis = {
+          --       autoSearchPaths = true,
+          --       useLibraryCodeForTypes = true,
+          --       diagnosticMode = 'openFilesOnly',
+          --     },
+          --   },
+          -- },
+        },
 
         -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/clangd.lua
         clangd = {
@@ -541,10 +575,17 @@ return {
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
-      local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
+      local ensure_installed = {
         'stylua', -- Used to format Lua code
-      })
+      }
+
+      for server, server_opts in pairs(servers) do
+        if server_opts.filetypes and vim.tbl_isempty(server_opts.filetypes) then
+          -- Don't try to install servers that have no filetypes associated with them
+        else
+          table.insert(ensure_installed, server)
+        end
+      end
 
       local ok, mason_lspconfig = pcall(require, 'mason-lspconfig')
       if ok then
