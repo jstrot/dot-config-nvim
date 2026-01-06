@@ -147,8 +147,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- [[ END OF kickstart.nvim SECTION ]]
 
-local uv = vim.uv or vim.loop
-if uv.fs_stat(vim.env.HOME .. '/.pyenv/versions/neovim/bin/python') then
+if vim.uv.fs_stat(vim.env.HOME .. '/.pyenv/versions/neovim/bin/python') then
   vim.g.python3_host_prog = vim.env.HOME .. '/.pyenv/versions/neovim/bin/python'
   -- Also set the PATH environment so tools will use this python3 version (Mason, for example, doesn't use `vim.g.python3_host_prog` anymore)
   vim.env.PATH = vim.env.HOME .. '/.pyenv/versions/neovim/bin:' .. vim.env.PATH

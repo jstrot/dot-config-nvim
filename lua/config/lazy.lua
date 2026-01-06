@@ -1,8 +1,7 @@
 -- See https://github.com/LazyVim/starter
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-local uv = vim.uv or vim.loop
-if not uv.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
   -- stylua: ignore
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
