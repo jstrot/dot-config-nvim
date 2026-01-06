@@ -43,7 +43,7 @@ return {
           null_ls.builtins.formatting.stylua, -- Lua
           -- null_ls.builtins.formatting.autopep8, -- Python: use ruff instead
           -- null_ls.builtins.formatting.autoflake, -- Python: use ruff instead
-          require("none-ls.formatting.ruff"), -- Python
+          -- See nvim-lspconfig.lua -- require("none-ls.formatting.ruff"), -- Python
           null_ls.builtins.formatting.black, -- Python
 
           use_custom_clang_format and null_ls.builtins.formatting.clang_format.with({ -- C/C++, C#, Java, Cuda, Proto
