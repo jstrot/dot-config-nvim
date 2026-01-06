@@ -115,6 +115,7 @@ vim.g.auto_suggest_completion_plugin = nil -- let it pick one
 -- vim.g.auto_suggest_completion_plugin = 'copilot' -- Tim Pope's official plugin, stable but slower
 -- vim.g.auto_suggest_completion_plugin = 'copilot-lua' -- Zach Birenbaum's pure Lua replacement
 -- vim.g.auto_suggest_completion_plugin = 'llm' -- Hugging Face's LLM plugin using llm-ls, supports other providers
+-- vim.g.auto_suggest_completion_plugin = 'cmp-ai' -- cmp-ai AI source for nvim-cmp, supports other providers
 -- vim.g.auto_suggest_completion_plugin = 'codecompanion' -- Ollio Morris's CodeCompanion
 -- vim.g.auto_suggest_completion_plugin = 'avante' -- yetone's Avante -- NOTE: Prefer copilot/copilot-lua unless you want a different provider than Copilot
 

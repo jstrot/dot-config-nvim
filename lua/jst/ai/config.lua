@@ -248,6 +248,14 @@ if not vim.g.auto_suggest_completion_plugin then
       or (AI_is_openai_enabled() and AI_openai_code_model())
     )
   then
+    vim.g.auto_suggest_completion_plugin = 'cmp-ai'
+  elseif
+    (
+      (AI_is_huggingface_enabled() and AI_huggingface_code_model())
+      or (AI_is_ollama_enabled() and AI_ollama_code_model())
+      or (AI_is_openai_enabled() and AI_openai_code_model())
+    )
+  then
     vim.g.auto_suggest_completion_plugin = 'llm'
   end
 end
