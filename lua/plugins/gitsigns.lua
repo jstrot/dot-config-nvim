@@ -30,7 +30,7 @@ return {
           else
             gitsigns.nav_hunk('next')
           end
-        end)
+        end, { desc = 'Goto next [C]hanged/diff hunk' })
 
         map('n', '[c', function()
           if vim.wo.diff then
@@ -38,7 +38,7 @@ return {
           else
             gitsigns.nav_hunk('prev')
           end
-        end)
+        end, { desc = 'Goto previous [C]hanged/diff hunk' })
 
         -- Actions
         map('n', '<leader>gs', gitsigns.stage_hunk, { desc = '[G]it [S]tage/unstage hunk' })

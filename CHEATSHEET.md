@@ -94,7 +94,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `]d` / `[d` | Goto next/previous \[D]iagnostic                  |
 | n    | `]e` / `[e` | Goto next/previous diagnostic \[E]rror            |
 | n    | `]q` / `[q` | Goto next/previous \[Q]uickfix position (`:cn`)   |
-| n    | `]c` / `[c` | Goto next/previous \[C]hanged hunk                |
+| n    | `]c` / `[c` | Goto next/previous \[C]hanged/diff hunk           |
 | n    | `]t` / `[t` | Goto next/previous \[T]odo comment                |
 | n    | `]s` / `[s` | Goto next/previous mis\[S]pelled word             |
 | n    | `'"`        | Goto last exited position in current buffer       |
@@ -241,8 +241,8 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 
 | Mode | Mapping       | Description                                                 |
 | ---- | ------------- | ----------------------------------------------------------- |
-| n    | `]c`          | Goto next \[C]hanged hunk                                   |
-| n    | `[c`          | Goto previous \[C]hanged hunk                               |
+| n    | `]c`           | Goto next \[C]hanged/diff hunk                             |
+| n    | `[c`           | Goto previous \[C]hanged/diff hunk                         |
 | n, v | `<Leader>gs`  | \[G]it \[S]tage/unstage hunk                                |
 | n, v | `<Leader>gr`  | \[G]it \[R]eset hunk                                        |
 | n    | `<Leader>gS`  | \[G]it \[S]tage buffer                                      |
