@@ -363,15 +363,16 @@ return {
         basedpyright = {
           cmd = { basedpyright_lsp_path, '--stdio' },
           filetypes = { 'python' },
-          -- settings = {
-          --   basedpyright = {
-          --     analysis = {
-          --       autoSearchPaths = true,
-          --       useLibraryCodeForTypes = true,
-          --       diagnosticMode = 'openFilesOnly',
-          --     },
-          --   },
-          -- },
+          settings = {
+            basedpyright = {
+              disableOrganizeImports = true, -- use ruff instead
+              -- analysis = {
+              --   autoSearchPaths = true,
+              --   useLibraryCodeForTypes = true,
+              --   diagnosticMode = 'openFilesOnly',
+              -- },
+            },
+          },
         },
 
         -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/clangd.lua
