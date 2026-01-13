@@ -20,6 +20,7 @@ return {
       { '<Leader>d',   icon='󰱼', group = '[D]ocument' },
       { '<Leader>f',   icon='󰛖', group = '[F]ormat' },
       { '<Leader>g',   icon='', group = '[G]it' },
+      { '<Leader>gh',  icon='', group = '[G]it[H]ub' },
       { '<Leader>i',   icon='', group = '[I]inspect' },
       { '<Leader>o',   icon='', group = '[O]pen/[O]bsidian' },
       { '<Leader>p',   icon='󰈈', group = '[P]review' },

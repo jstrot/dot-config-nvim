@@ -12,6 +12,7 @@ return {
         -- enabled = true,
       },
       integrations = {
+        octo = true,
         blink_pairs = true,
         diffview = true,
         fzf = vim.g.picker_plugin == 'fzf-lua',

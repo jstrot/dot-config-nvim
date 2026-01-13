@@ -265,12 +265,12 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | n    | `<Leader>cb` | \[B]uild cscope database                                |
 | n    | `<C-]>`      | Do `:Cstag <cword>`                                     |
 
-## Git (fugitive, gitsigns, snacks.gitbrowse)
+## Git (fugitive, gitsigns, snacks.gitbrowse, diffview, octo)
 
 | Mode | Mapping       | Description                                                 |
 | ---- | ------------- | ----------------------------------------------------------- |
-| n    | `]c`           | Goto next \[C]hanged/diff hunk                             |
-| n    | `[c`           | Goto previous \[C]hanged/diff hunk                         |
+| n    | `]c`          | Goto next \[C]hanged/diff hunk                              |
+| n    | `[c`          | Goto previous \[C]hanged/diff hunk                          |
 | n, v | `<Leader>gs`  | \[G]it \[S]tage/unstage hunk                                |
 | n, v | `<Leader>gr`  | \[G]it \[R]eset hunk                                        |
 | n    | `<Leader>gS`  | \[G]it \[S]tage buffer                                      |
@@ -281,6 +281,11 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | n    | `<Leader>gB`  | \[G]it \[B]rowse repo online                                |
 | n    | `<Leader>gd`  | \[G]it vim\[D]iff file against the index                    |
 | n    | `<Leader>gD`  | \[G]it vim\[D]iff file against the last commit              |
+| n    | `<Leader>ghi` | \[G]it[H]ub [I]ssues list                                   |
+| n    | `<Leader>ghp` | \[G]it[H]ub [P]ullRequests list                             |
+| n    | `<Leader>ghd` | \[G]it[H]ub [D]iscussions list                              |
+| n    | `<Leader>ghn` | \[G]it[H]ub [N]otifications list                            |
+| n    | `<Leader>ghs` | \[G]it[H]ub [S]earch                                        |
 | o, x | `ih`          | Select \[I]nside \[H]unk (after movement or in visual mode) |
 | n    | `<Leader>tgb` | \[T]oggle \[G]it current line \[B]lame                      |
 | n    | `<Leader>tgd` | \[T]oggle \[G]it \[D]eleted hunks                           |
