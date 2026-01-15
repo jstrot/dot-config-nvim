@@ -571,7 +571,7 @@ return {
       }
 
       for server, server_opts in pairs(servers) do
-        vim.lsp.enable(server, server_opts)
+        vim.lsp.config(server, server_opts)
       end
 
       -- You can add other tools here that you want Mason to install
