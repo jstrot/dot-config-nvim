@@ -126,13 +126,41 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | i    | `<M-Right>`   | Accept the next word of the current suggestion    |
 | i    | `<M-C-Right>` | Accept the next line of the current suggestion    |
 
-## AI
+## AI (GitHub Copilot, OGPT, LLM, OpenCode, Avante, CodeCompanionm ...)
 
-| Mode | Mapping          | Description                                       |
-| ---- | ---------------- | ------------------------------------------------- |
-| n, v | `<Leader>cc<cr>` | Run \[C]opilot \[C]hat                            |
-| n    | `<Leader>cc<cr>` | Run OGPT \[C]hat                                  |
-| n, v | `<Leader>ccf`    | Run \[C]opilot \[C]hat \[F]ix                     |
+| Mode | Mapping          | Description                                              |
+| ---- | ---------------- | -------------------------------------------------------- |
+| n    | `<leader>a[d`    | AI/\[A]gentic: previous diff                             |
+| n    | `<leader>a]d`    | AI/\[A]gentic: next diff                                 |
+| n    | `<leader>ac`     | AI/\[A]gentic: \[C]lose diff view                        |
+| n    | `<leader>aA`     | AI/\[A]gentic: select \[A]gent                           |
+| n    | `<leader>aC`     | AI/\[A]gentic: edit opencode \[C]onfig                   |
+| n    | `<leader>ad`     | AI/\[A]gentic: open \[D]iff view                         |
+| n    | `<leader>af`     | AI/\[A]gentic: \[F]ocus opencode/last window             |
+| n    | `<leader>ai`     | AI/\[A]gentic: open \[I]nput window                      |
+| n    | `<leader>am`     | AI/\[A]gentic: configure provider/\[M]odel               |
+| n    | `<leader>aM`     | AI/\[A]gentic: configure \[M]CP servers                  |
+| n    | `<leader>an`     | AI/\[A]gentic: \[N]ew opencode session                   |
+| n    | `<leader>ao`     | AI/\[A]gentic: open \[O]utput window                     |
+| n    | `<leader>apA`    | AI/\[A]gentic: \[P]ermission \[A]ccept all               |
+| n    | `<leader>apa`    | AI/\[A]gentic: \[P]ermission \[A]ccept once              |
+| n    | `<leader>apd`    | AI/\[A]gentic: \[P]ermission \[D]eny                     |
+| n    | `<leader>aq`     | AI/\[A]gentic: \[Q]uit/close opencode                    |
+| n    | `<leader>arA`    | AI/\[A]gentic: \[R]evert \[A]ll changes from session     |
+| n    | `<leader>arR`    | AI/\[A]gentic: \[R]estore snapshot \[A]ll files          |
+| n    | `<leader>arT`    | AI/\[A]gentic: \[R]evert \[T]his file from session       |
+| n    | `<leader>ara`    | AI/\[A]gentic: \[R]evert \[A]ll changes from last prompt |
+| n    | `<leader>arr`    | AI/\[A]gentic: \[R]estore snapshot \[F]ile               |
+| n    | `<leader>art`    | AI/\[A]gentic: \[R]evert \[T]his file from last prompt   |
+| n    | `<leader>aR`     | AI/\[A]gentic: \[R]ename opencode session                |
+| n    | `<leader>as`     | AI/\[A]gentic: \[S]elect opencode session                |
+| n    | `<leader>at`     | AI/\[A]gentic: \[T]oggle opencode                        |
+| n    | `<leader>aT`     | AI/\[A]gentic: \[T]imeline picker                        |
+| n    | `<leader>av`     | AI/\[A]gentic: paste image from clipboard                |
+| n    | `<leader>ax`     | AI/\[A]gentic: e\[X]change pane position                 |
+| n    | `<leader>az`     | AI/\[A]gentic: \[Z]oom opencode windows                  |
+| n, v | `<Leader>cc<cr>` | AI/\[C]hat: \[C]hat                                      |
+| n, v | `<Leader>ccf`    | AI/\[C]hat: \[C]hat \[F]ix                               |
 
 ## Language Server Protocol (LSP)
 

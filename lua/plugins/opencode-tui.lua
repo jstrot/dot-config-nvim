@@ -2,7 +2,7 @@
 --
 -- Context markers, like @this: `:help opencode.nvim-contexts`
 --
--- Your opencode configuration here: ~/.config/opencode/opencode.jsonc
+-- Your OpenCode configuration here: ~/.config/opencode/opencode.jsonc
 --
 require('jst.ai.config')
 
@@ -34,22 +34,22 @@ return {
       'OpencodePrompt',
     },
     keys = {
-      { "<leader>aa", function() require("opencode").ask("@this: ", { submit = true }) end,          desc = "[A]gentic: [A]sk opencode", mode = { "n", "x" } },
-      { "<leader>as", function() require("opencode").select() end,                                   desc = "[A]gentic: [S]elect opencode command", mode = "n", },
-      { "<leader>at", function() require("opencode").toggle() end,                                   desc = "[A]gentic: [T]oggle opencode", mode = "n", },
-      { "<leader>al", function() require("opencode").command("session.list") end,                    desc = "[A]gentic: [L]ist opencode sessions", mode = "n", },
-      { "<leader>an", function() require("opencode").command("session.new") end,                     desc = "[A]gentic: [N]ew opencode session", mode = "n", },
-      { "<leader>af", focus_opencode_window,                                                         desc = "[A]gentic: [F]ocus opencode window", mode = "n", },
-      { "<leader>aS", function() require("opencode").command("session.interrupt") end,               desc = "[A]gentic: [S]top/interrupt opencode current session", mode = "n", },
-      { "<leader>aC", function() vim.api.nvim_command('edit ~/.config/opencode/opencode.jsonc') end, desc = "[A]gentic: edit opencode [C]onfig", mode = "n", },
-      -- { "<S-C-u>",    function() require("opencode").command("session.half.page.up") end,            desc = "[A]gentic: opencode half page up", mode = "n", },
-      -- { "<S-C-d>",    function() require("opencode").command("session.half.page.down") end,          desc = "[A]gentic: opencode half page down", mode = "n", },
+      { "<leader>aa", function() require("opencode").ask("@this: ", { submit = true }) end,          desc = "AI/[A]gentic/OpenCode: [A]sk OpenCode", mode = { "n", "x" } },
+      { "<leader>as", function() require("opencode").select() end,                                   desc = "AI/[A]gentic/OpenCode: [S]elect OpenCode command", mode = "n", },
+      { "<leader>at", function() require("opencode").toggle() end,                                   desc = "AI/[A]gentic/OpenCode: [T]oggle OpenCode", mode = "n", },
+      { "<leader>al", function() require("opencode").command("session.list") end,                    desc = "AI/[A]gentic/OpenCode: [L]ist OpenCode sessions", mode = "n", },
+      { "<leader>an", function() require("opencode").command("session.new") end,                     desc = "AI/[A]gentic/OpenCode: [N]ew OpenCode session", mode = "n", },
+      { "<leader>af", focus_opencode_window,                                                         desc = "AI/[A]gentic/OpenCode: [F]ocus OpenCode window", mode = "n", },
+      { "<leader>aS", function() require("opencode").command("session.interrupt") end,               desc = "AI/[A]gentic/OpenCode: [S]top/interrupt OpenCode current session", mode = "n", },
+      { "<leader>aC", function() vim.api.nvim_command('edit ~/.config/opencode/opencode.jsonc') end, desc = "AI/[A]gentic/OpenCode: edit OpenCode [C]onfig", mode = "n", },
+      -- { "<S-C-u>",    function() require("opencode").command("session.half.page.up") end,            desc = "AI/[A]gentic/OpenCode: OpenCode half page up", mode = "n", },
+      -- { "<S-C-d>",    function() require("opencode").command("session.half.page.down") end,          desc = "AI/[A]gentic/OpenCode: OpenCode half page down", mode = "n", },
     },
     config = function()
 
       ---@type opencode.Opts
       vim.g.opencode_opts = {
-        reload = autoread, -- Automatically reload files changed by opencode
+        reload = autoread, -- Automatically reload files changed by OpenCode
       }
       if autoread then
         vim.o.autoread = true

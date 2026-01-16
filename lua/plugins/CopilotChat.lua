@@ -93,11 +93,11 @@ return {
       'CopilotChatToggle',
     },
     keys = {
-      { "<leader>cc<cr>",  "<cmd>CopilotChat<cr>",         mode = "n", desc = "Run [C]opilot [C]hat" },
-      { "<leader>cc<cr>",  "<cmd>'<,'>CopilotChat<cr>",    mode = "v", desc = "Run [C]opilot [C]hat" },
-      { "<leader>ccf",     "<cmd>CopilotChatFix<cr>",      mode = "n", desc = "Run [C]opilot [C]hat [F]ix" },
-      { "<leader>ccf",     "<cmd>'<,'>CopilotChatFix<cr>", mode = "v", desc = "Run [C]opilot [C]hat [F]ix" },
-      { "<leader>ccp<cr>", "<cmd>CopilotChatPrompts<cr>",  mode = "n", desc = "Pick [C]opilot [C]hat [P]rompts" },
+      { "<leader>cc<cr>",  "<cmd>CopilotChat<cr>",         mode = "n", desc = "AI/[C]hat/Copilot: Run [C]hat" },
+      { "<leader>cc<cr>",  "<cmd>'<,'>CopilotChat<cr>",    mode = "v", desc = "AI/[C]hat/Copilot: Run [C]hat" },
+      { "<leader>ccf",     "<cmd>CopilotChatFix<cr>",      mode = "n", desc = "AI/[C]hat/Copilot: Run [C]hat [F]ix" },
+      { "<leader>ccf",     "<cmd>'<,'>CopilotChatFix<cr>", mode = "v", desc = "AI/[C]hat/Copilot: Run [C]hat [F]ix" },
+      { "<leader>ccp<cr>", "<cmd>CopilotChatPrompts<cr>",  mode = "n", desc = "AI/[C]hat/Copilot: Pick [C]hat [P]rompts" },
     },
   },
 }

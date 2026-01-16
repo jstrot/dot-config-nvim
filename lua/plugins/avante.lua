@@ -265,10 +265,10 @@ return {
       -- },
     },
     keys = {
-      -- { "<leader>cca<cr>", "<cmd>AvanteToggle<cr>", mode = "n", desc = "Toggle Avante" },
-      -- { "<leader>ccaa",    "<cmd>AvanteAsk<cr>",    mode = "n", desc = "Avante [A]sk" },
-      -- { "<leader>ccab",    "<cmd>AvanteBuild<cr>",  mode = "n", desc = "Avante [B]uild" },
-      -- { "<leader>ccac",    "<cmd>AvanteChat<cr>",   mode = "n", desc = "Avante [C]hat" },
+      -- { "<leader>at<cr>", "<cmd>AvanteToggle<cr>", mode = "n", desc = "AI/[A]gentic/Avante: Toggle Avante" },
+      -- { "<leader>aa",     "<cmd>AvanteAsk<cr>",    mode = "n", desc = "AI/[A]gentic/Avante: [A]sk" },
+      -- { "<leader>ab",     "<cmd>AvanteBuild<cr>",  mode = "n", desc = "AI/[A]gentic/Avante: [B]uild" },
+      -- { "<leader>cc",     "<cmd>AvanteChat<cr>",   mode = "n", desc = "AI/[C]hat/Avante: [C]hat" },
     },
     config = function(_, opts)
       local avante = require('avante')

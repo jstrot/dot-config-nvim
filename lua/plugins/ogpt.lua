@@ -119,7 +119,7 @@ return {
       'OGPTRunWithOpts',
     },
     keys = {
-      { mode="n", "<leader>cc<cr>", "<cmd>OGPT<cr>", desc = "Run OGPT [C]hat" },
+      { mode="n", "<leader>cc<cr>", "<cmd>OGPT<cr>", desc = "AI/[C]hat/OGPT: Run [C]hat" },
     },
   }
 }
