@@ -42,8 +42,8 @@ if (vim.g.picker_plugin == 'snacks.picker') then
     -- search
     { '<leader>s\'', function() Snacks.picker.marks() end, desc = '[S]earch/jump marks (`\'` = mark jump)' },
     { '<leader>s\"', function() Snacks.picker.registers() end, desc = '[S]earch/copy registers (`\"` = register)' },
-    { '<leader>sd', function() Snacks.picker.diagnostics() end, desc = '[S]earch workspace [D]iagnostics' },
-    { '<leader>sD', function() Snacks.picker.diagnostics_buffer() end, desc = '[S]earch buffer [D]iagnostics' },
+    { '<leader>sd', function() Snacks.picker.diagnostics_buffer() end, desc = '[S]earch buffer [D]iagnostics' },
+    { '<leader>sD', function() Snacks.picker.diagnostics() end, desc = '[S]earch workspace [D]iagnostics' },
     { '<leader>sh', function() Snacks.picker.help() end, desc = '[S]earch [H]elp' },
     { '<leader>se', function() Snacks.picker.icons() end, desc = '[S]earch Symbols/[E]mojis' },
     { '<leader>sj', function() Snacks.picker.jumps() end, desc = '[S]earch [J]ump list' },
