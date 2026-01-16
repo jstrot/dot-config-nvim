@@ -377,7 +377,7 @@ return {
 
         -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/clangd.lua
         clangd = {
-          filetypes = { 'c', 'cpp', 'cc', },
+          -- filetypes = { 'c', 'cpp', 'cc', },
           offset_encoding = 'utf-16',
           cmd = {
             -- See https://manpages.debian.org/experimental/clangd/clangd.1.en.html
@@ -388,16 +388,19 @@ return {
             '--suggest-missing-includes',
             '--inlay-hints=true',
           },
-          root_dir = function(fname)
-            return util.root_pattern(unpack({
-              '.clangd',
-              '.clang-tidy',
-              '.clang-format',
-              'compile_commands.json',
-              'compile_flags.txt',
-            }))(fname)
-            -- or util.find_git_ancestor(fname)
-          end,
+          -- root_dir = function(fname, on_dir)
+          --   on_dir(
+          --     vim.fs.root(fname, {
+          --       '.clangd',
+          --       '.clang-tidy',
+          --       '.clang-format',
+          --       'compile_commands.json',
+          --       'compile_flags.txt',
+          --     })
+          --     or vim.fs.root(fname, { '.git', })
+          --     or vim.fn.getcwd()
+          --   )
+          -- end,
         },
 
         -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/lua_ls.lua
