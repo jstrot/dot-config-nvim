@@ -32,6 +32,7 @@ return {
       { '<Leader>tg',  icon='', group = '[T]oggle [G]it' },
       { '<Leader>tk',  icon='󰌌', group = '[T]oggle [K]eymaps' },
       { '<Leader>tl',  icon='', group = '[T]oggle [L]SP' },
+      { '<Leader>tld', icon='', group = '[T]oggle [L]SP [D]iagnostics' },
       { '<Leader>ts',  icon='󰈿', group = '[T]oggle [S]ign' },
       { '<Leader>tt',  icon='󰐅', group = '[T]oggle [T]reesitter' },
       { '<Leader>w',   icon='󱝩', group = '[W]orkspace' },
