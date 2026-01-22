@@ -69,11 +69,11 @@ return {
 
     keys = {
       {
-        "<leader>gD",
+        "<leader>pD",
         function() require("diagram").show_diagram_hover() end,
         mode = "n",
         ft = { "markdown", "norg" }, -- Only in these filetypes
-        desc = "[G]o to [D]iagram in new tab",
+        desc = "[P]review [D]iagram in new tab",
       },
     },
   },

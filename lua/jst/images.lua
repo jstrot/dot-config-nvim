@@ -17,6 +17,7 @@ M.have_magick_rock = vim.g.have_magick_rock or false
 M.auto_start = vim.g.images_auto_start or false
 
 M.is_terminal = vim.api.nvim_list_uis()[1] and vim.api.nvim_list_uis()[1].stdout_tty
+  and true or false
 
 M.have_tmux = vim.env.TMUX ~= nil
 M.have_imagemagick_cli = vim.fn.executable('convert') == 1 and vim.fn.executable('identify') == 1
@@ -52,6 +53,7 @@ M._3rd_image_enabled =
 M._3rd_image_cond =
   M.is_terminal
   and M._3rd_backend
+  and true or false
 
 M._3rd_diagram_enabled =
   M._3rd_image_enabled

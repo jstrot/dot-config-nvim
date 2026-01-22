@@ -32,7 +32,7 @@ return {
     'LivePreview',
   },
   keys = {
-      { '<leader>tP', '<cmd>LivePreview start<CR>', desc = '[T]oggle live [P]review' },
+      { '<leader>pl', '<cmd>LivePreview start<CR>', desc = '[P]review [L]ive render' },
   },
   config = function(_, opts)
     require('livepreview.config').set(opts)

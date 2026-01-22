@@ -12,7 +12,6 @@ M.check = function()
   else
     vim.health.warn("Global switch: Disabled", "Set `jst.images.enabled = true` to enable.")
   end
-  vim.health.ok('Manual only? ' .. vim.inspect(jst_images.manual_only))
 
   vim.health.start("Environment")
   if jst_images.is_terminal then
@@ -42,22 +41,22 @@ M.check = function()
   else
     vim.health.warn("Ueberzug not found", "Install `ueberzug` package.")
   end
-  if M.have_mmdc then
+  if jst_images.have_mmdc then
     vim.health.ok("Mermaid CLI found")
   else
     vim.health.warn("Mermaid CLI not found", "Install `mermaid-cli` package.")
   end
-  if M.have_plantuml then
+  if jst_images.have_plantuml then
     vim.health.ok("PlantUML found")
   else
     vim.health.warn("PlantUML not found", "Install `plantuml` package.")
   end
-  if M.have_d2 then
+  if jst_images.have_d2 then
     vim.health.ok("D2 found")
   else
     vim.health.warn("D2 not found", "Install `d2` package.")
   end
-  if M.have_gnuplot then
+  if jst_images.have_gnuplot then
     vim.health.ok("GNU Plot found")
   else
     vim.health.warn("GNU Plot not found", "Install `gnuplot` package.")

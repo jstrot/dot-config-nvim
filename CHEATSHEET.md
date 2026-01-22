@@ -314,6 +314,8 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 | n    | `<<`                | On bullet line, promotes the current bullet item by unindenting the line.              |
 | v    | `<`                 | On bullet line, promotes the selected bullet items by unindenting the lines.           |
 | n    | `<Leader>tm`        | \[T]oggle \[M]arkdown render                                                           |
+| n    | `<Leader>pD`        | \[P]review \[D]iagram in new tab                                                       |
+| n    | `<Leader>pm`        | \[P]review \[L]ive render                                                              |
 
 - bullet keymaps apply to Markdown files and others like "text", "gitcommit", and "scratch".
 
