@@ -32,9 +32,9 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 
 | Mode | Mapping             | Description                                                 |
 | ---- | ------------------- | ----------------------------------------------------------- |
-| n    | `:q<cr>`            | \[Q]uit/close current buffer                                |
-| n    | `:qa<cr>`           | \[Q]uit/close all buffers                                   |
-| n    | `:qa!<cr>`          | \[Q]uit/close all buffers without saving                    |
+| n    | `:q<CR>`            | \[Q]uit/close current buffer                                |
+| n    | `:qa<CR>`           | \[Q]uit/close all buffers                                   |
+| n    | `:qa!<CR>`          | \[Q]uit/close all buffers without saving                    |
 | n    | `ZZ`                | Update (save if needed) and close window (`:update` + `:q`) |
 | n    | `h`, `j`, `k`, `l`  | Move left(`h`), down(`j`), up(`k`), right(`l`)              |
 | n    | `<C-w>s`            | \[W]indow \[S]plit horizontally                             |
@@ -70,8 +70,8 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n         | `<Leader><Leader>`          | \[ ] Find existing buffers                   |
 | n         | `<Leader>sd`                | \[S]earch buffer \[D]iagnostics              |
 | n         | `<Leader>sD`                | \[S]earch workspace \[D]iagnostics           |
-| n         | `<leader>slr`               | \[S]earch \[L]SP \[R]eferences               |
-| n         | `<leader>sli`               | \[S]earch \[L]SP \[I]mplementations          |
+| n         | `<Leader>slr`               | \[S]earch \[L]SP \[R]eferences               |
+| n         | `<Leader>sli`               | \[S]earch \[L]SP \[I]mplementations          |
 | n         | `<Leader>st`                | \[S]earch \[T]odo comments                   |
 | n         | `<Leader>sn`                | \[S]earch \[N]eovim files                    |
 | n         | `<Leader>se`                | \[S]earch symbols/\[E]mojis                  |
@@ -130,36 +130,36 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 
 | Mode | Mapping          | Description                                              |
 | ---- | ---------------- | -------------------------------------------------------- |
-| n    | `<leader>a[d`    | AI/\[A]gentic: previous diff                             |
-| n    | `<leader>a]d`    | AI/\[A]gentic: next diff                                 |
-| n    | `<leader>ac`     | AI/\[A]gentic: \[C]lose diff view                        |
-| n    | `<leader>aA`     | AI/\[A]gentic: select \[A]gent                           |
-| n    | `<leader>aC`     | AI/\[A]gentic: edit opencode \[C]onfig                   |
-| n    | `<leader>ad`     | AI/\[A]gentic: open \[D]iff view                         |
-| n    | `<leader>af`     | AI/\[A]gentic: \[F]ocus opencode/last window             |
-| n    | `<leader>ai`     | AI/\[A]gentic: open \[I]nput window                      |
-| n    | `<leader>am`     | AI/\[A]gentic: configure provider/\[M]odel               |
-| n    | `<leader>aM`     | AI/\[A]gentic: configure \[M]CP servers                  |
-| n    | `<leader>an`     | AI/\[A]gentic: \[N]ew opencode session                   |
-| n    | `<leader>ao`     | AI/\[A]gentic: open \[O]utput window                     |
-| n    | `<leader>apA`    | AI/\[A]gentic: \[P]ermission \[A]ccept all               |
-| n    | `<leader>apa`    | AI/\[A]gentic: \[P]ermission \[A]ccept once              |
-| n    | `<leader>apd`    | AI/\[A]gentic: \[P]ermission \[D]eny                     |
-| n    | `<leader>aq`     | AI/\[A]gentic: \[Q]uit/close opencode                    |
-| n    | `<leader>arA`    | AI/\[A]gentic: \[R]evert \[A]ll changes from session     |
-| n    | `<leader>arR`    | AI/\[A]gentic: \[R]estore snapshot \[A]ll files          |
-| n    | `<leader>arT`    | AI/\[A]gentic: \[R]evert \[T]his file from session       |
-| n    | `<leader>ara`    | AI/\[A]gentic: \[R]evert \[A]ll changes from last prompt |
-| n    | `<leader>arr`    | AI/\[A]gentic: \[R]estore snapshot \[F]ile               |
-| n    | `<leader>art`    | AI/\[A]gentic: \[R]evert \[T]his file from last prompt   |
-| n    | `<leader>aR`     | AI/\[A]gentic: \[R]ename opencode session                |
-| n    | `<leader>as`     | AI/\[A]gentic: \[S]elect opencode session                |
-| n    | `<leader>at`     | AI/\[A]gentic: \[T]oggle opencode                        |
-| n    | `<leader>aT`     | AI/\[A]gentic: \[T]imeline picker                        |
-| n    | `<leader>av`     | AI/\[A]gentic: paste image from clipboard                |
-| n    | `<leader>ax`     | AI/\[A]gentic: e\[X]change pane position                 |
-| n    | `<leader>az`     | AI/\[A]gentic: \[Z]oom opencode windows                  |
-| n, v | `<Leader>cc<cr>` | AI/\[C]hat: \[C]hat                                      |
+| n    | `<Leader>a[d`    | AI/\[A]gentic: previous diff                             |
+| n    | `<Leader>a]d`    | AI/\[A]gentic: next diff                                 |
+| n    | `<Leader>ac`     | AI/\[A]gentic: \[C]lose diff view                        |
+| n    | `<Leader>aA`     | AI/\[A]gentic: select \[A]gent                           |
+| n    | `<Leader>aC`     | AI/\[A]gentic: edit opencode \[C]onfig                   |
+| n    | `<Leader>ad`     | AI/\[A]gentic: open \[D]iff view                         |
+| n    | `<Leader>af`     | AI/\[A]gentic: \[F]ocus opencode/last window             |
+| n    | `<Leader>ai`     | AI/\[A]gentic: open \[I]nput window                      |
+| n    | `<Leader>am`     | AI/\[A]gentic: configure provider/\[M]odel               |
+| n    | `<Leader>aM`     | AI/\[A]gentic: configure \[M]CP servers                  |
+| n    | `<Leader>an`     | AI/\[A]gentic: \[N]ew opencode session                   |
+| n    | `<Leader>ao`     | AI/\[A]gentic: open \[O]utput window                     |
+| n    | `<Leader>apA`    | AI/\[A]gentic: \[P]ermission \[A]ccept all               |
+| n    | `<Leader>apa`    | AI/\[A]gentic: \[P]ermission \[A]ccept once              |
+| n    | `<Leader>apd`    | AI/\[A]gentic: \[P]ermission \[D]eny                     |
+| n    | `<Leader>aq`     | AI/\[A]gentic: \[Q]uit/close opencode                    |
+| n    | `<Leader>arA`    | AI/\[A]gentic: \[R]evert \[A]ll changes from session     |
+| n    | `<Leader>arR`    | AI/\[A]gentic: \[R]estore snapshot \[A]ll files          |
+| n    | `<Leader>arT`    | AI/\[A]gentic: \[R]evert \[T]his file from session       |
+| n    | `<Leader>ara`    | AI/\[A]gentic: \[R]evert \[A]ll changes from last prompt |
+| n    | `<Leader>arr`    | AI/\[A]gentic: \[R]estore snapshot \[F]ile               |
+| n    | `<Leader>art`    | AI/\[A]gentic: \[R]evert \[T]his file from last prompt   |
+| n    | `<Leader>aR`     | AI/\[A]gentic: \[R]ename opencode session                |
+| n    | `<Leader>as`     | AI/\[A]gentic: \[S]elect opencode session                |
+| n    | `<Leader>at`     | AI/\[A]gentic: \[T]oggle opencode                        |
+| n    | `<Leader>aT`     | AI/\[A]gentic: \[T]imeline picker                        |
+| n    | `<Leader>av`     | AI/\[A]gentic: paste image from clipboard                |
+| n    | `<Leader>ax`     | AI/\[A]gentic: e\[X]change pane position                 |
+| n    | `<Leader>az`     | AI/\[A]gentic: \[Z]oom opencode windows                  |
+| n, v | `<Leader>cc<CR>` | AI/\[C]hat: \[C]hat                                      |
 | n, v | `<Leader>ccf`    | AI/\[C]hat: \[C]hat \[F]ix                               |
 
 ## Language Server Protocol (LSP)
@@ -170,8 +170,8 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `[d`             | Goto previous \[D]iagnostic         |                                                                                                           |
 | n    | `gd`             | \[G]oto \[D]efinition               | Jump to the definition of the word under your cursor.                                                     |
 | n    | `gD`             | \[G]oto \[D]eclaration              | Jump to the declaration of the word under your cursor.                                                    |
-| n    | `<leader>slr`    | \[S]earch \[L]SP \[R]eferences      | Find references for the word under your cursor.                                                           |
-| n    | `<leader>sli`    | \[S]earch \[L]SP \[I]mplementations | Jump to the implementation of the word under your cursor.                                                 |
+| n    | `<Leader>slr`    | \[S]earch \[L]SP \[R]eferences      | Find references for the word under your cursor.                                                           |
+| n    | `<Leader>sli`    | \[S]earch \[L]SP \[I]mplementations | Jump to the implementation of the word under your cursor.                                                 |
 | n    | `<Leader>D`      | Type \[D]efinition                  | Jump to the type of the word under your cursor, the definition of its *type*, not where it was *defined*. |
 | n    | `<Leader>ds`     | \[D]ocument \[S]ymbols              | Fuzzy find all the symbols in your current document.                                                      |
 | n    | `<Leader>ws`     | \[W]orkspace \[S]ymbols             | Fuzzy find all the symbols in your current workspace.                                                     |
@@ -180,7 +180,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `K`              | Hover documentation (see `:help K`) | Opens a popup that displays documentation about the word under your cursor.                               |
 | n    | `<Leader>e`      | Show diagnostic \[E]rror messages   |                                                                                                           |
 | n    | `<Leader>q`      | Open diagnostic \[Q]uickfix list    |                                                                                                           |
-| n, v | `<Leader>f<cr>`  | \[F]ormat using "conform"           |                                                                                                           |
+| n, v | `<Leader>f<CR>`  | \[F]ormat using "conform"           |                                                                                                           |
 | n, v | `<Leader>fl`     | \[F]ormat using \[L]SP              |                                                                                                           |
 
 ## Inspection (Introspection and Information)
@@ -204,7 +204,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | ---- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | n    | `<Leader>ta`      | \[T]oggle \[A]NSI escape codes                                                            |                                                                                |
 | n    | `<Leader>tc`      | \[T]oggle \[T]oggle \[C]onceal level                                                      |                                                                                |
-| n    | `<Leader>td<cr>`  | \[T]oggle \[D]iff mode                                                                    |                                                                                |
+| n    | `<Leader>td<CR>`  | \[T]oggle \[D]iff mode                                                                    |                                                                                |
 | n    | `<Leader>tdb`     | \[T]oggle \[D]iff ignore \[B]lank lines                                                   |                                                                                |
 | n    | `<Leader>tdc`     | \[T]oggle \[D]iff ignore \[C]ase of text                                                  |                                                                                |
 | n    | `<Leader>tdw`     | \[T]oggle \[D]iff ignore \[W]hite spaces                                                  |                                                                                |
@@ -214,7 +214,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tgd`     | \[T]oggle \[G]it \[D]eleted hunks                                                         |                                                                                |
 | n    | `<Leader>ti`      | \[T]oggle \[I]ndent highlighting                                                          |                                                                                |
 | e    | `<Leader>tkp`     | \[T]oggle \[K]eymaps for [P]airs matching                                                 |                                                                                |
-| n    | `<Leader>tld<cr>` | \[T]oggle \[L]SP \[D]iagnostics                                                           |                                                                                |
+| n    | `<Leader>tld<CR>` | \[T]oggle \[L]SP \[D]iagnostics                                                           |                                                                                |
 | n    | `<Leader>tldd`    | \[T]oggle \[L]SP \[D]iagnostics back to \[D]efaults (on, except overrides passed on init) |                                                                                |
 | n    | `<Leader>tldf`    | \[T]oggle \[L]SP \[D]iagnostics o\[F]f                                                    |                                                                                |
 | n    | `<Leader>tldo`    | \[T]oggle \[L]SP \[D]iagnostics \[O]n                                                     |                                                                                |
@@ -228,7 +228,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>to`      | \[T]oggle \[O]utline                                                                      |                                                                                |
 | n    | `<Leader>tp`      | \[T]oggle \[P]aste mode                                                                   |                                                                                |
 | n    | `<Leader>tP`      | \[T]oggle live \[P]review                                                                 | For markdown files                                                             |
-| n    | `<Leader>ts<cr>`  | \[T]oggle \[S]ign column                                                                  |                                                                                |
+| n    | `<Leader>ts<CR>`  | \[T]oggle \[S]ign column                                                                  |                                                                                |
 | n    | `<Leader>ts0`     | \[T]oggle \[S]ign column: 0 wide (no/off)                                                 |                                                                                |
 | n    | `<Leader>ts1`     | \[T]oggle \[S]ign column: 1 wide                                                          |                                                                                |
 | n    | `<Leader>ts2`     | \[T]oggle \[S]ign column: 2 wide                                                          |                                                                                |
@@ -237,7 +237,7 @@ Note that Vim's and Neovim's default `<Leader>` is the backslash (`\`) key. You 
 | n    | `<Leader>tsg`     | \[T]oggle \[S]ign column \[G]it info                                                      |                                                                                |
 | n    | `<Leader>tsl`     | \[T]oggle \[S]ign column \[L]SP diagnostics                                               |                                                                                |
 | n    | `<Leader>tsn`     | \[T]oggle \[S]ign column line \[N]umber                                                   |                                                                                |
-| n    | `<Leader>tt<cr>`  | \[T]oggle \[T]reesitter highlight                                                         |                                                                                |
+| n    | `<Leader>tt<CR>`  | \[T]oggle \[T]reesitter highlight                                                         |                                                                                |
 | n    | `<Leader>ttb`     | \[T]oggle \[T]reesitter highlight in \[B]uffer                                            |                                                                                |
 | n    | `<Leader>tti`     | \[T]oggle \[T]reesitter \[I]ndent                                                         |                                                                                |
 | n    | `<Leader>ttc`     | \[T]oggle \[T]reesitter \[C]ontext                                                        |                                                                                |
@@ -301,19 +301,19 @@ Cscope is deprecated and disabled by default (see lua/plugins/cscope_maps.lua). 
 
 ## Markdown
 
-| Mode | Mapping             | Description                                                        |
-| ---- | ------------------- | ------------------------------------------------------------------ |
-| i    | `<cr>` or `<C-cr>`  | On bullet line, inserts a new bullet list item based on the current line bullet format |
+| Mode | Mapping             | Description                                                                            |
+| ---- | ------------------- | -------------------------------------------------------------------------------------- |
+| i    | `<CR>` or `<C-CR>`  | On bullet line, inserts a new bullet list item based on the current line bullet format |
 | n    | `o`                 | On bullet line, inserts a new bullet list item and starts insert mode                  |
 | n, v | `gN`                | On bullet line, renumbers entire list containing the current cursor position           |
-| n    | `<leader>x`         | On bullet line, toggles the checkbox (if any)                                          |
+| n    | `<Leader>x`         | On bullet line, toggles the checkbox (if any)                                          |
 | i    | `<C-Right>`         | On bullet line, demotes the current bullet item by indenting the line.                 |
 | n    | `>>`                | On bullet line, demotes the current bullet item by indenting the line.                 |
 | v    | `>`                 | On bullet line, demotes the selected bullet items by indenting the lines.              |
 | i    | `<C-Left>`          | On bullet line, promotes the current bullet item by unindenting the line.              |
 | n    | `<<`                | On bullet line, promotes the current bullet item by unindenting the line.              |
 | v    | `<`                 | On bullet line, promotes the selected bullet items by unindenting the lines.           |
-| n    | `<Leader>tm`        | \[T]oggle \[M]arkview                                                                  |
+| n    | `<Leader>tm`        | \[T]oggle \[M]arkdown render                                                           |
 
 - bullet keymaps apply to Markdown files and others like "text", "gitcommit", and "scratch".
 
@@ -379,7 +379,7 @@ When running a graphical version of Neovim, like [Neovim-QT](https://github.com/
 | Mode    | Mapping      | Description                                                        |
 | ------- | ------------ | ------------------------------------------------------------------ |
 | v       | `<C-+>`      | Copy: Copy the selection to the clipboard\[+]                      |
-| i, c, n | `<S-insert>` | Paste: Insert the content of the clipboard(+)                      |
+| i, c, n | `<S-Insert>` | Paste: Insert the content of the clipboard(+)                      |
 | i, c, n | `<S-C-v>`    | Paste: Insert the content of the clipboard(+)                      |
 
 
