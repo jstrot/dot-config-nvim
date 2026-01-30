@@ -72,9 +72,6 @@ return {
     -- end,
 
     opts = {
-      frontmatter = {
-        enabled = false,
-      },
       workspaces = workspaces,
       checkbox = {
         order = { " ", "/", "x", "-", "<", ">" },
