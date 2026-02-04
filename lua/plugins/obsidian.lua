@@ -129,6 +129,7 @@ return {
       { '<leader>sof', '<cmd>Obsidian quick_switch<cr>', desc = "[S]earch [O]bsidian [F]iles/notes" },
       { '<leader>sog', '<cmd>Obsidian search<cr>', desc = "[S]earch [O]bsidian [G]rep in notes" },
       { '<leader>sov', '<cmd>Obsidian workspace<cr>', desc = "[S]earch [O]bsidian [V]aults/workspaces" },
+      { '<leader>op', '<cmd>ObsidianPreviousDaily<cr>', desc = "[O]earch [P]revious daily note" },
     },
     config = function(_, opts)
       local obsidian = require('obsidian')
@@ -174,6 +175,48 @@ return {
         end,
       })
       end
+
+      -- Function to open previous daily note
+      local function open_previous_daily_note()
+        local current_file = vim.fn.expand('%:t:r')  -- Get current filename without extension
+
+        -- Try to parse the current filename as a date
+        local year, month, day = current_file:match('(%d%d%d%d)-(%d%d)-(%d%d)')
+        if not year or not month or not day then
+          vim.notify("Current file is not a valid daily note (expected format: YYYY-MM-DD)", vim.log.levels.ERROR)
+          return
+        end
+
+        local current_date_str = string.format("%04d-%02d-%02d", year, month, day)
+        local current_timestamp = vim.fn.strptime('%Y-%m-%d', current_date_str)
+
+        if current_timestamp == -1 then
+          vim.notify("Failed to parse current date: " .. current_date_str, vim.log.levels.ERROR)
+          return
+        end
+
+        -- Try up to 7 days in the past
+        local seconds_per_day = 86400
+        for days_back = 1, 7 do
+          local prev_timestamp = current_timestamp - (days_back * seconds_per_day)
+          local prev_date_str = vim.fn.strftime('%Y-%m-%d', prev_timestamp)
+
+          -- Get the path for this date's daily note
+          local note_path = tostring(require('obsidian.daily').daily_note_path(vim.fn.strptime('%Y-%m-%d', prev_date_str)))
+
+          -- Check if the file exists
+          if vim.fn.filereadable(note_path) == 1 then
+            vim.cmd('edit ' .. vim.fn.fnameescape(note_path))
+            return
+          end
+        end
+
+        -- If we get here, no note was found within 7 days
+        vim.notify("No daily note found in the previous 7 days", vim.log.levels.ERROR)
+      end
+
+      -- Create a command for the function
+      vim.api.nvim_create_user_command('ObsidianPreviousDaily', open_previous_daily_note, {})
 
     end,
   }
