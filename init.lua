@@ -445,4 +445,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+require('functions.diff')
+
 -- vim: sw=2 et
