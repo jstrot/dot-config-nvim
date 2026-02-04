@@ -83,7 +83,7 @@ return {
         time_format = "%H:%M",
       },
       frontmatter = {
-        enabled = false, -- WARN: Once turned on, cannot be turned off, even outside workspaces
+        enabled = vim.fn.exists(".obsidian") == 1, -- WARN: Once turned on, cannot be turned off, even outside workspaces
       },
       ui = {
         -- Obsidian additional syntax features require 'conceallevel' to be set to 1 or 2
