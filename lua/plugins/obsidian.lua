@@ -129,7 +129,8 @@ return {
       { '<leader>sof', '<cmd>Obsidian quick_switch<cr>', desc = "[S]earch [O]bsidian [F]iles/notes" },
       { '<leader>sog', '<cmd>Obsidian search<cr>', desc = "[S]earch [O]bsidian [G]rep in notes" },
       { '<leader>sov', '<cmd>Obsidian workspace<cr>', desc = "[S]earch [O]bsidian [V]aults/workspaces" },
-      { '<leader>op', '<cmd>ObsidianPreviousDaily<cr>', desc = "[O]earch [P]revious daily note" },
+      { '<leader>op', '<cmd>ObsidianPreviousDaily<cr>', desc = "[O]pen [P]revious daily note" },
+      { '<leader>on', '<cmd>ObsidianNextDaily<cr>', desc = "[O]pen [N]ext daily note" },
     },
     config = function(_, opts)
       local obsidian = require('obsidian')
@@ -176,8 +177,9 @@ return {
       })
       end
 
-      -- Function to open previous daily note
-      local function open_previous_daily_note()
+      -- Function to navigate to previous or next daily note
+      -- @param direction number: -1 for previous, 1 for next
+      local function navigate_daily_note(direction)
         local current_file = vim.fn.expand('%:t:r')  -- Get current filename without extension
 
         -- Try to parse the current filename as a date
@@ -195,14 +197,15 @@ return {
           return
         end
 
-        -- Try up to 7 days in the past
+        -- Try up to 7 days in the specified direction
         local seconds_per_day = 86400
-        for days_back = 1, 7 do
-          local prev_timestamp = current_timestamp - (days_back * seconds_per_day)
-          local prev_date_str = vim.fn.strftime('%Y-%m-%d', prev_timestamp)
+        local direction_name = direction == -1 and "previous" or "next"
+        for days_offset = 1, 7 do
+          local target_timestamp = current_timestamp + (direction * days_offset * seconds_per_day)
+          local target_date_str = vim.fn.strftime('%Y-%m-%d', target_timestamp)
 
           -- Get the path for this date's daily note
-          local note_path = tostring(require('obsidian.daily').daily_note_path(vim.fn.strptime('%Y-%m-%d', prev_date_str)))
+          local note_path = tostring(require('obsidian.daily').daily_note_path(vim.fn.strptime('%Y-%m-%d', target_date_str)))
 
           -- Check if the file exists
           if vim.fn.filereadable(note_path) == 1 then
@@ -212,11 +215,12 @@ return {
         end
 
         -- If we get here, no note was found within 7 days
-        vim.notify("No daily note found in the previous 7 days", vim.log.levels.ERROR)
+        vim.notify("No daily note found in the " .. direction_name .. " 7 days", vim.log.levels.ERROR)
       end
 
-      -- Create a command for the function
-      vim.api.nvim_create_user_command('ObsidianPreviousDaily', open_previous_daily_note, {})
+      -- Create commands for navigating daily notes
+      vim.api.nvim_create_user_command('ObsidianPreviousDaily', function() navigate_daily_note(-1) end, {})
+      vim.api.nvim_create_user_command('ObsidianNextDaily', function() navigate_daily_note(1) end, {})
 
     end,
   }
