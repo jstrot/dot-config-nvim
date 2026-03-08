@@ -53,9 +53,9 @@ local function venv_path()
   if M._cache.venv_path == nil then
     if vim.env.VIRTUAL_ENV then
       M._cache.venv_path = vim.env.VIRTUAL_ENV
-    elseif vim.fn.isdirectory('./.venv') then
+    elseif vim.fn.isdirectory('./.venv') == 1 then
       M._cache.venv_path = './.venv'
-    elseif vim.fn.isdirectory('./venv') then
+    elseif vim.fn.isdirectory('./venv') == 1 then
       M._cache.venv_path = './venv'
     else
       M._cache.venv_path = false
