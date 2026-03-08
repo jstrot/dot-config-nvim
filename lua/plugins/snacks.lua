@@ -1,4 +1,5 @@
 -- https://github.com/folke/snacks.nvim
+local jst_images = require('jst.images')
 
 -- Control whether snacks.dashboard is enabled on startup.
 -- Can be overridden on the command line with `nvim --cmd 'lua vim.g.snacks_dashboard_enabled = false'`
@@ -193,7 +194,18 @@ return {
 
       -- Image viewer using Kitty Graphics Protocol, supported by kitty, wezterm and ghostty ‼️
       image = {
-        enabled = false, -- Limited functionality, using lua/plugins/images.lua for now
+        enabled = jst_images.have_kitty_graphics_protocol,
+        resolve = function(path, src)
+
+          -- Proper image path resolving of Obsidian notes.
+          -- From https://github.com/obsidian-nvim/obsidian.nvim/wiki/Images
+          local have_obsidian, obsidian_api = pcall(require, "obsidian.api")
+          if have_obsidian and obsidian_api.path_is_note(path) then
+            return obsidian_api.resolve_attachment_path(src)
+          end
+
+          return path
+        end,
       },
 
       -- Indent guides and scopes
