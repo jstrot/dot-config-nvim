@@ -207,6 +207,7 @@ vim.keymap.set('n', '<leader>t=', function () ToggleBoolOpt('spell') end, { desc
 vim.keymap.set('n', '<leader>tw', function () ToggleBoolOpt('wrap') end, { desc = '[T]oggle [W]rap mode' })
 vim.keymap.set('n', '<leader>tR', function () ToggleBoolOpt('autoread') end, { desc = '[T]oggle auto[R]ead mode' })
 vim.keymap.set('n', '<leader>tW', function () ToggleBoolOpt('autowrite') end, { desc = '[T]oggle auto[W]rite mode' })
+vim.keymap.set('n', '<leader>tL', function () ToggleBoolOpt('list') end, { desc = '[T]oggle [L]ist chars mode' })
 
 -- Toggle 'signcolumn' mode using `<leader>ts...`
 function ToggleSignColumn(width)
