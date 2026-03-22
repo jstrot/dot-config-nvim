@@ -26,6 +26,9 @@ return {
   cmd = { pyright_lsp_path, '--stdio' },
   filetypes = jst.fn.isresolvedpath(basedpyright_lsp_path) and {} -- prefer basedpyright
     or { 'python' },
+  flags = {
+    debounce_text_changes = 1000,
+  },
   settings = {
     pyright = {
       disableOrganizeImports = true, -- use ruff instead

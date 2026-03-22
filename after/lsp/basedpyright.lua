@@ -25,6 +25,9 @@ end
 return {
   cmd = { basedpyright_lsp_path, '--stdio' },
   filetypes = { 'python' },
+  flags = {
+    debounce_text_changes = 1000,
+  },
   settings = {
     basedpyright = {
       disableOrganizeImports = true, -- use ruff instead
