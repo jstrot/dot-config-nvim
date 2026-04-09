@@ -31,6 +31,8 @@ return {
       keymap = {
         editor = {
           -- ['<leader>aI'] = false,
+          -- ['<leader>a/'] = false,
+          ['<leader>a<cr>'] = { 'quick_chat', desc = 'AI/[A]gentic/OpenCode: select [A]gent', mode = { 'n', 'x' } }, -- Open quick chat input with selection context in visual mode or current line context in normal mode
           ['<leader>aA'] = { 'select_agent', desc = 'AI/[A]gentic/OpenCode: select [A]gent' },
           ['<leader>aC'] = { function() vim.api.nvim_command('edit ~/.config/opencode/opencode.jsonc') end, desc = 'AI/[A]gentic/OpenCode: edit OpenCode [C]onfig' },
           ['<leader>aR'] = { 'rename_session', desc = 'AI/[A]gentic/OpenCode: [R]ename OpenCode session', mode = 'n' }, -- Rename current session
@@ -59,8 +61,11 @@ return {
           ['<leader>art'] = { 'diff_revert_this_last_prompt', desc = 'AI/[A]gentic/OpenCode: [R]evert [T]his file from last prompt', mode = 'n' }, -- Revert current file changes since the last OpenCode prompt
           ['<leader>as'] = { 'select_session', desc = 'AI/[A]gentic/OpenCode: [S]elect OpenCode session', mode = 'n' }, -- Select and load a OpenCode session
           ['<leader>at'] = { 'toggle', desc = 'AI/[A]gentic/OpenCode: [T]oggle OpenCode', mode = 'n' }, -- Open OpenCode. Close if opened
-          ['<leader>av'] = { 'paste_image', desc = 'AI/[A]gentic/OpenCode: paste image from clipboard', mode = 'n' }, -- Paste image from clipboard into current session
+          ['<leader>av'] = { 'configure_variant', desc = 'AI/[A]gentic/OpenCode: configure model [V]ariant', mode = 'n' }, -- Switch model variant for the current model
+          ['<leader>aV'] = { 'paste_image', desc = 'AI/[A]gentic/OpenCode: paste image from clipboard', mode = 'n' }, -- Paste image from clipboard into current session
           ['<leader>ax'] = { 'swap_position', desc = 'AI/[A]gentic/OpenCode: e[X]change pane position', mode = 'n' }, -- Swap OpenCode pane left/right
+          ['<leader>ay'] = { 'add_visual_selection', desc = 'AI/[A]gentic/OpenCode: insert/[Y]ank visual selection as code block', mode = 'v' }, -- Insert visual selection as code block in the input buffer
+          ['<leader>aY'] = { 'add_visual_selection_inline', desc = 'AI/[A]gentic/OpenCode: insert/[Y]ank visual selection as inline code block', mode = 'v' }, -- Insert visual selection as inline code block in the input buffer
           ['<leader>az'] = { 'toggle_zoom', desc = 'AI/[A]gentic/OpenCode: [Z]oom OpenCode windows', mode = 'n' }, -- Zoom in/out on the OpenCode windows
         },
         input_window = {
@@ -76,6 +81,9 @@ return {
           ['<S-tab>'] = { 'toggle_pane', desc = 'Toggle input/output pane', mode = { 'n', 'i' } }, -- Toggle between input and output panes
           ['<down>'] = { 'next_prompt_history', desc = 'Next prompt in history', mode = { 'n', 'i' } }, -- Navigate to next prompt in history
           ['<esc>'] = false,
+          ['<leader>at<cr>'] = { 'toggle', desc = 'AI/[A]gentic/OpenCode: [T]oggle OpenCode', mode = 'n' },
+          ['<leader>att'] = { 'toggle_tool_output', desc = 'AI/[A]gentic/OpenCode: [T]oggle [T]ool Output', mode = 'n' },
+          ['<leader>atr'] = { 'toggle_reasoning_output', desc = 'AI/[A]gentic/OpenCode: [T]oggle [R]easoning Output', mode = 'n' },
           ['<leader>av'] = { 'paste_image', desc = 'Paste image from clipboard', mode = 'i' }, -- Paste image from clipboard as attachment
           ['<tab>'] = false,
           ['<up>'] = { 'prev_prompt_history', desc = 'Previous prompt in history', mode = { 'n', 'i' } }, -- Navigate to previous prompt in history
@@ -94,7 +102,10 @@ return {
           ['<leader>aDs'] = { 'debug_session', desc = 'AI/[A]gentic/OpenCode: [D]ebug [S]ession', mode = 'n' }, -- Open raw session in new buffer for debugging
           ['<leader>aO'] = false,
           ['<leader>aS'] = { 'select_child_session', desc = 'AI/[A]gentic/OpenCode: [S]elect child session', mode = 'n' }, -- Select and load a child session
-          ['<leader>ads'] = false,
+          ['<leader>at'] = false,
+          ['<leader>at<cr>'] = { 'toggle', desc = 'AI/[A]gentic/OpenCode: [T]oggle OpenCode', mode = 'n' },
+          ['<leader>att'] = { 'toggle_tool_output', desc = 'AI/[A]gentic/OpenCode: [T]oggle [T]ool Output', mode = 'n' },
+          ['<leader>atr'] = { 'toggle_reasoning_output', desc = 'AI/[A]gentic/OpenCode: [T]oggle [R]easoning Output', mode = 'n' },
           ['<leader>oD'] = false,
           ['<leader>oO'] = false,
           ['<leader>oS'] = false,
