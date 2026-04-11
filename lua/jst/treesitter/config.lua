@@ -2,7 +2,7 @@
 
 local M = {}
 
-M.ts_enabled = vim.fn.has('nvim-0.11.0') == 1
+M.ts_enabled = vim.fn.has('nvim-0.10') == 1
 
 --[[ API inspired by LazyVim's treesitter utils: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/util/treesitter.lua ]]
 -- local M = {} -- a.k.a., LazyVim.treesitter

@@ -66,7 +66,9 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     enabled = jst_ts.ts_enabled,
-    branch = 'main',
+    -- main:   Neovim 0.12.0 or later (nightly)
+    -- master: Neovim 0.10 or 0.11 (Neovim 0.12 is not supported)
+    branch = vim.fn.has('nvim-0.12') and 'main' or 'master',
     lazy = false, -- "This plugin does not support lazy-loading."
     build = function()
       if vim.fn.executable('tree-sitter') == 0 then
