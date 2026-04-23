@@ -216,7 +216,7 @@ If you don't have a compatible version installed, follow the instructions below.
 You should not need anything from the official [GitHub Copilot Neovim instructions](https://github.com/github/copilot.vim).
 The plugin is already available as `lua/plugins/Copilot.lua`.
 
-All you need is to run `:Copilot` once within Neovim to link your account and set it up.
+All you need is to run `:Copilot auth` once within Neovim to link your account and set it up.
 
 # Setup `node`
 
