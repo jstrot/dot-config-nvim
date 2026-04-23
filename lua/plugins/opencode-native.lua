@@ -33,7 +33,7 @@ return {
           -- ['<leader>aI'] = false,
           -- ['<leader>a/'] = false,
           ['<leader>a<cr>'] = { 'quick_chat', desc = 'AI/[A]gentic/OpenCode: select [A]gent', mode = { 'n', 'x' } }, -- Open quick chat input with selection context in visual mode or current line context in normal mode
-          ['<leader>aA'] = { 'select_agent', desc = 'AI/[A]gentic/OpenCode: select [A]gent' },
+          ['<leader>aA'] = { function() vim.cmd[[ Opencode agent select ]] end, desc = 'AI/[A]gentic/OpenCode: select [A]gent' },
           ['<leader>aC'] = { function() vim.api.nvim_command('edit ~/.config/opencode/opencode.jsonc') end, desc = 'AI/[A]gentic/OpenCode: edit OpenCode [C]onfig' },
           ['<leader>aR'] = { 'rename_session', desc = 'AI/[A]gentic/OpenCode: [R]ename OpenCode session', mode = 'n' }, -- Rename current session
           ['<leader>aT'] = { 'timeline', desc = 'AI/[A]gentic/OpenCode: [T]imeline picker', mode = 'n' }, -- Display timeline picker to navigate/undo/redo/fork messages
@@ -49,9 +49,9 @@ return {
           ['<leader>an'] = { 'open_input_new_session', desc = 'AI/[A]gentic/OpenCode: [N]ew OpenCode session', mode = 'n' }, -- Opens and focuses on input window on insert mode. Creates a new session
           ['<leader>ao'] = { 'open_output', desc = 'AI/[A]gentic/OpenCode: open [O]utput window', mode = 'n' }, -- Opens and focuses on output window
           -- ['<leader>ap'] = false,
-          ['<leader>apA'] = { 'permission_accept_all', desc = 'AI/[A]gentic/OpenCode: [P]ermission [A]ccept all', mode = 'n' }, -- Accept all (for current tool)
-          ['<leader>apa'] = { 'permission_accept', desc = 'AI/[A]gentic/OpenCode: [P]ermission [A]ccept once', mode = 'n' }, -- Accept permission request once
-          ['<leader>apd'] = { 'permission_deny', desc = 'AI/[A]gentic/OpenCode: [P]ermission [D]eny', mode = 'n' }, -- Deny permission request once
+          ['<leader>apA'] = { function() vim.cmd[[ Opencode permission accept_all ]] end, desc = 'AI/[A]gentic/OpenCode: [P]ermission [A]ccept all', mode = 'n' }, -- Accept all (for current tool)
+          ['<leader>apa'] = { function() vim.cmd[[ Opencode permission accept ]] end, desc = 'AI/[A]gentic/OpenCode: [P]ermission [A]ccept once', mode = 'n' }, -- Accept permission request once
+          ['<leader>apd'] = { function() vim.cmd[[ Opencode permission deny ]] end, desc = 'AI/[A]gentic/OpenCode: [P]ermission [D]eny', mode = 'n' }, -- Deny permission request once
           ['<leader>aq'] = { 'close', desc = 'AI/[A]gentic/OpenCode: [Q]uit/close OpenCode', mode = 'n' }, -- Close UI windows
           ['<leader>arA'] = { 'diff_revert_all', desc = 'AI/[A]gentic/OpenCode: [R]evert [A]ll changes from session', mode = 'n' }, -- Revert all file changes since the last OpenCode session
           ['<leader>arR'] = { 'diff_restore_snapshot_all', desc = 'AI/[A]gentic/OpenCode: [R]estore snapshot [A]ll files', mode = 'n' }, -- Restore all files to a restore point
