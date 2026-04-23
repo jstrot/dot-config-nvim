@@ -1,6 +1,6 @@
 -- See list of GUIs: https://neovim.io/
 
-vim.o.guifont = "DroidSansM Nerd Font:h14"
+vim.o.guifont = "Monaspace Argon NF Light:h11"
 
 -- Neovim-qt: https://github.com/equalsraf/neovim-qt
 if vim.fn.exists(':GuiFont') ~= 0 then
