@@ -71,7 +71,8 @@ return {
     build = function()
       if vim.fn.executable('tree-sitter') == 0 then
         vim.notify('tree-sitter CLI not found. Install with `:MasonInstall tree-sitter-cli`')
-        vim.cmd [[ TSUpdate ]]
+      else
+        vim.cmd [[ TS update ]]
       end
     end,
     opts = ts_opts,
