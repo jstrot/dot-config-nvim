@@ -446,6 +446,8 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
     vim.opt_local.shiftwidth = 2 -- I prefer a more compact view. vim-sleuth will auto-adapt for existing files.
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
   end
 })
 
