@@ -213,11 +213,10 @@ return {
         end
       end
 
+      -- Select starup scope; last one wins
       scopes.add_startup_scope() -- adds and selects the '<startup>' scope.
-      pcall(scopes.set_current, '<cwd>') -- prefer to start with the current directory scope.
-
-      -- In case you have a ./neoscopes.config.json and it defines a "default" scope, load it:
-      pcall(scopes.set_current, 'default')
+      pcall(scopes.set_current, '<cwd>')
+      pcall(scopes.set_current, 'default') -- In case you have a ./neoscopes.config.json and it defines a "default" scope
     end,
   },
 }
