@@ -9,7 +9,8 @@ return {
     opts = {
       enable_scopes_from_npm = true,
       diff_ancestors_for_scopes = {
-        "origin/main",
+        -- WARN: This can really slow down loading times!
+        -- "origin/main",
       },
       scopes = {
         {
