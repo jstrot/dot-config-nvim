@@ -60,6 +60,7 @@ return {
           ['<leader>arr'] = { 'diff_restore_snapshot_file', desc = 'AI/[A]gentic/OpenCode: [R]estore snapshot [F]ile', mode = 'n' }, -- Restore a file to a restore point
           ['<leader>art'] = { 'diff_revert_this_last_prompt', desc = 'AI/[A]gentic/OpenCode: [R]evert [T]his file from last prompt', mode = 'n' }, -- Revert current file changes since the last OpenCode prompt
           ['<leader>as'] = { 'select_session', desc = 'AI/[A]gentic/OpenCode: [S]elect OpenCode session', mode = 'n' }, -- Select and load a OpenCode session
+          ['<leader>aS'] = { function() vim.cmd[[ Opencode skills ]] end, desc = 'AI/[A]gentic/OpenCode: pick a [S]kill', mode = 'n' }, -- Pick a skill to insert in the input window
           ['<leader>at'] = { 'toggle', desc = 'AI/[A]gentic/OpenCode: [T]oggle OpenCode', mode = 'n' }, -- Open OpenCode. Close if opened
           ['<leader>av'] = { 'configure_variant', desc = 'AI/[A]gentic/OpenCode: configure model [V]ariant', mode = 'n' }, -- Switch model variant for the current model
           ['<leader>aV'] = { 'paste_image', desc = 'AI/[A]gentic/OpenCode: paste image from clipboard', mode = 'n' }, -- Paste image from clipboard into current session
