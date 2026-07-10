@@ -93,7 +93,6 @@ return {
       },
       completion = {
         nvim_cmp = vim.g.cmp_plugin == 'nvim-cmp',
-        blink = vim.g.cmp_plugin == 'blink.cmp',
         min_chars = 2, -- Trigger completion at N chars.
         -- Set to false to disable new note creation in the picker
         create_new = true,
