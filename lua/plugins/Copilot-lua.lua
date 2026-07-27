@@ -64,7 +64,9 @@ return {
         -- file_log_level = vim.log.levels.OFF,
         file_log_level = vim.log.levels.ERROR,
         -- file_log_level = vim.log.levels.DEBUG,
-        print_log_level = vim.log.levels.WARN,
+        -- print_log_level = vim.log.levels.WARN,
+        -- Silence warning: "LSP message: default Policy watcher not available - continuing without policy watching: Unsupported platform"
+        print_log_level = vim.log.levels.ERROR,
         trace_lsp = "verbose", -- "off", -- "off" | "messages" | "verbose"
         trace_lsp_progress = true, -- false,
         log_lsp_messages = true, -- false,
