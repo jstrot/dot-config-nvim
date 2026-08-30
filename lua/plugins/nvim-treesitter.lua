@@ -140,7 +140,13 @@ return {
       ensure_install = ensure_install,
       auto_install = auto_install_new_parsers,
     }
-  }
+  },
+
+  -- https://github.com/geigerzaehler/tree-sitter-jinja2
+  {
+    "geigerzaehler/tree-sitter-jinja2",
+    dependencies = { 'neovim/nvim-lspconfig' },
+  },
 
 }
 
