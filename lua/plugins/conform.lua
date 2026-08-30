@@ -78,6 +78,7 @@ return {
 
         markdown = {
           "prettier",
+          "mdformat",
           -- "markdownlint",
           "markdownlint-cli2",
           "markdown-toc",
