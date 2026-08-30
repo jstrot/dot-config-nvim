@@ -111,8 +111,8 @@ return {
           ['<leader>oS'] = false,
           ['<leader>ods'] = false,
           ['<tab>'] = false,
-          ['[['] = { 'prev_message', desc = 'Previous message in conversation', mode = 'n' }, -- Navigate to previous message in the conversation
-          [']]'] = { 'next_message', desc = 'Next message in conversation', mode = 'n' }, -- Navigate to next message in the conversation
+          ['[['] = { 'prev_user_message', desc = 'Previous user message in conversation', mode = 'n' }, -- Navigate to previous user message in the conversation
+          [']]'] = { 'next_user_message', desc = 'Next user message in conversation', mode = 'n' }, -- Navigate to next user message in the conversation
           ['i'] = false,
         },
         permission = {
