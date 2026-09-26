@@ -250,6 +250,14 @@ if not vim.g.auto_suggest_completion_plugin then
   then
     vim.g.auto_suggest_completion_plugin = 'cmp-ai'
   elseif
+    vim.g.llama_vim_profiles
+    and not vim.tbl_isempty(vim.g.llama_vim_profiles)
+    and (
+      (AI_is_openai_enabled() and AI_openai_code_model())
+    )
+  then
+    vim.g.auto_suggest_completion_plugin = 'llama.vim'
+  elseif
     (
       (AI_is_huggingface_enabled() and AI_huggingface_code_model())
       or (AI_is_ollama_enabled() and AI_ollama_code_model())

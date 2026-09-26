@@ -20,6 +20,7 @@ M.check = function()
     if
       vim.g.auto_suggest_completion_plugin == 'copilot'
       or vim.g.auto_suggest_completion_plugin == 'llm'
+      or vim.g.auto_suggest_completion_plugin == 'llama.vim'
     then
       health_cmd = nil
     end

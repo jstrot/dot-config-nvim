@@ -27,6 +27,14 @@ vim.g.github_copilot_chat_model = nil -- nil for default, `:CopilotChatModels` t
 vim.g.github_copilot_code_model = nil -- nil for default
 vim.g.github_copilot_agent_model = nil -- nil for default
 
+-- [[ Llama.vim ]]
+-- To use Llama.vim, define some profiles/servers here.
+-- Customize further in lua/plugins/llama.vim.lua
+vim.g.llama_vim_profiles = {
+  -- default = "http://my-server.localdomain:9931",
+}
+
+--
 --[[ Ollama ]]
 -- Auto-suggest completion + Chat + Agentic.
 -- Self-hosted. Free. Paid cloud option.
@@ -118,6 +126,7 @@ vim.g.auto_suggest_completion_plugin = nil -- let it pick one
 -- vim.g.auto_suggest_completion_plugin = 'cmp-ai' -- cmp-ai AI source for nvim-cmp, supports other providers
 -- vim.g.auto_suggest_completion_plugin = 'codecompanion' -- Ollio Morris's CodeCompanion
 -- vim.g.auto_suggest_completion_plugin = 'avante' -- yetone's Avante -- NOTE: Prefer copilot/copilot-lua unless you want a different provider than Copilot
+-- vim.g.auto_suggest_completion_plugin = 'llama.vim' -- Local LLM-assisted text completion.
 
 -- Next Edit Suggestion (NES)
 vim.g.next_edit_suggestion_plugin = nil -- let it pick one
