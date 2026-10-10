@@ -60,6 +60,9 @@ require("lazy").setup(
     },
     dev = {
       path = "~/src/nvim",
+      patterns = {
+        -- List of plugins for which to use your local dev version
+      }
     },
     ui = {
       -- If you are using a Nerd Font: set icons to an empty table which will use the
