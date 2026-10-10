@@ -85,7 +85,7 @@ return {
           ['<leader>at<cr>'] = { 'toggle', desc = 'AI/[A]gentic/OpenCode: [T]oggle OpenCode', mode = 'n' },
           ['<leader>att'] = { 'toggle_tool_output', desc = 'AI/[A]gentic/OpenCode: [T]oggle [T]ool Output', mode = 'n' },
           ['<leader>atr'] = { 'toggle_reasoning_output', desc = 'AI/[A]gentic/OpenCode: [T]oggle [R]easoning Output', mode = 'n' },
-          ['<leader>av'] = { 'paste_image', desc = 'Paste image from clipboard', mode = 'i' }, -- Paste image from clipboard as attachment
+          ['<leader>aV'] = { 'paste_image', desc = 'AI/[A]gentic/OpenCode: paste image from clipboard', mode = 'n' }, -- Paste image from clipboard into current session
           ['<tab>'] = false,
           ['<up>'] = { 'prev_prompt_history', desc = 'Previous prompt in history', mode = { 'n', 'i' } }, -- Navigate to previous prompt in history
           ['@'] = { 'mention', desc = 'Insert mention', mode = 'i' }, -- Insert mention (file/agent)
