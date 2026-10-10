@@ -2,6 +2,7 @@
 return {
   {
     "lewis6991/gitsigns.nvim",
+    enabled = vim.fn.has('nvim-0.11.0'),
     event = 'VeryLazy',
     opts = {
 
