@@ -92,10 +92,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --  This is where a variable was first declared, or where a function is defined, etc.
     --  To jump back, press <C-t>.
     map('n', 'gd', function()
+      local reuse_win =
+        vim.tbl_contains(vim.opt.switchbuf:get(), "useopen")
+        or vim.tbl_contains(vim.opt.switchbuf:get(), "usetab")
       if (vim.g.picker_plugin == 'snacks.picker') then
-        require('snacks.picker').lsp_definitions()
+        require('snacks.picker').lsp_definitions({ jump = { reuse_win = reuse_win } })
       else
-        require('telescope.builtin').lsp_definitions()
+        require('telescope.builtin').lsp_definitions({ reuse_win = reuse_win })
       end
     end, {desc='LSP: [G]oto [D]efinition'})
 
