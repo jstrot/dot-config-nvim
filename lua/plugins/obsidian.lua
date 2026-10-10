@@ -149,7 +149,13 @@ return {
             vim.api.nvim_feedkeys(keys, "n", false)
           end, { buffer = ev.buf, desc = "Toggle checkbox", })
 
-          -- FIXME: Errors: vim.keymap.set("n", "gf", obsidian.util.gf_passthrough, { buffer = ev.buf, noremap = false, expr = true, })
+          vim.keymap.set("n", "gf", function()
+            if require("obsidian").util.cursor_link() then
+              return "<cmd>Obsidian follow_link<cr>"
+            else
+              return "gf"
+            end
+          end, { buffer = ev.buf, noremap = false, expr = true, })
 
         end,
       })
