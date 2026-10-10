@@ -103,7 +103,7 @@ return {
         -- (vim.g.picker_plugin == "mini.pick" and 'mini.pick') or
         name = (
           vim.g.picker_plugin == "telescope" and 'telescope.nvim'
-          or vim.g.picker_plugin == "snacks.picker" and 'snacks.pick'
+          or vim.g.picker_plugin == "snacks.picker" and 'snacks.picker'
           or 'telescope.nvim' -- default
         ),
         note_mappings = {
