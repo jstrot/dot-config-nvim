@@ -105,9 +105,10 @@ return {
           local filetype = buf.filetype
           if filetype == 'bigfile' then
             local client = vim.lsp.get_client_by_id(ev.data.client_id)
-            if vim.list_contains({
+            if client and vim.list_contains({
               'copilot',
             }, client.name) then
+              ---@diagnostic disable-next-line: missing-parameter
               client.stop()
               return
             end
@@ -367,6 +368,26 @@ return {
 
       -- input
       Snacks.input.enable()
+
+      if opts.picker.enabled then
+        -- From: https://github.com/invm/nvim/commit/26c7c07dca057e5f5ff97f92b225e671b4a1a31c
+        -- Pickers open async, so keys typed before the window is up land in the buffer
+        -- behind it (typing "dis" runs d, i, s on a real file).
+        -- https://github.com/folke/snacks.nvim/issues/2578
+        -- deferred: this file is loaded before snacks, so `Snacks` isn't up yet
+        local pick = Snacks.picker.pick
+        ---@diagnostic disable-next-line: duplicate-set-field
+        Snacks.picker.pick = function(...)
+          local p = pick(...)
+          -- also wait on `closed`: no-result pickers never get shown
+          if p then
+            vim.wait(2000, function()
+              return p.shown or p.closed
+            end, 10)
+          end
+          return p
+        end
+      end
     end,
   },
 }
