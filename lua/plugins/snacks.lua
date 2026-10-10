@@ -1,5 +1,6 @@
 -- https://github.com/folke/snacks.nvim
 local jst_images = require('jst.images')
+pcall(require, 'config.github')
 
 -- Control whether snacks.dashboard is enabled on startup.
 -- Can be overridden on the command line with `nvim --cmd 'lua vim.g.snacks_dashboard_enabled = false'`
@@ -51,6 +52,19 @@ if (vim.g.picker_plugin == 'snacks.picker') then
     { '<leader>sk', function() Snacks.picker.keymaps() end, desc = '[S]earch [K]eymaps' },
     { '<leader>s.', function() Snacks.picker.resume() end, desc = '[S]earch resume/repeat (`.` = repeat)' },
     { '<leader>sc', function() Snacks.picker.highlights() end, desc = '[S]earch Neovim highlights/[C]olors' },
+  })
+end
+if (vim.g.github_plugin == 'snacks.gh') then
+  vim.list_extend(keys, {
+    { "<leader>gha", function() Snacks.picker.gh_actions() end, desc = "[G]it[H]ub: Select [A]ction" },
+    { "<leader>ghe", function() Snacks.picker.gh_actions() end, desc = "[G]it[H]ub: [E]dit" },
+    { "<leader>ghc", function() Snacks.picker.gh_actions() end, desc = "[G]it[H]ub: Add [C]omment" },
+    -- { "<leader>gh-", function() Snacks.picker.gh_actions() end, desc = "[G]it[H]ub: Comment" },
+    -- { "<leader>gh-", function() Snacks.picker.gh_actions() end, desc = "[G]it[H]ub: Reopen" },
+    { "<leader>ghi", function() Snacks.picker.gh_issue() end, desc = "[G]it[H]ub Issues (open)" },
+    { "<leader>ghI", function() Snacks.picker.gh_issue({ state = "all" }) end, desc = "[G]it[H]ub Issues (all)" },
+    { "<leader>ghp", function() Snacks.picker.gh_pr() end, desc = "[G]it[H]ub Pull Requests (open)" },
+    { "<leader>ghP", function() Snacks.picker.gh_pr({ state = "all" }) end, desc = "[G]it[H]ub Pull Requests (all)" },
   })
 end
 local quickfile_enabled = not vim.o.diff
@@ -180,6 +194,10 @@ return {
       -- A file explorer (picker in disguise) ‼️
       explorer = {
         replace_netrw = false, -- Using oil plugin to open directories
+      },
+
+      -- GitHub CLI integration
+      gh = {
       },
 
       -- Git utilities

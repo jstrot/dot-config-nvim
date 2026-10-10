@@ -1,8 +1,10 @@
 -- https://github.com/pwntester/octo.nvim
+pcall(require, 'config.github')
 
 return {
   {
     'pwntester/octo.nvim',
+    enabled = vim.g.github_plugin == 'octo',
     opts = {
       picker = (
         (vim.g.picker_plugin == 'telescope') and 'telescope'
