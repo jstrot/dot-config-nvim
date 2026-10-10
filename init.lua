@@ -166,7 +166,7 @@ vim.o.foldenable = false
 vim.o.lazyredraw = true
 
 -- Reuse windows
-if true then
+if false then
   if false then
     -- I don't use tabs, but this could be useful
     vim.opt.switchbuf = { 'usetab', 'uselast' }
