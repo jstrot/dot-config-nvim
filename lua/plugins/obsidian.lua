@@ -14,7 +14,7 @@ return {
   {
     'obsidian-nvim/obsidian.nvim',
     enabled = #workspaces > 0, -- Opt-in feature; Add workspaces below
-    version = "*",  -- recommended, use latest release instead of latest commit
+    version = "*", -- use latest release, remove to use latest commit
     lazy = true,
     ft = "markdown",
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
@@ -71,6 +71,8 @@ return {
     --  return tostring(os.time()) .. "-" .. suffix
     -- end,
 
+    ---@module 'obsidian'
+    ---@type obsidian.config
     opts = {
       workspaces = workspaces,
       checkbox = {
@@ -92,7 +94,7 @@ return {
         enable = false, -- Rely on Markview for Markdown rendering
       },
       completion = {
-        nvim_cmp = vim.g.cmp_plugin == 'nvim-cmp',
+        -- DEPRECATED: nvim_cmp = vim.g.cmp_plugin == 'nvim-cmp',
         min_chars = 2, -- Trigger completion at N chars.
         -- Set to false to disable new note creation in the picker
         create_new = true,
@@ -115,7 +117,7 @@ return {
           insert_tag = "<C-l>",
         },
       },
-      legacy_commands = false, -- https://github.com/obsidian-nvim/obsidian.nvim/wiki/Commands
+      legacy_commands = false, -- this will be removed in 4.0.0
     },
     cmd = {
       'Obsidian',
@@ -144,7 +146,7 @@ return {
           -- match lua/plugins/bullets.lua. default = "<leader>ch"
           vim.keymap.set("n", "<leader>x", "<cmd>Obsidian toggle_checkbox<cr>", { buffer = ev.buf, desc = "Toggle checkbox", })
           vim.keymap.set("n", "<m-cr>", function()
-            local action = require("obsidian").util.smart_action()
+            local action = require("obsidian").actions.smart_action()
             local keys = vim.api.nvim_replace_termcodes(action, true, false, true)
             vim.api.nvim_feedkeys(keys, "n", false)
           end, { buffer = ev.buf, desc = "Toggle checkbox", })
@@ -164,7 +166,7 @@ return {
       -- Smart action depending on context, either follow link or toggle checkbox.
       -- ["<cr>"] = { -- TODO: Maybe use something like `gF`?
       --   action = function()
-      --     return require("obsidian").util.smart_action()
+      --     return require("obsidian").actions.smart_action()
       --   end,
       --   opts = { buffer = true, expr = true },
       -- }
@@ -177,7 +179,7 @@ return {
       vim.api.nvim_create_autocmd("User", {
         pattern = "ObsidianNoteEnter",
         callback = function(ev)
-          vim.keymap.set("n", "<leader>oa", require("obsidian").util.smart_action, { buffer = ev.buf, expr = true, desc = "[O]bsidian smart [A]ction" })
+          vim.keymap.set("n", "<leader>oa", require("obsidian").actions.smart_action, { buffer = ev.buf, expr = true, desc = "[O]bsidian smart [A]ction" })
         end,
       })
       end
