@@ -1,7 +1,13 @@
 -- A list of servers to automatically install if they're not already installed.
 ---@type string[]
+local jst_ts = require('jst.treesitter.config')
+
 local lsp_ensure_installed = {
   'lua_ls',
+}
+
+local tools_ensure_installed = {
+  jst_ts.ts_enabled and vim.fn.executable('tree-sitter') == 0 and "tree-sitter-cli" or nil,
 }
 
 return {
@@ -86,19 +92,25 @@ return {
   --     automatic_installation = true,
   --   }
   -- },
-  -- -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
-  -- {
-  --   'WhoIsSethDaniel/mason-tool-installer.nvim',
-  --   enabled = vim.fn.has('nvim-0.10.0') == 1, -- Not official
-  --   lazy = true,
-  --   cmd = {
-  --     'MasonToolsClean',
-  --     'MasonToolsInstall',
-  --     'MasonToolsInstallSync',
-  --     'MasonToolsUpdate',
-  --     'MasonToolsUpdateSync',
-  --   },
-  -- },
+  -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
+  {
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    enabled = vim.fn.has('nvim-0.10.0') == 1, -- Not official
+    lazy = vim.tbl_isempty(tools_ensure_installed),
+    dependencies = {
+      'mason-org/mason.nvim',
+    },
+    cmd = {
+      'MasonToolsClean',
+      'MasonToolsInstall',
+      'MasonToolsInstallSync',
+      'MasonToolsUpdate',
+      'MasonToolsUpdateSync',
+    },
+    opts = {
+      ensure_installed = tools_ensure_installed,
+    },
+  },
 }
 
 -- vim: sw=2 et

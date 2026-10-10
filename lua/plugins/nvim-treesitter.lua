@@ -148,6 +148,11 @@ return {
   {
     "geigerzaehler/tree-sitter-jinja2",
     dependencies = { 'neovim/nvim-lspconfig' },
+    build = function()
+      if vim.fn.executable('tree-sitter') == 0 then
+        vim.notify('tree-sitter CLI not found. Install with `:MasonInstall tree-sitter-cli`')
+      end
+    end,
   },
 
 }
