@@ -166,11 +166,16 @@ vim.o.foldenable = false
 vim.o.lazyredraw = true
 
 -- Reuse windows
-if false then
-  -- I don't use tabs, but this could be useful
-  vim.opt.switchbuf = { 'usetab', 'uselast' }
+if true then
+  if false then
+    -- I don't use tabs, but this could be useful
+    vim.opt.switchbuf = { 'usetab', 'uselast' }
+  elseif false then
+    vim.opt.switchbuf = { 'useopen', 'uselast' }
+  end
 else
-  vim.opt.switchbuf = { 'useopen', 'uselast' }
+  -- don't reuse windows, always open a new window for a buffer.
+  vim.opt.switchbuf = { 'uselast' }
 end
 
 -- I don't like to lose sight of modified buffers...
