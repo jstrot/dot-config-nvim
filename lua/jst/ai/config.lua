@@ -223,7 +223,7 @@ end
 
 vim.g.auto_suggest_completion_plugin = jst.fn.get_secret(vim.g.auto_suggest_completion_plugin_env, nil) or vim.g.auto_suggest_completion_plugin
 if not vim.g.auto_suggest_completion_plugin then
-  if AI_is_copilot_active() then
+  if AI_is_copilot_active() and vim.fn.has('nvim-0.11.0') then
     -- GitHub Copilot is largely the best auto-suggest/completion.
     -- 'copilot' vs 'copilot-lua': The lua version is supposedly faster. I know it has less quirks ('copilot' can stall on fast quit).
     vim.g.auto_suggest_completion_plugin = 'copilot-lua'
